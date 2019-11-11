@@ -1,28 +1,49 @@
 root:
-  bind: true
   groups:
     - tags: []
       phrases:
-      - >-
-        The [:shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics].
-        [cap :tapInto] [:largeAmount] [:builtIn] [:subItems].
-        With [:upTo] [#2-12] [:units] of [:oomph], you won't [:runOutOf] [:timeOrTone].
-      - >-
-        The [:shortname] comes [:packed] with [:superlative] [uncap :purpose] effects.
-        Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. And [:controls] let you [:edit] to [:perfection].
-      - >-
-        The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname].
-        [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].
-      - >-
-        [cap :packed] with [#5-100] [:subItemAdjective] [:subItems], the [:shortname] provides [:endless] [:creativePossibilities]. [cap :edit] the [:knobsOrSwitches] for real-time expression.
-      - >-
-        [cap :packed] with [#5-100] [:subItemAdjective] [:subItems], the [:shortname] provides [:endless] [:creativePossibilities]. [cap :edit] the [:knobsOrSwitches] for real-time expression.
-      - >-
-        The [:shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect].
-        With [:benefitSingularOrPlural], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.
-      - >-
-        With [#3-50] [:subItems], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.
-        And with [:benefitSingularOrPlural], it can turn your pedalboard into a [:sonicPlayground].
+        - >-
+          The [:shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics].
+          [cap :tapInto] [:largeAmount] [:builtIn] [:subItems].
+          [:extra]
+        - >-
+          The [:shortname] comes [:packed] with [:superlative] [uncap :purpose] effects.
+          Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity.
+          [:extra]
+        - >-
+          The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname].
+          [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].
+        - >-
+          [cap :packed] with [#5-100] [:subItemAdjective] [:subItems], the [:shortname] provides [:endless] [:creativePossibilities].
+          [:extra]
+        - >-
+          The [:shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect].
+          [:extra]
+        - >-
+          With [:superlative] [:soundQuality] and [#2-9] different [:subItems], the [:shortname] is possibly the most versatile [uncap :purpose] pedal ever devised for guitar and bass.
+          [:extra]
+        - >-
+          Offering [#2-100] distinct [:subItems], the [:shortname] may be one of the most versatile [uncap :purpose] pedals you'll find.
+          [:extra]
+        
+extra:
+  groups:
+    - tags: []
+      phrases:
+        - >-
+          The [:shortname] actually offers dual [:circuits] that can be configured for stereo, series, or parallel operation, and an insert function even allows you to add external effects pedals.
+        - >-
+          And [:controls] let you [:edit] to [:perfection].
+        - >-
+          And with [:benefitSingularOrPlural], it can turn your pedalboard into a [:sonicPlayground].
+        - >-
+          With [:upTo] [#2-50] [:units] of [:oomph], you won't [:runOutOf] [:timeOrTone].
+        - >-
+          [cap :edit] the [:knobsOrSwitches] for real-time expression.
+        - >-
+          With [:benefitSingularOrPlural], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.
+        - >-
+          Looking for [:benefitSingular]? It's here. Need [:benefitSingularOrPlural]? You've got it!
       
 
 ### ADJECTIVES ###
@@ -37,6 +58,7 @@ superlative:
         - 'amazing'
         - 'elite'
         - 'top-tier'
+        - 'top-notch'
 
 
 vintage:
@@ -67,6 +89,7 @@ enticing:
         - 'enticing'
         - 'tantalizing'
         - 'seductive'
+
 serious:
   groups:
     - tags: []
@@ -207,6 +230,15 @@ offers:
 
 ### SIMPLE NOUNS ###
 
+soundQuality:
+  groups:
+    - tags: []
+      phrases:
+        - 'sound quality'
+        - 'fidelity'
+        - 'waveform generation'
+        - 'sound quality'
+
 perfection:
   groups:
     - tags: []
@@ -273,12 +305,16 @@ subItems:
         - 'presets'
         - 'effects'
         - 'modes'
+        - 'settings'
     - tags: [['purpose', 'tone', 'reverb']]
       phrases:
         - 'reverb types'
     - tags: [['purpose', 'tone', 'delay']]
       phrases:
         - 'delay modes'
+    - tags: [['purpose', 'tone', 'eq']]
+      phrases:
+        - 'frequency range settings'
 
 performances:
   groups:
@@ -408,6 +444,82 @@ newEffect:
 #      phrases:
 #        - 'Noise Suppression'
 
+circuits:
+  groups:
+    - tags: []
+      phrases:
+        - 'circuits'
+        - 'channels'
+        - 'sound banks'
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'tracks'
+    # - tags: [['purpose', 'tone', 'mod']]
+    #   phrases:
+    #     - ''
+#    - tags: [['purpose', 'tone', 'reverb']]
+#      phrases:
+#        - ''
+#    - tags: [['purpose', 'tone', 'delay']]
+#      phrases:
+#        - ''
+    - tags: [['purpose', 'tone', 'eq']]
+      phrases:
+        - 'EQs'
+    - tags: [['purpose', 'tone', 'synth']]
+      phrases:
+        - 'voices'
+#    - tags: [['purpose', 'tone', 'chorus']]
+#      phrases:
+#        - ''
+#    - tags: [['purpose', 'tone', 'vibrato']]
+#      phrases:
+#        - ''
+#    - tags: [['purpose', 'tone', 'distortion']]
+#      phrases:
+#        - ''
+#    - tags: [['purpose', 'tone', 'noise']]
+#      phrases:
+#        - 'Noise Suppression'
+
+effectDescription:
+  groups:
+    - tags: []
+      phrases:
+        - 'sounds'
+        - 'tones'
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'tape loops'
+    # - tags: [['purpose', 'tone', 'mod']]
+    #   phrases:
+    #     - 'Modulation'
+    - tags: [['purpose', 'tone', 'reverb']]
+      phrases:
+        - 'chamber reverb'
+    - tags: [['purpose', 'tone', 'delay']]
+      phrases:
+        - 'tape-style delays'
+    - tags: [['purpose', 'tone', 'eq']]
+      phrases:
+        - 'analog-modeled EQ'
+    - tags: [['purpose', 'tone', 'synth']]
+      phrases:
+        - 'synth simulation'
+#    - tags: [['purpose', 'tone', 'chorus']]
+#      phrases:
+#        - 'sounds'
+#    - tags: [['purpose', 'tone', 'vibrato']]
+#      phrases:
+#        - 'Vibrato'
+    - tags: [['purpose', 'tone', 'distortion']]
+      phrases:
+        - 'edge-of-breakup, amp-style grit'
+        - "'80s-style face-melting distortion"
+#    - tags: [['purpose', 'tone', 'noise']]
+#      phrases:
+#        - 'Noise Suppression'
+
 benefitSingularOrPlural:
   groups:
     - tags: []
@@ -421,6 +533,10 @@ benefitSingular:
     - tags: []
       phrases:
         - 'serial [#2-12]-track operation'
+    - tags: [['purpose', 'tone', 'distortion']]
+      phrases:
+        - 'edge-of-breakup, amp-style grit'
+        - "'80s-style face-melting distortion"
 
 benefitPlural:
   groups:
