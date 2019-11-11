@@ -25,7 +25,31 @@ root:
         - >-
           Offering [#2-100] distinct [:subItems], the [:shortname] may be one of the most versatile [uncap :purpose] pedals you'll find.
           [:extra]
-        
+        - >-
+          [cap :packed] with premium analog circuitry, the [:shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedal]. 
+          [:extra]
+        - >-
+          The [:shortname] re-creates the classic sound of the [:extraname1] and [:extraname2] [:pedal]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. The [:shortname] features a stereo output for the [:extraname1] effects and variable depth for the [:extraname2] effects.
+          [:extra]
+        - >-
+          The [:shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [uncap :purpose] from [#100-400] to [#401-999] and adds modern [:toneCharacterNoun] and [:toneCharacterNoun] to the [:effectDescription].
+        - >-
+          [:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].
+        - >-
+          When [:brand] decided to update the original [oldify :shortname] with the [:shortname], they added a whole new dimension to their popular [uncap :purpose] pedal.
+          [:extra]
+        - >-
+          [:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create the [:shortname]. This versatile pedal packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.
+        - >-
+          The [:shortname] features [:brand]'s innovative [:technology], which allows it to dynamically adapt to any register. That means you get [:toneCharacterNoun], [:toneCharacterNoun], and [:toneCharacterNoun] all across the fretboard, with [:superlative] dynamics.
+          [:extra]
+
+root2:
+  groups:
+    - tags: []
+      phrases:
+        - >-
+          asdf
 extra:
   groups:
     - tags: []
@@ -37,14 +61,24 @@ extra:
         - >-
           And with [:benefitSingularOrPlural], it can turn your pedalboard into a [:sonicPlayground].
         - >-
-          With [:upTo] [#2-50] [:units] of [:oomph], you won't [:runOutOf] [:timeOrTone].
+          With [:upTo] [#2-50] [:oomphs], you won't [:runOutOf] [:timeOrTone].
         - >-
           [cap :edit] the [:knobsOrSwitches] for real-time expression.
         - >-
           With [:benefitSingularOrPlural], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.
         - >-
           Looking for [:benefitSingular]? It's here. Need [:benefitSingularOrPlural]? You've got it!
-      
+        - >-
+          The original [oldify :shortname] is also available.
+        - >-
+          You'll never believe you could get this level of [:toneCharacterNoun] without sacrificing [:toneCharacterNoun]!
+        - >-
+          A Dynamic mode automatically adjusts to your playing for [:toneCharacter] ambience that won't turn your tone to mud.
+        - >-
+          It's also a handy power supply for your pedalboard.
+
+extraname1: {bind: true, groups: [{tags: [], phrases: ['[:newname]']}]}
+extraname2: {bind: true, groups: [{tags: [], phrases: ['[id :newname]']}]}
 
 ### ADJECTIVES ###
 
@@ -59,7 +93,8 @@ superlative:
         - 'elite'
         - 'top-tier'
         - 'top-notch'
-
+        - 'phenomenal'
+        - 'superior'
 
 vintage:
   groups:
@@ -89,6 +124,7 @@ enticing:
         - 'enticing'
         - 'tantalizing'
         - 'seductive'
+        - 'vibrant'
 
 serious:
   groups:
@@ -118,6 +154,7 @@ packed:
         - 'bursting'
         - 'sizzling'
         - 'loaded to the brim'
+        - 'loaded'
 
 soundAdjective:
   groups:
@@ -126,6 +163,7 @@ soundAdjective:
         - 'gorgeous-sounding'
         - 'great-sounding'
         - 'sweet-sounding'
+        - 'vibrant-sounding'
 
 moreThan:
   groups:
@@ -176,6 +214,7 @@ toneCharacter:
         - 'warm'
         - 'cold'
         - 'ear-catching'
+        - 'lush'
 
 
 # completeWith:
@@ -229,6 +268,21 @@ offers:
         - 'gives you'
 
 ### SIMPLE NOUNS ###
+
+pedal:
+  groups:
+    - tags: []
+      phrases:
+        - 'rack effects processor'
+        - 'effects pedal'
+        - 'effects processor'
+        - 'pedal'
+    - tags: [['purpose', 'tone', 'synth']]
+      phrases:
+        - 'synthesizer'
+        - 'synth'
+        - 'rack-mounted synth'
+        - 'rack-mounted synthesizer'
 
 soundQuality:
   groups:
@@ -323,7 +377,26 @@ performances:
         - 'performances'
         - 'sessions'
         - 'jam sessions'
-        
+
+toneCharacterNoun:
+  groups:
+    - tags: []
+      phrases:
+        - 'sweetness'
+        - 'harshness'
+        - 'mellowness'
+        - 'warmth'
+        - 'coldness'
+        - 'note definition'
+        - 'control'
+        - 'smoothness'
+
+technology:
+  groups:
+    - tags: []
+      phrases:
+        - 'Multi-dimensional Processing technology'
+
 ### INTERESTING NOUNS ###
 
 performanceCharacteristics:
@@ -335,6 +408,7 @@ performanceCharacteristics:
       phrases:
         - '[:toneCharacter] tones'
 
+# unused?
 units:
   groups:
     - tags: [['purpose', 'looping']]
@@ -347,16 +421,26 @@ units:
         - 'levels'
         - 'layers'
 
-oomph:
+# unused?
+flavors:
+  groups:
+    - tags: [['purpose', 'tone', 'reverb']]
+      phrases:
+        - 'studio-grade, hall, and plate algorithms'
+        - 'vintage-style spring reverb'
+        - 'modern-sounding textures'
+
+oomphs:
   groups:
     - tags: [['purpose', 'looping']]
       phrases:
-        - 'recording time'
+        - 'hours of recording time'
     - tags: [['purpose', 'tone']]
       phrases:
-        - 'awesomeness'
-        - 'tone quality'
-        - 'freshness'
+        - 'types of tone quality'
+        - 'tiers of freshness'
+        - 'oomph-factors'
+        - 'tone variants'
 
 timeOrTone:
   groups:
@@ -490,35 +574,34 @@ effectDescription:
         - 'tones'
     - tags: [['purpose', 'looping']]
       phrases:
-        - 'tape loops'
+        - 'loops'
     # - tags: [['purpose', 'tone', 'mod']]
     #   phrases:
     #     - 'Modulation'
     - tags: [['purpose', 'tone', 'reverb']]
       phrases:
-        - 'chamber reverb'
+        - 'tone'
     - tags: [['purpose', 'tone', 'delay']]
       phrases:
-        - 'tape-style delays'
+        - 'repeats'
     - tags: [['purpose', 'tone', 'eq']]
       phrases:
-        - 'analog-modeled EQ'
+        - 'tone'
     - tags: [['purpose', 'tone', 'synth']]
       phrases:
-        - 'synth simulation'
-#    - tags: [['purpose', 'tone', 'chorus']]
-#      phrases:
-#        - 'sounds'
-#    - tags: [['purpose', 'tone', 'vibrato']]
-#      phrases:
-#        - 'Vibrato'
+        - 'tone'
+    - tags: [['purpose', 'tone', 'chorus']]
+      phrases:
+        - 'tone'
+    - tags: [['purpose', 'tone', 'vibrato']]
+      phrases:
+        - 'tone'
     - tags: [['purpose', 'tone', 'distortion']]
       phrases:
-        - 'edge-of-breakup, amp-style grit'
-        - "'80s-style face-melting distortion"
-#    - tags: [['purpose', 'tone', 'noise']]
-#      phrases:
-#        - 'Noise Suppression'
+        - 'tone'
+    - tags: [['purpose', 'tone', 'noise']]
+      phrases:
+        - 'tone'
 
 benefitSingularOrPlural:
   groups:
@@ -543,3 +626,10 @@ benefitPlural:
     - tags: []
       phrases:
         - 'ample options for external control'
+        
+soundModification:
+  groups:
+    - tags: []
+      phrases:
+        - 'creates the classically smoky Blues tone'
+        - 'beefs up the low end and adds sustain'

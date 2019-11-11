@@ -3,6 +3,8 @@ import nameGrammar from './improvgrammar/name.yaml';
 import subtitleGrammar from './improvgrammar/subtitle.yaml';
 import descGrammar from './improvgrammar/desc.yaml';
 
+const augmentedDescGrammar = Object.assign({}, nameGrammar, descGrammar);
+
 function dryness() {
   return function (group) {
     const self = this;
@@ -17,6 +19,17 @@ function dryness() {
   };
 }
 
+const builtins = {
+  uncap (str) {
+    if (str.length < 3) return str;
+    return str.toLocaleLowerCase();
+  },
+  oldify (str) {
+    return str.slice(1);
+  },
+  id: (str) => str,
+};
+
 export default function makeImprovGenerators(alea) {
   const nameGen = new Improv(nameGrammar, {
     filters: [
@@ -25,6 +38,7 @@ export default function makeImprovGenerators(alea) {
       Improv.filters.fullBonus(),
       dryness(),
     ],
+    builtins,
     reincorporate: true,
     // audit: true,
     persistence: false,
@@ -38,25 +52,21 @@ export default function makeImprovGenerators(alea) {
       Improv.filters.fullBonus(),
       dryness(),
     ],
+    builtins,
     reincorporate: true,
     // audit: true,
     persistence: false,
     rng: alea,
   });
 
-  const descGen = new Improv(descGrammar, {
+  const descGen = new Improv(augmentedDescGrammar, {
     filters: [
       Improv.filters.mismatchFilter(),
       Improv.filters.partialBonus(),
       Improv.filters.fullBonus(),
       dryness(),
     ],
-    builtins: {
-      uncap (str) {
-        if (str.length < 3) return str;
-        return str.toLocaleLowerCase();
-      },
-    },
+    builtins,
     reincorporate: true,
     // audit: true,
     persistence: false,

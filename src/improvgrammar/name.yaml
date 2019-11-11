@@ -10,20 +10,41 @@ shortname:
   groups:
     - tags: []
       phrases:
+      - '[:newname]'
+
+newname:
+  groups:
+    - tags: []
+      phrases:
       - '[:twoLetters]-[:shortIdentifier]'
+      - '[:twoLetters]-[id :shortIdentifier]'
+      - '[:twoLetters]-[id id :shortIdentifier]'
+      - '[:twoLetters]-[id id id :shortIdentifier]'
 
 brand:
   bind: true
   groups:
     - tags: []
       phrases:
-        - 'CHIEF'
+        - 'BIG'
+        - 'Harmo-Electronix'
+
+brand2:
+  bind: true
+  groups:
+    - tags: []
+      phrases:
+        - 'SHJ'
+        - 'Jamz'
 
 twoLetters:
   groups:
     - tags: []
       phrases:
         - '[:letter][:letter]'
+        - '[id :letter][:letter]'
+        - '[id id :letter][:letter]'
+        - '[id id id :letter][:letter]'
 
 letter:
   groups:
@@ -31,7 +52,6 @@ letter:
       phrases: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 shortIdentifier:
-  bind: true
   groups:
     - tags: []
       phrases:

@@ -54,6 +54,7 @@ export default {
         texts: desc.split('\n\n').filter((s) => s),
       };
       window.location.hash = `seed=${seed.value}`;
+      console.log(model);
 
       for (let i=0; i<10; i++) {
         console.log(nameGen.gen('name'));
