@@ -1,0 +1,429 @@
+root:
+  bind: true
+  groups:
+    - tags: []
+      phrases:
+      - >-
+        The [:shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics].
+        [cap :tapInto] [:largeAmount] [:builtIn] [:subItems].
+        With [:upTo] [#2-12] [:units] of [:oomph], you won't [:runOutOf] [:timeOrTone].
+      - >-
+        The [:shortname] comes [:packed] with [:superlative] [uncap :purpose] effects.
+        Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. And [:controls] let you [:edit] to [:perfection].
+      - >-
+        The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname].
+        [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].
+      - >-
+        [cap :packed] with [#5-100] [:subItemAdjective] [:subItems], the [:shortname] provides [:endless] [:creativePossibilities]. [cap :edit] the [:knobsOrSwitches] for real-time expression.
+      - >-
+        [cap :packed] with [#5-100] [:subItemAdjective] [:subItems], the [:shortname] provides [:endless] [:creativePossibilities]. [cap :edit] the [:knobsOrSwitches] for real-time expression.
+      - >-
+        The [:shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect].
+        With [:benefitSingularOrPlural], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.
+      - >-
+        With [#3-50] [:subItems], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.
+        And with [:benefitSingularOrPlural], it can turn your pedalboard into a [:sonicPlayground].
+      
+
+### ADJECTIVES ###
+
+superlative:
+  groups:
+    - tags: []
+      phrases:
+        - 'great'
+        - 'excellent'
+        - 'perfect'
+        - 'amazing'
+        - 'elite'
+        - 'top-tier'
+
+
+vintage:
+  groups:
+    - tags: []
+      phrases:
+        - 'classic'
+        - 'vintage'
+
+modern:
+  groups:
+    - tags: []
+      phrases:
+        - 'next-gen'
+        - 'modern'
+
+creative:
+  groups:
+    - tags: []
+      phrases:
+        - 'creative'
+        - 'fun'
+
+enticing:
+  groups:
+    - tags: []
+      phrases:
+        - 'enticing'
+        - 'tantalizing'
+        - 'seductive'
+serious:
+  groups:
+    - tags: []
+      phrases:
+        - 'serious'
+        - 'real'
+
+endless:
+  groups:
+    - tags: []
+      phrases:
+        - 'endless'
+        - 'unlimited'
+        - 'limitless'
+        - 'infinite'
+
+packed:
+  groups:
+    - tags: []
+      phrases:
+        - 'stuffed'
+        - 'packed'
+        - 'absolutely packed'
+        - 'fully loaded'
+        - 'brimming'
+        - 'bursting'
+        - 'sizzling'
+        - 'loaded to the brim'
+
+soundAdjective:
+  groups:
+    - tags: []
+      phrases:
+        - 'gorgeous-sounding'
+        - 'great-sounding'
+        - 'sweet-sounding'
+
+moreThan:
+  groups:
+    - tags: []
+      phrases:
+        - 'over'
+        - 'more than'
+
+upTo:
+  groups:
+    - tags: []
+      phrases:
+        - 'up to'
+        - 'almost'
+
+builtIn:
+  groups:
+    - tags: []
+      phrases:
+        - 'built-in'
+        - 'onboard'
+        - 'factory-installed'
+
+subItemAdjective:
+  groups:
+    - tags: []
+      phrases:
+        - 'fully editable'
+        - 'editable'
+        - 'tweakable'
+        - 'modifiable'
+        - 'customizable'
+
+largeAmount:
+  groups:
+    - tags: []
+      phrases:
+        - '[:moreThan] [#1-9][#0-9]0'
+        - '[#1-9][#0-9]'
+
+toneCharacter:
+  groups:
+    - tags: []
+      phrases:
+        - 'sweet'
+        - 'harsh'
+        - 'mellow'
+        - 'warm'
+        - 'cold'
+        - 'ear-catching'
+
+
+# completeWith:
+#   groups:
+#     - tags: []
+#       phrases:
+#         - 'complete with'
+#         - 'rocking'
+
+### VERBS ###
+
+edit:
+  groups:
+    - tags: []
+      phrases:
+        - 'edit'
+        - 'tweak'
+        - 'change'
+        - 'customize'
+
+tapInto:
+  groups:
+    - tags: []
+      phrases:
+        - 'tap into'
+        - 'make use of'
+        - 'dig into'
+        - 'rock out with'
+
+making:
+  groups:
+    - tags: []
+      phrases:
+        - 'crafting'
+        - 'making'
+        - 'playing'
+
+runOutOf:
+  groups:
+    - tags: []
+      phrases:
+        - 'run out of'
+        - 'be short of'
+        
+offers:
+  groups:
+    - tags: []
+      phrases:
+        - 'offers'
+        - 'provides'
+        - 'gives you'
+
+### SIMPLE NOUNS ###
+
+perfection:
+  groups:
+    - tags: []
+      phrases:
+        - 'perfection'
+        - 'your taste'
+
+ideas:
+  groups:
+    - tags: []
+      phrases:
+        - 'inspiration'
+        - 'ideas'
+
+controls:
+  groups:
+    - tags: []
+      phrases:
+        - 'simple [:knobsOrSwitches]'
+        - 'easy [:knobsOrSwitches]'
+        - 'easy-to-use [:knobsOrSwitches]'
+        - 'user-friendly [:knobsOrSwitches]'
+
+knobsOrSwitches:
+  groups:
+    - tags: []
+      phrases:
+        - 'knobs'
+        - 'switches'
+        - 'controls'
+
+people:
+  groups:
+    - tags: []
+      phrases:
+        - 'tonal adventurers'
+        - 'guitar gods'
+        - 'musicians'
+        - 'jam freaks'
+        - 'pick jockeys'
+        - 'rock stars'
+        - 'professionals'
+
+creativePossibilities:
+  groups:
+    - tags: []
+      phrases:
+        - 'creative possibilities'
+        - 'ideas'
+        - 'possibilities'
+        - 'tonic varieties'
+
+sonicPlayground:
+  groups:
+    - tags: []
+      phrases:
+        - 'veritable sonic playground'
+
+subItems:
+  bind: true
+  groups:
+    - tags: []
+      phrases:
+        - 'presets'
+        - 'effects'
+        - 'modes'
+    - tags: [['purpose', 'tone', 'reverb']]
+      phrases:
+        - 'reverb types'
+    - tags: [['purpose', 'tone', 'delay']]
+      phrases:
+        - 'delay modes'
+
+performances:
+  groups:
+    - tags: []
+      phrases:
+        - 'performances'
+        - 'sessions'
+        - 'jam sessions'
+        
+### INTERESTING NOUNS ###
+
+performanceCharacteristics:
+  groups:
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'independent song parts'
+    - tags: [['purpose', 'tone']]
+      phrases:
+        - '[:toneCharacter] tones'
+
+units:
+  groups:
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'hours'
+    - tags: [['purpose', 'tone']]
+      phrases:
+        - 'kinds'
+        - 'types'
+        - 'levels'
+        - 'layers'
+
+oomph:
+  groups:
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'recording time'
+    - tags: [['purpose', 'tone']]
+      phrases:
+        - 'awesomeness'
+        - 'tone quality'
+        - 'freshness'
+
+timeOrTone:
+  groups:
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'space'
+        - 'room'
+    - tags: [['purpose', 'tone']]
+      phrases:
+        - 'possibilities'
+        - 'options'
+        - 'new discoveries'
+
+oldEffect:
+  groups:
+    - tags: []
+      phrases:
+        - 'sounds'
+        - 'tones'
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'tape loops'
+    # - tags: [['purpose', 'tone', 'mod']]
+    #   phrases:
+    #     - 'Modulation'
+    - tags: [['purpose', 'tone', 'reverb']]
+      phrases:
+        - 'chamber reverb'
+    - tags: [['purpose', 'tone', 'delay']]
+      phrases:
+        - 'tape-style delays'
+    - tags: [['purpose', 'tone', 'eq']]
+      phrases:
+        - 'analog-modeled EQ'
+    - tags: [['purpose', 'tone', 'synth']]
+      phrases:
+        - 'synth simulation'
+#    - tags: [['purpose', 'tone', 'chorus']]
+#      phrases:
+#        - 'sounds'
+#    - tags: [['purpose', 'tone', 'vibrato']]
+#      phrases:
+#        - 'Vibrato'
+    - tags: [['purpose', 'tone', 'distortion']]
+      phrases:
+        - 'tube distortion'
+#    - tags: [['purpose', 'tone', 'noise']]
+#      phrases:
+#        - 'Noise Suppression'
+
+newEffect:
+  groups:
+    - tags: []
+      phrases:
+        - 'sounds'
+        - 'tones'
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'MIDI-synced solo jams'
+    # - tags: [['purpose', 'tone', 'mod']]
+    #   phrases:
+    #     - 'Modulation'
+    - tags: [['purpose', 'tone', 'reverb']]
+      phrases:
+        - 'convolution reverb'
+    - tags: [['purpose', 'tone', 'delay']]
+      phrases:
+        - 'shimmer effects'
+    - tags: [['purpose', 'tone', 'eq']]
+      phrases:
+        - 'parametric EQ'
+    - tags: [['purpose', 'tone', 'synth']]
+      phrases:
+        - 'effect chains'
+#    - tags: [['purpose', 'tone', 'chorus']]
+#      phrases:
+#        - 'Chorus'
+#    - tags: [['purpose', 'tone', 'vibrato']]
+#      phrases:
+#        - 'Vibrato'
+    - tags: [['purpose', 'tone', 'distortion']]
+      phrases:
+        - 'solid-state distortion'
+#    - tags: [['purpose', 'tone', 'noise']]
+#      phrases:
+#        - 'Noise Suppression'
+
+benefitSingularOrPlural:
+  groups:
+    - tags: []
+      phrases:
+        - '[:benefitSingular]'
+        - '[:benefitPlural]'
+
+
+benefitSingular:
+  groups:
+    - tags: []
+      phrases:
+        - 'serial [#2-12]-track operation'
+
+benefitPlural:
+  groups:
+    - tags: []
+      phrases:
+        - 'ample options for external control'

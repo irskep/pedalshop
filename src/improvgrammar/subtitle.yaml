@@ -1,0 +1,109 @@
+root:
+  groups:
+    - tags: []
+      phrases:
+        - '[:adjective] [:purpose] [:noun]'
+        - '[:adjective] [:purpose] [:noun]'
+        - '[:adjective] [:purpose] [:noun]'
+        - '[:adjective] [:purpose] [:noun]'
+        - '[:packed] with [:superlative] [:purpose] [:options]'
+
+packed:
+  groups:
+    - tags: []
+      phrases:
+        - 'Stuffed'
+        - 'Packed'
+        - 'Fully Loaded'
+        - 'Brimming'
+        - 'Bursting'
+        - 'Sizzling'
+
+superlative:
+  groups:
+    - tags: []
+      phrases:
+        - 'Incredible'
+        - 'Amazing'
+        - 'Dazzling'
+        - 'Fantastic'
+        - 'Must-have'
+        - 'Serious'
+        - 'Elite'
+        - 'Top-tier'
+
+options:
+  groups:
+    - tags: []
+      phrases:
+        - 'Options'
+        - ''
+
+adjective:
+  groups:
+    - tags: []
+      phrases:
+        - 'Total'
+        - 'Your'
+        - 'Fully Loaded'
+        - 'Next-generation'
+        - "[:brand]'s Most Advanced"
+        - 'Your Onstage'
+        - 'Classic'
+        - 'Vintage'
+        - 'Hot-rodded'
+        - 'Next-gen'
+        - 'Feature-rich'
+        - 'Dazzling'
+        - 'A Must-have'
+
+purpose:
+  bind: true
+  groups:
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'Looping'
+    # - tags: [['purpose', 'tone', 'mod']]
+    #   phrases:
+    #     - 'Modulation'
+    - tags: [['purpose', 'tone', 'reverb']]
+      phrases:
+        - 'Reverb'
+    - tags: [['purpose', 'tone', 'delay']]
+      phrases:
+        - 'Delay'
+        - 'Digital Delay'
+    - tags: [['purpose', 'tone', 'eq']]
+      phrases:
+        - 'EQ'
+    - tags: [['purpose', 'tone', 'synth']]
+      phrases:
+        - 'Polyphonic Synth'
+    - tags: [['purpose', 'tone', 'chorus']]
+      phrases:
+        - 'Chorus'
+    - tags: [['purpose', 'tone', 'vibrato']]
+      phrases:
+        - 'Vibrato'
+    - tags: [['purpose', 'tone', 'distortion']]
+      phrases:
+        - 'Distortion'
+    - tags: [['purpose', 'tone', 'noise']]
+      phrases:
+        - 'Noise Suppression'
+
+noun:
+  groups:
+    - tags: []
+      phrases:
+        - 'Workstation'
+        - 'Pedal'
+        - 'Stomp Box'
+        - 'Station'
+        - 'Machine'
+        - 'and More'
+        - 'Pedal for Guitar and Bass'
+        - ''
+        - 'with a Twist'
+        - 'Tones'
+        - 'in a Compact Pedal'
