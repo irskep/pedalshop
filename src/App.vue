@@ -43,9 +43,9 @@ export default {
 
     function derive() {
       const alea = new Alea(seed.value);
-      const {nameGen, subGen, descGen} = makeImprovGenerators(alea);
+      const {descGen, subGen} = makeImprovGenerators(alea);
       const model = {};
-      const name = nameGen.gen('name', model);
+      const name = descGen.gen('name', model);
       const subtitle = subGen.gen('root', model);
       const desc = descGen.gen('root', model);
       pedal.value = {
@@ -57,7 +57,7 @@ export default {
       console.log(model);
 
       for (let i=0; i<10; i++) {
-        console.log(nameGen.gen('name'));
+        console.log(descGen.gen('name'));
       }
     }
 

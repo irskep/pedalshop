@@ -1,3 +1,73 @@
+name:
+  bind: true
+  groups:
+    - tags: []
+      phrases:
+      - '[:brand] [:shortname]'
+
+shortname:
+  bind: true
+  groups:
+    - tags: []
+      phrases:
+      - '[:newname]'
+
+newname:
+  groups:
+    - tags: []
+      phrases:
+      - '[:twoLetters]-[:shortIdentifier]'
+      - '[:twoLetters]-[id :shortIdentifier]'
+      - '[:twoLetters]-[id id :shortIdentifier]'
+      - '[:twoLetters]-[id id id :shortIdentifier]'
+
+brand:
+  bind: true
+  groups:
+    - tags: []
+      phrases:
+        - '[:brandname]'
+
+brand2:
+  bind: true
+  groups:
+    - tags: []
+      phrases:
+        - '[id :brandname]'
+
+brandname:
+  groups:
+    - tags: []
+      phrases:
+        - 'BIG'
+        - 'Harmo-Electronix'
+        - 'SHJ'
+        - 'Jamz'
+
+twoLetters:
+  groups:
+    - tags: []
+      phrases:
+        - '[:letter][:letter]'
+        - '[id :letter][:letter]'
+        - '[id id :letter][:letter]'
+        - '[id id id :letter][:letter]'
+
+letter:
+  groups:
+    - tags: []
+      phrases: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
+shortIdentifier:
+  groups:
+    - tags: []
+      phrases:
+        - '[#0-9]'
+        - '[#0-9][:letter]'
+        - '[:letter][#1-9]'
+        - '[#1-9]00'
+        - '[#1-9]0[#1-9]'
+
 root:
   groups:
     - tags: []
@@ -49,7 +119,8 @@ root2:
     - tags: []
       phrases:
         - >-
-          asdf
+          [:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create the [:shortname]. This versatile pedal packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.
+
 extra:
   groups:
     - tags: []
