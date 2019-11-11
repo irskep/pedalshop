@@ -29691,62 +29691,7 @@ Improv.filters = _filtersJs2['default'];
 
 exports['default'] = Improv;
 module.exports = exports['default'];
-},{"./template.js":"node_modules/improv/dist/template.js","lodash":"node_modules/lodash/lodash.js","./filters.js":"node_modules/improv/dist/filters.js"}],"src/improvgrammar/name.yaml":[function(require,module,exports) {
-module.exports = {
-  name: {
-    bind: true,
-    groups: [{
-      tags: [],
-      phrases: ["[:brand] [:shortname]"]
-    }]
-  },
-  shortname: {
-    bind: true,
-    groups: [{
-      tags: [],
-      phrases: ["[:newname]"]
-    }]
-  },
-  newname: {
-    groups: [{
-      tags: [],
-      phrases: ["[:twoLetters]-[:shortIdentifier]", "[:twoLetters]-[id :shortIdentifier]", "[:twoLetters]-[id id :shortIdentifier]", "[:twoLetters]-[id id id :shortIdentifier]"]
-    }]
-  },
-  brand: {
-    bind: true,
-    groups: [{
-      tags: [],
-      phrases: ["BIG", "Harmo-Electronix"]
-    }]
-  },
-  brand2: {
-    bind: true,
-    groups: [{
-      tags: [],
-      phrases: ["SHJ", "Jamz"]
-    }]
-  },
-  twoLetters: {
-    groups: [{
-      tags: [],
-      phrases: ["[:letter][:letter]", "[id :letter][:letter]", "[id id :letter][:letter]", "[id id id :letter][:letter]"]
-    }]
-  },
-  letter: {
-    groups: [{
-      tags: [],
-      phrases: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    }]
-  },
-  shortIdentifier: {
-    groups: [{
-      tags: [],
-      phrases: ["[#0-9]", "[#0-9][:letter]", "[:letter][#1-9]", "[#1-9]00", "[#1-9]0[#1-9]"]
-    }]
-  }
-};
-},{}],"src/improvgrammar/subtitle.yaml":[function(require,module,exports) {
+},{"./template.js":"node_modules/improv/dist/template.js","lodash":"node_modules/lodash/lodash.js","./filters.js":"node_modules/improv/dist/filters.js"}],"src/improvgrammar/subtitle.yaml":[function(require,module,exports) {
 module.exports = {
   root: {
     groups: [{
@@ -29818,6 +29763,64 @@ module.exports = {
 };
 },{}],"src/improvgrammar/desc.yaml":[function(require,module,exports) {
 module.exports = {
+  name: {
+    bind: true,
+    groups: [{
+      tags: [],
+      phrases: ["[:brand] [:shortname]"]
+    }]
+  },
+  shortname: {
+    bind: true,
+    groups: [{
+      tags: [],
+      phrases: ["[:newname]"]
+    }]
+  },
+  newname: {
+    groups: [{
+      tags: [],
+      phrases: ["[:twoLetters]-[:shortIdentifier]", "[:twoLetters]-[id :shortIdentifier]", "[:twoLetters]-[id id :shortIdentifier]", "[:twoLetters]-[id id id :shortIdentifier]"]
+    }]
+  },
+  brand: {
+    bind: true,
+    groups: [{
+      tags: [],
+      phrases: ["[:brandname]"]
+    }]
+  },
+  brand2: {
+    bind: true,
+    groups: [{
+      tags: [],
+      phrases: ["[id :brandname]"]
+    }]
+  },
+  brandname: {
+    groups: [{
+      tags: [],
+      phrases: ["BIG", "Harmo-Electronix", "SHJ", "Jamz"]
+    }]
+  },
+  twoLetters: {
+    groups: [{
+      tags: [],
+      phrases: ["[:letter][:letter]", "[id :letter][:letter]", "[id id :letter][:letter]", "[id id id :letter][:letter]"]
+    }]
+  },
+  letter: {
+    groups: [{
+      tags: [],
+      phrases: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    }]
+  },
+  shortIdentifier: {
+    groups: [{
+      tags: [],
+      phrases: ["[#0-9]", "[#0-9][:letter]", "[:letter][#1-9]", "[#1-9]00", "[#1-9]0[#1-9]"]
+    }]
+  },
   root: {
     groups: [{
       tags: [],
@@ -29827,7 +29830,7 @@ module.exports = {
   root2: {
     groups: [{
       tags: [],
-      phrases: ["asdf"]
+      phrases: ["[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create the [:shortname]. This versatile pedal packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs."]
     }]
   },
   extra: {
@@ -30237,15 +30240,11 @@ exports.default = makeImprovGenerators;
 
 var _improv = _interopRequireDefault(require("improv"));
 
-var _name = _interopRequireDefault(require("./improvgrammar/name.yaml"));
-
 var _subtitle = _interopRequireDefault(require("./improvgrammar/subtitle.yaml"));
 
 var _desc = _interopRequireDefault(require("./improvgrammar/desc.yaml"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var augmentedDescGrammar = Object.assign({}, _name.default, _desc.default);
 
 function dryness() {
   return function (group) {
@@ -30274,14 +30273,6 @@ var builtins = {
 };
 
 function makeImprovGenerators(alea) {
-  var nameGen = new _improv.default(_name.default, {
-    filters: [_improv.default.filters.mismatchFilter(), _improv.default.filters.partialBonus(), _improv.default.filters.fullBonus(), dryness()],
-    builtins: builtins,
-    reincorporate: true,
-    // audit: true,
-    persistence: false,
-    rng: alea
-  });
   var subGen = new _improv.default(_subtitle.default, {
     filters: [_improv.default.filters.mismatchFilter(), _improv.default.filters.partialBonus(), _improv.default.filters.fullBonus(), dryness()],
     builtins: builtins,
@@ -30290,7 +30281,7 @@ function makeImprovGenerators(alea) {
     persistence: false,
     rng: alea
   });
-  var descGen = new _improv.default(augmentedDescGrammar, {
+  var descGen = new _improv.default(_desc.default, {
     filters: [_improv.default.filters.mismatchFilter(), _improv.default.filters.partialBonus(), _improv.default.filters.fullBonus(), dryness()],
     builtins: builtins,
     reincorporate: true,
@@ -30299,12 +30290,11 @@ function makeImprovGenerators(alea) {
     rng: alea
   });
   return {
-    nameGen: nameGen,
     descGen: descGen,
     subGen: subGen
   };
 }
-},{"improv":"node_modules/improv/dist/index.js","./improvgrammar/name.yaml":"src/improvgrammar/name.yaml","./improvgrammar/subtitle.yaml":"src/improvgrammar/subtitle.yaml","./improvgrammar/desc.yaml":"src/improvgrammar/desc.yaml"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
+},{"improv":"node_modules/improv/dist/index.js","./improvgrammar/subtitle.yaml":"src/improvgrammar/subtitle.yaml","./improvgrammar/desc.yaml":"src/improvgrammar/desc.yaml"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => "%".concat(x.charCodeAt(0).toString(16).toUpperCase()));
@@ -31065,12 +31055,11 @@ var _default = {
       var alea = new _alea.default(seed.value);
 
       var _makeImprovGenerators = (0, _makeImprovGenerators2.default)(alea),
-          nameGen = _makeImprovGenerators.nameGen,
-          subGen = _makeImprovGenerators.subGen,
-          descGen = _makeImprovGenerators.descGen;
+          descGen = _makeImprovGenerators.descGen,
+          subGen = _makeImprovGenerators.subGen;
 
       var model = {};
-      var name = nameGen.gen('name', model);
+      var name = descGen.gen('name', model);
       var subtitle = subGen.gen('root', model);
       var desc = descGen.gen('root', model);
       pedal.value = {
@@ -31084,7 +31073,7 @@ var _default = {
       console.log(model);
 
       for (var i = 0; i < 10; i++) {
-        console.log(nameGen.gen('name'));
+        console.log(descGen.gen('name'));
       }
     }
 
@@ -31254,7 +31243,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58603" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65358" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
