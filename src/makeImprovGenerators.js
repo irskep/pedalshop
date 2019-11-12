@@ -1,6 +1,10 @@
 import Improv from 'improv';
 import subtitleGrammar from './improvgrammar/subtitle.yaml';
 import descGrammar from './improvgrammar/desc.yaml';
+import nounsGrammar from './improvgrammar/nouns.yaml'
+import adjsVerbsGrammar from './improvgrammar/adjsVerbs.yaml';;
+
+Object.assign(descGrammar, nounsGrammar, adjsVerbsGrammar);
 
 function dryness() {
   return function (group) {

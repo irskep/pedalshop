@@ -1,0 +1,232 @@
+### ADJECTIVES ###
+
+superlative:
+  groups:
+    - tags: []
+      phrases:
+        - 'great'
+        - 'excellent'
+        - 'perfect'
+        - 'amazing'
+        - 'elite'
+        - 'top-tier'
+        - 'top-notch'
+        - 'phenomenal'
+        - 'superior'
+        - 'awesome'
+        - 'legendary'
+
+vintage:
+  groups:
+    - tags: []
+      phrases:
+        - 'classic'
+        - 'vintage'
+        - 'iconic'
+
+modern:
+  groups:
+    - tags: []
+      phrases:
+        - 'next-gen'
+        - 'modern'
+
+creative:
+  groups:
+    - tags: []
+      phrases:
+        - 'creative'
+        - 'fun'
+
+enticing:
+  groups:
+    - tags: []
+      phrases:
+        - 'enticing'
+        - 'tantalizing'
+        - 'seductive'
+        - 'vibrant'
+
+serious:
+  groups:
+    - tags: []
+      phrases:
+        - 'serious'
+        - 'real'
+
+endless:
+  groups:
+    - tags: []
+      phrases:
+        - 'endless'
+        - 'unlimited'
+        - 'limitless'
+        - 'infinite'
+
+packed:
+  groups:
+    - tags: []
+      phrases:
+        - 'stuffed'
+        - 'packed'
+        - 'absolutely packed'
+        - 'fully loaded'
+        - 'brimming'
+        - 'bursting'
+        - 'sizzling'
+        - 'loaded to the brim'
+        - 'loaded'
+        - 'jam-packed'
+
+soundAdjective:
+  groups:
+    - tags: []
+      phrases:
+        - 'gorgeous-sounding'
+        - 'great-sounding'
+        - 'sweet-sounding'
+        - 'vibrant-sounding'
+
+moreThan:
+  groups:
+    - tags: []
+      phrases:
+        - 'over'
+        - 'more than'
+
+upTo:
+  groups:
+    - tags: []
+      phrases:
+        - 'up to'
+        - 'almost'
+
+builtIn:
+  groups:
+    - tags: []
+      phrases:
+        - 'built-in'
+        - 'onboard'
+        - 'factory-installed'
+
+subItemAdjective:
+  groups:
+    - tags: []
+      phrases:
+        - 'fully editable'
+        - 'editable'
+        - 'tweakable'
+        - 'modifiable'
+        - 'customizable'
+
+largeAmount:
+  groups:
+    - tags: []
+      phrases:
+        - '[:moreThan] [#1-9][#0-9]0'
+        - '[#1-9][#0-9]'
+
+toneAdj:
+  groups:
+    - tags: []
+      phrases:
+        - 'sweet'
+        - 'harsh'
+        - 'mellow'
+        - 'warm'
+        - 'cold'
+        - 'ear-catching'
+        - 'lush'
+        - 'rich'
+        - 'creamy'
+        - 'violin-like'
+        - 'gnarly'
+        - 'grungy'
+        - 'gritty'
+        - 'smooth'
+        - 'clean'
+        - 'dirty'
+        - 'chunky'
+        - 'spacey'
+
+genreAdjective:
+  groups:
+    - tags: [['genre', 'rock']]
+      phrases:
+        - 'grungy'
+        - 'gritty'
+    - tags: [['genre', 'jazz']]
+      phrases:
+        - 'smooth'
+        - 'clean'
+    - tags: [['genre', 'blues']]
+      phrases:
+        - 'dirty'
+        - 'chunky'
+    - tags: []
+      phrases:
+        - '[:toneAdj]'
+        - '[id :toneAdj]'
+
+genreName:
+  groups:
+    - tags: [['genre', 'rock']]
+      phrases:
+        - 'rock'
+    - tags: [['genre', 'jazz']]
+      phrases:
+        - 'jazz'
+    - tags: [['genre', 'blues']]
+      phrases:
+        - 'blues'
+
+# completeWith:
+#   groups:
+#     - tags: []
+#       phrases:
+#         - 'complete with'
+#         - 'rocking'
+
+### VERBS ###
+
+edit:
+  groups:
+    - tags: []
+      phrases:
+        - 'edit'
+        - 'tweak'
+        - 'change'
+        - 'customize'
+
+tapInto:
+  groups:
+    - tags: []
+      phrases:
+        - 'tap into'
+        - 'make use of'
+        - 'dig into'
+        - 'rock out with'
+
+making:
+  groups:
+    - tags: []
+      phrases:
+        - 'crafting'
+        - 'making'
+        - 'playing'
+
+runOutOf:
+  groups:
+    - tags: []
+      phrases:
+        - 'run out of'
+        - 'be short of'
+        
+offers:
+  groups:
+    - tags: []
+      phrases:
+        - 'offers'
+        - 'provides'
+        - 'gives you'
+        - 'serves up'

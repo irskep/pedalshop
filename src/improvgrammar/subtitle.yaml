@@ -7,6 +7,7 @@ root:
         - '[:adjective] [:purpose] [:noun]'
         - '[:adjective] [:purpose] [:noun]'
         - '[:packed] with [:superlative] [:purpose] [:options]'
+        - '[:purpose] for the Tone [:aficionado]'
 
 packed:
   groups:
@@ -56,6 +57,17 @@ adjective:
         - 'Feature-rich'
         - 'Dazzling'
         - 'A Must-have'
+        - 'Powerful'
+        - "The World's Most Popular"
+
+aficionado:
+  groups:
+    - tags: []
+      phrases:
+        - 'Aficionado'
+        - 'Freak'
+        - 'Hipster'
+        - 'Purist'
 
 purpose:
   bind: true
@@ -107,3 +119,4 @@ noun:
         - 'with a Twist'
         - 'Tones'
         - 'in a Compact Pedal'
+        - 'Tool'
