@@ -29696,7 +29696,7 @@ module.exports = {
   root: {
     groups: [{
       tags: [],
-      phrases: ["[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:packed] with [:superlative] [:purpose] [:options]"]
+      phrases: ["[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:packed] with [:superlative] [:purpose] [:options]", "[:purpose] for the Tone [:aficionado]"]
     }]
   },
   packed: {
@@ -29720,7 +29720,13 @@ module.exports = {
   adjective: {
     groups: [{
       tags: [],
-      phrases: ["Total", "Your", "Fully Loaded", "Next-generation", "[:brand]'s Most Advanced", "Your Onstage", "Classic", "Vintage", "Hot-rodded", "Next-gen", "Feature-rich", "Dazzling", "A Must-have"]
+      phrases: ["Total", "Your", "Fully Loaded", "Next-generation", "[:brand]'s Most Advanced", "Your Onstage", "Classic", "Vintage", "Hot-rodded", "Next-gen", "Feature-rich", "Dazzling", "A Must-have", "Powerful", "The World's Most Popular"]
+    }]
+  },
+  aficionado: {
+    groups: [{
+      tags: [],
+      phrases: ["Aficionado", "Freak", "Hipster", "Purist"]
     }]
   },
   purpose: {
@@ -29757,7 +29763,7 @@ module.exports = {
   noun: {
     groups: [{
       tags: [],
-      phrases: ["Workstation", "Pedal", "Stomp Box", "Station", "Machine", "and More", "Pedal for Guitar and Bass", "", "with a Twist", "Tones", "in a Compact Pedal"]
+      phrases: ["Workstation", "Pedal", "Stomp Box", "Station", "Machine", "and More", "Pedal for Guitar and Bass", "", "with a Twist", "Tones", "in a Compact Pedal", "Tool"]
     }]
   }
 };
@@ -29821,24 +29827,6 @@ module.exports = {
       phrases: ["[#0-9]", "[#0-9][:letter]", "[:letter][#1-9]", "[#1-9]00", "[#1-9]0[#1-9]"]
     }]
   },
-  root: {
-    groups: [{
-      tags: [],
-      phrases: ["The [:shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "The [:shortname] comes [:packed] with [:superlative] [uncap :purpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname]. [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:subItemAdjective] [:subItems], the [:shortname] provides [:endless] [:creativePossibilities]. [:extra]", "The [:shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], the [:shortname] is possibly the most versatile [uncap :purpose] pedal ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], the [:shortname] may be one of the most versatile [uncap :purpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, the [:shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedal].  [:extra]", "The [:shortname] re-creates the classic sound of the [:extraname1] and [:extraname2] [:pedal]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. The [:shortname] features a stereo output for the [:extraname1] effects and variable depth for the [:extraname2] effects. [:extra]", "The [:shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [uncap :purpose] from [#100-400] to [#401-999] and adds modern [:toneCharacterNoun] and [:toneCharacterNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with the [:shortname], they added a whole new dimension to their popular [uncap :purpose] pedal. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create the [:shortname]. This versatile pedal packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "The [:shortname] features [:brand]'s innovative [:technology], which allows it to dynamically adapt to any register. That means you get [:toneCharacterNoun], [:toneCharacterNoun], and [:toneCharacterNoun] all across the fretboard, with [:superlative] dynamics. [:extra]"]
-    }]
-  },
-  root2: {
-    groups: [{
-      tags: [],
-      phrases: ["[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create the [:shortname]. This versatile pedal packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs."]
-    }]
-  },
-  extra: {
-    groups: [{
-      tags: [],
-      phrases: ["The [:shortname] actually offers dual [:circuits] that can be configured for stereo, series, or parallel operation, and an insert function even allows you to add external effects pedals.", "And [:controls] let you [:edit] to [:perfection].", "And with [:benefitSingularOrPlural], it can turn your pedalboard into a [:sonicPlayground].", "With [:upTo] [#2-50] [:oomphs], you won't [:runOutOf] [:timeOrTone].", "[cap :edit] the [:knobsOrSwitches] for real-time expression.", "With [:benefitSingularOrPlural], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.", "Looking for [:benefitSingular]? It's here. Need [:benefitSingularOrPlural]? You've got it!", "The original [oldify :shortname] is also available.", "You'll never believe you could get this level of [:toneCharacterNoun] without sacrificing [:toneCharacterNoun]!", "A Dynamic mode automatically adjusts to your playing for [:toneCharacter] ambience that won't turn your tone to mud.", "It's also a handy power supply for your pedalboard."]
-    }]
-  },
   extraname1: {
     bind: true,
     groups: [{
@@ -29853,124 +29841,107 @@ module.exports = {
       phrases: ["[id :newname]"]
     }]
   },
-  superlative: {
+  root: {
     groups: [{
       tags: [],
-      phrases: ["great", "excellent", "perfect", "amazing", "elite", "top-tier", "top-notch", "phenomenal", "superior"]
+      phrases: ["The [:shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "The [:shortname] comes [:packed] with [:superlative] [uncap :purpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname]. [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:subItemAdjective] [:subItems], the [:shortname] provides [:endless] [:creativePossibilities]. [:extra]", "The [:shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], the [:shortname] is possibly the most versatile [uncap :purpose] [:pedalSynonym] ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], the [:shortname] may be one of the most versatile [uncap :purpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, the [:shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedal].  [:extra]", "The [:shortname] re-creates the classic sound of the [:extraname1] and [:extraname2] [:pedal]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. The [:shortname] features a stereo output for the [:extraname1] effects and variable depth for the [:extraname2] effects. [:extra]", "The [:shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [uncap :purpose] from [#100-400] to [#401-999] and adds modern [:toneAdjNoun] and [:toneAdjNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with the [:shortname], they added a whole new dimension to their popular [uncap :purpose] [:pedalSynonym]. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create the [:shortname]. This versatile [:pedalSynonym] packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "The [:shortname] features [:brand]'s innovative [:technology], which allows it to dynamically adapt to any register. That means you get [:toneAdjNoun], [:toneAdjNoun], and [:toneAdjNoun] all across the fretboard, with [:superlative] dynamics. [:extra]", "[:brand]'s [:shortname] allows you to create [#2-100] [:performanceCharacteristics] with up to [#2-10] [:units] of high-quality performance and [:benefitSingularOrPlural]. [:extra]", "The [:shortname] sports the [:genreAdjective], [:vintage] sound that made the original a huge hit with [:genreName] guitarists decades ago. All the original magic is back with [:brand]'s reissue of this '[#5-9]0s [:pedalSynonym]. [:extra]", "Designed with [:benefitSingularOrPlural], the [:shortname] is exceptionally responsive to [:guitarTechnique]. It features [:benefitSingularOrPlural] and gives you a choice of either buffered or full bypass. [:extra]", "The [:shortname] is the [uncap :purpose] [:pedalSynonym] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain. [:extra]", "[:brand] packed the original [oldify :shortname] circuit into the [:shortname], so you get the same sound, controls, and guts as the full-size model. This pedalboard-friendly version [:offers] the same [:toneAdj] tones that you've heard on countless recordings, but in a smaller package. [:extra]", "The [:shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedalSynonym] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take the [:shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]"]
     }]
   },
-  vintage: {
+  root2: {
     groups: [{
       tags: [],
-      phrases: ["classic", "vintage"]
+      phrases: ["The [:shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedalSynonym] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take the [:shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]"]
     }]
   },
-  modern: {
+  extra: {
     groups: [{
       tags: [],
-      phrases: ["next-gen", "modern"]
+      phrases: ["The [:shortname] actually offers dual [:circuits] that can be configured for stereo, series, or parallel operation, and an insert function even allows you to add external effects pedals.", "And [:controls] let you [:edit] to [:perfection].", "And with [:benefitSingularOrPlural], it can turn your pedalboard into a [:sonicPlayground].", "With [:upTo] [#2-100] [:oomphs], you won't [:runOutOf] [:timeOrTone].", "[cap :edit] the [:knobsOrSwitches] for real-time expression.", "With [:benefitSingularOrPlural], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.", "Looking for [:benefitSingular]? It's here. Need [:benefitSingularOrPlural]? You've got it!", "The original [oldify :shortname] is also available.", "You'll never believe you could get this level of [:toneAdjNoun] without sacrificing [:toneAdjNoun]!", "A Dynamic mode automatically adjusts to your playing for [:toneAdj] ambience that won't turn your tone to mud.", "It's also a handy power supply for your pedalboard.", "Separate dry and effect outputs allow for 2-amp setups.", "[#3-100] [:superlative] [:subItems] cover [:superlative] sounds, from [:effectName] to [:effectName], and they all sound [:superlative].", "Two footswitches and an optional 3-button controller deliver hands-free operation.", "And [:brand] put all the [:genreAdjective] power into an enclosure that will fit comfortably on any pedalboard.", "It runs on either a 9-volt battery or the included power supply.", "Its simple 3-knob control layout makes dialing in the perfect tone easy."]
+    }]
+  }
+};
+},{}],"src/improvgrammar/nouns.yaml":[function(require,module,exports) {
+module.exports = {
+  nameOfMusician: {
+    groups: [{
+      tags: [],
+      phrases: ["Santana", "Hendrix", "Page", "Yankovic", "Steve Vai"]
     }]
   },
-  creative: {
+  subItems: {
+    bind: true,
     groups: [{
       tags: [],
-      phrases: ["creative", "fun"]
+      phrases: ["presets", "effects", "modes", "settings"]
+    }, {
+      tags: [["purpose", "tone", "reverb"]],
+      phrases: ["reverb types"]
+    }, {
+      tags: [["purpose", "tone", "delay"]],
+      phrases: ["delay modes"]
+    }, {
+      tags: [["purpose", "tone", "eq"]],
+      phrases: ["frequency range settings"]
     }]
   },
-  enticing: {
+  guitarTechnique: {
     groups: [{
       tags: [],
-      phrases: ["enticing", "tantalizing", "seductive", "vibrant"]
+      phrases: ["hammer-ons", "pick attacks", "bends", "pull-offs"]
     }]
   },
-  serious: {
+  effectName: {
     groups: [{
       tags: [],
-      phrases: ["serious", "real"]
+      phrases: ["[:effectName1]", "[:effectName2]"]
     }]
   },
-  endless: {
+  effectName1: {
     groups: [{
       tags: [],
-      phrases: ["endless", "unlimited", "limitless", "infinite"]
+      phrases: ["Blues Driver", "Angry Charlie", "Metal Zone", "Freeze", "Soul Food"]
     }]
   },
-  packed: {
+  effectName2: {
     groups: [{
       tags: [],
-      phrases: ["stuffed", "packed", "absolutely packed", "fully loaded", "brimming", "bursting", "sizzling", "loaded to the brim", "loaded"]
+      phrases: ["Precision", "Longhorn"]
     }]
   },
-  soundAdjective: {
+  benefitSingularOrPlural: {
     groups: [{
       tags: [],
-      phrases: ["gorgeous-sounding", "great-sounding", "sweet-sounding", "vibrant-sounding"]
+      phrases: ["[:benefitSingular]", "[:benefitPlural]", "[id :benefitSingular]", "[id :benefitPlural]", "[id id :benefitSingular]", "[id id :benefitPlural]"]
     }]
   },
-  moreThan: {
+  benefitSingular: {
     groups: [{
       tags: [],
-      phrases: ["over", "more than"]
+      phrases: ["serial [#2-12]-track operation", "high-quality performance", "a clean boost"]
+    }, {
+      tags: [["purpose", "looping"]],
+      phrases: ["unlimited overdubbing"]
+    }, {
+      tags: [["purpose", "tone", "distortion"]],
+      phrases: ["edge-of-breakup, amp-style grit", "'80s-style face-melting distortion"]
     }]
   },
-  upTo: {
+  benefitPlural: {
     groups: [{
       tags: [],
-      phrases: ["up to", "almost"]
+      phrases: ["ample options for external control", "boosted power rails", "[:superlative] headroom and definition"]
     }]
   },
-  builtIn: {
+  soundModification: {
     groups: [{
       tags: [],
-      phrases: ["built-in", "onboard", "factory-installed"]
+      phrases: ["creates the classically smoky Blues tone", "beefs up the low end and adds sustain"]
     }]
   },
-  subItemAdjective: {
+  pedalSynonym: {
     groups: [{
       tags: [],
-      phrases: ["fully editable", "editable", "tweakable", "modifiable", "customizable"]
-    }]
-  },
-  largeAmount: {
-    groups: [{
-      tags: [],
-      phrases: ["[:moreThan] [#1-9][#0-9]0", "[#1-9][#0-9]"]
-    }]
-  },
-  toneCharacter: {
-    groups: [{
-      tags: [],
-      phrases: ["sweet", "harsh", "mellow", "warm", "cold", "ear-catching", "lush"]
-    }]
-  },
-  edit: {
-    groups: [{
-      tags: [],
-      phrases: ["edit", "tweak", "change", "customize"]
-    }]
-  },
-  tapInto: {
-    groups: [{
-      tags: [],
-      phrases: ["tap into", "make use of", "dig into", "rock out with"]
-    }]
-  },
-  making: {
-    groups: [{
-      tags: [],
-      phrases: ["crafting", "making", "playing"]
-    }]
-  },
-  runOutOf: {
-    groups: [{
-      tags: [],
-      phrases: ["run out of", "be short of"]
-    }]
-  },
-  offers: {
-    groups: [{
-      tags: [],
-      phrases: ["offers", "provides", "gives you"]
+      phrases: ["pedal", "effects pedal", "stomp box"]
     }]
   },
   pedal: {
@@ -29980,6 +29951,18 @@ module.exports = {
     }, {
       tags: [["purpose", "tone", "synth"]],
       phrases: ["synthesizer", "synth", "rack-mounted synth", "rack-mounted synthesizer"]
+    }]
+  },
+  strangeEffectAdj: {
+    groups: [{
+      tags: [],
+      phrases: ["pulsating", "wavering", "oscillating", "drooping", "rising", "sustained", "clipped"]
+    }]
+  },
+  strangeEffectName: {
+    groups: [{
+      tags: [],
+      phrases: ["shimmer", "warble"]
     }]
   },
   soundQuality: {
@@ -30030,29 +30013,13 @@ module.exports = {
       phrases: ["veritable sonic playground"]
     }]
   },
-  subItems: {
-    bind: true,
-    groups: [{
-      tags: [],
-      phrases: ["presets", "effects", "modes", "settings"]
-    }, {
-      tags: [["purpose", "tone", "reverb"]],
-      phrases: ["reverb types"]
-    }, {
-      tags: [["purpose", "tone", "delay"]],
-      phrases: ["delay modes"]
-    }, {
-      tags: [["purpose", "tone", "eq"]],
-      phrases: ["frequency range settings"]
-    }]
-  },
   performances: {
     groups: [{
       tags: [],
       phrases: ["performances", "sessions", "jam sessions"]
     }]
   },
-  toneCharacterNoun: {
+  toneAdjNoun: {
     groups: [{
       tags: [],
       phrases: ["sweetness", "harshness", "mellowness", "warmth", "coldness", "note definition", "control", "smoothness"]
@@ -30067,10 +30034,10 @@ module.exports = {
   performanceCharacteristics: {
     groups: [{
       tags: [["purpose", "looping"]],
-      phrases: ["independent song parts"]
+      phrases: ["independent song parts", "independent loops"]
     }, {
       tags: [["purpose", "tone"]],
-      phrases: ["[:toneCharacter] tones"]
+      phrases: ["[:toneAdj] tones", "[id :toneAdj] tones"]
     }]
   },
   units: {
@@ -30124,7 +30091,7 @@ module.exports = {
       phrases: ["analog-modeled EQ"]
     }, {
       tags: [["purpose", "tone", "synth"]],
-      phrases: ["synth simulation"]
+      phrases: ["synth simulation", "synth sounds", "synth sounds of the '70s and '80s"]
     }, {
       tags: [["purpose", "tone", "distortion"]],
       phrases: ["tube distortion"]
@@ -30148,7 +30115,7 @@ module.exports = {
       phrases: ["parametric EQ"]
     }, {
       tags: [["purpose", "tone", "synth"]],
-      phrases: ["effect chains"]
+      phrases: ["effect chains", "synths made possible only by software"]
     }, {
       tags: [["purpose", "tone", "distortion"]],
       phrases: ["solid-state distortion"]
@@ -30201,32 +30168,155 @@ module.exports = {
       tags: [["purpose", "tone", "noise"]],
       phrases: ["tone"]
     }]
-  },
-  benefitSingularOrPlural: {
+  }
+};
+},{}],"src/improvgrammar/adjsVerbs.yaml":[function(require,module,exports) {
+module.exports = {
+  superlative: {
     groups: [{
       tags: [],
-      phrases: ["[:benefitSingular]", "[:benefitPlural]"]
+      phrases: ["great", "excellent", "perfect", "amazing", "elite", "top-tier", "top-notch", "phenomenal", "superior", "awesome", "legendary"]
     }]
   },
-  benefitSingular: {
+  vintage: {
     groups: [{
       tags: [],
-      phrases: ["serial [#2-12]-track operation"]
+      phrases: ["classic", "vintage", "iconic"]
+    }]
+  },
+  modern: {
+    groups: [{
+      tags: [],
+      phrases: ["next-gen", "modern"]
+    }]
+  },
+  creative: {
+    groups: [{
+      tags: [],
+      phrases: ["creative", "fun"]
+    }]
+  },
+  enticing: {
+    groups: [{
+      tags: [],
+      phrases: ["enticing", "tantalizing", "seductive", "vibrant"]
+    }]
+  },
+  serious: {
+    groups: [{
+      tags: [],
+      phrases: ["serious", "real"]
+    }]
+  },
+  endless: {
+    groups: [{
+      tags: [],
+      phrases: ["endless", "unlimited", "limitless", "infinite"]
+    }]
+  },
+  packed: {
+    groups: [{
+      tags: [],
+      phrases: ["stuffed", "packed", "absolutely packed", "fully loaded", "brimming", "bursting", "sizzling", "loaded to the brim", "loaded", "jam-packed"]
+    }]
+  },
+  soundAdjective: {
+    groups: [{
+      tags: [],
+      phrases: ["gorgeous-sounding", "great-sounding", "sweet-sounding", "vibrant-sounding"]
+    }]
+  },
+  moreThan: {
+    groups: [{
+      tags: [],
+      phrases: ["over", "more than"]
+    }]
+  },
+  upTo: {
+    groups: [{
+      tags: [],
+      phrases: ["up to", "almost"]
+    }]
+  },
+  builtIn: {
+    groups: [{
+      tags: [],
+      phrases: ["built-in", "onboard", "factory-installed"]
+    }]
+  },
+  subItemAdjective: {
+    groups: [{
+      tags: [],
+      phrases: ["fully editable", "editable", "tweakable", "modifiable", "customizable"]
+    }]
+  },
+  largeAmount: {
+    groups: [{
+      tags: [],
+      phrases: ["[:moreThan] [#1-9][#0-9]0", "[#1-9][#0-9]"]
+    }]
+  },
+  toneAdj: {
+    groups: [{
+      tags: [],
+      phrases: ["sweet", "harsh", "mellow", "warm", "cold", "ear-catching", "lush", "rich", "creamy", "violin-like", "gnarly", "grungy", "gritty", "smooth", "clean", "dirty", "chunky", "spacey"]
+    }]
+  },
+  genreAdjective: {
+    groups: [{
+      tags: [["genre", "rock"]],
+      phrases: ["grungy", "gritty"]
     }, {
-      tags: [["purpose", "tone", "distortion"]],
-      phrases: ["edge-of-breakup, amp-style grit", "'80s-style face-melting distortion"]
+      tags: [["genre", "jazz"]],
+      phrases: ["smooth", "clean"]
+    }, {
+      tags: [["genre", "blues"]],
+      phrases: ["dirty", "chunky"]
+    }, {
+      tags: [],
+      phrases: ["[:toneAdj]", "[id :toneAdj]"]
     }]
   },
-  benefitPlural: {
+  genreName: {
     groups: [{
-      tags: [],
-      phrases: ["ample options for external control"]
+      tags: [["genre", "rock"]],
+      phrases: ["rock"]
+    }, {
+      tags: [["genre", "jazz"]],
+      phrases: ["jazz"]
+    }, {
+      tags: [["genre", "blues"]],
+      phrases: ["blues"]
     }]
   },
-  soundModification: {
+  edit: {
     groups: [{
       tags: [],
-      phrases: ["creates the classically smoky Blues tone", "beefs up the low end and adds sustain"]
+      phrases: ["edit", "tweak", "change", "customize"]
+    }]
+  },
+  tapInto: {
+    groups: [{
+      tags: [],
+      phrases: ["tap into", "make use of", "dig into", "rock out with"]
+    }]
+  },
+  making: {
+    groups: [{
+      tags: [],
+      phrases: ["crafting", "making", "playing"]
+    }]
+  },
+  runOutOf: {
+    groups: [{
+      tags: [],
+      phrases: ["run out of", "be short of"]
+    }]
+  },
+  offers: {
+    groups: [{
+      tags: [],
+      phrases: ["offers", "provides", "gives you", "serves up"]
     }]
   }
 };
@@ -30244,7 +30334,14 @@ var _subtitle = _interopRequireDefault(require("./improvgrammar/subtitle.yaml"))
 
 var _desc = _interopRequireDefault(require("./improvgrammar/desc.yaml"));
 
+var _nouns = _interopRequireDefault(require("./improvgrammar/nouns.yaml"));
+
+var _adjsVerbs = _interopRequireDefault(require("./improvgrammar/adjsVerbs.yaml"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+;
+Object.assign(_desc.default, _nouns.default, _adjsVerbs.default);
 
 function dryness() {
   return function (group) {
@@ -30294,7 +30391,7 @@ function makeImprovGenerators(alea) {
     subGen: subGen
   };
 }
-},{"improv":"node_modules/improv/dist/index.js","./improvgrammar/subtitle.yaml":"src/improvgrammar/subtitle.yaml","./improvgrammar/desc.yaml":"src/improvgrammar/desc.yaml"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
+},{"improv":"node_modules/improv/dist/index.js","./improvgrammar/subtitle.yaml":"src/improvgrammar/subtitle.yaml","./improvgrammar/desc.yaml":"src/improvgrammar/desc.yaml","./improvgrammar/nouns.yaml":"src/improvgrammar/nouns.yaml","./improvgrammar/adjsVerbs.yaml":"src/improvgrammar/adjsVerbs.yaml"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => "%".concat(x.charCodeAt(0).toString(16).toUpperCase()));
@@ -31046,12 +31143,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 var _default = {
   setup: function setup() {
-    var parsedHash = _queryString.default.parse(window.location.hash);
-
     var seed = (0, _compositionApi.ref)(null);
     var pedal = (0, _compositionApi.ref)(null);
 
-    function derive() {
+    function derive(shouldSetHash) {
       var alea = new _alea.default(seed.value);
 
       var _makeImprovGenerators = (0, _makeImprovGenerators2.default)(alea),
@@ -31069,7 +31164,11 @@ var _default = {
           return s;
         })
       };
-      window.location.hash = "seed=".concat(seed.value);
+
+      if (shouldSetHash) {
+        window.location.hash = "seed=".concat(seed.value);
+      }
+
       console.log(model);
 
       for (var i = 0; i < 10; i++) {
@@ -31080,20 +31179,31 @@ var _default = {
     function travel() {
       seed.value = Date.now();
       console.log("Traveling to", seed.value);
-      derive();
+      derive(true);
     }
 
-    (0, _compositionApi.onMounted)(function () {
+    function reactToHash(parsedHash, shouldSetHash) {
       if (parsedHash.seed && !isNaN(parseInt(parsedHash.seed, 10))) {
         seed.value = parseInt(parsedHash.seed, 10);
         console.log("Set seed:", seed.value);
       }
 
       if (seed.value) {
-        derive();
+        derive(shouldSetHash);
+        return true;
       } else {
+        return false;
+      }
+    }
+
+    (0, _compositionApi.onMounted)(function () {
+      if (!reactToHash(_queryString.default.parse(window.location.hash), true)) {
         travel();
       }
+
+      window.onhashchange = function () {
+        reactToHash(_queryString.default.parse(window.location.hash), false);
+      };
     });
     return {
       seed: seed,
@@ -31243,7 +31353,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65358" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58200" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
