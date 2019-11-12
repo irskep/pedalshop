@@ -36,12 +36,10 @@ import queryString from 'query-string';
 
 export default {
   setup() {
-    const parsedHash = queryString.parse(window.location.hash);
-
     const seed = ref(null);
     const pedal = ref(null);
 
-    function derive() {
+    function derive(shouldSetHash) {
       const alea = new Alea(seed.value);
       const {descGen, subGen} = makeImprovGenerators(alea);
       const model = {};
@@ -53,7 +51,9 @@ export default {
         subtitle,
         texts: desc.split('\n\n').filter((s) => s),
       };
-      window.location.hash = `seed=${seed.value}`;
+      if (shouldSetHash) {
+        window.location.hash = `seed=${seed.value}`;
+      }
       console.log(model);
 
       for (let i=0; i<10; i++) {
@@ -64,19 +64,30 @@ export default {
     function travel() {
       seed.value = Date.now();
       console.log("Traveling to", seed.value);
-      derive();
+      derive(true);
     }
 
-    onMounted(() => {
+    function reactToHash(parsedHash, shouldSetHash) {
       if (parsedHash.seed && !isNaN(parseInt(parsedHash.seed, 10))) {
         seed.value = parseInt(parsedHash.seed, 10)
         console.log("Set seed:", seed.value);
       }
       if (seed.value) {
-        derive();
+        derive(shouldSetHash);
+        return true;
       } else {
+        return false;
+      }
+    }
+
+    onMounted(() => {
+      if (!reactToHash(queryString.parse(window.location.hash), true)) {
         travel();
       }
+
+      window.onhashchange = () => {
+        reactToHash(queryString.parse(window.location.hash), false);
+      };
     });
 
     return {

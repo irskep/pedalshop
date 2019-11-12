@@ -1,3 +1,11 @@
+stuff:
+  groups:
+    - tags: []
+      phrases:
+        - 'Blues Driver'
+        - 'Angry Charlie'
+        - 'Metal Zone'
+
 name:
   bind: true
   groups:
@@ -68,7 +76,7 @@ shortIdentifier:
         - '[#1-9]00'
         - '[#1-9]0[#1-9]'
 
-root:
+root2:
   groups:
     - tags: []
       phrases:
@@ -114,12 +122,13 @@ root:
           The [:shortname] features [:brand]'s innovative [:technology], which allows it to dynamically adapt to any register. That means you get [:toneCharacterNoun], [:toneCharacterNoun], and [:toneCharacterNoun] all across the fretboard, with [:superlative] dynamics.
           [:extra]
 
-root2:
+root:
   groups:
     - tags: []
       phrases:
         - >-
-          [:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create the [:shortname]. This versatile pedal packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.
+          The [:shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect].
+          [:extra]
 
 extra:
   groups:
@@ -173,6 +182,8 @@ vintage:
       phrases:
         - 'classic'
         - 'vintage'
+        - 'the most iconic'
+        - 'iconic'
 
 modern:
   groups:
@@ -226,6 +237,7 @@ packed:
         - 'sizzling'
         - 'loaded to the brim'
         - 'loaded'
+        - 'jam-packed'
 
 soundAdjective:
   groups:
@@ -549,6 +561,8 @@ oldEffect:
     - tags: [['purpose', 'tone', 'synth']]
       phrases:
         - 'synth simulation'
+        - 'synth sounds'
+        - "synth sounds of the '70s and '80s"
 #    - tags: [['purpose', 'tone', 'chorus']]
 #      phrases:
 #        - 'sounds'
@@ -586,6 +600,7 @@ newEffect:
     - tags: [['purpose', 'tone', 'synth']]
       phrases:
         - 'effect chains'
+        - 'synths made possible only by software'
 #    - tags: [['purpose', 'tone', 'chorus']]
 #      phrases:
 #        - 'Chorus'
