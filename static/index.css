@@ -169,8 +169,17 @@ article {
   align-self: flex-end;
 }
 
+/* foot switch */
+
 .Pusher {
   height: 6rem;
   background-color: var(--footContact);
   border-radius: 0.3rem;
+}
+
+.FootSwitchRow {
+  min-height: 4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

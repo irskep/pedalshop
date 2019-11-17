@@ -46,9 +46,17 @@
           v-bind:inputLabels="pedalWords.inputLabels"
           v-bind:outputLabels="pedalWords.outputLabels"></Ports>
 
-        <div class="Pusher">
-          <div class="Pusher__Inner">
-          </div>
+        <div v-if="footConfig === 'Pusher'" class="Pusher">
+          <div class="Pusher__Inner"></div>
+        </div>
+
+        <div v-if="footConfig === 'OneSwitch'" class="FootSwitchRow">
+          <FootSwitch v-bind:label="pedalWords.switchLabels[0]"></FootSwitch>
+        </div>
+
+        <div v-if="footConfig === 'TwoSwitch'" class="FootSwitchRow">
+          <FootSwitch v-bind:label="pedalWords.switchLabels[0]"></FootSwitch>
+          <FootSwitch v-bind:label="pedalWords.switchLabels[1]"></FootSwitch>
         </div>
     </div>
   </div>
@@ -61,6 +69,7 @@ import Alea from 'alea';
 import {choiceItem} from './util';
 import makeImprovGenerators from './makeImprovGenerators';
 
+import FootSwitch from './FootSwitch.vue';
 import Knob from './Knob.vue';
 import LED from './LED.vue';
 import Ports from './Ports.vue';
@@ -162,8 +171,16 @@ const knobConfigs = [
   'TriangleDown',
 ];
 
+const footConfigs = [
+  'Pusher',
+  'Pusher',
+  'OneSwitch',
+  'TwoSwitch',
+]
+
 export default {
   components: {
+    FootSwitch,
     Knob,
     LED,
     Ports,
@@ -197,6 +214,8 @@ export default {
     },
 
     ledColorNumber: function() { return this.getRandom(); },
+
+    footConfig: function() { return choiceItem(this.getRandom(), footConfigs); },
 
     knobConfigName: function() {
       return choiceItem(this.getRandom(), knobConfigs);

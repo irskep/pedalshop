@@ -37,14 +37,14 @@ switchLabel:
       phrases:
         - 'MIDS'
         - 'BYPASS'
-        - 'BYPASS/STOP'
+        - 'STOP'
         - 'TAP/LOOP'
-        - ''
-        - ' '
-        - '  '
-        - '   '
-        - '    '
-        - '     '
+        - '&nbsp;'
+        - '&nbsp; '
+        - '&nbsp;  '
+        - '&nbsp;   '
+        - '&nbsp;    '
+        - '&nbsp;     '
 
 output:
   groups:
