@@ -90,9 +90,9 @@ aficionado:
 purpose:
   bind: true
   groups:
-    - tags: [['purpose', 'looping']]
-      phrases:
-        - 'Looping'
+#    - tags: [['purpose', 'looping']]
+#      phrases:
+#        - 'Looping'
     # - tags: [['purpose', 'tone', 'mod']]
     #   phrases:
     #     - 'Modulation'
