@@ -29820,6 +29820,13 @@ module.exports = {
 };
 },{}],"src/improvgrammar/desc.yaml":[function(require,module,exports) {
 module.exports = {
+  price: {
+    bind: true,
+    groups: [{
+      tags: [],
+      phrases: ["$[#4-60]9.99"]
+    }]
+  },
   name: {
     bind: true,
     groups: [{
@@ -32898,6 +32905,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   components: {
     Gfx: _Gfx.default
@@ -32930,7 +32941,8 @@ var _default = {
         color: descGen.gen('color', model).toLowerCase(),
         texts: desc.split('\n\n').filter(function (s) {
           return s;
-        })
+        }),
+        price: descGen.gen('price', model)
       };
 
       if (shouldSetHash) {
@@ -32996,7 +33008,11 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", [
-    _c("nav", [_c("button", { on: { click: _vm.travel } }, [_vm._v("Next")])]),
+    _c("nav", [
+      _c("div", [_vm._v("Page " + _vm._s(_vm.seed) + " of ∞")]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.travel } }, [_vm._v("Next Product →")])
+    ]),
     _vm._v(" "),
     _vm.pedal
       ? _c(
@@ -33016,22 +33032,42 @@ exports.default = _default;
               _vm._v(_vm._s(_vm.pedal.brand))
             ]),
             _vm._v(" "),
-            _c("h1", [_vm._v(_vm._s(_vm.pedal.name))]),
+            _c("h1", { staticClass: "PedalName" }, [
+              _vm._v(_vm._s(_vm.pedal.name))
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "PedalPrice" }, [
+              _vm._v(_vm._s(_vm.pedal.price))
+            ]),
             _vm._v(" "),
             _c("h3", [_vm._v(_vm._s(_vm.pedal.subtitle))]),
             _vm._v(" "),
             _vm._l(_vm.pedal.texts, function(t, i) {
               return _c("p", { key: i }, [_vm._v(_vm._s(t))])
-            })
+            }),
+            _vm._v(" "),
+            _vm._m(0)
           ],
           2
         )
       : _vm._e(),
     _vm._v(" "),
-    _vm._m(0)
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "BuyButton" }, [
+      _c(
+        "a",
+        { attrs: { href: "https://quickfiction.bandcamp.com", target: "_" } },
+        [_vm._v("Buy Now")]
+      )
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -33137,7 +33173,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60249" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51547" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

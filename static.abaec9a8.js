@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./font/CooperHewitt-Book.woff":[["CooperHewitt-Book.c8ec6374.woff","static/font/CooperHewitt-Book.woff"],"static/font/CooperHewitt-Book.woff"],"./font/CooperHewitt-Medium.woff":[["CooperHewitt-Medium.885919f2.woff","static/font/CooperHewitt-Medium.woff"],"static/font/CooperHewitt-Medium.woff"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./font/CooperHewitt-Book.woff":[["CooperHewitt-Book.c8ec6374.woff","static/font/CooperHewitt-Book.woff"],"static/font/CooperHewitt-Book.woff"],"./font/CooperHewitt-Medium.woff":[["CooperHewitt-Medium.885919f2.woff","static/font/CooperHewitt-Medium.woff"],"static/font/CooperHewitt-Medium.woff"],"./font/CooperHewitt-Heavy.woff":[["CooperHewitt-Heavy.05d6c2db.woff","static/font/CooperHewitt-Heavy.woff"],"static/font/CooperHewitt-Heavy.woff"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60249" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51547" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
