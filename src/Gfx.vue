@@ -82,6 +82,42 @@ const textColorMap = {
   white: '#000000',
 };
 
+const knobColors = [
+  '#e84118',
+  '#ff5A24',
+  '#fbc531',
+  '#44bd32',
+  '#273c75',
+  '#8c7ae6',
+  '#FDA7DF',
+  '#111',
+  '#ffffff',
+];
+
+const knobColors2 = [
+  '#ff6138',
+  '#EE5A24',
+  '#ffe551',
+  '#64cd52',
+  '#475c95',
+  '#ac9aff',
+  '#Ffc7fF',
+  '#222',
+  '#f5f6fa',
+];
+
+const knobColorsTick = [
+  '#d1d8e0',
+  '#d1d8e0',
+  '#333',
+  '#d1d8e0',
+  '#d1d8e0',
+  '#d1d8e0',
+  '#333',
+  '#d1d8e0',
+  '#333',
+];
+
 const fontFamilies = [
   'Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif',
   'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif',
@@ -90,6 +126,16 @@ const fontFamilies = [
   'Consolas, "Andale Mono WT", "Andale Mono", "Menlo", "SF Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace',
   '"Cooper Hewitt", sans-serif',
   '"Cooper Hewitt Medium", sans-serif',
+];
+
+const fontSizes = [
+  '0.9rem',
+  '0.9rem',
+  '0.9rem',
+  '1.2rem',
+  '0.9rem',
+  '0.9rem',
+  '0.9rem',
 ];
 
 const flexJustifyContent = [
@@ -136,20 +182,22 @@ export default {
     },
 
     rawStyle: function() {
-      console.log(this);
+      const fontChoiceNumber = this.getRandom();
+      const knobChoiceNumber = this.getRandom();
       return `
         <style>
           .Pedal {
             --bg: ${colorMap[this.$props.color]};
             --textOnBg: ${textColorMap[this.$props.color]};
             --footContact: #2f3640;
-            --knob: #718093;
-            --knob2: #a5b1c2;
-            --knobTick: #d1d8e0;
+            --knob: ${choiceItem(knobChoiceNumber, knobColors)};
+            --knob2: ${choiceItem(knobChoiceNumber, knobColors2)};
+            --knobTick: ${choiceItem(knobChoiceNumber, knobColorsTick)};
             --bg2: #353b48;
             --textOnBg2: #ffffff;
 
-            --name-font: ${choiceItem(this.getRandom(), fontFamilies)};
+            --name-font: ${choiceItem(fontChoiceNumber, fontFamilies)};
+            --name-font-size: ${choiceItem(fontChoiceNumber, fontSizes)};
 
             --name-flex-justify-content: ${choiceItem(this.getRandom(), flexJustifyContent)};
             --name-flex-direction: ${choiceItem(this.getRandom(), flexDirectionRow)};

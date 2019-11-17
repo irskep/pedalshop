@@ -5,17 +5,18 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .Knob {
   position: relative;
 
   width: 1.8rem;
-  height: 2.1rem;
+  height: 2.0rem;
+  margin: 0 0.3rem;
 
   content: " ";
   background-color: black;
   border-radius: 1rem;
-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.66);
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.66);
 }
 
 .Knob::before {

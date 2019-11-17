@@ -87,7 +87,7 @@ article {
 .ThreeSectionStompbox {
   --outsidePadding: 0.4rem;
 
-  width: 10rem;
+  /* width: 10rem; */
   border: 0.5px solid rgba(0, 0, 0, 0.2);
   background-color: var(--bg);
   color: var(--textOnBg);
@@ -131,6 +131,10 @@ article {
   height: 2rem;
   display: flex;
   justify-content: space-around;
+}
+
+.Knobs__Pair .Knob {
+  margin: 0 1rem;
 }
 
 .Knobs__TriangleUp {

@@ -99,7 +99,7 @@
 .Socket {
   width: var(--socketWidth);
   height: 2rem;
-  background-color: black;
+  background-color: #2f3640;
   margin-bottom: 0.5rem;
 }
 
@@ -127,7 +127,7 @@
 
 .Ports__Inner__Name .Name {
   font-family: var(--name-font);
-  font-size: 0.9rem;
+  font-size: var(--name-font-size);
   display: flex;
   justify-content: var(--name-flex-justify-content);
   flex-direction: var(--name-flex-direction);
