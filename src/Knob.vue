@@ -26,7 +26,6 @@
 
   width: var(--knobSize);
   height: calc(var(--knobSize) * 1.11);
-  height: 2rem;
   margin: 0 0.3rem;
 
   background-color: black;
@@ -38,8 +37,8 @@
   content: " ";
   position: absolute;
 
-  width: 1.8rem;
-  height: 1.8rem;
+  width: var(--knobSize);
+  height: var(--knobSize);
   border-radius: 1rem;
   background-color: var(--knob);
   z-index: 1;
@@ -52,7 +51,7 @@
   left: calc(50% - 1px);
   top: 0;
   width: 2px;
-  height: 0.5rem;
+  height: calc(var(--knobSize) / 3.6);
   background-color: var(--knobTick);
   z-index: 3;
 }

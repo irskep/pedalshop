@@ -5,7 +5,7 @@
     <div class="ThreeSectionStompbox">
 
         <div class="Controls">
-          <div v-if="getRandom() > 0.5" class="CheckLED">
+          <div v-if="getRandom() > 0.3" class="CheckLED">
             <div class="Label">CHECK</div>
             <LED v-bind:randomNumber="ledColorNumber"></LED>
           </div>
@@ -13,27 +13,39 @@
           <div
               v-if="knobConfigName === 'StraightRow'" 
               class="Knobs__StraightRow">
-            <Knob v-bind:label="pedalWords.knobLabels[0]"></Knob>
-            <Knob v-bind:label="pedalWords.knobLabels[1]"></Knob>
-            <Knob v-bind:label="pedalWords.knobLabels[2]"></Knob>
-            <Knob v-bind:label="pedalWords.knobLabels[3]"></Knob>
+            <SomeControl
+              v-for="n in 4"
+              v-bind:key="n"
+              v-bind:randomNumber1="pedalWords.randomNumbers[n - 1]"
+              v-bind:randomNumber2="pedalWords.randomNumbers[n]"
+              v-bind:label="pedalWords.knobLabels[n-1]"></SomeControl>
           </div>
 
           <div v-if="knobConfigName === 'Pair'" class="Knobs__Pair">
-            <Knob v-bind:label="pedalWords.knobLabels[0]"></Knob>
-            <Knob v-bind:label="pedalWords.knobLabels[1]"></Knob>
+            <SomeControl
+              v-for="n in 2"
+              v-bind:key="n"
+              v-bind:randomNumber1="pedalWords.randomNumbers[n - 1]"
+              v-bind:randomNumber2="pedalWords.randomNumbers[n]"
+              v-bind:label="pedalWords.knobLabels[n-1]"></SomeControl>
           </div>
 
           <div v-if="knobConfigName === 'TriangleUp'" class="Knobs__TriangleUp">
-            <Knob v-bind:label="pedalWords.knobLabels[0]"></Knob>
-            <Knob v-bind:label="pedalWords.knobLabels[1]"></Knob>
-            <Knob v-bind:label="pedalWords.knobLabels[2]"></Knob>
+            <SomeControl
+              v-for="n in 3"
+              v-bind:key="n"
+              v-bind:randomNumber1="pedalWords.randomNumbers[n - 1]"
+              v-bind:randomNumber2="pedalWords.randomNumbers[n]"
+              v-bind:label="pedalWords.knobLabels[n-1]"></SomeControl>
           </div>
 
           <div v-if="knobConfigName === 'TriangleDown'" class="Knobs__TriangleDown">
-            <Knob v-bind:label="pedalWords.knobLabels[0]"></Knob>
-            <Knob v-bind:label="pedalWords.knobLabels[1]"></Knob>
-            <Knob v-bind:label="pedalWords.knobLabels[2]"></Knob>
+            <SomeControl
+              v-for="n in 3"
+              v-bind:key="n"
+              v-bind:randomNumber1="pedalWords.randomNumbers[n - 1]"
+              v-bind:randomNumber2="pedalWords.randomNumbers[n]"
+              v-bind:label="pedalWords.knobLabels[n-1]"></SomeControl>
           </div>
 
 
@@ -50,13 +62,19 @@
           <div class="Pusher__Inner"></div>
         </div>
 
-        <div v-if="footConfig === 'OneSwitch'" class="FootSwitchRow">
-          <FootSwitch v-bind:label="pedalWords.switchLabels[0]"></FootSwitch>
+        <div v-if="footConfig === 'OneSwitch'" class="FootSwitchRowSingle">
+          <FootSwitch
+            v-bind:appearance="footSwitchStyle"
+            v-bind:label="pedalWords.switchLabels[0]"></FootSwitch>
         </div>
 
-        <div v-if="footConfig === 'TwoSwitch'" class="FootSwitchRow">
-          <FootSwitch v-bind:label="pedalWords.switchLabels[0]"></FootSwitch>
-          <FootSwitch v-bind:label="pedalWords.switchLabels[1]"></FootSwitch>
+        <div v-if="footConfig === 'MultiSwitch'" class="FootSwitchRow">
+          <FootSwitch
+            v-bind:appearance="footSwitchStyle"
+            v-bind:label="pedalWords.switchLabels[0]"></FootSwitch>
+          <FootSwitch
+            v-bind:appearance="footSwitchStyle"
+            v-bind:label="pedalWords.switchLabels[1]"></FootSwitch>
         </div>
     </div>
   </div>
@@ -73,6 +91,8 @@ import FootSwitch from './FootSwitch.vue';
 import Knob from './Knob.vue';
 import LED from './LED.vue';
 import Ports from './Ports.vue';
+import FingerSwitch from './FingerSwitch.vue';
+import SomeControl from './SomeControl.vue';
 
 const colorMap = {
   red: '#e84118',
@@ -112,7 +132,7 @@ const knobColors = [
 
 const knobColors2 = [
   '#ff6138',
-  '#EE5A24',
+  '#dE4A24',
   '#ffe551',
   '#64cd52',
   '#475c95',
@@ -175,15 +195,22 @@ const footConfigs = [
   'Pusher',
   'Pusher',
   'OneSwitch',
-  'TwoSwitch',
-]
+  'MultiSwitch',
+];
+
+const footSwitchStyles = [
+  'hex',
+  'circle',
+];
 
 export default {
   components: {
+    FingerSwitch,
     FootSwitch,
     Knob,
     LED,
     Ports,
+    SomeControl,
   },
 
   props: [
@@ -208,12 +235,16 @@ export default {
         switchLabels: [...Array(5)].map(() => pedalWordsGen.gen('switchLabel', model)),
         outputLabels: pedalWordsGen.gen('output', model).split('/'),
         inputLabels: pedalWordsGen.gen('input', model).split('/'),
+
+        randomNumbers: [...Array(20)].map(() => this.getRandom()),
       };
       console.log(w);
       return w;
     },
 
     ledColorNumber: function() { return this.getRandom(); },
+
+    footSwitchStyle: function() { return choiceItem(this.getRandom(), footSwitchStyles); },
 
     footConfig: function() { return choiceItem(this.getRandom(), footConfigs); },
 

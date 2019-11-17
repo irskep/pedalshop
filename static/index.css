@@ -125,6 +125,7 @@ article {
   min-height: 2rem;
   display: flex;
   justify-content: space-around;
+  align-items: center;;
 }
 
 .Knobs__Pair {
@@ -177,9 +178,16 @@ article {
   border-radius: 0.3rem;
 }
 
-.FootSwitchRow {
+.FootSwitchSingle {
   min-height: 4rem;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+
+.FootSwitchRow {
+  min-height: 4rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
