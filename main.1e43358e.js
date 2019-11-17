@@ -32168,7 +32168,7 @@ var _default = {
       return 1 + Math.floor(this.getRandom() * 6);
     },
     numFootSwitches: function numFootSwitches() {
-      return (0, _util.choiceItem)(this.getRandom(), [1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4]);
+      return (0, _util.choiceItem)(this.getRandom(), [2, 2, 2, 3, 3, 3, 4]);
     },
     footSwitchStyle: function footSwitchStyle() {
       return (0, _util.choiceItem)(this.getRandom(), footSwitchStyles);
@@ -33173,7 +33173,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51547" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57288" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

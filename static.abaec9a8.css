@@ -121,7 +121,7 @@ h3.PedalPrice, .BuyButton a {
     padding: 0 2rem;
   }
 
-  article > h1, article > h2 {
+  article > h1, article > h2, h3.PedalPrice {
     text-align: left !important;
   }
 
@@ -130,12 +130,9 @@ h3.PedalPrice, .BuyButton a {
   }
 }
 
-article > h1, article > h2 {
-  text-align: center;
-}
-
 main {
   max-width: 28rem;
+  padding: 0 1rem;
   margin: auto;
 }
 
