@@ -54,6 +54,9 @@
 <style scoped>
 .Ports {
   font-size: 0.7rem;
+  position: relative;
+
+  --socketWidth: 0.3rem;
 }
 
 .Ports__Inner__ActualPorts {
@@ -61,14 +64,43 @@
   justify-content: space-between;
 }
 
-.Ports .Left .Row {
+.Left .Row {
+  position: relative;
   display: flex;
   flex-direction: row;
 }
 
-.Ports .Right .Row {
+.Right .Row {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
+}
+
+.Left .Outside {
+  position: absolute;
+  top: -1rem;
+  right: calc(100% + var(--outsidePadding) + var(--socketWidth));
+  width: 0;
+  overflow: visible;
+}
+
+.Right .Outside {
+  position: absolute;
+  top: -1rem;
+  left: calc(100% + var(--outsidePadding));
+  width: 0;
+  overflow: visible;
+}
+
+.Left .Socket {
+  margin-left: calc(-var(--socketWidth));
+}
+
+.Socket {
+  width: var(--socketWidth);
+  height: 2rem;
+  background-color: black;
+  margin-bottom: 0.5rem;
 }
 
 .PortName, .RightArrow, .LeftArrow {
@@ -95,7 +127,7 @@
 
 .Ports__Inner__Name .Name {
   font-family: var(--name-font);
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: flex;
   justify-content: var(--name-flex-justify-content);
   flex-direction: var(--name-flex-direction);

@@ -16,6 +16,10 @@ html {
   line-height: 1.4em;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 main {
   max-width: 28rem;
   margin: auto;
@@ -81,13 +85,15 @@ article {
 }
 
 .ThreeSectionStompbox {
+  --outsidePadding: 0.4rem;
+
   width: 10rem;
   border: 0.5px solid rgba(0, 0, 0, 0.2);
   background-color: var(--bg);
   color: var(--textOnBg);
 
   border-radius: 0.3rem;
-  padding: 0.4rem;
+  padding: var(--outsidePadding);
 }
 
 .Controls {
@@ -115,10 +121,48 @@ article {
   padding-bottom: 0.5rem;
 }
 
-.StraightRowOfKnobs {
+.Knobs__StraightRow {
   height: 2rem;
   display: flex;
   justify-content: space-around;
+}
+
+.Knobs__Pair {
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Knobs__TriangleUp {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.Knobs__TriangleUp > * {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.Knobs__TriangleUp > *:nth-child(2) {
+  align-self: flex-start;
+}
+
+.Knobs__TriangleDown {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.Knobs__TriangleDown > * {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.Knobs__TriangleDown > *:nth-child(2) {
+  align-self: flex-end;
 }
 
 .Pusher {

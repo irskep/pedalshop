@@ -6,3 +6,91 @@ knobLabel:
         - 'FEEDBACK'
         - 'TIME'
         - 'CHECK'
+        - 'DRY'
+        - 'VOL'
+        - 'SENS'
+        - 'CTRL'
+        - 'BLEND'
+        - 'SHIFT'
+        - 'FX LVL'
+        - 'TIME'
+        - 'TONE'
+        - 'DRIVE'
+        - 'FILTER'
+        - 'ATTACK'
+        - 'DECAY'
+        - 'SUSTAIN'
+        - 'GATE'
+        - 'MIDS LEV'
+        - 'MIDS FREQ'
+
+switchLabel:
+  groups:
+    - tags: []
+      phrases:
+        - 'MIDS'
+        - 'BYPASS'
+        - 'BYPASS/STOP'
+        - 'TAP/LOOP'
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+
+output:
+  groups:
+    - tags: []
+      phrases:
+        - '[:outputAlways]'
+        - '[:outputAlways]'
+        - '[:outputAlways]/[:outputExtra]'
+        - '[:outputAlways]/[:outputExtra]/[:outputExtra]'
+        - '[:outputExtra]/[:outputAlways]'
+        - '[:outputExtra]/[:outputExtra]/[:outputAlways]'
+      
+outputAlways:
+  groups:
+    - tags: []
+      phrases:
+        - 'OUTPUT A\n(MONO)/OUTPUT B'
+        - 'OUTPUT'
+      
+outputExtra:
+  groups:
+    - tags: []
+      phrases:
+        - 'SEND'
+        - 'RETURN'
+        - 'EXP'
+
+input:
+  groups:
+    - tags: []
+      phrases:
+        - '[:inputAlways]'
+        - '[:inputAlways]/[:inputExtra]'
+        - '[:inputExtra]/[:inputAlways]'
+
+inputAlways:
+  groups:
+    - tags: []
+      phrases:
+        - 'INPUT'
+        - 'INPUT'
+        - 'INPUT'
+        - 'INPUT'
+        - 'INPUT A/INPUT B'
+        - 'INPUT A\n(MONO)/INPUT B'
+        
+inputExtra:
+  groups:
+    - tags: []
+      phrases:
+        - 'INPUT A/INPUT B'
+        - 'INPUT A\n(MONO)/INPUT B'
+        - 'EXP/CTRL'
+        - 'TEMPO/EXP'
+        - 'EXP'
+        - 'REMOTE'

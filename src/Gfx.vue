@@ -10,12 +10,32 @@
             <LED v-bind:randomNumber="ledColorNumber"></LED>
           </div>
 
-          <div class="StraightRowOfKnobs">
+          <div
+              v-if="knobConfigName === 'StraightRow'" 
+              class="Knobs__StraightRow">
             <Knob></Knob>
             <Knob></Knob>
             <Knob></Knob>
             <Knob></Knob>
           </div>
+
+          <div v-if="knobConfigName === 'Pair'" class="Knobs__Pair">
+            <Knob></Knob>
+            <Knob></Knob>
+          </div>
+
+          <div v-if="knobConfigName === 'TriangleUp'" class="Knobs__TriangleUp">
+            <Knob></Knob>
+            <Knob></Knob>
+            <Knob></Knob>
+          </div>
+
+          <div v-if="knobConfigName === 'TriangleDown'" class="Knobs__TriangleDown">
+            <Knob></Knob>
+            <Knob></Knob>
+            <Knob></Knob>
+          </div>
+
 
           <div class="Controls__Spacer"></div>
         </div>
@@ -46,7 +66,7 @@ const colorMap = {
   blue: '#273c75',
   purple: '#8c7ae6',
   pink: '#FDA7DF',
-  black: '#333',
+  black: '#111',
   white: '#f5f6fa',
 };
 
@@ -82,6 +102,13 @@ const flexDirectionRow = [
   'row-reverse',
 ];
 
+const knobConfigs = [
+  'StraightRow',
+  'Pair',
+  'TriangleUp',
+  'TriangleDown',
+];
+
 export default {
   components: {
     Knob,
@@ -103,7 +130,10 @@ export default {
     },
 
     ledColorNumber: function() { return this.getRandom(); },
-    knobConfigNumber: function() { return this.getRandom(); },
+
+    knobConfigName: function() {
+      return choiceItem(this.getRandom(), knobConfigs);
+    },
 
     rawStyle: function() {
       console.log(this);
