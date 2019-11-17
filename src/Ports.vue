@@ -79,7 +79,6 @@
   position: absolute;
   top: -1rem;
   right: calc(100% + 0.4rem);
-  margin-right: var(--socketWidth);
   width: 0;
   overflow: visible;
 }
