@@ -1,7 +1,8 @@
 <template>
   <main>
     <nav>
-      <button @click="travel">Next</button>
+      <div>Page {{ seed }} of ∞</div>
+      <button @click="travel">Next Product &rarr;</button>
     </nav>
 
     <article v-if="pedal">
@@ -14,10 +15,13 @@
       ></Gfx>
 
       <h2 class="Brand">{{ pedal.brand }}</h2>
-      <h1>{{ pedal.name }}</h1>
+      <h1 class="PedalName">{{ pedal.name }}</h1>
+      <h3 class="PedalPrice">{{ pedal.price }}</h3>
 
       <h3>{{ pedal.subtitle }}</h3>
       <p v-for="(t, i) in pedal.texts" v-bind:key="i">{{ t }}</p>
+
+      <div class="BuyButton"><a href="https://quickfiction.bandcamp.com" target="_">Buy Now</a></div>
     </article>
 
     <footer>
@@ -75,6 +79,7 @@ export default {
         purpose: subGen.gen('purpose', model),
         color: descGen.gen('color', model).toLowerCase(),
         texts: desc.split('\n\n').filter((s) => s),
+        price: descGen.gen('price', model),
       };
       if (shouldSetHash) {
         window.location.hash = `seed=${seed.value}`;
