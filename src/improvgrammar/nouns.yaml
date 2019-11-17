@@ -1,13 +1,44 @@
 ### SIMPLE NOUNS ###
 
+purposeNoun:
+  bind: true
+  groups:
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'looping'
+    - tags: [['purpose', 'tone', 'reverb']]
+      phrases:
+        - 'reverb'
+    - tags: [['purpose', 'tone', 'delay']]
+      phrases:
+        - 'delay'
+    - tags: [['purpose', 'tone', 'eq']]
+      phrases:
+        - 'EQ'
+    - tags: [['purpose', 'tone', 'synth']]
+      phrases:
+        - 'synth sounds'
+    - tags: [['purpose', 'tone', 'chorus']]
+      phrases:
+        - 'chorus effects'
+    - tags: [['purpose', 'tone', 'vibrato']]
+      phrases:
+        - 'vibrato effects'
+    - tags: [['purpose', 'tone', 'distortion']]
+      phrases:
+        - 'distortion'
+    - tags: [['purpose', 'tone', 'noise']]
+      phrases:
+        - 'noise suppression'
+
 nameOfMusician:
   groups:
     - tags: []
       phrases:
         - 'Santana'
-        - 'Hendrix'
-        - 'Page'
-        - 'Yankovic'
+        - 'Jimi Hendrix'
+        - 'Jimmy Page'
+        - 'Al Yankovic'
         - 'Steve Vai'
 
 subItems:
@@ -17,6 +48,7 @@ subItems:
       phrases:
         - 'presets'
         - 'effects'
+        - 'effect types'
         - 'modes'
         - 'settings'
     - tags: [['purpose', 'tone', 'reverb']]
@@ -62,7 +94,7 @@ effectName2:
         - 'Precision'
         - 'Longhorn'
 
-benefitSingularOrPlural:
+benefit:
   groups:
     - tags: []
       phrases:
@@ -81,6 +113,8 @@ benefitSingular:
         - 'serial [#2-12]-track operation'
         - 'high-quality performance'
         - 'a clean boost'
+        - 'razor-sharp precision'
+        - "[:brand]'s innovative Multi-dimensional Processing technology"
     - tags: [['purpose', 'looping']]
       phrases:
         - 'unlimited overdubbing'
@@ -88,11 +122,17 @@ benefitSingular:
       phrases:
         - 'edge-of-breakup, amp-style grit'
         - "'80s-style face-melting distortion"
+    - tags: [['purpose', 'tone', 'reverb']]
+      phrases:
+        - 'studio-grade, hall, and plate algorithms'
+        - 'vintage-style spring reverb'
+        - 'modern-sounding textures'
 
 benefitPlural:
   groups:
     - tags: []
       phrases:
+        - 'comprehensive tone-shaping controls'
         - 'ample options for external control'
         - 'boosted power rails'
         - '[:superlative] headroom and definition'
@@ -103,8 +143,9 @@ soundModification:
       phrases:
         - 'creates the classically smoky Blues tone'
         - 'beefs up the low end and adds sustain'
+        - 'sends single notes soaring into the stratosphere with razor-sharp precision'
 
-pedalSynonym:
+pedal:
   groups:
     - tags: []
       phrases:
@@ -112,7 +153,15 @@ pedalSynonym:
         - 'effects pedal'
         - 'stomp box'
 
-pedal:
+pedals:
+  groups:
+    - tags: []
+      phrases:
+        - 'pedals'
+        - 'effects pedals'
+        - 'stomp boxes'
+
+pedalAlternative:
   groups:
     - tags: []
       phrases:
@@ -145,6 +194,7 @@ strangeEffectName:
       phrases:
         - 'shimmer'
         - 'warble'
+        - 'pulse'
 
 soundQuality:
   groups:
@@ -233,12 +283,8 @@ toneAdjNoun:
         - 'note definition'
         - 'control'
         - 'smoothness'
-
-technology:
-  groups:
-    - tags: []
-      phrases:
-        - 'Multi-dimensional Processing technology'
+        - 'grit'
+        - 'edge'
 
 ### INTERESTING NOUNS ###
 
@@ -264,16 +310,6 @@ units:
         - 'types'
         - 'levels'
         - 'layers'
-
-# unused?
-
-flavors:
-  groups:
-    - tags: [['purpose', 'tone', 'reverb']]
-      phrases:
-        - 'studio-grade, hall, and plate algorithms'
-        - 'vintage-style spring reverb'
-        - 'modern-sounding textures'
 
 oomphs:
   groups:

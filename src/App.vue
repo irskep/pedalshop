@@ -5,6 +5,7 @@
     </nav>
 
     <article v-if="pedal">
+      <h2 class="Brand">{{ pedal.brand }}</h2>
       <h1>{{ pedal.name }}</h1>
       <h3>{{ pedal.subtitle }}</h3>
       <p v-for="(t, i) in pedal.texts" v-bind:key="i">{{ t }}</p>
@@ -49,6 +50,7 @@ export default {
       pedal.value = {
         name,
         subtitle,
+        brand: descGen.gen('brand', model),
         texts: desc.split('\n\n').filter((s) => s),
       };
       if (shouldSetHash) {
@@ -56,9 +58,9 @@ export default {
       }
       console.log(model);
 
-      for (let i=0; i<10; i++) {
-        console.log(descGen.gen('name'));
-      }
+      // for (let i=0; i<10; i++) {
+      //   console.log(descGen.gen('name'));
+      // }
     }
 
     function travel() {

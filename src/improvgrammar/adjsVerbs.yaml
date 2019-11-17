@@ -15,6 +15,7 @@ superlative:
         - 'superior'
         - 'awesome'
         - 'legendary'
+        - 'glorious'
 
 vintage:
   groups:
@@ -37,6 +38,7 @@ creative:
       phrases:
         - 'creative'
         - 'fun'
+        - 'comprehensive'
 
 enticing:
   groups:
@@ -148,6 +150,12 @@ toneAdj:
         - 'dirty'
         - 'chunky'
         - 'spacey'
+        - 'singing'
+        - 'raunchy'
+        - 'ratty'
+        - 'punchy'
+        - 'meaty'
+        - 'thick'
 
 genreAdjective:
   groups:
@@ -212,7 +220,6 @@ making:
     - tags: []
       phrases:
         - 'crafting'
-        - 'making'
         - 'playing'
 
 runOutOf:

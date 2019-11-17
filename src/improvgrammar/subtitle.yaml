@@ -8,6 +8,19 @@ root:
         - '[:adjective] [:purpose] [:noun]'
         - '[:packed] with [:superlative] [:purpose] [:options]'
         - '[:purpose] for the Tone [:aficionado]'
+        - "[:brand]'s Most [:superlative] [:purpose] [:noun]"
+        - 'Your Always-on [:purpose] [:pedal]'
+        - 'Time-tested [:purpose], Upgraded Tone'
+        - 'Beyond [:classic] [:purpose]'
+        - '[:superlative] [:purpose]'
+        - '[:versatile] [:purpose] [:pedal]'
+
+versatile:
+  groups:
+    - tags: []
+      phrases:
+        - 'Versatile'
+        - 'Flexible'
 
 packed:
   groups:
@@ -32,6 +45,8 @@ superlative:
         - 'Serious'
         - 'Elite'
         - 'Top-tier'
+        - 'Powerful'
+        - 'Iconic'
 
 options:
   groups:
@@ -103,6 +118,22 @@ purpose:
     - tags: [['purpose', 'tone', 'noise']]
       phrases:
         - 'Noise Suppression'
+
+pedal:
+  groups:
+    - tags: []
+      phrases:
+        - 'Pedal'
+        - 'Effects Pedal'
+        - 'Stompbox'
+
+classic:
+  groups:
+    - tags: []
+      phrases:
+        - 'Vintage'
+        - 'Classic'
+        - 'Standard'
 
 noun:
   groups:

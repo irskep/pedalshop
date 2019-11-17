@@ -26,7 +26,23 @@ const builtins = {
     return str.toLocaleLowerCase();
   },
   oldify (str) {
-    return str.slice(1);
+    const spaceSplits = str.split(' ');
+    const dashSplits = str.split('-');
+    const v2Words = [
+      'V2',
+      '+',
+    ];
+    if (spaceSplits.length > 1) {
+      if (v2Words.indexOf(spaceSplits[spaceSplits.length - 1]) !== -1) {
+        return spaceSplits.slice(0, spaceSplits.length - 1).join(' ');
+      } else {
+        return spaceSplits.slice(1).join(' ');
+      }
+    } else if (dashSplits.length > 1) {
+      return str.slice(1);
+    } else {
+      return str.slice(1);
+    }
   },
   id: (str) => str,
 };
