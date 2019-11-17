@@ -67,130 +67,47 @@
   </div>
 </template>
 
-<style scoped>
-
-.Pedal {
-  display: flex;
-}
-
-.ThreeSectionStompbox {
-  width: 10rem;
-  background-color: var(--bg);
-  color: var(--textOnBg);
-
-  border-radius: 0.3rem;
-  padding: 0.4rem;
-}
-
-.Controls {
-  background-color: var(--bg2);
-  padding: 0.4rem;
-  border-radius: 0.2rem;
-  margin-bottom: 0.4rem;
-  min-height: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.StraightRowOfKnobs {
-  height: 2rem;
-  display: flex;
-  justify-content: space-around;
-}
-
-.Knob {
-  position: relative;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 1rem;
-  content: " ";
-  background-color: var(--knob);
-}
-
-.Knob::before {
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  left: 15%;
-  top: 15%;
-  background-color: var(--knob2);
-  content: " ";
-  border-radius: 100%;
-  z-index: 2;
-}
-
-.Knob::after {
-  position: absolute;
-  left: 50%;
-  width: 1px;
-  height: 1rem;
-  background-color: var(--knobTick);
-  content: " ";
-  z-index: 1;
-}
-
-.Ports__Inner {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.7rem;
-}
-
-.Ports .Left .Row {
-  display: flex;
-  flex-direction: row;
-}
-
-.Ports .Right .Row {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.PortName, .RightArrow, .LeftArrow {
-  display: inline;
-}
-
-.LeftArrow::after {
-  display: inline;
-  content: "←"
-}
-
-.RightArrow::after {
-  display: inline;
-  content: "→"
-}
-
-.Name {
-
-}
-
-.Pusher {
-  height: 6rem;
-  background-color: var(--footContact);
-  border-radius: 0.3rem;
-}
-</style>
-
 <script>
-export default {
-  props: ['getRandom', 'name'],
+import { ref, computed, onMounted, onBeforeUpdate } from '@vue/composition-api';
+import Alea from 'alea';
+import {choiceItem} from './util.js';
 
-  setup() {
-    return {
-      // colors: {
-      //   'bg': '#fc5c65',
-      //   'textOnBg': '#d1d8e0',
-      //   'footContact': '#4b6584',
-      //   'knob': '#3867d6',
-      //   'knob2': '#a5b1c2',
-      //   'knobTick': '#d1d8e0',
-      //   'bg2': '#8854d0',
-      //   'textOnBg2': '#ffffff',
-      // },
-      rawStyle: `
+const colorMap = {
+  red: '#e84118',
+  orange: '#EE5A24',
+  yellow: '#fbc531',
+  green: '#44bd32',
+  blue: '#273c75',
+  purple: '#8c7ae6',
+  pink: '#FDA7DF',
+  black: '#333',
+  white: '#f5f6fa',
+};
+
+const fontFamilies = [
+  'Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif',
+  'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif',
+  '"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif',
+  'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif',
+  'Consolas, "Andale Mono WT", "Andale Mono", "Menlo", "SF Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace',
+  '"Cooper Hewitt", sans-serif',
+  '"Cooper Hewitt Medium", sans-serif',
+]
+
+export default {
+  props: ['aleaSavedState', 'name', 'color'],
+
+  computed: {
+    getRandom: function() {
+      return Alea.importState(this.$props.aleaSavedState);
+    },
+
+    rawStyle: function() {
+      console.log(this);
+      return `
         <style>
           .Pedal {
-            --bg: #e84118;
+            --bg: ${colorMap[this.$props.color]};
             --textOnBg: #ffffff;
             --footContact: #2f3640;
             --knob: #718093;
@@ -198,10 +115,17 @@ export default {
             --knobTick: #d1d8e0;
             --bg2: #353b48;
             --textOnBg2: #ffffff;
+
+            --name-font: ${choiceItem(this.getRandom(), fontFamilies)};
           }
         </style>
-      `
+      `;
     }
+  },
+
+  setup() {
+    return {
+    };
   }
 }
 </script>

@@ -9,8 +9,9 @@
       <h1>{{ pedal.name }}</h1>
 
       <Gfx
-        v-bind:getRandom="getRandom"
+        v-bind:aleaSavedState="aleaSavedState"
         v-bind:name="pedal.name"
+        v-bind:color="pedal.color"
       ></Gfx>
 
       <h3>{{ pedal.subtitle }}</h3>
@@ -68,6 +69,7 @@ export default {
         name,
         subtitle,
         brand,
+        color: descGen.gen('color', model).toLowerCase(),
         texts: desc.split('\n\n').filter((s) => s),
       };
       if (shouldSetHash) {
@@ -117,7 +119,7 @@ export default {
       seed,
       pedal,
       travel,
-      getRandom: computed(() => _alea),
+      aleaSavedState,
     }
   }
 }

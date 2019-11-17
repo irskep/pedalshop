@@ -11,7 +11,7 @@
 /* layout */
 
 html {
-  font-family: "Cooper Hewitt", serif;
+  font-family: "Cooper Hewitt", sans-serif;
   font-size: 1.2rem;
   line-height: 1.4em;
 }
@@ -65,4 +65,111 @@ article {
   margin-bottom: -1.5rem;
   font-style: italic;
   font-size: 1.5rem;
+}
+
+/* custom: pedal */
+
+.Pedal {
+  display: flex;
+}
+
+.ThreeSectionStompbox {
+  width: 10rem;
+  background-color: var(--bg);
+  color: var(--textOnBg);
+
+  border-radius: 0.3rem;
+  padding: 0.4rem;
+}
+
+.Controls {
+  background-color: var(--bg2);
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+  margin-bottom: 0.4rem;
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.StraightRowOfKnobs {
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Knob {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  content: " ";
+  background-color: var(--knob);
+}
+
+.Knob::before {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  left: 15%;
+  top: 15%;
+  background-color: var(--knob2);
+  content: " ";
+  border-radius: 100%;
+  z-index: 2;
+}
+
+.Knob::after {
+  position: absolute;
+  left: calc(50% - 0.5px);
+  width: 1px;
+  height: 1rem;
+  background-color: var(--knobTick);
+  content: " ";
+  z-index: 1;
+}
+
+.Ports__Inner {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+}
+
+.Ports .Left .Row {
+  display: flex;
+  flex-direction: row;
+}
+
+.Ports .Right .Row {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.PortName, .RightArrow, .LeftArrow {
+  display: inline;
+}
+
+.RightArrow { margin-left: 0.3rem; }
+.LeftArrow { margin-right: 0.3rem; }
+
+.LeftArrow::after {
+  display: inline;
+  content: "←"
+}
+
+.RightArrow::after {
+  display: inline;
+  content: "→"
+}
+
+.Name {
+  min-height: 3rem;
+  font-family: var(--name-font);
+}
+
+.Pusher {
+  height: 6rem;
+  background-color: var(--footContact);
+  border-radius: 0.3rem;
 }

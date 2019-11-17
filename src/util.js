@@ -2,6 +2,11 @@
 export function choiceIndex(randVal, outOf) {
   return Math.floor(randVal * outOf);
 }
+
+export function choiceItem(randVal, list) {
+  return list[choiceIndex(randVal, list.length)];
+}
+
 export function star2tags(starSystem) {
   if (starSystem.stars.length == 1) {
     return [

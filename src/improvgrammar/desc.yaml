@@ -72,6 +72,7 @@ v2:
         - 'Deluxe'
     
 color:
+  bind: true
   groups:
     - tags: []
       phrases:
@@ -81,7 +82,7 @@ color:
         - 'Green'
         - 'Blue'
         - 'Purple'
-        - 'Magenta'
+        - 'Pink'
         - 'Black'
         - 'White'
         
