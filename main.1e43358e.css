@@ -3,6 +3,14 @@
   align-items: center;
   flex-direction: column;
   --knobSize: 1.8rem;
+
+  margin: 0 2rem;
+}
+.FootSwitch[data-v-51478c]:first-child {
+  margin-left: 0;
+}
+.FootSwitch[data-v-51478c]:last-child {
+  margin-right: 0;
 }
 .FootSwitchLabel[data-v-51478c] {
   font-size: 0.5rem;

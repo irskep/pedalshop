@@ -30462,13 +30462,13 @@ module.exports = {
   knobLabel: {
     groups: [{
       tags: [],
-      phrases: ["E.LEVEL", "FEEDBK", "TIME", "CHECK", "DRY", "VOL", "SENS", "CTRL", "BLEND", "SHIFT", "FX LVL", "TIME", "TONE", "DRIVE", "FILTER", "ATTACK", "DECAY", "SUSTAIN", "GATE", "MIDS LEV", "MIDS FREQ", "RATE", "DEPTH", "SPEED", "DELAY", "WIDTH", "MIX", "&nbsp;"]
+      phrases: ["E.LEVEL", "FEEDBK", "TIME", "CHECK", "DRY", "VOL", "SENS", "CTRL", "BLEND", "SHIFT", "FX LVL", "TIME", "TONE", "DRIVE", "FILTER", "ATTACK", "DECAY", "SUSTAIN", "GATE", "MIDS LEV", "MIDS FREQ", "RATE", "DEPTH", "SPEED", "DELAY", "WIDTH", "MIX", "CTRL 1", "CTRL 2", "&nbsp;"]
     }]
   },
   switchLabel: {
     groups: [{
       tags: [],
-      phrases: ["MIDS", "BYPASS", "STOP", "TAP/LOOP", "&nbsp;", "&nbsp; ", "&nbsp;  ", "&nbsp;   ", "&nbsp;    ", "&nbsp;     "]
+      phrases: ["MIDS", "BYPASS", "STOP", "TAP/LOOP", "&nbsp;", "TAP"]
     }]
   },
   output: {
@@ -30971,6 +30971,16 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32104,6 +32114,8 @@ var flexDirectionRow = ['row', 'row-reverse'];
 var knobConfigs = ['StraightRow', 'Pair', 'TriangleUp', 'TriangleDown', 'NByTwo'];
 var footConfigs = ['Pusher', 'Pusher', 'OneSwitch', 'MultiSwitch'];
 var footSwitchStyles = ['hex', 'circle'];
+var bg2Colors = ['#353b48', '#dadadf', 'rgba(0, 0, 0, 0.0)'];
+var bg2TextColors = ['#fff', '#000', 'var(--textOnBg)'];
 var _default = {
   components: {
     FingerSwitch: _FingerSwitch.default,
@@ -32148,6 +32160,9 @@ var _default = {
     numAcross: function numAcross() {
       return 1 + Math.floor(this.getRandom() * 6);
     },
+    numFootSwitches: function numFootSwitches() {
+      return (0, _util.choiceItem)(this.getRandom(), [1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4]);
+    },
     footSwitchStyle: function footSwitchStyle() {
       return (0, _util.choiceItem)(this.getRandom(), footSwitchStyles);
     },
@@ -32160,7 +32175,8 @@ var _default = {
     rawStyle: function rawStyle() {
       var fontChoiceNumber = this.getRandom();
       var knobChoiceNumber = this.getRandom();
-      return "\n        <style>\n          .Pedal {\n            --bg: ".concat(colorMap[this.$props.color], ";\n            --textOnBg: ").concat(textColorMap[this.$props.color], ";\n            --footContact: #2f3640;\n            --knob: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors), ";\n            --knob2: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors2), ";\n            --knobTick: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColorsTick), ";\n            --bg2: #353b48;\n            --textOnBg2: #ffffff;\n\n            --name-font: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontFamilies), ";\n            --name-font-size: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontSizes), ";\n\n            --name-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name-flex-direction: ").concat((0, _util.choiceItem)(this.getRandom(), flexDirectionRow), ";\n            --name2-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name2-flex-direction: ").concat((0, _util.choiceItem)(this.getRandom(), flexDirectionRow), ";\n          }\n        </style>\n      ");
+      var bg2ChoiceNumber = this.getRandom();
+      return "\n        <style>\n          .Pedal {\n            --bg: ".concat(colorMap[this.$props.color], ";\n            --textOnBg: ").concat(textColorMap[this.$props.color], ";\n            --footContact: #2f3640;\n            --knob: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors), ";\n            --knob2: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors2), ";\n            --knobTick: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColorsTick), ";\n            --bg2: ").concat((0, _util.choiceItem)(bg2ChoiceNumber, bg2Colors), ";\n            --textOnBg2: ").concat((0, _util.choiceItem)(bg2ChoiceNumber, bg2TextColors), ";\n\n            --name-font: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontFamilies), ";\n            --name-font-size: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontSizes), ";\n\n            --name-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name-flex-direction: 'row';\n            --name2-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name2-flex-direction: ").concat((0, _util.choiceItem)(this.getRandom(), flexDirectionRow), ";\n          }\n        </style>\n      ");
     }
   },
   setup: function setup() {
@@ -32349,21 +32365,15 @@ exports.default = _default;
           ? _c(
               "div",
               { staticClass: "FootSwitchRow" },
-              [
-                _c("FootSwitch", {
+              _vm._l(_vm.numFootSwitches, function(n) {
+                return _c("FootSwitch", {
+                  key: n,
                   attrs: {
                     appearance: _vm.footSwitchStyle,
-                    label: _vm.pedalWords.switchLabels[0]
-                  }
-                }),
-                _vm._v(" "),
-                _c("FootSwitch", {
-                  attrs: {
-                    appearance: _vm.footSwitchStyle,
-                    label: _vm.pedalWords.switchLabels[1]
+                    label: _vm.pedalWords.switchLabels[n - 1]
                   }
                 })
-              ],
+              }),
               1
             )
           : _vm._e()
@@ -32992,12 +33002,6 @@ exports.default = _default;
       ? _c(
           "article",
           [
-            _c("h2", { staticClass: "Brand" }, [
-              _vm._v(_vm._s(_vm.pedal.brand))
-            ]),
-            _vm._v(" "),
-            _c("h1", [_vm._v(_vm._s(_vm.pedal.name))]),
-            _vm._v(" "),
             _c("Gfx", {
               attrs: {
                 aleaSavedState: _vm.aleaSavedState,
@@ -33007,6 +33011,12 @@ exports.default = _default;
                 color: _vm.pedal.color
               }
             }),
+            _vm._v(" "),
+            _c("h2", { staticClass: "Brand" }, [
+              _vm._v(_vm._s(_vm.pedal.brand))
+            ]),
+            _vm._v(" "),
+            _c("h1", [_vm._v(_vm._s(_vm.pedal.name))]),
             _vm._v(" "),
             _c("h3", [_vm._v(_vm._s(_vm.pedal.subtitle))]),
             _vm._v(" "),
@@ -33127,7 +33137,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54304" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60249" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

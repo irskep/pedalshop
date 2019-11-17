@@ -20,17 +20,16 @@ html {
   box-sizing: border-box;
 }
 
-main {
-  max-width: 28rem;
-  margin: auto;
-}
-
 nav {
   margin-top: 2rem;
 }
 
+footer::before {
+}
+
 footer {
-  margin-top: 4rem;
+  padding-top: 4rem;
+  clear: both;
 }
 
 /* styles */
@@ -75,8 +74,33 @@ article {
 
 /* custom: pedal */
 
+@media(min-width: 768px) {
+  main {
+    max-width: 45rem !important;
+  }
+
+  article > h1, article > h2 {
+    text-align: left !important;
+  }
+
+  .Pedal {
+    float: left !important;
+  }
+}
+
+article > h1, article > h2 {
+  text-align: center;
+}
+
+main {
+  max-width: 28rem;
+  margin: auto;
+}
+
 .Pedal {
   display: flex;
+  justify-content: center;
+  margin-right: 2rem;
 }
 
 .Pedal .Label {
@@ -125,7 +149,7 @@ article {
   min-height: 2rem;
   display: flex;
   justify-content: space-around;
-  align-items: center;;
+  align-items: center;
 }
 
 .Knobs__Pair {
@@ -141,7 +165,7 @@ article {
 .Knobs__TriangleUp {
   min-height: 5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: flex-end;
 }
 
@@ -157,7 +181,7 @@ article {
 .Knobs__TriangleDown {
   min-height: 5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
