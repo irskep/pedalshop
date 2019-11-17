@@ -20,61 +20,7 @@
           <div class="Controls__Spacer"></div>
         </div>
 
-        <div class="Ports">
-          <div class="Ports__Inner">
-
-            <div class="Ports__Inner__ActualPorts">
-
-              <div class="Left">
-                <div class="Outside">
-                  <div class="Socket"></div>
-                  <div class="Socket"></div>
-                </div>
-                <div class="Inside">
-                  <div class="Row">
-                    <div class="LeftArrow"></div>
-                    <div class="PortName">Output A</div>
-                  </div>
-                  <div class="Row">
-                    <div class="LeftArrow"></div>
-                    <div class="PortName">Output B</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="Right">
-                <div class="Outside">
-                  <div class="Socket"></div>
-                  <div class="Socket"></div>
-                </div>
-                <div class="Inside">
-                  <div class="Row">
-                    <div class="RightArrow"></div>
-                    <div class="PortName">Output A</div>
-                  </div>
-                  <div class="Row">
-                    <div class="RightArrow"></div>
-                    <div class="PortName">Output B</div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="Ports__Inner__Name">
-              <div class="Name">
-                <div>{{ name }}</div>
-              </div>
-              <div class="Name2">
-                <div>{{ brand }}</div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="Ports__Outer">
-          </div>
-        </div>
+        <Ports v-bind:name="name" v-bind:brand="brand"></Ports>
 
         <div class="Pusher">
           <div class="Pusher__Inner">
@@ -90,6 +36,7 @@ import Alea from 'alea';
 import {choiceItem} from './util.js';
 import Knob from './Knob.vue';
 import LED from './LED.vue';
+import Ports from './Ports.vue';
 
 const colorMap = {
   red: '#e84118',
@@ -139,6 +86,7 @@ export default {
   components: {
     Knob,
     LED,
+    Ports,
   },
 
   props: [
@@ -155,6 +103,7 @@ export default {
     },
 
     ledColorNumber: function() { return this.getRandom(); },
+    knobConfigNumber: function() { return this.getRandom(); },
 
     rawStyle: function() {
       console.log(this);

@@ -121,60 +121,6 @@ article {
   justify-content: space-around;
 }
 
-.Ports {
-  font-size: 0.7rem;
-}
-
-.Ports__Inner__ActualPorts {
-  display: flex;
-  justify-content: space-between;
-}
-
-.Ports .Left .Row {
-  display: flex;
-  flex-direction: row;
-}
-
-.Ports .Right .Row {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.PortName, .RightArrow, .LeftArrow {
-  display: inline;
-}
-
-.RightArrow { margin-left: 0.3rem; }
-.LeftArrow { margin-right: 0.3rem; }
-
-.LeftArrow::after {
-  display: inline;
-  content: "←";
-}
-
-.RightArrow::after {
-  display: inline;
-  content: "→";
-}
-
-.Ports__Inner__Name {
-  min-height: 3rem;
-}
-
-.Ports__Inner__Name .Name {
-  font-family: var(--name-font);
-  font-size: 1rem;
-  display: flex;
-  justify-content: var(--name-flex-justify-content);
-  flex-direction: var(--name-flex-direction);
-}
-
-.Ports__Inner__Name .Name2 {
-  display: flex;
-  justify-content: var(--name2-flex-justify-content);
-  flex-direction: var(--name2-flex-direction);
-}
-
 .Pusher {
   height: 6rem;
   background-color: var(--footContact);
