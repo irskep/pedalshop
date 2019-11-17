@@ -226,6 +226,18 @@ const footSwitchStyles = [
   'circle',
 ];
 
+const bg2Colors = [
+  '#353b48',
+  '#dadadf',
+  'rgba(0, 0, 0, 0.0)'
+];
+
+const bg2TextColors = [
+  '#fff',
+  '#000',
+  'var(--textOnBg)',
+];
+
 export default {
   components: {
     FingerSwitch,
@@ -280,6 +292,7 @@ export default {
     rawStyle: function() {
       const fontChoiceNumber = this.getRandom();
       const knobChoiceNumber = this.getRandom();
+      const bg2ChoiceNumber = this.getRandom();
       return `
         <style>
           .Pedal {
@@ -289,8 +302,8 @@ export default {
             --knob: ${choiceItem(knobChoiceNumber, knobColors)};
             --knob2: ${choiceItem(knobChoiceNumber, knobColors2)};
             --knobTick: ${choiceItem(knobChoiceNumber, knobColorsTick)};
-            --bg2: #353b48;
-            --textOnBg2: #ffffff;
+            --bg2: ${choiceItem(bg2ChoiceNumber, bg2Colors)};
+            --textOnBg2: ${choiceItem(bg2ChoiceNumber, bg2TextColors)};
 
             --name-font: ${choiceItem(fontChoiceNumber, fontFamilies)};
             --name-font-size: ${choiceItem(fontChoiceNumber, fontSizes)};
