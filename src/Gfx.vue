@@ -6,10 +6,10 @@
 
         <div class="Controls">
           <div class="StraightRowOfKnobs">
-            <div class="Knob"></div>
-            <div class="Knob"></div>
-            <div class="Knob"></div>
-            <div class="Knob"></div>
+            <Knob></Knob>
+            <Knob></Knob>
+            <Knob></Knob>
+            <Knob></Knob>
           </div>
         </div>
 
@@ -81,6 +81,7 @@
 import { ref, computed, onMounted, onBeforeUpdate } from '@vue/composition-api';
 import Alea from 'alea';
 import {choiceItem} from './util.js';
+import Knob from './Knob.vue';
 
 const colorMap = {
   red: '#e84118',
@@ -115,6 +116,10 @@ const flexDirectionRow = [
 ];
 
 export default {
+  components: {
+    Knob,
+  },
+
   props: [
     'aleaSavedState',
     'name',

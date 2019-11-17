@@ -99,37 +99,6 @@ article {
   justify-content: space-around;
 }
 
-.Knob {
-  position: relative;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 1rem;
-  content: " ";
-  background-color: var(--knob);
-}
-
-.Knob::before {
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  left: 15%;
-  top: 15%;
-  background-color: var(--knob2);
-  content: " ";
-  border-radius: 100%;
-  z-index: 2;
-}
-
-.Knob::after {
-  position: absolute;
-  left: calc(50% - 0.5px);
-  width: 1px;
-  height: 1rem;
-  background-color: var(--knobTick);
-  content: " ";
-  z-index: 1;
-}
-
 .Ports {
   font-size: 0.7rem;
 }

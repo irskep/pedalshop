@@ -1,0 +1,8 @@
+knobLabel:
+  groups:
+    - tags: []
+      phrases:
+        - 'E.LEVEL'
+        - 'FEEDBACK'
+        - 'TIME'
+        - 'CHECK'
