@@ -9,8 +9,10 @@
 .Knob {
   position: relative;
 
-  width: 1.8rem;
-  height: 2.0rem;
+  --knobSize: 1.8rem;
+
+  width: var(--knobSize);
+  height: calc(var(--knobSize) * 1.11);
   margin: 0 0.3rem;
 
   content: " ";

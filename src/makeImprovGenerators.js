@@ -3,8 +3,14 @@ import subtitleGrammarSrc from './improvgrammar/subtitle.yaml';
 import descGrammar from './improvgrammar/desc.yaml';
 import nounsGrammar from './improvgrammar/nouns.yaml'
 import adjsVerbsGrammar from './improvgrammar/adjsVerbs.yaml';;
+import nameOfMusicianGrammar from './improvgrammar/nameOfMusician.yaml';;
+import pedalWordsGrammar from './improvgrammar/pedalWords.yaml'
 
-Object.assign(descGrammar, nounsGrammar, adjsVerbsGrammar);
+Object.assign(
+  descGrammar,
+  nounsGrammar,
+  adjsVerbsGrammar,
+  nameOfMusicianGrammar);
 const subtitleGrammar = Object.assign({}, descGrammar, subtitleGrammarSrc);
 
 function dryness() {
@@ -76,6 +82,20 @@ export default function makeImprovGenerators(alea) {
     persistence: false,
     rng: alea,
   });
+  
+  const pedalWordsGen = new Improv(pedalWordsGrammar, {
+    filters: [
+      Improv.filters.mismatchFilter(),
+      Improv.filters.partialBonus(),
+      Improv.filters.fullBonus(),
+      dryness(),
+    ],
+    builtins,
+    reincorporate: true,
+    // audit: true,
+    persistence: false,
+    rng: alea,
+  });
 
   const descGen = new Improv(descGrammar, {
     filters: [
@@ -91,5 +111,5 @@ export default function makeImprovGenerators(alea) {
     rng: alea,
   });
 
-  return { descGen, subGen };
+  return { descGen, subGen, pedalWordsGen };
 }

@@ -31,16 +31,6 @@ purposeNoun:
       phrases:
         - 'noise suppression'
 
-nameOfMusician:
-  groups:
-    - tags: []
-      phrases:
-        - 'Santana'
-        - 'Jimi Hendrix'
-        - 'Jimmy Page'
-        - 'Al Yankovic'
-        - 'Steve Vai'
-
 subItems:
   bind: true
   groups:

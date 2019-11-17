@@ -6,34 +6,33 @@
 
         <div class="Left">
           <div class="Outside">
-            <div class="Socket"></div>
-            <div class="Socket"></div>
+            <div class="Socket" v-for="(l, i) in outputLabels" v-bind:key="i"></div>
           </div>
           <div class="Inside">
-            <div class="Row">
+            <div class="Row" v-for="(l, i) in outputLabels" v-bind:key="i">
               <div class="LeftArrow"></div>
-              <div class="PortName">Output A</div>
-            </div>
-            <div class="Row">
-              <div class="LeftArrow"></div>
-              <div class="PortName">Output B</div>
+              <div class="PortName">
+                &larr; {{ l.split('\\n')[0] }}
+                <span class="PortName__Subtitle" v-if="l.split('\\n').length > 1">
+                  <br>{{ l.split('\\n')[1] }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="Right">
           <div class="Outside">
-            <div class="Socket"></div>
-            <div class="Socket"></div>
+            <div class="Socket" v-for="(l, i) in inputLabels" v-bind:key="i"></div>
           </div>
           <div class="Inside">
-            <div class="Row">
-              <div class="RightArrow"></div>
-              <div class="PortName">Input A</div>
-            </div>
-            <div class="Row">
-              <div class="RightArrow"></div>
-              <div class="PortName">Input B</div>
+            <div class="Row" v-for="(l, i) in inputLabels" v-bind:key="i">
+              <div class="PortName">
+                {{ l.split('\\n')[0] }} &larr;
+                <span class="PortName__Subtitle" v-if="l.split('\\n').length > 1">
+                  <br>{{ l.split('\\n')[1] }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -103,23 +102,25 @@
   margin-bottom: 0.5rem;
 }
 
+.PortName {
+  line-height: 1em;
+  margin-bottom: 0.3rem;
+}
+
+.Left .PortName {
+  text-align: right;
+}
+
+.PortName__Subtitle {
+  font-size: 0.5rem;
+}
+
 .PortName, .RightArrow, .LeftArrow {
   display: inline;
 }
 
 .RightArrow { margin-left: 0.3rem; }
 .LeftArrow { margin-right: 0.3rem; }
-
-.LeftArrow::after {
-  display: inline;
-  content: "←";
-}
-
-.RightArrow::after {
-  display: inline;
-  content: "←";
-  /* content: "→"; */
-}
 
 .Ports__Inner__Name {
   min-height: 3rem;
@@ -146,6 +147,8 @@ export default {
   props: [
     'name',
     'brand',
+    'inputLabels',
+    'outputLabels',
   ],
   setup() {
     return {
