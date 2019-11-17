@@ -30462,13 +30462,13 @@ module.exports = {
   knobLabel: {
     groups: [{
       tags: [],
-      phrases: ["E.LEVEL", "FEEDBACK", "TIME", "CHECK", "DRY", "VOL", "SENS", "CTRL", "BLEND", "SHIFT", "FX LVL", "TIME", "TONE", "DRIVE", "FILTER", "ATTACK", "DECAY", "SUSTAIN", "GATE", "MIDS LEV", "MIDS FREQ"]
+      phrases: ["E.LEVEL", "FEEDBK", "TIME", "CHECK", "DRY", "VOL", "SENS", "CTRL", "BLEND", "SHIFT", "FX LVL", "TIME", "TONE", "DRIVE", "FILTER", "ATTACK", "DECAY", "SUSTAIN", "GATE", "MIDS LEV", "MIDS FREQ", "RATE", "DEPTH", "SPEED", "DELAY", "WIDTH", "MIX", "&nbsp;"]
     }]
   },
   switchLabel: {
     groups: [{
       tags: [],
-      phrases: ["MIDS", "BYPASS", "BYPASS/STOP", "TAP/LOOP", "", "", "", "", "", ""]
+      phrases: ["MIDS", "BYPASS", "STOP", "TAP/LOOP", "&nbsp;", "&nbsp; ", "&nbsp;  ", "&nbsp;   ", "&nbsp;    ", "&nbsp;     "]
     }]
   },
   output: {
@@ -30964,7 +30964,194 @@ function patchScopedSlots (instance) {
   }
 }
 
-},{}],"src/Knob.vue":[function(require,module,exports) {
+},{}],"src/FootSwitch.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: ['label', 'appearance'],
+  setup: function setup() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $51478c = exports.default || module.exports;
+      
+      if (typeof $51478c === 'function') {
+        $51478c = $51478c.options;
+      }
+    
+        /* template */
+        Object.assign($51478c, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "FootSwitch" }, [
+    _vm.label.trim() !== "&nbsp;"
+      ? _c("div", { staticClass: "FootSwitchLabel" }, [
+          _vm._v(_vm._s(_vm.label))
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.label.trim() === "&nbsp;"
+      ? _c("div", { staticClass: "FootSwitchLabel" }, [_vm._v(" ")])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "nested-hexagon-wrapper" }, [
+      _vm.appearance === "hex"
+        ? _c("div", { staticClass: "hexagon-wrapper gray" }, [
+            _c("div", { staticClass: "hexagon" })
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.appearance === "circle"
+        ? _c("div", { staticClass: "circle-wrapper" })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "circle" })
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-51478c",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$51478c', $51478c);
+          } else {
+            api.reload('$51478c', $51478c);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/Knob.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31061,7 +31248,13 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "KnobContainer" }, [
-    _c("div", { staticClass: "KnobLabel" }, [_vm._v(_vm._s(_vm.label))]),
+    _vm.label !== "&nbsp;"
+      ? _c("div", { staticClass: "KnobLabel" }, [_vm._v(_vm._s(_vm.label))])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.label === "&nbsp;"
+      ? _c("div", { staticClass: "KnobLabel" }, [_vm._v(" ")])
+      : _vm._e(),
     _vm._v(" "),
     _vm._m(0)
   ])
@@ -31370,7 +31563,6 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   props: ['name', 'brand', 'inputLabels', 'outputLabels'],
   setup: function setup() {
@@ -31509,7 +31701,340 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/Gfx.vue":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/FingerSwitch.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: ['label', 'appearance'],
+  setup: function setup() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $9e7e84 = exports.default || module.exports;
+      
+      if (typeof $9e7e84 === 'function') {
+        $9e7e84 = $9e7e84.options;
+      }
+    
+        /* template */
+        Object.assign($9e7e84, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "FingerSwitch" }, [
+    _vm.label.trim() !== "&nbsp;"
+      ? _c("div", { staticClass: "SwitchLabel" }, [_vm._v(_vm._s(_vm.label))])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.label.trim() === "&nbsp;"
+      ? _c("div", { staticClass: "SwitchLabel" }, [_vm._v(" ")])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "nested-hexagon-wrapper" }, [
+      _c("div", { staticClass: "hexagon-wrapper gray" }, [
+        _c("div", { staticClass: "hexagon" })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "bigcircle" }, [
+        _c("div", { staticClass: "circle" })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-9e7e84",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$9e7e84', $9e7e84);
+          } else {
+            api.reload('$9e7e84', $9e7e84);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/SomeControl.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _util = require("./util");
+
+var _LED = _interopRequireDefault(require("./LED"));
+
+var _Knob = _interopRequireDefault(require("./Knob"));
+
+var _FingerSwitch = _interopRequireDefault(require("./FingerSwitch"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var appearances = ['knob', 'knob', 'knob', 'knob', 'nothing', 'switch', 'led'];
+var _default = {
+  components: {
+    LED: _LED.default,
+    Knob: _Knob.default,
+    FingerSwitch: _FingerSwitch.default
+  },
+  props: ['label', 'randomNumber1', 'randomNumber2'],
+  computed: {
+    appearance: function appearance() {
+      return (0, _util.choiceItem)(this.$props.randomNumber1, appearances);
+    }
+  },
+  setup: function setup() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $0a00a2 = exports.default || module.exports;
+      
+      if (typeof $0a00a2 === 'function') {
+        $0a00a2 = $0a00a2.options;
+      }
+    
+        /* template */
+        Object.assign($0a00a2, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "SomeControl" },
+    [
+      _vm.appearance === "led"
+        ? _c(
+            "div",
+            { staticClass: "CheckLED" },
+            [
+              _vm.label.trim() !== "&nbsp;"
+                ? _c("div", { staticClass: "Label" }, [
+                    _vm._v(_vm._s(_vm.label))
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("LED", { attrs: { randomNumber: _vm.randomNumber2 } })
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.appearance === "knob"
+        ? _c("Knob", { attrs: { label: _vm.label } })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.appearance === "switch"
+        ? _c("FingerSwitch", { attrs: { label: _vm.label } })
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-0a00a2",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$0a00a2', $0a00a2);
+          } else {
+            api.reload('$0a00a2', $0a00a2);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"./util":"src/util.js","./LED":"src/LED.vue","./Knob":"src/Knob.vue","./FingerSwitch":"src/FingerSwitch.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/Gfx.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31525,11 +32050,17 @@ var _util = require("./util");
 
 var _makeImprovGenerators2 = _interopRequireDefault(require("./makeImprovGenerators"));
 
+var _FootSwitch = _interopRequireDefault(require("./FootSwitch.vue"));
+
 var _Knob = _interopRequireDefault(require("./Knob.vue"));
 
 var _LED = _interopRequireDefault(require("./LED.vue"));
 
 var _Ports = _interopRequireDefault(require("./Ports.vue"));
+
+var _FingerSwitch = _interopRequireDefault(require("./FingerSwitch.vue"));
+
+var _SomeControl = _interopRequireDefault(require("./SomeControl.vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31564,18 +32095,23 @@ var textColorMap = {
   white: '#000000'
 };
 var knobColors = ['#e84118', '#ff5A24', '#fbc531', '#44bd32', '#273c75', '#8c7ae6', '#FDA7DF', '#111', '#ffffff'];
-var knobColors2 = ['#ff6138', '#EE5A24', '#ffe551', '#64cd52', '#475c95', '#ac9aff', '#Ffc7fF', '#222', '#f5f6fa'];
+var knobColors2 = ['#ff6138', '#dE4A24', '#ffe551', '#64cd52', '#475c95', '#ac9aff', '#Ffc7fF', '#222', '#f5f6fa'];
 var knobColorsTick = ['#d1d8e0', '#d1d8e0', '#333', '#d1d8e0', '#d1d8e0', '#d1d8e0', '#333', '#d1d8e0', '#333'];
 var fontFamilies = ['Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif', 'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif', '"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif', 'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif', 'Consolas, "Andale Mono WT", "Andale Mono", "Menlo", "SF Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace', '"Cooper Hewitt", sans-serif', '"Cooper Hewitt Medium", sans-serif'];
 var fontSizes = ['0.9rem', '0.9rem', '0.9rem', '1.2rem', '0.9rem', '0.9rem', '0.9rem'];
 var flexJustifyContent = ['center', 'space-between'];
 var flexDirectionRow = ['row', 'row-reverse'];
-var knobConfigs = ['StraightRow', 'Pair', 'TriangleUp', 'TriangleDown'];
+var knobConfigs = ['StraightRow', 'Pair', 'TriangleUp', 'TriangleDown', 'NByTwo'];
+var footConfigs = ['Pusher', 'Pusher', 'OneSwitch', 'MultiSwitch'];
+var footSwitchStyles = ['hex', 'circle'];
 var _default = {
   components: {
+    FingerSwitch: _FingerSwitch.default,
+    FootSwitch: _FootSwitch.default,
     Knob: _Knob.default,
     LED: _LED.default,
-    Ports: _Ports.default
+    Ports: _Ports.default,
+    SomeControl: _SomeControl.default
   },
   props: ['aleaSavedState', 'name', 'color', 'purpose', 'brand'],
   computed: {
@@ -31583,6 +32119,8 @@ var _default = {
       return _alea.default.importState(this.$props.aleaSavedState);
     },
     pedalWords: function pedalWords() {
+      var _this = this;
+
       var model = {};
 
       var _makeImprovGenerators = (0, _makeImprovGenerators2.default)(this.getRandom),
@@ -31596,13 +32134,25 @@ var _default = {
           return pedalWordsGen.gen('switchLabel', model);
         }),
         outputLabels: pedalWordsGen.gen('output', model).split('/'),
-        inputLabels: pedalWordsGen.gen('input', model).split('/')
+        inputLabels: pedalWordsGen.gen('input', model).split('/'),
+        randomNumbers: _toConsumableArray(Array(20)).map(function () {
+          return _this.getRandom();
+        })
       };
       console.log(w);
       return w;
     },
     ledColorNumber: function ledColorNumber() {
       return this.getRandom();
+    },
+    numAcross: function numAcross() {
+      return 1 + Math.floor(this.getRandom() * 6);
+    },
+    footSwitchStyle: function footSwitchStyle() {
+      return (0, _util.choiceItem)(this.getRandom(), footSwitchStyles);
+    },
+    footConfig: function footConfig() {
+      return (0, _util.choiceItem)(this.getRandom(), footConfigs);
     },
     knobConfigName: function knobConfigName() {
       return (0, _util.choiceItem)(this.getRandom(), knobConfigs);
@@ -31638,36 +32188,71 @@ exports.default = _default;
       { staticClass: "ThreeSectionStompbox" },
       [
         _c("div", { staticClass: "Controls" }, [
-          _c(
-            "div",
-            { staticClass: "CheckLED" },
-            [
-              _c("div", { staticClass: "Label" }, [_vm._v("CHECK")]),
-              _vm._v(" "),
-              _c("LED", { attrs: { randomNumber: _vm.ledColorNumber } })
-            ],
-            1
-          ),
+          _vm.getRandom() > 0.3
+            ? _c(
+                "div",
+                { staticClass: "CheckLED" },
+                [
+                  _c("div", { staticClass: "Label" }, [_vm._v("CHECK")]),
+                  _vm._v(" "),
+                  _c("LED", { attrs: { randomNumber: _vm.ledColorNumber } })
+                ],
+                1
+              )
+            : _vm._e(),
           _vm._v(" "),
           _vm.knobConfigName === "StraightRow"
             ? _c(
                 "div",
                 { staticClass: "Knobs__StraightRow" },
-                [
-                  _c("Knob", {
-                    attrs: { label: _vm.pedalWords.knobLabels[0] }
-                  }),
-                  _vm._v(" "),
-                  _c("Knob", {
-                    attrs: { label: _vm.pedalWords.knobLabels[1] }
-                  }),
-                  _vm._v(" "),
-                  _c("Knob", {
-                    attrs: { label: _vm.pedalWords.knobLabels[2] }
-                  }),
-                  _vm._v(" "),
-                  _c("Knob", { attrs: { label: _vm.pedalWords.knobLabels[3] } })
-                ],
+                _vm._l(4, function(n) {
+                  return _c("SomeControl", {
+                    key: n,
+                    attrs: {
+                      randomNumber1: _vm.pedalWords.randomNumbers[n - 1],
+                      randomNumber2: _vm.pedalWords.randomNumbers[n],
+                      label: _vm.pedalWords.knobLabels[n - 1]
+                    }
+                  })
+                }),
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.knobConfigName === "NByTwo"
+            ? _c(
+                "div",
+                { staticClass: "Knobs__StraightRow" },
+                _vm._l(_vm.numAcross, function(n) {
+                  return _c("SomeControl", {
+                    key: n,
+                    attrs: {
+                      randomNumber1:
+                        _vm.pedalWords.randomNumbers[_vm.numAcross + n - 1],
+                      randomNumber2:
+                        _vm.pedalWords.randomNumbers[_vm.numAcross + n],
+                      label: _vm.pedalWords.knobLabels[_vm.numAcross + n - 1]
+                    }
+                  })
+                }),
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.knobConfigName === "NByTwo"
+            ? _c(
+                "div",
+                { staticClass: "Knobs__StraightRow" },
+                _vm._l(_vm.numAcross, function(n) {
+                  return _c("SomeControl", {
+                    key: n,
+                    attrs: {
+                      randomNumber1: _vm.pedalWords.randomNumbers[n - 1],
+                      randomNumber2: _vm.pedalWords.randomNumbers[n],
+                      label: _vm.pedalWords.knobLabels[n - 1]
+                    }
+                  })
+                }),
                 1
               )
             : _vm._e(),
@@ -31676,13 +32261,16 @@ exports.default = _default;
             ? _c(
                 "div",
                 { staticClass: "Knobs__Pair" },
-                [
-                  _c("Knob", {
-                    attrs: { label: _vm.pedalWords.knobLabels[0] }
-                  }),
-                  _vm._v(" "),
-                  _c("Knob", { attrs: { label: _vm.pedalWords.knobLabels[1] } })
-                ],
+                _vm._l(2, function(n) {
+                  return _c("SomeControl", {
+                    key: n,
+                    attrs: {
+                      randomNumber1: _vm.pedalWords.randomNumbers[n - 1],
+                      randomNumber2: _vm.pedalWords.randomNumbers[n],
+                      label: _vm.pedalWords.knobLabels[n - 1]
+                    }
+                  })
+                }),
                 1
               )
             : _vm._e(),
@@ -31691,17 +32279,16 @@ exports.default = _default;
             ? _c(
                 "div",
                 { staticClass: "Knobs__TriangleUp" },
-                [
-                  _c("Knob", {
-                    attrs: { label: _vm.pedalWords.knobLabels[0] }
-                  }),
-                  _vm._v(" "),
-                  _c("Knob", {
-                    attrs: { label: _vm.pedalWords.knobLabels[1] }
-                  }),
-                  _vm._v(" "),
-                  _c("Knob", { attrs: { label: _vm.pedalWords.knobLabels[2] } })
-                ],
+                _vm._l(3, function(n) {
+                  return _c("SomeControl", {
+                    key: n,
+                    attrs: {
+                      randomNumber1: _vm.pedalWords.randomNumbers[n - 1],
+                      randomNumber2: _vm.pedalWords.randomNumbers[n],
+                      label: _vm.pedalWords.knobLabels[n - 1]
+                    }
+                  })
+                }),
                 1
               )
             : _vm._e(),
@@ -31710,17 +32297,16 @@ exports.default = _default;
             ? _c(
                 "div",
                 { staticClass: "Knobs__TriangleDown" },
-                [
-                  _c("Knob", {
-                    attrs: { label: _vm.pedalWords.knobLabels[0] }
-                  }),
-                  _vm._v(" "),
-                  _c("Knob", {
-                    attrs: { label: _vm.pedalWords.knobLabels[1] }
-                  }),
-                  _vm._v(" "),
-                  _c("Knob", { attrs: { label: _vm.pedalWords.knobLabels[2] } })
-                ],
+                _vm._l(3, function(n) {
+                  return _c("SomeControl", {
+                    key: n,
+                    attrs: {
+                      randomNumber1: _vm.pedalWords.randomNumbers[n - 1],
+                      randomNumber2: _vm.pedalWords.randomNumbers[n],
+                      label: _vm.pedalWords.knobLabels[n - 1]
+                    }
+                  })
+                }),
                 1
               )
             : _vm._e(),
@@ -31737,22 +32323,56 @@ exports.default = _default;
           }
         }),
         _vm._v(" "),
-        _vm._m(0)
+        _vm.footConfig === "Pusher"
+          ? _c("div", { staticClass: "Pusher" }, [
+              _c("div", { staticClass: "Pusher__Inner" })
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.footConfig === "OneSwitch"
+          ? _c(
+              "div",
+              { staticClass: "FootSwitchRowSingle" },
+              [
+                _c("FootSwitch", {
+                  attrs: {
+                    appearance: _vm.footSwitchStyle,
+                    label: _vm.pedalWords.switchLabels[0]
+                  }
+                })
+              ],
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.footConfig === "MultiSwitch"
+          ? _c(
+              "div",
+              { staticClass: "FootSwitchRow" },
+              [
+                _c("FootSwitch", {
+                  attrs: {
+                    appearance: _vm.footSwitchStyle,
+                    label: _vm.pedalWords.switchLabels[0]
+                  }
+                }),
+                _vm._v(" "),
+                _c("FootSwitch", {
+                  attrs: {
+                    appearance: _vm.footSwitchStyle,
+                    label: _vm.pedalWords.switchLabels[1]
+                  }
+                })
+              ],
+              1
+            )
+          : _vm._e()
       ],
       1
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "Pusher" }, [
-      _c("div", { staticClass: "Pusher__Inner" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -31781,7 +32401,7 @@ render._withStripped = true
         
       }
     })();
-},{"@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","alea":"node_modules/alea/alea.js","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","./Knob.vue":"src/Knob.vue","./LED.vue":"src/LED.vue","./Ports.vue":"src/Ports.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
+},{"@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","alea":"node_modules/alea/alea.js","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","./FootSwitch.vue":"src/FootSwitch.vue","./Knob.vue":"src/Knob.vue","./LED.vue":"src/LED.vue","./Ports.vue":"src/Ports.vue","./FingerSwitch.vue":"src/FingerSwitch.vue","./SomeControl.vue":"src/SomeControl.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => "%".concat(x.charCodeAt(0).toString(16).toUpperCase()));
@@ -32507,7 +33127,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52720" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54304" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
