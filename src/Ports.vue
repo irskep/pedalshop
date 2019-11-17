@@ -78,7 +78,8 @@
 .Left .Outside {
   position: absolute;
   top: -1rem;
-  right: calc(100% + var(--outsidePadding) + var(--socketWidth));
+  right: calc(100% + 0.4rem);
+  margin-right: var(--socketWidth);
   width: 0;
   overflow: visible;
 }
@@ -86,7 +87,8 @@
 .Right .Outside {
   position: absolute;
   top: -1rem;
-  left: calc(100% + var(--outsidePadding));
+  left: calc(100%);
+  margin-left: var(--outsidePadding);
   width: 0;
   overflow: visible;
 }
