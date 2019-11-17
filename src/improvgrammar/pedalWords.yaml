@@ -29,6 +29,8 @@ knobLabel:
         - 'DELAY'
         - 'WIDTH'
         - 'MIX'
+        - 'CTRL 1'
+        - 'CTRL 2'
         - '&nbsp;'
 
 switchLabel:

@@ -28,6 +28,7 @@ const appearances = [
   'knob',
   'knob',
   'knob',
+  'nothing',
   'switch',
   'led',
 ];

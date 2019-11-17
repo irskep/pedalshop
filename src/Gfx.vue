@@ -296,7 +296,7 @@ export default {
             --name-font-size: ${choiceItem(fontChoiceNumber, fontSizes)};
 
             --name-flex-justify-content: ${choiceItem(this.getRandom(), flexJustifyContent)};
-            --name-flex-direction: ${choiceItem(this.getRandom(), flexDirectionRow)};
+            --name-flex-direction: 'row';
             --name2-flex-justify-content: ${choiceItem(this.getRandom(), flexJustifyContent)};
             --name2-flex-direction: ${choiceItem(this.getRandom(), flexDirectionRow)};
           }
