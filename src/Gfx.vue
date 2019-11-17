@@ -16,46 +16,56 @@
         <div class="Ports">
           <div class="Ports__Inner">
 
-            <div class="Left">
-              <div class="Outside">
-                <div class="Socket"></div>
-                <div class="Socket"></div>
-              </div>
-              <div class="Inside">
-                <div class="Row">
-                  <div class="LeftArrow"></div>
-                  <div class="PortName">Output A</div>
+            <div class="Ports__Inner__ActualPorts">
+
+              <div class="Left">
+                <div class="Outside">
+                  <div class="Socket"></div>
+                  <div class="Socket"></div>
                 </div>
-                <div class="Row">
-                  <div class="LeftArrow"></div>
-                  <div class="PortName">Output B</div>
+                <div class="Inside">
+                  <div class="Row">
+                    <div class="LeftArrow"></div>
+                    <div class="PortName">Output A</div>
+                  </div>
+                  <div class="Row">
+                    <div class="LeftArrow"></div>
+                    <div class="PortName">Output B</div>
+                  </div>
                 </div>
               </div>
+
+              <div class="Right">
+                <div class="Outside">
+                  <div class="Socket"></div>
+                  <div class="Socket"></div>
+                </div>
+                <div class="Inside">
+                  <div class="Row">
+                    <div class="RightArrow"></div>
+                    <div class="PortName">Output A</div>
+                  </div>
+                  <div class="Row">
+                    <div class="RightArrow"></div>
+                    <div class="PortName">Output B</div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-            <div class="Right">
-              <div class="Outside">
-                <div class="Socket"></div>
-                <div class="Socket"></div>
+            <div class="Ports__Inner__Name">
+              <div class="Name">
+                <div>{{ name }}</div>
               </div>
-              <div class="Inside">
-                <div class="Row">
-                  <div class="RightArrow"></div>
-                  <div class="PortName">Output A</div>
-                </div>
-                <div class="Row">
-                  <div class="RightArrow"></div>
-                  <div class="PortName">Output B</div>
-                </div>
+              <div class="Name2">
+                <div>{{ brand }}</div>
               </div>
             </div>
 
           </div>
 
           <div class="Ports__Outer">
-            <div class="Name">
-              {{ name }}
-            </div>
           </div>
         </div>
 
@@ -92,10 +102,26 @@ const fontFamilies = [
   'Consolas, "Andale Mono WT", "Andale Mono", "Menlo", "SF Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace',
   '"Cooper Hewitt", sans-serif',
   '"Cooper Hewitt Medium", sans-serif',
-]
+];
+
+const flexJustifyContent = [
+  'center',
+  'space-between',
+];
+
+const flexDirectionRow = [
+  'row',
+  'row-reverse',
+];
 
 export default {
-  props: ['aleaSavedState', 'name', 'color'],
+  props: [
+    'aleaSavedState',
+    'name',
+    'color',
+    'purpose',
+    'brand',
+  ],
 
   computed: {
     getRandom: function() {
@@ -117,6 +143,11 @@ export default {
             --textOnBg2: #ffffff;
 
             --name-font: ${choiceItem(this.getRandom(), fontFamilies)};
+
+            --name-flex-justify-content: ${choiceItem(this.getRandom(), flexJustifyContent)};
+            --name-flex-direction: ${choiceItem(this.getRandom(), flexDirectionRow)};
+            --name2-flex-justify-content: ${choiceItem(this.getRandom(), flexJustifyContent)};
+            --name2-flex-direction: ${choiceItem(this.getRandom(), flexDirectionRow)};
           }
         </style>
       `;

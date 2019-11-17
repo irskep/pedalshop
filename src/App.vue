@@ -11,6 +11,8 @@
       <Gfx
         v-bind:aleaSavedState="aleaSavedState"
         v-bind:name="pedal.name"
+        v-bind:brand="pedal.brand"
+        v-bind:purpose="pedal.purpose"
         v-bind:color="pedal.color"
       ></Gfx>
 
@@ -64,11 +66,13 @@ export default {
       const subtitle = subGen.gen('root', model);
       const desc = descGen.gen('root', model);
       const brand = descGen.gen('brand', model);
+      console.log(model);
       aleaSavedState.value = alea.exportState();
       pedal.value = {
         name,
         subtitle,
         brand,
+        purpose: subGen.gen('purpose', model),
         color: descGen.gen('color', model).toLowerCase(),
         texts: desc.split('\n\n').filter((s) => s),
       };

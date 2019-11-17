@@ -130,10 +130,13 @@ article {
   z-index: 1;
 }
 
-.Ports__Inner {
+.Ports {
+  font-size: 0.7rem;
+}
+
+.Ports__Inner__ActualPorts {
   display: flex;
   justify-content: space-between;
-  font-size: 0.7rem;
 }
 
 .Ports .Left .Row {
@@ -163,9 +166,22 @@ article {
   content: "→"
 }
 
-.Name {
+.Ports__Inner__Name {
   min-height: 3rem;
+}
+
+.Ports__Inner__Name .Name {
   font-family: var(--name-font);
+  font-size: 1rem;
+  display: flex;
+  justify-content: var(--name-flex-justify-content);
+  flex-direction: var(--name-flex-direction);
+}
+
+.Ports__Inner__Name .Name2 {
+  display: flex;
+  justify-content: var(--name2-flex-justify-content);
+  flex-direction: var(--name2-flex-direction);
 }
 
 .Pusher {
