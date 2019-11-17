@@ -2,17 +2,7 @@ root:
   groups:
     - tags: []
       phrases:
-        - '[:adjective] [:purpose] [:noun]'
-        - '[:adjective] [:purpose] [:noun]'
-        - '[:adjective] [:purpose] [:noun]'
-        - '[:adjective] [:purpose] [:noun]'
-        - '[:packed] with [:superlative] [:purpose] [:options]'
-        - '[:purpose] for the Tone [:aficionado]'
-        - "[:brand]'s Most [:superlative] [:purpose] [:noun]"
-        - 'Your Always-on [:purpose] [:pedal]'
-        - 'Time-tested [:purpose], Upgraded Tone'
-        - 'Beyond [:classic] [:purpose]'
-        - '[:superlative] [:purpose]'
+
         - '[:versatile] [:purpose] [:pedal]'
 
 versatile:

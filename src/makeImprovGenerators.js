@@ -1,10 +1,11 @@
 import Improv from 'improv';
-import subtitleGrammar from './improvgrammar/subtitle.yaml';
+import subtitleGrammarSrc from './improvgrammar/subtitle.yaml';
 import descGrammar from './improvgrammar/desc.yaml';
 import nounsGrammar from './improvgrammar/nouns.yaml'
 import adjsVerbsGrammar from './improvgrammar/adjsVerbs.yaml';;
 
 Object.assign(descGrammar, nounsGrammar, adjsVerbsGrammar);
+const subtitleGrammar = Object.assign({}, descGrammar, subtitleGrammarSrc);
 
 function dryness() {
   return function (group) {
@@ -45,6 +46,20 @@ const builtins = {
     }
   },
   id: (str) => str,
+  The: (str) => {
+    if (str.toLowerCase().startsWith('the ')) {
+      return str;
+    } else {
+      return `The ${str}`;
+    }
+  },
+  the: (str) => {
+    if (str.toLowerCase().startsWith('the ')) {
+      return str;
+    } else {
+      return `The ${str}`;
+    }
+  }
 };
 
 export default function makeImprovGenerators(alea) {
