@@ -5,7 +5,7 @@
     <div class="ThreeSectionStompbox">
 
         <div class="Controls">
-          <div class="CheckLED">
+          <div v-if="getRandom() > 0.5" class="CheckLED">
             <div class="Label">CHECK</div>
             <LED v-bind:randomNumber="ledColorNumber"></LED>
           </div>

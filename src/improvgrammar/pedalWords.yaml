@@ -3,7 +3,7 @@ knobLabel:
     - tags: []
       phrases:
         - 'E.LEVEL'
-        - 'FEEDBACK'
+        - 'FEEDBK'
         - 'TIME'
         - 'CHECK'
         - 'DRY'
@@ -23,6 +23,13 @@ knobLabel:
         - 'GATE'
         - 'MIDS LEV'
         - 'MIDS FREQ'
+        - 'RATE'
+        - 'DEPTH'
+        - 'SPEED'
+        - 'DELAY'
+        - 'WIDTH'
+        - 'MIX'
+        - '&nbsp;'
 
 switchLabel:
   groups:
@@ -33,11 +40,11 @@ switchLabel:
         - 'BYPASS/STOP'
         - 'TAP/LOOP'
         - ''
-        - ''
-        - ''
-        - ''
-        - ''
-        - ''
+        - ' '
+        - '  '
+        - '   '
+        - '    '
+        - '     '
 
 output:
   groups:
