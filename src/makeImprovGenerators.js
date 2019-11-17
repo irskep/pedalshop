@@ -88,12 +88,12 @@ export default function makeImprovGenerators(alea) {
       Improv.filters.mismatchFilter(),
       Improv.filters.partialBonus(),
       Improv.filters.fullBonus(),
-      dryness(),
+      Improv.filters.dryness(),
     ],
     builtins,
     reincorporate: true,
     // audit: true,
-    persistence: false,
+    persistence: true,
     rng: alea,
   });
 

@@ -146,6 +146,9 @@ namesuffix:
         - 'Theory'
         - 'Slammer'
         - 'Rumbler'
+        - 'Fatty'
+        - 'Bro'
+        - 'Chick'
         
 namePrefix:
   groups:
@@ -174,6 +177,7 @@ namePrefix:
         - 'Factor'
         - 'Dirty'
         - 'Rumble'
+        - 'Fat'
 
 brand:
   bind: true
@@ -319,8 +323,7 @@ root2:
     - tags: []
       phrases:
         - >-
-          [the :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [uncap :purpose] tone.
-          [:extra]
+          [The :shortname] is the [uncap :purpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain.
 
 extra:
   groups:

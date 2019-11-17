@@ -13,27 +13,27 @@
           <div
               v-if="knobConfigName === 'StraightRow'" 
               class="Knobs__StraightRow">
-            <Knob></Knob>
-            <Knob></Knob>
-            <Knob></Knob>
-            <Knob></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[0]"></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[1]"></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[2]"></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[3]"></Knob>
           </div>
 
           <div v-if="knobConfigName === 'Pair'" class="Knobs__Pair">
-            <Knob></Knob>
-            <Knob></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[0]"></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[1]"></Knob>
           </div>
 
           <div v-if="knobConfigName === 'TriangleUp'" class="Knobs__TriangleUp">
-            <Knob></Knob>
-            <Knob></Knob>
-            <Knob></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[0]"></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[1]"></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[2]"></Knob>
           </div>
 
           <div v-if="knobConfigName === 'TriangleDown'" class="Knobs__TriangleDown">
-            <Knob></Knob>
-            <Knob></Knob>
-            <Knob></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[0]"></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[1]"></Knob>
+            <Knob v-bind:label="pedalWords.knobLabels[2]"></Knob>
           </div>
 
 
@@ -186,12 +186,14 @@ export default {
       const model = {};
       const {pedalWordsGen} = makeImprovGenerators(this.getRandom);
 
-      return {
-        knobLabels: (new Array(20)).map(() => pedalWordsGen.gen('knobLabel', model)),
-        switchLabels: (new Array(5)).map(() => pedalWordsGen.gen('switchLabel', model)),
+      const w = {
+        knobLabels: [...Array(20)].map(() => pedalWordsGen.gen('knobLabel', model)),
+        switchLabels: [...Array(5)].map(() => pedalWordsGen.gen('switchLabel', model)),
         outputLabels: pedalWordsGen.gen('output', model).split('/'),
         inputLabels: pedalWordsGen.gen('input', model).split('/'),
       };
+      console.log(w);
+      return w;
     },
 
     ledColorNumber: function() { return this.getRandom(); },
