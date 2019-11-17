@@ -42,11 +42,7 @@ switchLabel:
         - 'STOP'
         - 'TAP/LOOP'
         - '&nbsp;'
-        - '&nbsp; '
-        - '&nbsp;  '
-        - '&nbsp;   '
-        - '&nbsp;    '
-        - '&nbsp;     '
+        - 'TAP'
 
 output:
   groups:

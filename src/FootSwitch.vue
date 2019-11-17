@@ -19,6 +19,16 @@
   align-items: center;
   flex-direction: column;
   --knobSize: 1.8rem;
+
+  margin: 0 2rem;
+}
+
+.FootSwitch:first-child {
+  margin-left: 0;
+}
+
+.FootSwitch:last-child {
+  margin-right: 0;
 }
 
 .FootSwitchLabel {

@@ -5,9 +5,6 @@
     </nav>
 
     <article v-if="pedal">
-      <h2 class="Brand">{{ pedal.brand }}</h2>
-      <h1>{{ pedal.name }}</h1>
-
       <Gfx
         v-bind:aleaSavedState="aleaSavedState"
         v-bind:name="pedal.name"
@@ -15,6 +12,9 @@
         v-bind:purpose="pedal.purpose"
         v-bind:color="pedal.color"
       ></Gfx>
+
+      <h2 class="Brand">{{ pedal.brand }}</h2>
+      <h1>{{ pedal.name }}</h1>
 
       <h3>{{ pedal.subtitle }}</h3>
       <p v-for="(t, i) in pedal.texts" v-bind:key="i">{{ t }}</p>

@@ -92,11 +92,10 @@
 
         <div v-if="footConfig === 'MultiSwitch'" class="FootSwitchRow">
           <FootSwitch
+            v-for="n in numFootSwitches"
+            v-bind:key="n"
             v-bind:appearance="footSwitchStyle"
-            v-bind:label="pedalWords.switchLabels[0]"></FootSwitch>
-          <FootSwitch
-            v-bind:appearance="footSwitchStyle"
-            v-bind:label="pedalWords.switchLabels[1]"></FootSwitch>
+            v-bind:label="pedalWords.switchLabels[n - 1]"></FootSwitch>
         </div>
     </div>
   </div>
@@ -280,6 +279,14 @@ export default {
     ledColorNumber: function() { return this.getRandom(); },
     
     numAcross: function() { return 1 + Math.floor(this.getRandom() * 6); },
+    numFootSwitches: function() {
+      return choiceItem(this.getRandom(), [
+        1, 1, 1, 1,
+        2, 2, 2,
+        3, 3, 3,
+        4,
+      ])
+    },
 
     footSwitchStyle: function() { return choiceItem(this.getRandom(), footSwitchStyles); },
 
