@@ -21,6 +21,28 @@
               v-bind:label="pedalWords.knobLabels[n-1]"></SomeControl>
           </div>
 
+          <div
+              v-if="knobConfigName === 'NByTwo'" 
+              class="Knobs__StraightRow">
+            <SomeControl
+              v-for="n in numAcross"
+              v-bind:key="n"
+              v-bind:randomNumber1="pedalWords.randomNumbers[numAcross + n - 1]"
+              v-bind:randomNumber2="pedalWords.randomNumbers[numAcross + n]"
+              v-bind:label="pedalWords.knobLabels[numAcross + n - 1]"></SomeControl>
+          </div>
+
+          <div
+              v-if="knobConfigName === 'NByTwo'" 
+              class="Knobs__StraightRow">
+            <SomeControl
+              v-for="n in numAcross"
+              v-bind:key="n"
+              v-bind:randomNumber1="pedalWords.randomNumbers[n - 1]"
+              v-bind:randomNumber2="pedalWords.randomNumbers[n]"
+              v-bind:label="pedalWords.knobLabels[n-1]"></SomeControl>
+          </div>
+
           <div v-if="knobConfigName === 'Pair'" class="Knobs__Pair">
             <SomeControl
               v-for="n in 2"
@@ -189,6 +211,7 @@ const knobConfigs = [
   'Pair',
   'TriangleUp',
   'TriangleDown',
+  'NByTwo'
 ];
 
 const footConfigs = [
@@ -243,6 +266,8 @@ export default {
     },
 
     ledColorNumber: function() { return this.getRandom(); },
+    
+    numAcross: function() { return 1 + Math.floor(this.getRandom() * 6); },
 
     footSwitchStyle: function() { return choiceItem(this.getRandom(), footSwitchStyles); },
 
