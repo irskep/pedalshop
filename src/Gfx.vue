@@ -281,7 +281,6 @@ export default {
     numAcross: function() { return 1 + Math.floor(this.getRandom() * 6); },
     numFootSwitches: function() {
       return choiceItem(this.getRandom(), [
-        1, 1, 1, 1,
         2, 2, 2,
         3, 3, 3,
         4,
