@@ -11,9 +11,13 @@
 /* layout */
 
 html {
-  font-family: "Cooper Hewitt", serif;
+  font-family: "Cooper Hewitt", sans-serif;
   font-size: 1.2rem;
   line-height: 1.4em;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 main {
@@ -59,113 +63,116 @@ article {
   position: relative;
 }
 
-/* custom: planets */
+/* custom: brand */
 
-.GraphicalPlanet {
-  position: relative;
-  width: 0;
-  height: 0;
-  overflow: visible;
+.Brand {
+  margin-bottom: -1.5rem;
+  font-style: italic;
+  font-size: 1.5rem;
 }
 
-.GraphicalPlanet__Content {
-  position: absolute;
-  top: 0;
-  right: 2rem;
-  width: 10rem;
+/* custom: led */
 
-  text-align: right;
-  font-size: 0.85rem;
+/* custom: pedal */
+
+.Pedal {
+  display: flex;
 }
 
-@media(max-width: 768px) {
-  .GraphicalPlanet {
-    position: relative;
-    width: 100%;
-    height: 4rem;
-  }
-
-  .GraphicalPlanet__Content {
-    position: relative;
-    right: auto;
-    text-align: center;
-    width: 100%;
-  }
+.Pedal .Label {
+  font-size: 0.5rem;
+  line-height: 1em;
 }
 
-.GraphicalPlanet__Graphic {
-  width: 2rem;
-  height: 2rem;
-  /* border: 1px solid black; */
-  border-radius: 1rem;
-  display: inline-block;
+.ThreeSectionStompbox {
+  --outsidePadding: 0.4rem;
 
-  box-shadow: inset 0 -6px 0 -2px rgba(0, 0, 0, 0.25);
+  /* width: 10rem; */
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  background-color: var(--bg);
+  color: var(--textOnBg);
+
+  border-radius: 0.3rem;
+  padding: var(--outsidePadding);
 }
 
-.GraphicalPlanet__Graphic.Terran {
-  background-color: lightgray;
-  width: 1rem;
-  height: 1rem;
+.Controls {
+  background-color: var(--bg2);
+  color: var(--textOnBg2);
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+  margin-bottom: 0.4rem;
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.GraphicalPlanet__Graphic.Terran.hasLife {
-  background-color: lightgreen;
+.Controls__Spacer {
+  height: 1px;
+  content: " ";
 }
 
-.GraphicalPlanet__Graphic.Neptunian {
-  width: 1.7rem;
-  height: 1.7rem;
-  background-color: lightblue;
+.CheckLED {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.5rem;
 }
 
-.GraphicalPlanet__Graphic.Jovian {
-  background-color: burlywood;
+.Knobs__StraightRow {
+  min-height: 2rem;
+  display: flex;
+  justify-content: space-around;
 }
 
-/* custom: stars */
-
-.GraphicalStar {
-  position: relative;
-  width: 0;
-  height: 0;
-  overflow: visible;
+.Knobs__Pair {
+  min-height: 2rem;
+  display: flex;
+  justify-content: space-around;
 }
 
-.GraphicalStar__Content {
-  position: absolute;
-  top: 0;
-  right: 2rem;
-  width: 10rem;
-  height: 7em;
-
-  text-align: right;
-  font-size: 0.85rem;
+.Knobs__Pair .Knob {
+  margin: 0 1rem;
 }
 
-@media(max-width: 768px) {
-  .GraphicalStar {
-    position: relative;
-    width: 100%;
-    height: 4rem;
-  }
-
-  .GraphicalStar__Content {
-    position: relative;
-    right: auto;
-    text-align: center;
-    width: 100%;
-  }
+.Knobs__TriangleUp {
+  min-height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.GraphicalStar__Graphic {
-  box-sizing: border-box;
-  display: inline-block;
-  border-radius: 2rem;
+.Knobs__TriangleUp > * {
+  margin-right: 5px;
+  margin-left: 5px;
+}
 
-  width: 4rem;
-  height: 4rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+.Knobs__TriangleUp > *:nth-child(2) {
+  align-self: flex-start;
+}
+
+.Knobs__TriangleDown {
+  min-height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.Knobs__TriangleDown > * {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.Knobs__TriangleDown > *:nth-child(2) {
+  align-self: flex-end;
+}
+
+.Pusher {
+  height: 6rem;
+  background-color: var(--footContact);
+  border-radius: 0.3rem;
 }
 
 /*# sourceMappingURL=/static.abaec9a8.css.map */

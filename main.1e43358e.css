@@ -1,0 +1,182 @@
+.KnobContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  --knobSize: 1.8rem;
+}
+
+.KnobLabel {
+  font-size: 0.5rem;
+}
+
+.Knob {
+  position: relative;
+
+  width: var(--knobSize);
+  height: calc(var(--knobSize) * 1.11);
+  height: 2rem;
+  margin: 0 0.3rem;
+
+  background-color: black;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.66);
+}
+
+.Knob::before {
+  content: " ";
+  position: absolute;
+
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 1rem;
+  background-color: var(--knob);
+  z-index: 1;
+}
+
+.Knob::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  left: calc(50% - 1px);
+  top: 0;
+  width: 2px;
+  height: 0.5rem;
+  background-color: var(--knobTick);
+  z-index: 3;
+}
+
+.Knob__Inner {
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  left: 0.1rem;
+  top: 0.1rem;
+  background-color: var(--knob2);
+  border-radius: 100%;
+  z-index: 2;
+}
+.LED {
+  --ledSize: 0.6rem;
+}
+
+.LEDRed {
+  width: var(--ledSize);
+  height: var(--ledSize);
+  background-color: #F00;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;
+}
+
+.LEDYellow {
+  width: var(--ledSize);
+  height: var(--ledSize);
+  background-color: #FF0;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 12px;
+}
+
+.LEDGreen {
+  width: var(--ledSize);
+  height: var(--ledSize);
+  background-color: #ABFF00;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;
+}
+
+.LEDBlue {
+  width: var(--ledSize);
+  height: var(--ledSize);
+  background-color: #24E0FF;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #3F8CFF 0 2px 14px;
+}
+.Ports {
+  font-size: 0.7rem;
+  position: relative;
+
+  --socketWidth: 0.3rem;
+}
+
+.Ports__Inner__ActualPorts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Left .Row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.Right .Row {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.Left .Outside {
+  position: absolute;
+  top: -1rem;
+  right: calc(100% + 0.4rem);
+  margin-right: var(--socketWidth);
+  width: 0;
+  overflow: visible;
+}
+
+.Right .Outside {
+  position: absolute;
+  top: -1rem;
+  left: 100%;
+  margin-left: var(--outsidePadding);
+  width: 0;
+  overflow: visible;
+}
+
+.Left .Socket {
+  margin-left: calc(-var(--socketWidth));
+}
+
+.Socket {
+  width: var(--socketWidth);
+  height: 2rem;
+  background-color: #2f3640;
+  margin-bottom: 0.5rem;
+}
+
+.PortName {
+  line-height: 1em;
+  margin-bottom: 0.3rem;
+}
+
+.Left .PortName {
+  text-align: right;
+}
+
+.PortName__Subtitle {
+  font-size: 0.5rem;
+}
+
+.PortName, .RightArrow, .LeftArrow {
+  display: inline;
+}
+
+.RightArrow { margin-left: 0.3rem; }
+.LeftArrow { margin-right: 0.3rem; }
+
+.Ports__Inner__Name {
+  min-height: 3rem;
+}
+
+.Ports__Inner__Name .Name {
+  font-family: var(--name-font);
+  font-size: var(--name-font-size);
+  display: flex;
+  justify-content: var(--name-flex-justify-content);
+  flex-direction: var(--name-flex-direction);
+}
+
+.Ports__Inner__Name .Name2 {
+  display: flex;
+  justify-content: var(--name2-flex-justify-content);
+  flex-direction: var(--name2-flex-direction);
+}

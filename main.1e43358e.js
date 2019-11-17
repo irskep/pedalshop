@@ -9926,6 +9926,42 @@ var define;
   }
 }));
 
+},{}],"src/util.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.choiceIndex = choiceIndex;
+exports.choiceItem = choiceItem;
+exports.star2tags = star2tags;
+exports.precision = precision;
+exports.decimal = decimal;
+
+// 0-indexed
+function choiceIndex(randVal, outOf) {
+  return Math.floor(randVal * outOf);
+}
+
+function choiceItem(randVal, list) {
+  return list[choiceIndex(randVal, list.length)];
+}
+
+function star2tags(starSystem) {
+  if (starSystem.stars.length == 1) {
+    return [['numstars', '1'], ['star1type', starSystem.stars[0].starType]];
+  } else {
+    return [['numstars', '2'], ['star1type', starSystem.stars[0].starType], ['star2type', starSystem.stars[1].starType]];
+  }
+}
+
+function precision(n, val) {
+  return parseFloat(val.toPrecision(n));
+}
+
+function decimal(n, val) {
+  return parseFloat((Math.round(val * 100) / 100).toFixed(n));
+}
 },{}],"node_modules/improv/dist/template.js":[function(require,module,exports) {
 'use strict';
 
@@ -29696,7 +29732,13 @@ module.exports = {
   root: {
     groups: [{
       tags: [],
-      phrases: ["[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:packed] with [:superlative] [:purpose] [:options]", "[:purpose] for the Tone [:aficionado]"]
+      phrases: ["[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:adjective] [:purpose] [:noun]", "[:packed] with [:superlative] [:purpose] [:options]", "[:purpose] for the Tone [:aficionado]", "[:brand]'s Most [:superlative] [:purpose] [:noun]", "Your Always-on [:purpose] [:pedal]", "Time-tested [:purpose], Upgraded Tone", "Beyond [:classic] [:purpose]", "[:superlative] [:purpose]", "[:versatile] [:purpose] [:pedal]", "All the [:purpose] You Could Ask For", "The World's Most [:superlative] [:purpose] [:pedal]"]
+    }]
+  },
+  versatile: {
+    groups: [{
+      tags: [],
+      phrases: ["Versatile", "Flexible"]
     }]
   },
   packed: {
@@ -29708,7 +29750,7 @@ module.exports = {
   superlative: {
     groups: [{
       tags: [],
-      phrases: ["Incredible", "Amazing", "Dazzling", "Fantastic", "Must-have", "Serious", "Elite", "Top-tier"]
+      phrases: ["Incredible", "Amazing", "Dazzling", "Fantastic", "Must-have", "Serious", "Elite", "Top-tier", "Powerful", "Iconic", "Popular"]
     }]
   },
   options: {
@@ -29720,7 +29762,7 @@ module.exports = {
   adjective: {
     groups: [{
       tags: [],
-      phrases: ["Total", "Your", "Fully Loaded", "Next-generation", "[:brand]'s Most Advanced", "Your Onstage", "Classic", "Vintage", "Hot-rodded", "Next-gen", "Feature-rich", "Dazzling", "A Must-have", "Powerful", "The World's Most Popular"]
+      phrases: ["Total", "Your", "Fully Loaded", "Next-generation", "[:brand]'s Most Advanced", "Your Onstage", "Classic", "Vintage", "Hot-rodded", "Next-gen", "Feature-rich", "Dazzling", "Must-have", "Powerful", "The World's Most Popular"]
     }]
   },
   aficionado: {
@@ -29732,9 +29774,6 @@ module.exports = {
   purpose: {
     bind: true,
     groups: [{
-      tags: [["purpose", "looping"]],
-      phrases: ["Looping"]
-    }, {
       tags: [["purpose", "tone", "reverb"]],
       phrases: ["Reverb"]
     }, {
@@ -29760,6 +29799,18 @@ module.exports = {
       phrases: ["Noise Suppression"]
     }]
   },
+  pedal: {
+    groups: [{
+      tags: [],
+      phrases: ["Pedal", "Effects Pedal", "Stompbox"]
+    }]
+  },
+  classic: {
+    groups: [{
+      tags: [],
+      phrases: ["Vintage", "Classic", "Standard"]
+    }]
+  },
   noun: {
     groups: [{
       tags: [],
@@ -29773,7 +29824,7 @@ module.exports = {
     bind: true,
     groups: [{
       tags: [],
-      phrases: ["[:brand] [:shortname]"]
+      phrases: ["[:shortname]"]
     }]
   },
   shortname: {
@@ -29785,8 +29836,63 @@ module.exports = {
   },
   newname: {
     groups: [{
+      tags: [["namestyle", "the"]],
+      phrases: ["The [:namenoun]", "The [id :namenoun]", "The [id id :namenoun]"]
+    }, {
+      tags: [["namestyle", "prefixnoun"]],
+      phrases: ["[:super] [:namePrefix] [:namenoun]", "[:namePrefix] [:namenoun]", "[:super] [:namePrefix] [:namenoun] [:v2]", "[:namePrefix] [:namenoun] [:v2]", "[:super] [:namenoun] [:namesuffix]"]
+    }, {
+      tags: [["namestyle", "color"]],
+      phrases: ["[:size] [:color] [:namenoun]", "[:size] [:color] [:namenoun] [:v2]"]
+    }, {
+      tags: [["namestyle", "suffixnoun"]],
+      phrases: ["[:namenoun] [:namesuffix]", "[:super] [:namenoun] [:namesuffix] [:v2]", "[:namenoun] [:namesuffix] [:v2]"]
+    }, {
+      tags: [["namestyle", "lettersandnumbers"]],
+      phrases: ["[:twoLetters]-[:shortIdentifier]", "[:letter][:letter][:letter]-[#0-9][#0-9][#0-9]"]
+    }]
+  },
+  super: {
+    groups: [{
       tags: [],
-      phrases: ["[:twoLetters]-[:shortIdentifier]", "[:twoLetters]-[id :shortIdentifier]", "[:twoLetters]-[id id :shortIdentifier]", "[:twoLetters]-[id id id :shortIdentifier]"]
+      phrases: ["Super", "Ultra", "Nano", "Deluxe", "Micro", "XL", "Mini"]
+    }]
+  },
+  size: {
+    groups: [{
+      tags: [],
+      phrases: ["Big", "Giant", "Jumbo", "Lil’", "Little", "Mini"]
+    }]
+  },
+  v2: {
+    groups: [{
+      tags: [],
+      phrases: ["V2", "+", "Deluxe"]
+    }]
+  },
+  color: {
+    bind: true,
+    groups: [{
+      tags: [],
+      phrases: ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Black", "White"]
+    }]
+  },
+  namenoun: {
+    groups: [{
+      tags: [],
+      phrases: ["Elk", "Snake", "Camel", "Emu", "Moose", "Zebra", "Cobra", "Bee", "Wasp", "Horse", "Dog", "Cat", "Tiger", "Panther", "Goose", "Duck", "Captain", "Fork", "Spoon", "Badass", "Bitchin’", "Ricochet", "Bounce", "Rubber", "Bone", "Noise", "Water", "Viper", "Zero", "Infinity"]
+    }]
+  },
+  namesuffix: {
+    groups: [{
+      tags: [],
+      phrases: ["Stomper", "Zinger", "Blaster", "Noodler", "Banger", "Muffler", "Buster", "Shaper", "Swizzler", "Box", "Bouncer", "Emperor", "King", "Squisher", "Crusher", "Cavern", "Master", "Point", "Theory", "Slammer", "Rumbler", "Fatty", "Bro", "Chick"]
+    }]
+  },
+  namePrefix: {
+    groups: [{
+      tags: [],
+      phrases: ["Stomp", "Blast", "Gargle", "Noodle", "Bang", "Muffle", "Swizzle", "Box", "Bounce", "Emperor", "King", "Captain", "Colonel", "Lieutenant", "Cavern", "Point", "Theory", "Zero", "Slam", "Fat", "Factor", "Dirty", "Rumble", "Fat"]
     }]
   },
   brand: {
@@ -29806,7 +29912,7 @@ module.exports = {
   brandname: {
     groups: [{
       tags: [],
-      phrases: ["BIG", "Harmo-Electronix", "SHJ", "Jamz"]
+      phrases: ["BOBB", "harmo-electrix", "ABX", "Jamz", "TekDigi", "SRL Pedals", "Landey Electronics", "Ducktronix", "Moonshaker Devices", "Sealion Audio", "QF Electronic", "Bender", "Destination Audio", "Halftone", "Vortex", "Roughtide", "Plateau", "Blue Warlock", "Digital Deviant"]
     }]
   },
   twoLetters: {
@@ -29824,7 +29930,7 @@ module.exports = {
   shortIdentifier: {
     groups: [{
       tags: [],
-      phrases: ["[#0-9]", "[#0-9][:letter]", "[:letter][#1-9]", "[#1-9]00", "[#1-9]0[#1-9]"]
+      phrases: ["[#0-9]", "[#0-9][:letter]", "[#0-9]0[:letter]", "[:letter][#1-9]", "[#1-9]00", "[#1-9]0[#1-9]"]
     }]
   },
   extraname1: {
@@ -29844,35 +29950,60 @@ module.exports = {
   root: {
     groups: [{
       tags: [],
-      phrases: ["The [:shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "The [:shortname] comes [:packed] with [:superlative] [uncap :purpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname]. [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:subItemAdjective] [:subItems], the [:shortname] provides [:endless] [:creativePossibilities]. [:extra]", "The [:shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], the [:shortname] is possibly the most versatile [uncap :purpose] [:pedalSynonym] ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], the [:shortname] may be one of the most versatile [uncap :purpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, the [:shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedal].  [:extra]", "The [:shortname] re-creates the classic sound of the [:extraname1] and [:extraname2] [:pedal]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. The [:shortname] features a stereo output for the [:extraname1] effects and variable depth for the [:extraname2] effects. [:extra]", "The [:shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [uncap :purpose] from [#100-400] to [#401-999] and adds modern [:toneAdjNoun] and [:toneAdjNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with the [:shortname], they added a whole new dimension to their popular [uncap :purpose] [:pedalSynonym]. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create the [:shortname]. This versatile [:pedalSynonym] packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "The [:shortname] features [:brand]'s innovative [:technology], which allows it to dynamically adapt to any register. That means you get [:toneAdjNoun], [:toneAdjNoun], and [:toneAdjNoun] all across the fretboard, with [:superlative] dynamics. [:extra]", "[:brand]'s [:shortname] allows you to create [#2-100] [:performanceCharacteristics] with up to [#2-10] [:units] of high-quality performance and [:benefitSingularOrPlural]. [:extra]", "The [:shortname] sports the [:genreAdjective], [:vintage] sound that made the original a huge hit with [:genreName] guitarists decades ago. All the original magic is back with [:brand]'s reissue of this '[#5-9]0s [:pedalSynonym]. [:extra]", "Designed with [:benefitSingularOrPlural], the [:shortname] is exceptionally responsive to [:guitarTechnique]. It features [:benefitSingularOrPlural] and gives you a choice of either buffered or full bypass. [:extra]", "The [:shortname] is the [uncap :purpose] [:pedalSynonym] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain. [:extra]", "[:brand] packed the original [oldify :shortname] circuit into the [:shortname], so you get the same sound, controls, and guts as the full-size model. This pedalboard-friendly version [:offers] the same [:toneAdj] tones that you've heard on countless recordings, but in a smaller package. [:extra]", "The [:shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedalSynonym] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take the [:shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]"]
+      phrases: ["[The :shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "[The :shortname] comes [:packed] with [:superlative] [uncap :purpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname]. [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:subItemAdjective] [:subItems], [the :shortname] provides [:endless] [:creativePossibilities]. [:extra]", "[The :shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], [the :shortname] is possibly the most versatile [uncap :purpose] [:pedal] ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], [the :shortname] may be one of the most versatile [uncap :purpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, [the :shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedalAlternative].  [:extra]", "[The :shortname] re-creates the classic sound of [the :extraname1] and [:extraname2] [:pedalAlternative]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. [The :shortname] features a stereo output for [the :extraname1] effects and variable depth for [the :extraname2] effects. [:extra]", "[the :shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [uncap :purpose] from [#100-400] to [#401-999] and adds modern [:toneAdjNoun] and [:toneAdjNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with [the :shortname], they added a whole new dimension to their popular [uncap :purpose] [:pedal]. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create [the :shortname]. This versatile [:pedal] packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "[The :shortname] features [:benefitSingular], which allows it to dynamically adapt to any register. That means you get [:toneAdjNoun], [:toneAdjNoun], and [:toneAdjNoun] all across the fretboard, with [:superlative] dynamics. [:extra]", "[:brand]'s [:shortname] allows you to create [#2-100] [:performanceCharacteristics] with up to [#2-10] [:units] of high-quality performance and [:benefit]. [:extra]", "[The :shortname] sports the [:genreAdjective], [:vintage] sound that made the original a huge hit with [:genreName] guitarists decades ago. All the original magic is back with [:brand]'s reissue of this '[#5-9]0s [:pedal]. [:extra]", "Designed with [:benefit], [the :shortname] is exceptionally responsive to [:guitarTechnique]. It features [:benefit] and gives you a choice of either buffered or full bypass. [:extra]", "[The :shortname] is the [uncap :purpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain. [:extra]", "[:brand] packed the original [oldify :shortname] circuit into [the :shortname], so you get the same sound, controls, and guts as the full-size model. This pedalboard-friendly version [:offers] the same [:toneAdj] tones that you've heard on countless recordings, but in a smaller package. [:extra]", "[The :shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedal] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take [the :shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]", "Own the [:pedal] that started it all—the [:brand] [:shortname] is a faithful recreation of the original '[#55-70] [oldify :shortname] pedal. It has the same [:toneAdj] tone heard on early '[#7-9]0s records by [:nameOfMusician], [:nameOfMusician], and many others.", "With [#2-100] [:subItems] plus [:benefit], [the :shortname] is one of the most [:creative] and [:creative] [uncap :purpose] [:pedals] you could put on your pedalboard. [:extra]", "[The :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [uncap :purpose] tone. [:extra]"]
     }]
   },
   root2: {
     groups: [{
       tags: [],
-      phrases: ["The [:shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedalSynonym] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take the [:shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]"]
+      phrases: ["[The :shortname] is the [uncap :purpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain."]
     }]
   },
   extra: {
     groups: [{
       tags: [],
-      phrases: ["The [:shortname] actually offers dual [:circuits] that can be configured for stereo, series, or parallel operation, and an insert function even allows you to add external effects pedals.", "And [:controls] let you [:edit] to [:perfection].", "And with [:benefitSingularOrPlural], it can turn your pedalboard into a [:sonicPlayground].", "With [:upTo] [#2-100] [:oomphs], you won't [:runOutOf] [:timeOrTone].", "[cap :edit] the [:knobsOrSwitches] for real-time expression.", "With [:benefitSingularOrPlural], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.", "Looking for [:benefitSingular]? It's here. Need [:benefitSingularOrPlural]? You've got it!", "The original [oldify :shortname] is also available.", "You'll never believe you could get this level of [:toneAdjNoun] without sacrificing [:toneAdjNoun]!", "A Dynamic mode automatically adjusts to your playing for [:toneAdj] ambience that won't turn your tone to mud.", "It's also a handy power supply for your pedalboard.", "Separate dry and effect outputs allow for 2-amp setups.", "[#3-100] [:superlative] [:subItems] cover [:superlative] sounds, from [:effectName] to [:effectName], and they all sound [:superlative].", "Two footswitches and an optional 3-button controller deliver hands-free operation.", "And [:brand] put all the [:genreAdjective] power into an enclosure that will fit comfortably on any pedalboard.", "It runs on either a 9-volt battery or the included power supply.", "Its simple 3-knob control layout makes dialing in the perfect tone easy."]
+      phrases: ["The [:shortname] actually offers dual [:circuits] that can be configured for stereo, series, or parallel operation, and an insert function even allows you to add external effects pedals.", "And [:controls] let you [:edit] to [:perfection].", "And with [:benefit], it can turn your pedalboard into a [:sonicPlayground].", "With [:upTo] [#2-100] [:oomphs], you won't [:runOutOf] [:timeOrTone].", "[cap :edit] the [:knobsOrSwitches] for real-time expression.", "With [:benefit], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.", "Looking for [:benefitSingular]? It's here. Need [:benefit]? You've got it!", "The original [oldify :shortname] is also available.", "You'll never believe you could get this level of [:toneAdjNoun] without sacrificing [:toneAdjNoun]!", "A Dynamic mode automatically adjusts to your playing for [:toneAdj] ambience that won't turn your tone to mud.", "It's also a handy power supply for your pedalboard.", "Separate dry and effect outputs allow for 2-amp setups.", "[#3-100] [:superlative] [:subItems] cover [:superlative] sounds, from [:effectName] to [:effectName], and they all sound [:superlative].", "Two footswitches and an optional 3-button controller deliver hands-free operation.", "And [:brand] put all the [:genreAdjective] power into an enclosure that will fit comfortably on any pedalboard.", "It runs on either a 9-volt battery or the included power supply.", "Its simple control layout makes dialing in the perfect tone easy.", "The more streamlined [oldify :shortname] is also available.", "An expression pedal gives you real-time control, and you can recall [#10-100] presets."]
     }]
   }
 };
 },{}],"src/improvgrammar/nouns.yaml":[function(require,module,exports) {
 module.exports = {
-  nameOfMusician: {
+  purposeNoun: {
+    bind: true,
     groups: [{
-      tags: [],
-      phrases: ["Santana", "Hendrix", "Page", "Yankovic", "Steve Vai"]
+      tags: [["purpose", "looping"]],
+      phrases: ["looping"]
+    }, {
+      tags: [["purpose", "tone", "reverb"]],
+      phrases: ["reverb"]
+    }, {
+      tags: [["purpose", "tone", "delay"]],
+      phrases: ["delay"]
+    }, {
+      tags: [["purpose", "tone", "eq"]],
+      phrases: ["EQ"]
+    }, {
+      tags: [["purpose", "tone", "synth"]],
+      phrases: ["synth sounds"]
+    }, {
+      tags: [["purpose", "tone", "chorus"]],
+      phrases: ["chorus effects"]
+    }, {
+      tags: [["purpose", "tone", "vibrato"]],
+      phrases: ["vibrato effects"]
+    }, {
+      tags: [["purpose", "tone", "distortion"]],
+      phrases: ["distortion"]
+    }, {
+      tags: [["purpose", "tone", "noise"]],
+      phrases: ["noise suppression"]
     }]
   },
   subItems: {
     bind: true,
     groups: [{
       tags: [],
-      phrases: ["presets", "effects", "modes", "settings"]
+      phrases: ["presets", "effects", "effect types", "modes", "settings"]
     }, {
       tags: [["purpose", "tone", "reverb"]],
       phrases: ["reverb types"]
@@ -29908,7 +30039,7 @@ module.exports = {
       phrases: ["Precision", "Longhorn"]
     }]
   },
-  benefitSingularOrPlural: {
+  benefit: {
     groups: [{
       tags: [],
       phrases: ["[:benefitSingular]", "[:benefitPlural]", "[id :benefitSingular]", "[id :benefitPlural]", "[id id :benefitSingular]", "[id id :benefitPlural]"]
@@ -29917,34 +30048,43 @@ module.exports = {
   benefitSingular: {
     groups: [{
       tags: [],
-      phrases: ["serial [#2-12]-track operation", "high-quality performance", "a clean boost"]
+      phrases: ["serial [#2-12]-track operation", "high-quality performance", "a clean boost", "razor-sharp precision", "[:brand]'s innovative Multi-dimensional Processing technology"]
     }, {
       tags: [["purpose", "looping"]],
       phrases: ["unlimited overdubbing"]
     }, {
       tags: [["purpose", "tone", "distortion"]],
       phrases: ["edge-of-breakup, amp-style grit", "'80s-style face-melting distortion"]
+    }, {
+      tags: [["purpose", "tone", "reverb"]],
+      phrases: ["studio-grade, hall, and plate algorithms", "vintage-style spring reverb", "modern-sounding textures"]
     }]
   },
   benefitPlural: {
     groups: [{
       tags: [],
-      phrases: ["ample options for external control", "boosted power rails", "[:superlative] headroom and definition"]
+      phrases: ["comprehensive tone-shaping controls", "ample options for external control", "boosted power rails", "[:superlative] headroom and definition"]
     }]
   },
   soundModification: {
     groups: [{
       tags: [],
-      phrases: ["creates the classically smoky Blues tone", "beefs up the low end and adds sustain"]
+      phrases: ["creates the classically smoky Blues tone", "beefs up the low end and adds sustain", "sends single notes soaring into the stratosphere with razor-sharp precision"]
     }]
   },
-  pedalSynonym: {
+  pedal: {
     groups: [{
       tags: [],
       phrases: ["pedal", "effects pedal", "stomp box"]
     }]
   },
-  pedal: {
+  pedals: {
+    groups: [{
+      tags: [],
+      phrases: ["pedals", "effects pedals", "stomp boxes"]
+    }]
+  },
+  pedalAlternative: {
     groups: [{
       tags: [],
       phrases: ["rack effects processor", "effects pedal", "effects processor", "pedal"]
@@ -29962,7 +30102,7 @@ module.exports = {
   strangeEffectName: {
     groups: [{
       tags: [],
-      phrases: ["shimmer", "warble"]
+      phrases: ["shimmer", "warble", "pulse"]
     }]
   },
   soundQuality: {
@@ -30022,13 +30162,7 @@ module.exports = {
   toneAdjNoun: {
     groups: [{
       tags: [],
-      phrases: ["sweetness", "harshness", "mellowness", "warmth", "coldness", "note definition", "control", "smoothness"]
-    }]
-  },
-  technology: {
-    groups: [{
-      tags: [],
-      phrases: ["Multi-dimensional Processing technology"]
+      phrases: ["sweetness", "harshness", "mellowness", "warmth", "coldness", "note definition", "control", "smoothness", "grit", "edge"]
     }]
   },
   performanceCharacteristics: {
@@ -30047,12 +30181,6 @@ module.exports = {
     }, {
       tags: [["purpose", "tone"]],
       phrases: ["kinds", "types", "levels", "layers"]
-    }]
-  },
-  flavors: {
-    groups: [{
-      tags: [["purpose", "tone", "reverb"]],
-      phrases: ["studio-grade, hall, and plate algorithms", "vintage-style spring reverb", "modern-sounding textures"]
     }]
   },
   oomphs: {
@@ -30175,7 +30303,7 @@ module.exports = {
   superlative: {
     groups: [{
       tags: [],
-      phrases: ["great", "excellent", "perfect", "amazing", "elite", "top-tier", "top-notch", "phenomenal", "superior", "awesome", "legendary"]
+      phrases: ["great", "excellent", "perfect", "amazing", "elite", "top-tier", "top-notch", "phenomenal", "superior", "awesome", "legendary", "glorious"]
     }]
   },
   vintage: {
@@ -30193,7 +30321,7 @@ module.exports = {
   creative: {
     groups: [{
       tags: [],
-      phrases: ["creative", "fun"]
+      phrases: ["creative", "fun", "comprehensive"]
     }]
   },
   enticing: {
@@ -30259,7 +30387,7 @@ module.exports = {
   toneAdj: {
     groups: [{
       tags: [],
-      phrases: ["sweet", "harsh", "mellow", "warm", "cold", "ear-catching", "lush", "rich", "creamy", "violin-like", "gnarly", "grungy", "gritty", "smooth", "clean", "dirty", "chunky", "spacey"]
+      phrases: ["sweet", "harsh", "mellow", "warm", "cold", "ear-catching", "lush", "rich", "creamy", "violin-like", "gnarly", "grungy", "gritty", "smooth", "clean", "dirty", "chunky", "spacey", "singing", "raunchy", "ratty", "punchy", "meaty", "thick"]
     }]
   },
   genreAdjective: {
@@ -30304,7 +30432,7 @@ module.exports = {
   making: {
     groups: [{
       tags: [],
-      phrases: ["crafting", "making", "playing"]
+      phrases: ["crafting", "playing"]
     }]
   },
   runOutOf: {
@@ -30317,6 +30445,66 @@ module.exports = {
     groups: [{
       tags: [],
       phrases: ["offers", "provides", "gives you", "serves up"]
+    }]
+  }
+};
+},{}],"src/improvgrammar/nameOfMusician.yaml":[function(require,module,exports) {
+module.exports = {
+  nameOfMusician: {
+    groups: [{
+      tags: [],
+      phrases: ["Johnny A.", "Abbath Doom Occulta", "\"Dimebag\" Darrell Abbott", "Drew Abbott", "John Abercrombie", "Aaron \"El Hefe\" Abeyta", "Mick Abrahams", "William Ackerman", "Bryan Adams", "Jay Boy Adams", "Stuart Adamson", "Marcus Adoro", "Lily Afshar", "Dionisio Aguado", "Salman Ahmad", "Mikael Åkerfeldt", "Fredrik Åkesson", "Jan Akkerman", "Damon Albarn", "Nate Albert", "Steve Albini", "Art Alexakis", "Michael Algar", "Carson Allen", "Kris Allen", "Paul Allender", "Duane Allman", "Laurindo Almeida", "Carlos Alomar", "Vicente Amigo", "Michael Amott", "Christopher Amott", "Trey Anastasio", "Ian Anderson", "Muriel Anderson", "Magnus Andersson", "Nicke Andersson", "André 3000", "Jake Andrews", "Faraz Anwar", "Gem Archer", "Jamie Arentzen", "Joan Armatrading", "Armik", "Billie Joe Armstrong", "Tim Armstrong", "Joseph Arthur", "Paul Arthurs", "Jeff Arwadi", "Daniel Ash", "DJ Ashba", "Peter Asher", "Ron Asheton", "Gwyn Ashton", "John Ashton", "Sérgio Assad", "Gustavo Assis-Brasil", "Chet Atkins", "Paul Atkinson", "Dan Auerbach", "Doug Aldrich", "Baden Powell de Aquino", "Jim Babjak", "Ayub Bachchu", "Matt Bachand", "Randy Bachman", "Derek Bailey", "Dave Bainbridge", "Ian Bairnson", "Brian Baker", "Mickey Baker", "Dave Baksh", "David Ball", "Balsac the Jaws of Death", "Bruce Bouillet", "Terry Balsamo", "Perry Bamonte", "Devendra Banhart", "Benji Madden", "Paul Banks", "Peter Banks", "Carl Barât", "Barbecue Bob", "Warren Barfield", "Don Barnes", "Mick Barr", "Martin Barre", "Paul Barrere", "Aaron Barrett", "Syd Barrett", "Agustín Barrios", "Nicholas Barron", "Steve Bartek", "Desireé Bassett", "Michael Angelo Batio", "Jennifer Batten", "Roland Bautista", "Jeff \"Skunk\" Baxter", "Brendan Bayliss", "Eric Bazilian", "Reb Beach", "Michael Bearpark", "Corey Beaulieu", "Beck", "Jeff Beck", "Joe Beck", "Justin Beck", "Joe Becker", "Jason Becker", "Walter Becker", "Peter Beckett", "Johanna Beisteiner", "Adrian Belew", "Drake Bell", "Brian Bell", "Eric Bell", "J.J. Belle", "Matthew Bellamy", "Roni Benise", "Bob Bennett", "Chester Bennington", "Brendan Benson", "George Benson", "Miki Berenyi", "Peter Bernstein", "Chuck Berry", "Guy Berryman", "Gene Bertoncini", "Nuno Bettencourt", "Dickey Betts", "Randall Bewley", "Bo Bice", "Big Tom", "Kat Bjelland", "Anders Björler", "Ivar Bjørnson", "Clint Black", "Jack Black", "Ryland Blackinton", "Ritchie Blackmore", "Alfonzo Blackwell", "Tony Blair", "Zach Blair", "Blind Blake", "Norman Blake", "Norman Blake", "Ron Block", "Conny Bloom", "Mike Bloomfield", "Bob Bogle", "Marc Bolan", "Marcie Bolen", "Tommy Bolin", "Joe Bonamassa", "Bono", "Nicke Borg", "Adrian Borland", "Wes Borland", "Mark Boston", "Jean-Paul Bourelly", "Tony Bourge", "James Bourne", "Pierre Bouvier", "Robert Bowlin", "James Bowman", "Will Boyd", "Mick Box", "James Dean Bradfield", "Michelle Branch", "Laurent Brancowitz", "Srđan Branković", "Vito Bratta", "Creed Bratton", "Jacques Brautbar", "Julian Bream", "Lenny Breau", "Thomas Bredahl", "Thom Bresh", "Paul Brett", "Mike Brewer", "John Brewster", "Lincoln Brewster", "Vic Briggs", "Terry Britten", "Chris Broderick", "Dave Brock", "Isaac Brock", "David Bromberg", "Devin Bronson", "Michael Brook", "Garth Brooks", "Kix Brooks", "Meredith Brooks", "Big Bill Broonzy", "Bobby Broom", "Ethan Brosh", "Eric Brosius", "Mike Brown", "Jackson Browne", "Bob Brozman", "Norman Brown", "Oli Brown", "Michael Bruce", "Jimmy Bruno", "Mark Bryan", "Roy Buchanan", "Peter Buck", "Buckethead", "Lindsey Buckingham", "Jonny Buckland", "Jeff Buckley", "Ely Buendia", "Jimmy Buffett", "Charlie Burchill", "Ben Burnley", "Christian Burns", "Jake Burns", "Vinny Burns", "R. L. Burnside", "Kenny Burrell", "James Burton", "Kristian Bush", "Bernard Butler", "John Butler", "Jonathan Butler", "Glen Buxton", "Roddy \"Radiation\" Byers", "Charlie Byrd", "David Byrne", "Fito Cabrales", "Kevin Cadogan", "Chris Caffery", "Charlotte Caffey", "Paul Caiafa", "Colbie Caillat", "Al Caiola", "JJ Cale", "Randy California", "Jo Callis", "Mateo Camargo", "Greg Camp", "Jeremy Camp", "Glen Campbell", "Mike Campbell", "Phil Campbell", "Royce Campbell", "Vivian Campbell", "Mike Campese", "Jim Campilongo", "Jerry Cantrell", "Joey Cape", "Matteo Carcassi", "Larry Carlton", "Jesse Carmichael", "Stephen Carpenter", "Pete Carr", "Chris Carrabba", "Kim Carroll", "John Valentine Carruthers", "Maybelle Carter", "Ferdinando Carulli[1]", "Neko Case", "Al Casey", "Al Casey", "Johnny Cash", "Nick Catanese", "Philip Catherine", "Stephen Caudel", "Max Cavalera", "Dino Cazares", "Danny Cedrone", "Gustavo Cerati", "Franco Cerri", "Nic Cester", "Yavuz Çetin", "Eugene Chadbourne", "António Chainho", "Bill Champlin", "Eason Chan", "Jaycee Chan", "Jerry Chang", "Gary Chapman", "Manny Charlton", "Charo", "David T. Chastain", "Rhys Chatham", "Chris Cheney", "Andrew Cheshire", "Phil Chevron", "Moraito Chico", "Michael Guy Chislett", "Jay Chou", "John Christ", "Charlie Christian", "Stephen Christian", "Popa Chubby", "Martin Cilia", "Jake Cinninger", "John Cipollina", "Liam Clancy", "Eric Clapton", "Angus Clark", "Mike Clark", "Roy Clark", "Steve Clark", "\"Fast\" Eddie Clarke", "Gilby Clarke", "Frank Claussen", "Zal Cleminson", "Henry Cluney", "Kurt Cobain", "Eddie Cochran", "Stephen Cochran", "Bruce Cockburn", "Leonard Cohen", "Sam Cohen", "Jesse Colburn", "Deborah Coleman", "Phil Collen", "Ned Collette", "Chris Collingwood", "Albert Collins", "Allen Collins", "John Collins", "Paul Collins", "Paul Colman", "Gary Lee Conner", "John Connolly", "Bill Connors", "Nico Constantine", "Steve Conte", "Ry Cooder", "Jamie Cook", "Jesse Cook", "Kyle Cook", "Rusty Cooley", "Gaz Coombes", "Korey Cooper", "John Corabi", "Francesco Corbetta", "Easton Corbin", "Billy Corgan", "Chris Cornell", "Gene Cornish", "Hugh Cornwell", "Jim Corr", "Larry Coryell", "Miranda Cosgrove", "Yamandu Costa", "Napoléon Coste", "Sean Costello", "Elizabeth Cotten", "Jeff Cotton", "Andy Cox", "Graham Coxon", "Jonathan Coulton", "Steve Cradock", "Andrew Craighan", "Philo Cramer", "Dan Crary", "Robert Cray", "Marshall Crenshaw", "Jim Croce", "Kevin Cronin", "Jason Cropper", "Steve \"The Colonel\" Cropper", "David Crosby", "Robbin Crosby", "Sheryl Crow", "Allison Crowe", "András Csáki", "Josh Cunningham", "Rivers Cuomo", "Shannon Curfman", "John Curulewski", "Billy Ray Cyrus", "Miley Cyrus", "Trace Cyrus", "Britt Daniel", "Dante DeCaro", "Denis D’Amour", "Donnie Dacus", "Marcel Dadi", "Aaron Dalbec", "Dick Dale", "Brody Dalle", "Sean Danielsen", "Jol Dantzig", "Glenn Danzig", "Lenny Davidson", "Dave Davies", "Ray Davies", "Brad Davis", "Reverend Gary Davis", "Jesse Ed Davis", "Keeley Davis", "Maura Davis", "Mike Davis", "Christopher Dean", "Mahyar Dean", "Nicolas de Angelis", "Chris de Burgh", "Marco Aurelio Zani de Ferranti", "Chris DeGarmo", "Vance DeGeneres", "Dean DeLeo", "Tom DeLonge", "Warren DeMartini", "Dave Dederer", "Brad Delson", "Paul Dempsey", "Tommy Denander", "Duane Denison", "Tom Denney", "John Denver", "Johnny Depp", "Amir Derakh", "Rick Derringer", "Jason De Ron", "Marko DeSantis", "C.C. DeVille", "Mat Devine", "Roberto Diana", "Dennis \"Denny\" Dias", "Alirio Díaz", "Diblo Dibala", "Bo Diddley", "Dido", "Die", "Ani DiFranco", "Steve Diggle", "Al Di Meola", "Pete Doherty", "Peter Dolving", "Dan Donegan", "Donovan", "Edsel Dope", "Paul Dorrington", "Paul Doucette", "Captain Kirk Douglas", "Jerry Douglas", "K. K. Downing", "Dr. Know", "Nick Drake", "Pete Drake", "Dregen", "Bruce Driscoll", "Glen Drover", "Steven Drozd", "Ian D’Sa", "Chris Duarte", "Les Dudek", "Billy Duffy", "Jan Dumée", "Tom Dumont", "Gary Duncan", "Andy Dunlop", "Ronnie Dunn", "Kyle Bobby Dunn", "Francis Dunnery", "Jesse James Dupree", "Sherri DuPree", "William DuVall", "Adam Dutkiewicz", "Roland Dyens", "Doyle Dykes", "Bob Dylan", "Jakob Dylan", "Jerry Donahue", "Ronnie Earl", "Steve Earle", "Elliot Easton", "Duane Eddy", "The Edge", "Dave Edmunds", "Kathleen Edwards", "Nokie Edwards", "Richie Edwards", "Kian Egan", "Stephen Egerton", "Eduardo Egüez", "Hucky Eichelmann", "Mike Einziger", "Tripp Eisen", "Mattias Eklundh", "Danny Elfman", "Dolan Ellis", "Herb Ellis", "John Ellis", "Justin Emerle", "Tommy Emmanuel", "Rik Emmett", "John Engelbert", "Eric Erlandson", "Sully Erna", "Omar Espinosa", "Esteban", "Kevin Eubanks", "Euronymous", "Dennis Eveland", "Jason Everman", "John Fahey", "Craig Fairbaugh", "Bruce Fairweather", "Nick Falcon", "Todd Fancey", "Bernard Fanning", "Tal Farlow", "Mark Farner", "John Farrar", "Andrew Farriss", "Tim Farriss", "Josh Farro", "Eric Faulkner", "Newton Faulkner", "Don Felder", "José Feliciano", "Jay Ferguson", "Jeremy \"Jinxx\" Ferguson", "Jim Ferguson", "Dean Fertita", "Roger C. Field", "Scott Fields", "Zach Filkins", "Robin Finck", "Jon Finn", "Michael Lee Firkins", "Jörg Fischer", "Roger Fisher", "Bradley Fish", "Eliot Fisk", "Warren Fitzgerald", "John Flansburgh", "Lester Flatt", "Flattus Maximus", "Tom Fletcher", "Brandon Flowers", "Robb Flynn", "William Foden", "John Fogerty", "Tom Fogerty", "Ben Folds", "Sue Foley", "Jerome Fontamillas", "Lita Ford", "Marc Ford", "Robben Ford", "Chris Foreman", "Jon Foreman", "Richard Fortus", "François de Fossa", "Rick Foster", "Alex Fox", "Oz Fox", "Les Fradkin", "Peter Frampton", "Black Francis", "Lars Frederiksen", "Ace Frehley", "Jay Jay French", "Glenn Frey", "Matthew Friedberger", "Marty Friedman", "Bill Frisell", "Robert Fripp", "Fred Frith", "Edgar Froese", "Uri Frost", "John Frusciante", "Koichi Fukuda", "Bobby Fuller", "Jim Fuller", "Justin Furstenfeld", "Nelly Furtado", "Magne Furuholmen", "Steve Gaines", "Declan Galbraith", "Eric Gale", "Eric Gales", "Noel Gallagher", "Rory Gallagher", "Shane Gallagher", "Cliff Gallup", "Frank Gambale", "Tim Gane", "Sunil Ganguly", "Charly García", "Enrik Garcia", "Jerry Garcia", "Ricardo Garcia", "Chuck Garvey", "Kyle Gass", "Diego del Gastor", "Synyster Gates", "Danny Gatton", "Dick Gaughan", "Björn Gelotte", "Vicki Genfan", "Antony Genn", "Dave Genn", "Lowell George", "Rocky George", "Janick Gers", "Per Gessle", "Andy Gibb", "Barry Gibb", "Maurice Gibb", "Ben Gibbard", "Billy Gibbons", "Gilberto Gil", "Paul Gilbert", "João Gilberto", "Daniel Gildenlöw", "Nick Gilder", "Brad Gillis", "David Gilmour", "Vince Gill", "Gordon Giltrap", "Greg Ginn", "Chad I Ginsburg", "Mauro Giuliani", "George Gobel", "Nicolas Godin", "Mircea Gogoncea", "Lynval Golding", "Sander Gommans", "Pier Gonella", "Adam Gontier", "Dave Gonzalez", "José González", "Pedro Javier González", "Myles Goodwyn", "Nina Gordon", "Martin Gore", "Scott Gorham", "Grisha Goryachev", "Chris Goss", "Stone Gossard", "Manuel Göttsching", "Johnny Goudie", "Ellie Goulding", "Guthrie Govan", "Laura Jane Grace", "Gerhard Graf-Martinez", "Davey Graham", "Amy Grant", "James Grant", "Rocky Gray", "Jay Graydon", "Doug Grean", "Boris Grebenshchikov", "Dallas Green", "Freddie Green", "Gary Green", "Grant Green", "Peter Green", "Ted Greene", "Norman Greenbaum", "Alex Greenwald", "Brian Greenway", "Jonny Greenwood", "Dave Gregory", "David Grier", "Ryan Griffiths", "Carl Johan Grimmark", "Dave Grohl", "Stefan Grossman", "Luther Grosvenor", "Todd Grubbs", "Lalo Guerrero", "Guinga", "Michael Gulezian", "Trey Gunn", "Tracii Guns", "Brett Gurewitz", "James Gurley", "Michael Gurley", "Gus G", "Buddy Guy", "Steve Hackett", "Amir-John Haddad", "Ivar Haglund", "Bill Haley", "GP Hall", "Jim Hall", "Kristen Hall", "Johan Hallgren", "Mary Halvorson", "Mike Hamilton", "Page Hamilton", "Shannon Hamm", "Chuck Hammer", "Kirk Hammett", "Peter Hammill", "Albert Hammond, Jr.", "Michael Hampton", "Jeff Hanneman", "Brian Haner Sr.", "Frank Hannon", "Andrew Hansen", "Kai Hansen", "Isaac Hanson", "Joel Hanson", "Fareed Haque", "Bob Hardy", "Bill Harkleroad", "Jessica Harp", "Ben Harper", "Nick Harper", "Roy Harper", "Dhani Harrison", "George Harrison", "Jerry Harrison", "Mark Hart", "Bob Hartman", "Les Harvey", "PJ Harvey", "Pye Hastings", "Charlotte Hatherley", "Ian Haug", "Dan Hawkins", "Justin Hawkins", "Nick Hawkins", "Colin Hay", "Hiroyuki Hayashi", "Peter Hayes", "Warren Haynes", "Dave Haywood", "Eddie Hazel", "Pete Haycock", "Justin Hayward", "Matt Heafy", "Jeff Healey", "Kevin Hearn", "Jim \"Reverend Horton\" Heath", "Charles Hedger", "Michael Hedges", "Christian Hejnal", "Scott Henderson", "Jimi Hendrix", "Don Henley", "Ken Hensley", "James Hetfield", "Greg Hetson", "Nick Hexum", "MJ Hibbett", "Tony Hicks", "hide", "Johnny Hiland", "Steve Hillage", "Tyler Hilton", "Brent Hinds", "Robert \"Bucket\" Hingley", "Tom Hingley", "Paul Hinojos", "Taka Hirose", "Joel Hoekstra", "Jules Hodgson", "Roger Hodgson", "Gary Hoey", "Susanna Hoffs", "Wolf Hoffmann", "James Hogan", "Randy Holden", "Allan Holdsworth", "Dexter Holland", "Justin Holland", "Buddy Holly", "Joshua Homme", "James Honeyman-Scott", "Matt Hoopes", "Mary Hopkin", "Doug Hopkins", "Lightnin’ Hopkins", "Mark Hoppus", "Keith Hopwood", "Rita Hosking", "Tomoyasu Hotei", "Jimmy Hotz", "Son House", "Michael Houser", "Greg Howe", "Steve Howe", "Billy Howerdel", "Keith Howland", "C. B. Hudson,", "Dann Huff", "Jesse Hughes", "Steve Hunter", "Mississippi John Hurt", "Wayne Hussey", "Eric Hutchinson", "Mick Hucknall", "Eugene Hütz", "Hyde", "Chrissie Hynde", "Scott Ian", "Angel Ibarra", "Billy Idol", "Frank Iero", "James Iha", "Ihsahn", "Chris Impellitteri", "Elliot Ingber", "Roberto Iniesta", "Inoran", "Tony Iommi", "Donnie Iris", "Sharon Isbin", "Arve Isdal", "Ichiro Ito", "Maja Ivarsson", "Anders Iwers", "Matthias Jabs", "Ramon Jacinto", "Alan Jackson", "Paul Jackson, Jr.", "Stevie Jackson", "Tito Jackson", "Elmore James", "Skip James", "Spencer James", "Tony James", "Phil Jamieson", "James Williamson", "Jandek", "Bert Jansch", "Al Jardine", "Ron Jarzombek", "Wyclef Jean", "Blind Lemon Jefferson", "Stephan Jenkins", "JerryC", "Joan Jett", "Antônio Carlos Jobim", "Heri Joensen", "Alain Johannes", "Lars-Olof Johansson", "John 5", "Daniel Johns", "Carlos Johnson", "Eric Johnson", "Jack Johnson", "Jimmy Johnson", "Kelly Johnson", "Mike Johnson", "Robert Johnson", "Wayne Johnson", "Wilko Johnson", "Blind Willie Johnson", "Tom Johnston", "Davey Johnstone", "Ruud Jolie", "Nick, Kevin and Joe Jonas", "Adam Jones", "Buddy Jones", "Brian Jones", "Daniel Jones", "Danny Jones", "Kelly Jones", "Mick Jones", "Mick Jones", "Rod Jones", "Stacy Jones", "Steve Jones", "Stanley Jordan", "Joey Jordison", "Ben Jorgensen", "John Jorgenson", "Juanes", "Sungha Jung", "Tyler Joseph", "Kapil Srivastava", "Ledward Kaapana", "Kaoru", "Alex Kapranos", "Andre \"Virus\" Karkos", "Billy Karren", "Dr Nico Kasanda", "Ben Kasica", "Terry Kath", "Jorma Kaukonen", "Ryo Kawasaki", "John Kay", "Lenny Kaye", "Phil Keaggy", "Toby Keith", "Bill Kelliher", "Dave Kelly", "Gary Kemp", "Ken Kitamura", "David Kennedy", "Big Kenny", "Barney Kessel", "Daniel Kessler", "Dave Keuning", "Ryan Key", "Herbert Khaury", "Jewel Kilcher", "Cheyenne Kimball", "Albert King", "B.B. King", "Ben King", "Dave King", "Ed King", "Freddie King", "Justin King", "Kaki King", "Kerry King", "Donald Kinsey", "Bill Kirchen", "Pat Kirtley", "Ezra Koenig", "Kôji Kiriki", "Jon Klein", "Frank Klepacki", "Forrest Kline", "Josh Klinghoffer", "Scott Klopfenstein", "Earl Klugh", "Larry Knechtel", "David Knopfler", "Mark Knopfler", "Jeffrey Kollman", "George Kooymans", "Peter Koppes", "Alexis Korner", "Pasi Koskinen", "Paul Kostabi", "Leo Kottke", "Richie Kotzen", "Wayne Kramer", "Norbert Krief", "Robby Krieger", "Chad Kroeger", "Richard Kruspe", "Andrei Krylov", "Jan Kuehnemund", "Damian Kulash", "Bruce Kulick", "Irina Kulikova", "Dave Kushner", "Paul Kossoff", "Jesse Lacey", "Patrick Lachman", "Julian Lage", "Alexi Laiho", "Denny Laine", "Shawn Lane,", "Ler LaLonde", "Miranda Lambert", "Paul Landers", "Yuri Landman", "Michael Landau", "Jonny Lang", "Tito Larriva", "Marit Larsen", "Andrew Latimer", "Roope Latvala", "Hugh Laurie", "Antonio Lauro", "Adam Lazzara", "Bernie Leadon", "Fin Leavell", "Derek Leckenby", "John LeCompt", "Albert Lee", "Alex Lee", "Alvin Lee", "Jake E. Lee", "Shane Lee", "Thomas Leeb", "Troy Van Leeuwen", "Sébastien Lefebvre", "Adrian Legg", "John Lennon", "Julian Lennon", "Sean Lennon", "Stefano Lentini", "Deke Leonard", "Lettie", "Jared Leto", "Adam Levine", "Vaden Todd Lewis", "Aaron Lewis", "Bob Lewis", "Matty Lewis", "Herman Li", "Ottmar Liebert", "Alex Lifeson", "Jani Liimatainen", "John Lilley", "Rickey Lime", "Charley Lincoln", "Hal Lindes", "David Lindley", "Peter Lindgren", "Mikko Lindström", "Buzzy Linhart", "Jeff Linsky", "Sead Lipovača", "Russell Lissack", "Kerry Livgren", "Duncan Lloyd", "Lazer Lloyd", "Richard Lloyd", "Robert Lockwood, Jr.", "Chuck Loeb", "Lisa Loeb", "Pete Loeffler", "Nils Lofgren", "Karl Logan", "Kenny Loggins", "John Lombardo", "Jeff Loomis", "Dang Ngoc Long", "Joe Long", "Sami Lopakka", "Courtney Love", "Demi Lovato", "Clint Lowery", "Scott Lucas", "Paco de Lucía", "Steve Lukather", "Jean-Baptiste Lully", "George Lynch", "Jeff Lynne", "Jimmy Lyon", "Bob Log III", "Tony MacAlpine", "Colin MacDonald", "Lonnie Mack", "Brian \"Too Loud\" MacLeod", "Doug Macleod", "Wade MacNeil", "Benji Madden", "Madonna", "Jari Mäenpää", "Taj Mahal", "Raine Maida", "Wolf Mail", "Daron Malakian", "Stephen Malkmus", "Gui Mallon", "Yngwie Malmsteen", "Russell Malone", "Mana Mana", "Harvey Mandel", "Julian Mandrake,", "James Mankey", "Phil Manzanera", "Kee Marcello", "Carlo Marchione", "Frank Marino", "Steve Marker", "Bob Marley", "Del Marquis", "Johnny Marr", "Steve Marriott", "Mick Mars", "Bernie Marsden", "Gerry Marsden", "James Marsters", "Billy Martin", "Chris Martin", "Jim Martin", "Pat Martino", "Dave Martone", "John Martyn", "Hank Marvin", "J Mascis", "Brent Mason", "Dave Mason", "Lucio Matarazzo", "Tak Matsumoto", "Dave Matthews", "Lee Mavers", "Brian May", "John Mayer", "Sonny Mayo", "Steve Mazur", "Nick McCabe", "Ian McCallum", "John McCarthy", "Nick McCarthy", "Paul McCartney", "Chris McCaughan", "George McConnell", "Andy McCoy", "Hugh McCracken", "Mike McCready", "Danny McCulloch", "Jimmy McCulloch", "Jennette McCurdy", "Richie McDonald", "Mississippi Fred McDowell", "Eric McFadden", "John McFee", "John McGeoch", "Tim McGraw", "Roger McGuinn", "Tim McIlrath", "James McIlroy", "Duff McKagan", "Al McKay", "John McKay", "Andy McKee", "Sarah McLachlan", "John McLaughlin", "Troy McLawhorn", "Tony McManus", "El McMeen", "John McNally", "Tony McPhee", "Dave McPherson", "Michelle Meldrum", "Colin Meloy", "Katie Melua", "Eric Melvin", "Wendy Melvoin", "Johann Kaspar Mertz", "Italo Meschi", "Memphis Minnie", "Eddie Mesa", "Naser Mestarihi", "Pat Metheny", "Jesse Michaels", "Alyson Michalka", "Amanda Michalka", "Darren Middleton", "Qaasim Middleton", "Radomir Mihailović", "Tomo Miličević", "Amy Millan", "Deron Miller", "Dominic Miller", "Jerry Miller", "Marcus Miller", "Roger Miller", "Steve Miller", "Nuno Mindelis", "Ben Mink", "Federico Miranda", "Roman Miroshnichenko", "Tom Misch", "Joni Mitchell", "Kim Mitchell", "Miyavi", "Jim Moginie", "Brian Molko", "Michael Monarch", "Erik Mongrain", "Wes Montgomery", "Carlos Montoya", "Ronnie Montrose", "Gary Moore", "Nathan Moore", "Scotty Moore", "Thurston Moore", "Vinnie Moore", "Craig Morgan", "Shaun Morgan", "Tom Morello", "Marc Moreland", "Chino Moreno", "Ruthie Morris", "Sterling Morrison", "Steve Morse", "Howard Moss", "Jason Moss", "Bob Mothersbaugh", "Bob Mould", "Xavier Moyano", "Jason Mraz", "Alonso Mudarra", "Cameron Muncey", "Billy Mure", "James Murphy", "Matt \"Guitar\" Murphy", "Dave Mustaine", "Dave Murray", "Roberto Musci", "Brad Myers", "Zach Myers", "Gary Myrick", "Jimmy Nail", "Miyu Nagase", "Randy Napoleon", "Graham Nash", "Dave Navarro", "Joe Negri", "Simon Neil", "Ricky Nelson", "Willie Nelson", "Michael Nesmith", "Mike Ness", "Ira Newborn", "Carl Newman", "Grant Nicholas", "Craig Nicholls", "Rick Nielsen", "Willie Nile", "John Nolan", "Noodle", "Noodles", "Paul Noonan", "Aaron North", "John Norum", "Bradley Nowell", "Ted Nugent", "Ed O’Brien", "Mark O’Connor", "Richard Oakes", "John Oates", "Ric Ocasek", "Frank Ocean", "Erkan Oğur", "Eddie Ojeda", "Kele Okereke", "André Olbrich", "Mike Oldfield", "Criss Oliva", "Stefan Olsdal", "Ami Onuki", "Jason Orange", "Roy Orbison", "Orianthi", "Marc Orrell", "Jim O’Rourke", "Roland Orzabal", "Buzz Osborne", "Emily Osment", "Steve Ouimette", "Ryo Owatari", "Niccolò Paganini", "Jimmy Page", "Steven Page", "Michael Paget", "Clive Painter", "Brad Paisley", "Orianthi Panagaris", "Jett Pangan", "Paulinho Nogueira", "Richard Palmer", "Rick Parfitt", "Charlie Parra del Riego", "Russ Parrish", "Andy Partridge", "Joe Pass", "Ralph Patt", "Pappo", "Les Paul", "Tom Paxton", "Jeff Pearce", "Paco Peña", "Mike Pender", "Kirk Pengilly", "Patrick Pentland", "Raymond \"East Bay Ray\" Pepperell", "Heitor Teixeira Pereira", "Franky Perez", "Andreas Paolo Perger", "Carl Perkins", "Luther Perkins", "Joe Perry", "Linda Perry", "Eric Peterson", "Vicki Peterson", "Gregori Chad Petree", "John Petrucci", "Tom Petty", "River Phoenix", "Jonny Phillips", "Anthony Phillips", "Yannis Philippakis", "Yosi Piamenta", "Dave Pino", "Al Pitrelli", "Jake Pitts", "Bucky Pizzarelli", "Sergio Pizzorno", "Joel Plaskett", "Dean Pleasants", "Morris Pleasure", "Lex Plotnikoff", "Chris Poland", "Nick Pollock", "Alberto Ponce", "Iggy Pop", "Ana Popović", "Jody Porter", "Michael Poulsen", "Andy Powell", "Chet Powers", "Kid Congo Powers", "Dougie Poynter", "Christophe Pratiffi", "Sam Prekop", "Elvis Presley", "Igor Presnyakov", "Prince", "Didi Priyadi", "Jade Puget", "Martin Pugh", "Gian Pyres", "Robert Quine", "Raphael Rabello", "Ronald Radford", "Eddie Rabbitt", "Trevor Rabin", "Gerry Rafferty", "Melvin \"Wah-Wah Watson\" Ragin", "Bonnie Raitt", "Mick Ralphs", "Eros Ramazzotti", "Johnny Ramone", "Federico Ramos", "Val Ramos", "Lee Ranaldo", "Elliott Randall", "Jimmy Raney", "Søren Rasted", "Marion Raven", "Chris Rea", "Ray Reach", "Jaret Reddick", "Dusty Redmon", "Lou Reed", "Preston Reed", "Vernon Reid", "Vini Reilly", "Django Reinhardt", "Keith Relf", "Emily Remler", "John Renbourn", "Tim Renwick", "Marco Restrepo", "Paul Reynolds", "Sheldon Reynolds", "Tim Reynolds", "Trent Reznor", "Randy Rhoads", "Red Rhodes", "Marc Ribot", "Damien Rice", "Tony Rice", "John Rich", "Cliff Richard", "Keith Richards", "Max Richards", "Gary Richrath", "Michael Ricketts", "Mike Riggs", "Marc Riley", "Rafael Riqueni", "Lee Ritenour", "Jesse Rivest", "Janet Robin", "Jason Roberts", "Allison Robertson", "Brian Robertson", "Ed Robertson", "Robbie Robertson", "Rowan Robertson", "Rich Robinson", "Andrea Rocca", "Flavio Rodrigues", "Silvio Rodríguez", "Omar Rodríguez-López", "Donald \"Buck Dharma\" Roeser", "Roy Rogers", "Roy Rogers", "Lawson Rollins", "Tony Rombola", "Michael Romeo", "Pepe Romero", "Joe Romersa", "Ludovico Roncalli", "Mick Ronson", "Joe Don Rooney", "James Root", "Axl Rose", "Kurt Rosenwinkel", "Andy Ross", "Don Ross", "Ryan Ross", "Gavin Rossdale", "Francis Rossi", "Gregory Doc Rossi", "Gary Rossington", "Robert Roth", "Uli Jon Roth", "Steve Rothery", "Martin Rotsey", "Andy Rourke", "Spookey Ruben", "Darius Rucker", "Javier Ruibal", "Todd Rundgren", "Otis Rush", "David Russell", "Kamil Rustam", "Erik Rutan", "Mike Rutherford", "Paul Ryan", "Terje Rypdal", "Johnny Rzeznik", "Sabicas", "Greg Sage", "Flavio Sala", "Stevie Salas", "Richie Sambora", "Samoth", "Claudio Sanchez", "Justin Sandercoe", "Justin Sane", "Manolo Sanlúcar", "Carlos Santana", "Adam Sandler", "Tommy Sands", "Tommy Sands", "Giuliano Sangiorgi", "Joey Santiago", "Blues Saraceno", "Yağmur Sarıgül", "Satchel", "Manabu Satô", "Joe Satriani", "Boz Scaggs", "Matt Scannell", "Craig Scanlon", "Roger Scannura", "Wes Scantlin", "Jon Schaffer", "Marcus Siepen", "Michael Schenker", "Rudolf Schenker", "Helge Schneider", "Al Schnier", "Tom Scholz", "Neal Schon", "Chuck Schuldiner", "Knut Schreiner", "Robert Schwartzman", "Blake Schwarzenbach", "John Scofield", "Andy Scott", "Dominic Scott", "Howard E. Scott", "Keith Scott", "Bob Seger", "Anna Sentina", "Wayne Sermon", "Fred \"Sonic\" Smith", "Andrés Segovia", "John Sekula", "Gabe Serbian", "Juan Serrano", "Leo Setiawan", "Brian Setzer", "Charlie Sexton", "James Shaffer", "Del Shannon", "Tommy Shannon", "Dave Sharp", "Elliott Sharp", "Todd Sharpville", "Kim Shattuck", "Tommy Shaw", "Ed Sheeran", "Pete Shelley", "Blake Shelton", "Louis Shelton", "Kenny Wayne Shepherd", "Nick Sheppard", "Rodney Sheppard", "Rabbi Shergill", "Jeff Sherman", "Billy Sherwood", "Kevin Shields", "Scott Shields", "Chris Shiflett", "Mike Shinoda", "Drew Shirley", "Jon Siebels", "Alejandro Silva", "Charlie Simpson", "Matt Skiba", "Tim Sköld", "Alex Skolnick", "Skwisgaar Skwigelf", "Acey Slade", "Mike Slamer", "Slash", "Martin Slattery", "Hillel Slovak", "Brendon Small", "Pat Smear", "Adrian Smith", "Bennie Smith", "Elliott Smith", "Fred \"Sonic\" Smith", "G. E. Smith", "Johnny Smith", "Keith Smith", "Kenn Smith", "Mindy Smith", "Patti Smith", "Paul Smith", "Robert Smith", "Tom Smothers", "Toti Soler", "Fernando Sor", "Emmanuel Sowicz", "Donita Sparks", "Jordin Sparks", "Larry Sparks", "Tim Sparks", "Chris Spedding", "Bob Spencer", "Bill Spooner", "Rick Springfield", "Bruce Springsteen", "Trey Spruance", "Lester Square", "Billy Squier", "John Squire", "David St. Hubbins", "Mark Stanley", "Paul Stanley", "Mikael Stanne)", "Jack Starr", "Wayne Static", "Tommy Steele", "Vlatko Stefanovski", "Chris Stein", "Ken Steorts", "Leigh Stephens", "Edward Stephenson", "Mike Stern", "Travis Stever", "Cat Stevens", "Rogers Stevens", "Steve Stevens", "James Stevenson", "Al Stewart", "Allan Stewart", "Eric Stewart", "John Stewart", "Rod Stewart", "Stephen Stills", "Bob Stinson", "Andrew Stockdale", "Barry Stock", "Jason Stollsteimer", "Freddie Stone", "Mike Stone", "Izzy Stradlin", "George Strait", "Joel Stroetzel", "Jesper Strömblad", "Joe Strummer", "Daryl Stuermer", "Patrick Stump", "Joe Stump", "Ron Strykert", "Alex Suarez", "Sugizo", "Muhammed Suiçmez", "Frankie Sullivan", "Big Jim Sullivan", "Hubert Sumlin", "Andy Summers", "Bernard Sumner", "Øystein Sunde", "Niklas Sundin", "Bryan Sutton", "Peter Svensson", "Dan Swanö", "Steve Swanson", "Matthew Sweet", "Michael Sweet", "Taylor Swift", "Rob Swire", "Jussi Sydänmaa", "John Sykes", "Ken Sykora", "Red Symons", "Gábor Szabó", "Ty Tabor", "Toquinho", "Fred Tackett", "Joey Tafolla", "Akira Takasaki", "Serj Tankian", "Marv Tarplin", "Francisco Tárrega", "Evan Taubenfeld", "Andy Taylor", "Corey Taylor", "Courtney Taylor-Taylor", "Graeme Taylor", "Joanne Shaw Taylor", "John Taylor", "Martin Taylor", "Melvin Taylor", "Mick Taylor", "Otis Taylor", "Ryan Tedder", "Bobby Tench", "Miika Tenkula", "Octave Octavian Teodorescu", "Teppei Teranishi", "Teye", "Thomas Thacker", "Ron \"Bumblefoot\" Thal", "Kim Thayil", "Sister Rosetta Tharpe", "Tommy Thayer", "Toots Thielemans", "Amy Thiessen", "Matt Thiessen", "Lynda Thomas", "Randy Thomas", "Rob Thomas", "Hughie Thomasson", "Pearl Thompson", "Richard Thompson", "Mick Thomson", "Blair Thornton", "George Thorogood", "Johnny Thunders", "Glenn Tilbrook", "Andy Timmons", "Glenn Tipton", "Paul Tobias", "Timo Tolkki", "Tomatito", "Simon Tong", "Peter Tork", "Ray Toro", "Sam Totman", "Ralph Towner", "Mark Lee Townsend", "Devin Townsend", "Pete Townshend", "Simon Townshend", "Pat Travers", "Merle Travis", "Randy Travis", "Mark Tremonti", "Joseph Trohman", "John Tropea", "Robin Trower", "Derek Trucks", "Nicholas Tse", "Corin Tucker", "Nigel Tufnel", "KT Tunstall", "Luca Turilli", "John Turnbull", "Alex Turner", "Ike Turner", "Mike Turner", "Josh Turner", "Steve Turner", "Tweet", "Dan Tyminski", "Olli Tukiainen", "Keith Urban", "Brendon Urie", "Midge Ure", "Farin Urlaub", "Björn Ulvaeus", "Steve Vai", "Adrian Vandenberg", "Pierre Van Dormael", "George Van Eps", "Eddie Van Halen", "Steve Van Zandt", "Donnie Van Zant", "Ritchie Valens", "Nick Valensi", "Hilton Valentine", "James Valentine", "Sergio Vallín", "Randy VanWarmer", "Mike Varney", "Jimmie Vaughan", "Stevie Ray Vaughan", "Eddie Vedder", "Suzanne Vega", "Zacky Vengeance", "John Verity", "Tom Verlaine", "Henry Vestine", "Ana Vidović", "Viktor Vidović", "Brian Viglione", "Frank Vignola", "Elias Viljanen", "Jacky Vincent", "Vinnie Vincent", "Lee Ving", "Kate Voegele", "Mark Volman", "Cody Votolato", "Rocky Votolato", "Emppu Vuorinen", "Paul Waaktaar-Savoy", "Waddy Wachtel", "Jason Wade", "Paul Waggoner", "Rufus Wainwright", "Dave Wakeling", "Patrick Walden", "Billy Walker", "Butch Walker", "David T. Walker", "Geordie Walker", "Jon Walker", "T-Bone Walker", "Chris Walla", "John Bruce Wallace", "Gordon Waller", "Denny Walley", "Joe Walsh", "Rich Ward", "Dustie Waring", "Baz Warne", "Sean Watkins", "Doc Watson", "Stan Webb", "Michael Weber", "Tim Weed", "Dean Ween", "Gene Ween", "John Weider", "Dave Weiner", "Jona Weinhofen", "Bob Welch", "Brian Welch", "Bruce Welch", "Paul Weller", "John Wesley", "Leslie West", "Jim West", "Robert Westerholt", "Tim Wheeler", "Clarence White", "Deryck Whibley", "Andrew White", "Bukka White", "Jack White", "Jason White", "Josh White", "Peter White", "Snowy White", "Steve White", "Vince White", "Brad Whitford", "Slim Whitman", "John \"Charlie\" Whitney", "Buddy Whittington", "Jonny Wickersham", "Jane Wiedlin", "Clarence Wijewardena", "David Wilcox", "Harlow Wilcox", "Webb Wilder", "Jack Wilkins", "Brad Allen Williams", "Bernie Williams", "Hayley Williams", "Jody Williams", "John Williams", "Mason Williams", "Rich Williams", "Pete Willis", "Marty Willson-Piper", "Alan Wilson", "Carl Wilson", "Nancy Wilson", "Steven Wilson", "Michael Wilton", "Johnny Winter", "Steve Winwood", "Christian Olde Wolbers", "Howlin’ Wolf", "Bobby Womack", "Wong Ka Kui", "Paul Wong", "Sigurd Wongraven", "Craig Wood", "Ronnie Wood", "Brian Wooten", "Bob Wootton", "Link Wray", "Owen Wright", "Zakk Wylde", "Kazuhito Yamashita", "Narciso Yepes", "Taylor York", "Thom Yorke", "Pete Yorn", "Yumi Yoshimura", "Angus Young", "James \"JY\" Young", "Jeff Young", "Malcolm Young", "Neil Young", "Yael Yuzon", "Roy Z", "Buddy Zabala", "Aamir Zaki", "Robin Zander", "Dweezil Zappa", "Frank Zappa", "Roy Zimmerman", "Nick Zinner", "Billy Zoom"]
+    }]
+  }
+};
+},{}],"src/improvgrammar/pedalWords.yaml":[function(require,module,exports) {
+module.exports = {
+  knobLabel: {
+    groups: [{
+      tags: [],
+      phrases: ["E.LEVEL", "FEEDBACK", "TIME", "CHECK", "DRY", "VOL", "SENS", "CTRL", "BLEND", "SHIFT", "FX LVL", "TIME", "TONE", "DRIVE", "FILTER", "ATTACK", "DECAY", "SUSTAIN", "GATE", "MIDS LEV", "MIDS FREQ"]
+    }]
+  },
+  switchLabel: {
+    groups: [{
+      tags: [],
+      phrases: ["MIDS", "BYPASS", "BYPASS/STOP", "TAP/LOOP", "", "", "", "", "", ""]
+    }]
+  },
+  output: {
+    groups: [{
+      tags: [],
+      phrases: ["[:outputAlways]", "[:outputAlways]", "[:outputAlways]/[:outputExtra]", "[:outputAlways]/[:outputExtra]/[:outputExtra]", "[:outputExtra]/[:outputAlways]", "[:outputExtra]/[:outputExtra]/[:outputAlways]"]
+    }]
+  },
+  outputAlways: {
+    groups: [{
+      tags: [],
+      phrases: ["OUTPUT A\\n(MONO)/OUTPUT B", "OUTPUT"]
+    }]
+  },
+  outputExtra: {
+    groups: [{
+      tags: [],
+      phrases: ["SEND", "RETURN", "EXP"]
+    }]
+  },
+  input: {
+    groups: [{
+      tags: [],
+      phrases: ["[:inputAlways]", "[:inputAlways]/[:inputExtra]", "[:inputExtra]/[:inputAlways]"]
+    }]
+  },
+  inputAlways: {
+    groups: [{
+      tags: [],
+      phrases: ["INPUT", "INPUT", "INPUT", "INPUT", "INPUT A/INPUT B", "INPUT A\\n(MONO)/INPUT B"]
+    }]
+  },
+  inputExtra: {
+    groups: [{
+      tags: [],
+      phrases: ["INPUT A/INPUT B", "INPUT A\\n(MONO)/INPUT B", "EXP/CTRL", "TEMPO/EXP", "EXP", "REMOTE"]
     }]
   }
 };
@@ -30338,10 +30526,16 @@ var _nouns = _interopRequireDefault(require("./improvgrammar/nouns.yaml"));
 
 var _adjsVerbs = _interopRequireDefault(require("./improvgrammar/adjsVerbs.yaml"));
 
+var _nameOfMusician = _interopRequireDefault(require("./improvgrammar/nameOfMusician.yaml"));
+
+var _pedalWords = _interopRequireDefault(require("./improvgrammar/pedalWords.yaml"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 ;
-Object.assign(_desc.default, _nouns.default, _adjsVerbs.default);
+;
+Object.assign(_desc.default, _nouns.default, _adjsVerbs.default, _nameOfMusician.default);
+var subtitleGrammar = Object.assign({}, _desc.default, _subtitle.default);
 
 function dryness() {
   return function (group) {
@@ -30362,20 +30556,56 @@ var builtins = {
     return str.toLocaleLowerCase();
   },
   oldify: function oldify(str) {
-    return str.slice(1);
+    var spaceSplits = str.split(' ');
+    var dashSplits = str.split('-');
+    var v2Words = ['V2', '+'];
+
+    if (spaceSplits.length > 1) {
+      if (v2Words.indexOf(spaceSplits[spaceSplits.length - 1]) !== -1) {
+        return spaceSplits.slice(0, spaceSplits.length - 1).join(' ');
+      } else {
+        return spaceSplits.slice(1).join(' ');
+      }
+    } else if (dashSplits.length > 1) {
+      return str.slice(1);
+    } else {
+      return str.slice(1);
+    }
   },
   id: function id(str) {
     return str;
+  },
+  The: function The(str) {
+    if (str.toLowerCase().startsWith('the ')) {
+      return str;
+    } else {
+      return "The ".concat(str);
+    }
+  },
+  the: function the(str) {
+    if (str.toLowerCase().startsWith('the ')) {
+      return str;
+    } else {
+      return "the ".concat(str);
+    }
   }
 };
 
 function makeImprovGenerators(alea) {
-  var subGen = new _improv.default(_subtitle.default, {
+  var subGen = new _improv.default(subtitleGrammar, {
     filters: [_improv.default.filters.mismatchFilter(), _improv.default.filters.partialBonus(), _improv.default.filters.fullBonus(), dryness()],
     builtins: builtins,
     reincorporate: true,
     // audit: true,
     persistence: false,
+    rng: alea
+  });
+  var pedalWordsGen = new _improv.default(_pedalWords.default, {
+    filters: [_improv.default.filters.mismatchFilter(), _improv.default.filters.partialBonus(), _improv.default.filters.fullBonus(), _improv.default.filters.dryness()],
+    builtins: builtins,
+    reincorporate: true,
+    // audit: true,
+    persistence: true,
     rng: alea
   });
   var descGen = new _improv.default(_desc.default, {
@@ -30388,10 +30618,1170 @@ function makeImprovGenerators(alea) {
   });
   return {
     descGen: descGen,
-    subGen: subGen
+    subGen: subGen,
+    pedalWordsGen: pedalWordsGen
   };
 }
-},{"improv":"node_modules/improv/dist/index.js","./improvgrammar/subtitle.yaml":"src/improvgrammar/subtitle.yaml","./improvgrammar/desc.yaml":"src/improvgrammar/desc.yaml","./improvgrammar/nouns.yaml":"src/improvgrammar/nouns.yaml","./improvgrammar/adjsVerbs.yaml":"src/improvgrammar/adjsVerbs.yaml"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
+},{"improv":"node_modules/improv/dist/index.js","./improvgrammar/subtitle.yaml":"src/improvgrammar/subtitle.yaml","./improvgrammar/desc.yaml":"src/improvgrammar/desc.yaml","./improvgrammar/nouns.yaml":"src/improvgrammar/nouns.yaml","./improvgrammar/adjsVerbs.yaml":"src/improvgrammar/adjsVerbs.yaml","./improvgrammar/nameOfMusician.yaml":"src/improvgrammar/nameOfMusician.yaml","./improvgrammar/pedalWords.yaml":"src/improvgrammar/pedalWords.yaml"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
+var Vue // late bind
+var version
+var map = Object.create(null)
+if (typeof window !== 'undefined') {
+  window.__VUE_HOT_MAP__ = map
+}
+var installed = false
+var isBrowserify = false
+var initHookName = 'beforeCreate'
+
+exports.install = function (vue, browserify) {
+  if (installed) { return }
+  installed = true
+
+  Vue = vue.__esModule ? vue.default : vue
+  version = Vue.version.split('.').map(Number)
+  isBrowserify = browserify
+
+  // compat with < 2.0.0-alpha.7
+  if (Vue.config._lifecycleHooks.indexOf('init') > -1) {
+    initHookName = 'init'
+  }
+
+  exports.compatible = version[0] >= 2
+  if (!exports.compatible) {
+    console.warn(
+      '[HMR] You are using a version of vue-hot-reload-api that is ' +
+        'only compatible with Vue.js core ^2.0.0.'
+    )
+    return
+  }
+}
+
+/**
+ * Create a record for a hot module, which keeps track of its constructor
+ * and instances
+ *
+ * @param {String} id
+ * @param {Object} options
+ */
+
+exports.createRecord = function (id, options) {
+  if(map[id]) { return }
+
+  var Ctor = null
+  if (typeof options === 'function') {
+    Ctor = options
+    options = Ctor.options
+  }
+  makeOptionsHot(id, options)
+  map[id] = {
+    Ctor: Ctor,
+    options: options,
+    instances: []
+  }
+}
+
+/**
+ * Check if module is recorded
+ *
+ * @param {String} id
+ */
+
+exports.isRecorded = function (id) {
+  return typeof map[id] !== 'undefined'
+}
+
+/**
+ * Make a Component options object hot.
+ *
+ * @param {String} id
+ * @param {Object} options
+ */
+
+function makeOptionsHot(id, options) {
+  if (options.functional) {
+    var render = options.render
+    options.render = function (h, ctx) {
+      var instances = map[id].instances
+      if (ctx && instances.indexOf(ctx.parent) < 0) {
+        instances.push(ctx.parent)
+      }
+      return render(h, ctx)
+    }
+  } else {
+    injectHook(options, initHookName, function() {
+      var record = map[id]
+      if (!record.Ctor) {
+        record.Ctor = this.constructor
+      }
+      record.instances.push(this)
+    })
+    injectHook(options, 'beforeDestroy', function() {
+      var instances = map[id].instances
+      instances.splice(instances.indexOf(this), 1)
+    })
+  }
+}
+
+/**
+ * Inject a hook to a hot reloadable component so that
+ * we can keep track of it.
+ *
+ * @param {Object} options
+ * @param {String} name
+ * @param {Function} hook
+ */
+
+function injectHook(options, name, hook) {
+  var existing = options[name]
+  options[name] = existing
+    ? Array.isArray(existing) ? existing.concat(hook) : [existing, hook]
+    : [hook]
+}
+
+function tryWrap(fn) {
+  return function (id, arg) {
+    try {
+      fn(id, arg)
+    } catch (e) {
+      console.error(e)
+      console.warn(
+        'Something went wrong during Vue component hot-reload. Full reload required.'
+      )
+    }
+  }
+}
+
+function updateOptions (oldOptions, newOptions) {
+  for (var key in oldOptions) {
+    if (!(key in newOptions)) {
+      delete oldOptions[key]
+    }
+  }
+  for (var key$1 in newOptions) {
+    oldOptions[key$1] = newOptions[key$1]
+  }
+}
+
+exports.rerender = tryWrap(function (id, options) {
+  var record = map[id]
+  if (!options) {
+    record.instances.slice().forEach(function (instance) {
+      instance.$forceUpdate()
+    })
+    return
+  }
+  if (typeof options === 'function') {
+    options = options.options
+  }
+  if (record.Ctor) {
+    record.Ctor.options.render = options.render
+    record.Ctor.options.staticRenderFns = options.staticRenderFns
+    record.instances.slice().forEach(function (instance) {
+      instance.$options.render = options.render
+      instance.$options.staticRenderFns = options.staticRenderFns
+      // reset static trees
+      // pre 2.5, all static trees are cached together on the instance
+      if (instance._staticTrees) {
+        instance._staticTrees = []
+      }
+      // 2.5.0
+      if (Array.isArray(record.Ctor.options.cached)) {
+        record.Ctor.options.cached = []
+      }
+      // 2.5.3
+      if (Array.isArray(instance.$options.cached)) {
+        instance.$options.cached = []
+      }
+
+      // post 2.5.4: v-once trees are cached on instance._staticTrees.
+      // Pure static trees are cached on the staticRenderFns array
+      // (both already reset above)
+
+      // 2.6: temporarily mark rendered scoped slots as unstable so that
+      // child components can be forced to update
+      var restore = patchScopedSlots(instance)
+      instance.$forceUpdate()
+      instance.$nextTick(restore)
+    })
+  } else {
+    // functional or no instance created yet
+    record.options.render = options.render
+    record.options.staticRenderFns = options.staticRenderFns
+
+    // handle functional component re-render
+    if (record.options.functional) {
+      // rerender with full options
+      if (Object.keys(options).length > 2) {
+        updateOptions(record.options, options)
+      } else {
+        // template-only rerender.
+        // need to inject the style injection code for CSS modules
+        // to work properly.
+        var injectStyles = record.options._injectStyles
+        if (injectStyles) {
+          var render = options.render
+          record.options.render = function (h, ctx) {
+            injectStyles.call(ctx)
+            return render(h, ctx)
+          }
+        }
+      }
+      record.options._Ctor = null
+      // 2.5.3
+      if (Array.isArray(record.options.cached)) {
+        record.options.cached = []
+      }
+      record.instances.slice().forEach(function (instance) {
+        instance.$forceUpdate()
+      })
+    }
+  }
+})
+
+exports.reload = tryWrap(function (id, options) {
+  var record = map[id]
+  if (options) {
+    if (typeof options === 'function') {
+      options = options.options
+    }
+    makeOptionsHot(id, options)
+    if (record.Ctor) {
+      if (version[1] < 2) {
+        // preserve pre 2.2 behavior for global mixin handling
+        record.Ctor.extendOptions = options
+      }
+      var newCtor = record.Ctor.super.extend(options)
+      // prevent record.options._Ctor from being overwritten accidentally
+      newCtor.options._Ctor = record.options._Ctor
+      record.Ctor.options = newCtor.options
+      record.Ctor.cid = newCtor.cid
+      record.Ctor.prototype = newCtor.prototype
+      if (newCtor.release) {
+        // temporary global mixin strategy used in < 2.0.0-alpha.6
+        newCtor.release()
+      }
+    } else {
+      updateOptions(record.options, options)
+    }
+  }
+  record.instances.slice().forEach(function (instance) {
+    if (instance.$vnode && instance.$vnode.context) {
+      instance.$vnode.context.$forceUpdate()
+    } else {
+      console.warn(
+        'Root or manually mounted instance modified. Full reload required.'
+      )
+    }
+  })
+})
+
+// 2.6 optimizes template-compiled scoped slots and skips updates if child
+// only uses scoped slots. We need to patch the scoped slots resolving helper
+// to temporarily mark all scoped slots as unstable in order to force child
+// updates.
+function patchScopedSlots (instance) {
+  if (!instance._u) { return }
+  // https://github.com/vuejs/vue/blob/dev/src/core/instance/render-helpers/resolve-scoped-slots.js
+  var original = instance._u
+  instance._u = function (slots) {
+    try {
+      // 2.6.4 ~ 2.6.6
+      return original(slots, true)
+    } catch (e) {
+      // 2.5 / >= 2.6.7
+      return original(slots, null, true)
+    }
+  }
+  return function () {
+    instance._u = original
+  }
+}
+
+},{}],"src/Knob.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: ['label'],
+  setup: function setup() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $936863 = exports.default || module.exports;
+      
+      if (typeof $936863 === 'function') {
+        $936863 = $936863.options;
+      }
+    
+        /* template */
+        Object.assign($936863, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "KnobContainer" }, [
+    _c("div", { staticClass: "KnobLabel" }, [_vm._v(_vm._s(_vm.label))]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "Knob" }, [
+      _c("div", { staticClass: "Knob__Inner" })
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$936863', $936863);
+          } else {
+            api.reload('$936863', $936863);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/LED.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _util = require("./util.js");
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: ['randomNumber'],
+  computed: {
+    cssClass: function cssClass() {
+      return (0, _util.choiceItem)(this.$props.randomNumber, ['LEDRed', 'LEDGreen', 'LEDYellow', 'LEDBlue']);
+    }
+  },
+  setup: function setup() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $196ff7 = exports.default || module.exports;
+      
+      if (typeof $196ff7 === 'function') {
+        $196ff7 = $196ff7.options;
+      }
+    
+        /* template */
+        Object.assign($196ff7, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "LED", class: _vm.cssClass })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$196ff7', $196ff7);
+          } else {
+            api.reload('$196ff7', $196ff7);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"./util.js":"src/util.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/Ports.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  props: ['name', 'brand', 'inputLabels', 'outputLabels'],
+  setup: function setup() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $45c691 = exports.default || module.exports;
+      
+      if (typeof $45c691 === 'function') {
+        $45c691 = $45c691.options;
+      }
+    
+        /* template */
+        Object.assign($45c691, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "Ports" }, [
+    _c("div", { staticClass: "Ports__Inner" }, [
+      _c("div", { staticClass: "Ports__Inner__ActualPorts" }, [
+        _c("div", { staticClass: "Left" }, [
+          _c(
+            "div",
+            { staticClass: "Outside" },
+            _vm._l(_vm.outputLabels, function(l, i) {
+              return _c("div", { key: i, staticClass: "Socket" })
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "Inside" },
+            _vm._l(_vm.outputLabels, function(l, i) {
+              return _c("div", { key: i, staticClass: "Row" }, [
+                _c("div", { staticClass: "LeftArrow" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "PortName" }, [
+                  _vm._v(
+                    "\n              ← " +
+                      _vm._s(l.split("\\n")[0]) +
+                      "\n              "
+                  ),
+                  l.split("\\n").length > 1
+                    ? _c("span", { staticClass: "PortName__Subtitle" }, [
+                        _c("br"),
+                        _vm._v(_vm._s(l.split("\\n")[1]) + "\n              ")
+                      ])
+                    : _vm._e()
+                ])
+              ])
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "Right" }, [
+          _c(
+            "div",
+            { staticClass: "Outside" },
+            _vm._l(_vm.inputLabels, function(l, i) {
+              return _c("div", { key: i, staticClass: "Socket" })
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "Inside" },
+            _vm._l(_vm.inputLabels, function(l, i) {
+              return _c("div", { key: i, staticClass: "Row" }, [
+                _c("div", { staticClass: "PortName" }, [
+                  _vm._v(
+                    "\n              " +
+                      _vm._s(l.split("\\n")[0]) +
+                      " ←\n              "
+                  ),
+                  l.split("\\n").length > 1
+                    ? _c("span", { staticClass: "PortName__Subtitle" }, [
+                        _c("br"),
+                        _vm._v(_vm._s(l.split("\\n")[1]) + "\n              ")
+                      ])
+                    : _vm._e()
+                ])
+              ])
+            }),
+            0
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "Ports__Inner__Name" }, [
+        _c("div", { staticClass: "Name" }, [
+          _c("div", [_vm._v(_vm._s(_vm.name))])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "Name2" }, [
+          _c("div", [_vm._v(_vm._s(_vm.brand))])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$45c691', $45c691);
+          } else {
+            api.reload('$45c691', $45c691);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/Gfx.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _compositionApi = require("@vue/composition-api");
+
+var _alea = _interopRequireDefault(require("alea"));
+
+var _util = require("./util");
+
+var _makeImprovGenerators2 = _interopRequireDefault(require("./makeImprovGenerators"));
+
+var _Knob = _interopRequireDefault(require("./Knob.vue"));
+
+var _LED = _interopRequireDefault(require("./LED.vue"));
+
+var _Ports = _interopRequireDefault(require("./Ports.vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var colorMap = {
+  red: '#e84118',
+  orange: '#EE5A24',
+  yellow: '#fbc531',
+  green: '#44bd32',
+  blue: '#273c75',
+  purple: '#8c7ae6',
+  pink: '#FDA7DF',
+  black: '#111',
+  white: '#f5f6fa'
+};
+var textColorMap = {
+  red: '#ffffff',
+  orange: '#ffffff',
+  yellow: '#000000',
+  green: '#ffffff',
+  blue: '#ffffff',
+  purple: '#ffffff',
+  pink: '#000000',
+  black: '#ffffff',
+  white: '#000000'
+};
+var knobColors = ['#e84118', '#ff5A24', '#fbc531', '#44bd32', '#273c75', '#8c7ae6', '#FDA7DF', '#111', '#ffffff'];
+var knobColors2 = ['#ff6138', '#EE5A24', '#ffe551', '#64cd52', '#475c95', '#ac9aff', '#Ffc7fF', '#222', '#f5f6fa'];
+var knobColorsTick = ['#d1d8e0', '#d1d8e0', '#333', '#d1d8e0', '#d1d8e0', '#d1d8e0', '#333', '#d1d8e0', '#333'];
+var fontFamilies = ['Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif', 'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif', '"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif', 'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif', 'Consolas, "Andale Mono WT", "Andale Mono", "Menlo", "SF Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace', '"Cooper Hewitt", sans-serif', '"Cooper Hewitt Medium", sans-serif'];
+var fontSizes = ['0.9rem', '0.9rem', '0.9rem', '1.2rem', '0.9rem', '0.9rem', '0.9rem'];
+var flexJustifyContent = ['center', 'space-between'];
+var flexDirectionRow = ['row', 'row-reverse'];
+var knobConfigs = ['StraightRow', 'Pair', 'TriangleUp', 'TriangleDown'];
+var _default = {
+  components: {
+    Knob: _Knob.default,
+    LED: _LED.default,
+    Ports: _Ports.default
+  },
+  props: ['aleaSavedState', 'name', 'color', 'purpose', 'brand'],
+  computed: {
+    getRandom: function getRandom() {
+      return _alea.default.importState(this.$props.aleaSavedState);
+    },
+    pedalWords: function pedalWords() {
+      var model = {};
+
+      var _makeImprovGenerators = (0, _makeImprovGenerators2.default)(this.getRandom),
+          pedalWordsGen = _makeImprovGenerators.pedalWordsGen;
+
+      var w = {
+        knobLabels: _toConsumableArray(Array(20)).map(function () {
+          return pedalWordsGen.gen('knobLabel', model);
+        }),
+        switchLabels: _toConsumableArray(Array(5)).map(function () {
+          return pedalWordsGen.gen('switchLabel', model);
+        }),
+        outputLabels: pedalWordsGen.gen('output', model).split('/'),
+        inputLabels: pedalWordsGen.gen('input', model).split('/')
+      };
+      console.log(w);
+      return w;
+    },
+    ledColorNumber: function ledColorNumber() {
+      return this.getRandom();
+    },
+    knobConfigName: function knobConfigName() {
+      return (0, _util.choiceItem)(this.getRandom(), knobConfigs);
+    },
+    rawStyle: function rawStyle() {
+      var fontChoiceNumber = this.getRandom();
+      var knobChoiceNumber = this.getRandom();
+      return "\n        <style>\n          .Pedal {\n            --bg: ".concat(colorMap[this.$props.color], ";\n            --textOnBg: ").concat(textColorMap[this.$props.color], ";\n            --footContact: #2f3640;\n            --knob: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors), ";\n            --knob2: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors2), ";\n            --knobTick: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColorsTick), ";\n            --bg2: #353b48;\n            --textOnBg2: #ffffff;\n\n            --name-font: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontFamilies), ";\n            --name-font-size: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontSizes), ";\n\n            --name-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name-flex-direction: ").concat((0, _util.choiceItem)(this.getRandom(), flexDirectionRow), ";\n            --name2-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name2-flex-direction: ").concat((0, _util.choiceItem)(this.getRandom(), flexDirectionRow), ";\n          }\n        </style>\n      ");
+    }
+  },
+  setup: function setup() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $3f37e0 = exports.default || module.exports;
+      
+      if (typeof $3f37e0 === 'function') {
+        $3f37e0 = $3f37e0.options;
+      }
+    
+        /* template */
+        Object.assign($3f37e0, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "Pedal" }, [
+    _c("div", { domProps: { innerHTML: _vm._s(_vm.rawStyle) } }),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "ThreeSectionStompbox" },
+      [
+        _c("div", { staticClass: "Controls" }, [
+          _c(
+            "div",
+            { staticClass: "CheckLED" },
+            [
+              _c("div", { staticClass: "Label" }, [_vm._v("CHECK")]),
+              _vm._v(" "),
+              _c("LED", { attrs: { randomNumber: _vm.ledColorNumber } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm.knobConfigName === "StraightRow"
+            ? _c(
+                "div",
+                { staticClass: "Knobs__StraightRow" },
+                [
+                  _c("Knob", {
+                    attrs: { label: _vm.pedalWords.knobLabels[0] }
+                  }),
+                  _vm._v(" "),
+                  _c("Knob", {
+                    attrs: { label: _vm.pedalWords.knobLabels[1] }
+                  }),
+                  _vm._v(" "),
+                  _c("Knob", {
+                    attrs: { label: _vm.pedalWords.knobLabels[2] }
+                  }),
+                  _vm._v(" "),
+                  _c("Knob", { attrs: { label: _vm.pedalWords.knobLabels[3] } })
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.knobConfigName === "Pair"
+            ? _c(
+                "div",
+                { staticClass: "Knobs__Pair" },
+                [
+                  _c("Knob", {
+                    attrs: { label: _vm.pedalWords.knobLabels[0] }
+                  }),
+                  _vm._v(" "),
+                  _c("Knob", { attrs: { label: _vm.pedalWords.knobLabels[1] } })
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.knobConfigName === "TriangleUp"
+            ? _c(
+                "div",
+                { staticClass: "Knobs__TriangleUp" },
+                [
+                  _c("Knob", {
+                    attrs: { label: _vm.pedalWords.knobLabels[0] }
+                  }),
+                  _vm._v(" "),
+                  _c("Knob", {
+                    attrs: { label: _vm.pedalWords.knobLabels[1] }
+                  }),
+                  _vm._v(" "),
+                  _c("Knob", { attrs: { label: _vm.pedalWords.knobLabels[2] } })
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.knobConfigName === "TriangleDown"
+            ? _c(
+                "div",
+                { staticClass: "Knobs__TriangleDown" },
+                [
+                  _c("Knob", {
+                    attrs: { label: _vm.pedalWords.knobLabels[0] }
+                  }),
+                  _vm._v(" "),
+                  _c("Knob", {
+                    attrs: { label: _vm.pedalWords.knobLabels[1] }
+                  }),
+                  _vm._v(" "),
+                  _c("Knob", { attrs: { label: _vm.pedalWords.knobLabels[2] } })
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "Controls__Spacer" })
+        ]),
+        _vm._v(" "),
+        _c("Ports", {
+          attrs: {
+            name: _vm.name,
+            brand: _vm.brand,
+            inputLabels: _vm.pedalWords.inputLabels,
+            outputLabels: _vm.pedalWords.outputLabels
+          }
+        }),
+        _vm._v(" "),
+        _vm._m(0)
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "Pusher" }, [
+      _c("div", { staticClass: "Pusher__Inner" })
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$3f37e0', $3f37e0);
+          } else {
+            api.reload('$3f37e0', $3f37e0);
+          }
+        }
+
+        
+      }
+    })();
+},{"@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","alea":"node_modules/alea/alea.js","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","./Knob.vue":"src/Knob.vue","./LED.vue":"src/LED.vue","./Ports.vue":"src/Ports.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => "%".concat(x.charCodeAt(0).toString(16).toUpperCase()));
@@ -30818,282 +32208,7 @@ exports.parseUrl = function (input, options) {
     query: parse(extract(input), options)
   };
 };
-},{"strict-uri-encode":"node_modules/strict-uri-encode/index.js","decode-uri-component":"node_modules/decode-uri-component/index.js","split-on-first":"node_modules/split-on-first/index.js"}],"node_modules/vue-hot-reload-api/dist/index.js":[function(require,module,exports) {
-var Vue // late bind
-var version
-var map = Object.create(null)
-if (typeof window !== 'undefined') {
-  window.__VUE_HOT_MAP__ = map
-}
-var installed = false
-var isBrowserify = false
-var initHookName = 'beforeCreate'
-
-exports.install = function (vue, browserify) {
-  if (installed) { return }
-  installed = true
-
-  Vue = vue.__esModule ? vue.default : vue
-  version = Vue.version.split('.').map(Number)
-  isBrowserify = browserify
-
-  // compat with < 2.0.0-alpha.7
-  if (Vue.config._lifecycleHooks.indexOf('init') > -1) {
-    initHookName = 'init'
-  }
-
-  exports.compatible = version[0] >= 2
-  if (!exports.compatible) {
-    console.warn(
-      '[HMR] You are using a version of vue-hot-reload-api that is ' +
-        'only compatible with Vue.js core ^2.0.0.'
-    )
-    return
-  }
-}
-
-/**
- * Create a record for a hot module, which keeps track of its constructor
- * and instances
- *
- * @param {String} id
- * @param {Object} options
- */
-
-exports.createRecord = function (id, options) {
-  if(map[id]) { return }
-
-  var Ctor = null
-  if (typeof options === 'function') {
-    Ctor = options
-    options = Ctor.options
-  }
-  makeOptionsHot(id, options)
-  map[id] = {
-    Ctor: Ctor,
-    options: options,
-    instances: []
-  }
-}
-
-/**
- * Check if module is recorded
- *
- * @param {String} id
- */
-
-exports.isRecorded = function (id) {
-  return typeof map[id] !== 'undefined'
-}
-
-/**
- * Make a Component options object hot.
- *
- * @param {String} id
- * @param {Object} options
- */
-
-function makeOptionsHot(id, options) {
-  if (options.functional) {
-    var render = options.render
-    options.render = function (h, ctx) {
-      var instances = map[id].instances
-      if (ctx && instances.indexOf(ctx.parent) < 0) {
-        instances.push(ctx.parent)
-      }
-      return render(h, ctx)
-    }
-  } else {
-    injectHook(options, initHookName, function() {
-      var record = map[id]
-      if (!record.Ctor) {
-        record.Ctor = this.constructor
-      }
-      record.instances.push(this)
-    })
-    injectHook(options, 'beforeDestroy', function() {
-      var instances = map[id].instances
-      instances.splice(instances.indexOf(this), 1)
-    })
-  }
-}
-
-/**
- * Inject a hook to a hot reloadable component so that
- * we can keep track of it.
- *
- * @param {Object} options
- * @param {String} name
- * @param {Function} hook
- */
-
-function injectHook(options, name, hook) {
-  var existing = options[name]
-  options[name] = existing
-    ? Array.isArray(existing) ? existing.concat(hook) : [existing, hook]
-    : [hook]
-}
-
-function tryWrap(fn) {
-  return function (id, arg) {
-    try {
-      fn(id, arg)
-    } catch (e) {
-      console.error(e)
-      console.warn(
-        'Something went wrong during Vue component hot-reload. Full reload required.'
-      )
-    }
-  }
-}
-
-function updateOptions (oldOptions, newOptions) {
-  for (var key in oldOptions) {
-    if (!(key in newOptions)) {
-      delete oldOptions[key]
-    }
-  }
-  for (var key$1 in newOptions) {
-    oldOptions[key$1] = newOptions[key$1]
-  }
-}
-
-exports.rerender = tryWrap(function (id, options) {
-  var record = map[id]
-  if (!options) {
-    record.instances.slice().forEach(function (instance) {
-      instance.$forceUpdate()
-    })
-    return
-  }
-  if (typeof options === 'function') {
-    options = options.options
-  }
-  if (record.Ctor) {
-    record.Ctor.options.render = options.render
-    record.Ctor.options.staticRenderFns = options.staticRenderFns
-    record.instances.slice().forEach(function (instance) {
-      instance.$options.render = options.render
-      instance.$options.staticRenderFns = options.staticRenderFns
-      // reset static trees
-      // pre 2.5, all static trees are cached together on the instance
-      if (instance._staticTrees) {
-        instance._staticTrees = []
-      }
-      // 2.5.0
-      if (Array.isArray(record.Ctor.options.cached)) {
-        record.Ctor.options.cached = []
-      }
-      // 2.5.3
-      if (Array.isArray(instance.$options.cached)) {
-        instance.$options.cached = []
-      }
-
-      // post 2.5.4: v-once trees are cached on instance._staticTrees.
-      // Pure static trees are cached on the staticRenderFns array
-      // (both already reset above)
-
-      // 2.6: temporarily mark rendered scoped slots as unstable so that
-      // child components can be forced to update
-      var restore = patchScopedSlots(instance)
-      instance.$forceUpdate()
-      instance.$nextTick(restore)
-    })
-  } else {
-    // functional or no instance created yet
-    record.options.render = options.render
-    record.options.staticRenderFns = options.staticRenderFns
-
-    // handle functional component re-render
-    if (record.options.functional) {
-      // rerender with full options
-      if (Object.keys(options).length > 2) {
-        updateOptions(record.options, options)
-      } else {
-        // template-only rerender.
-        // need to inject the style injection code for CSS modules
-        // to work properly.
-        var injectStyles = record.options._injectStyles
-        if (injectStyles) {
-          var render = options.render
-          record.options.render = function (h, ctx) {
-            injectStyles.call(ctx)
-            return render(h, ctx)
-          }
-        }
-      }
-      record.options._Ctor = null
-      // 2.5.3
-      if (Array.isArray(record.options.cached)) {
-        record.options.cached = []
-      }
-      record.instances.slice().forEach(function (instance) {
-        instance.$forceUpdate()
-      })
-    }
-  }
-})
-
-exports.reload = tryWrap(function (id, options) {
-  var record = map[id]
-  if (options) {
-    if (typeof options === 'function') {
-      options = options.options
-    }
-    makeOptionsHot(id, options)
-    if (record.Ctor) {
-      if (version[1] < 2) {
-        // preserve pre 2.2 behavior for global mixin handling
-        record.Ctor.extendOptions = options
-      }
-      var newCtor = record.Ctor.super.extend(options)
-      // prevent record.options._Ctor from being overwritten accidentally
-      newCtor.options._Ctor = record.options._Ctor
-      record.Ctor.options = newCtor.options
-      record.Ctor.cid = newCtor.cid
-      record.Ctor.prototype = newCtor.prototype
-      if (newCtor.release) {
-        // temporary global mixin strategy used in < 2.0.0-alpha.6
-        newCtor.release()
-      }
-    } else {
-      updateOptions(record.options, options)
-    }
-  }
-  record.instances.slice().forEach(function (instance) {
-    if (instance.$vnode && instance.$vnode.context) {
-      instance.$vnode.context.$forceUpdate()
-    } else {
-      console.warn(
-        'Root or manually mounted instance modified. Full reload required.'
-      )
-    }
-  })
-})
-
-// 2.6 optimizes template-compiled scoped slots and skips updates if child
-// only uses scoped slots. We need to patch the scoped slots resolving helper
-// to temporarily mark all scoped slots as unstable in order to force child
-// updates.
-function patchScopedSlots (instance) {
-  if (!instance._u) { return }
-  // https://github.com/vuejs/vue/blob/dev/src/core/instance/render-helpers/resolve-scoped-slots.js
-  var original = instance._u
-  instance._u = function (slots) {
-    try {
-      // 2.6.4 ~ 2.6.6
-      return original(slots, true)
-    } catch (e) {
-      // 2.5 / >= 2.6.7
-      return original(slots, null, true)
-    }
-  }
-  return function () {
-    instance._u = original
-  }
-}
-
-},{}],"src/App.vue":[function(require,module,exports) {
+},{"strict-uri-encode":"node_modules/strict-uri-encode/index.js","decode-uri-component":"node_modules/decode-uri-component/index.js","split-on-first":"node_modules/split-on-first/index.js"}],"src/App.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31101,9 +32216,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _alea = _interopRequireDefault(require("alea"));
+var _alea2 = _interopRequireDefault(require("alea"));
 
 var _compositionApi = require("@vue/composition-api");
+
+var _Gfx = _interopRequireDefault(require("./Gfx.vue"));
 
 var _makeImprovGenerators2 = _interopRequireDefault(require("./makeImprovGenerators"));
 
@@ -31141,13 +32258,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
+  components: {
+    Gfx: _Gfx.default
+  },
   setup: function setup() {
     var seed = (0, _compositionApi.ref)(null);
     var pedal = (0, _compositionApi.ref)(null);
+    var aleaSavedState = (0, _compositionApi.ref)(null);
+    var _alea = null;
 
     function derive(shouldSetHash) {
-      var alea = new _alea.default(seed.value);
+      var alea = new _alea2.default(seed.value);
 
       var _makeImprovGenerators = (0, _makeImprovGenerators2.default)(alea),
           descGen = _makeImprovGenerators.descGen,
@@ -31157,9 +32289,15 @@ var _default = {
       var name = descGen.gen('name', model);
       var subtitle = subGen.gen('root', model);
       var desc = descGen.gen('root', model);
+      var brand = descGen.gen('brand', model);
+      console.log(model);
+      aleaSavedState.value = alea.exportState();
       pedal.value = {
         name: name,
         subtitle: subtitle,
+        brand: brand,
+        purpose: subGen.gen('purpose', model),
+        color: descGen.gen('color', model).toLowerCase(),
         texts: desc.split('\n\n').filter(function (s) {
           return s;
         })
@@ -31169,11 +32307,9 @@ var _default = {
         window.location.hash = "seed=".concat(seed.value);
       }
 
-      console.log(model);
-
-      for (var i = 0; i < 10; i++) {
-        console.log(descGen.gen('name'));
-      }
+      console.log(model); // for (let i=0; i<10; i++) {
+      //   console.log(descGen.gen('name'));
+      // }
     }
 
     function travel() {
@@ -31196,6 +32332,9 @@ var _default = {
       }
     }
 
+    (0, _compositionApi.onBeforeUpdate)(function () {
+      _alea = _alea2.default.importState(aleaSavedState.value);
+    });
     (0, _compositionApi.onMounted)(function () {
       if (!reactToHash(_queryString.default.parse(window.location.hash), true)) {
         travel();
@@ -31208,7 +32347,8 @@ var _default = {
     return {
       seed: seed,
       pedal: pedal,
-      travel: travel
+      travel: travel,
+      aleaSavedState: aleaSavedState
     };
   }
 };
@@ -31232,7 +32372,21 @@ exports.default = _default;
       ? _c(
           "article",
           [
+            _c("h2", { staticClass: "Brand" }, [
+              _vm._v(_vm._s(_vm.pedal.brand))
+            ]),
+            _vm._v(" "),
             _c("h1", [_vm._v(_vm._s(_vm.pedal.name))]),
+            _vm._v(" "),
+            _c("Gfx", {
+              attrs: {
+                aleaSavedState: _vm.aleaSavedState,
+                name: _vm.pedal.name,
+                brand: _vm.pedal.brand,
+                purpose: _vm.pedal.purpose,
+                color: _vm.pedal.color
+              }
+            }),
             _vm._v(" "),
             _c("h3", [_vm._v(_vm._s(_vm.pedal.subtitle))]),
             _vm._v(" "),
@@ -31307,7 +32461,7 @@ render._withStripped = true
         
       }
     })();
-},{"alea":"node_modules/alea/alea.js","@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","./makeImprovGenerators":"src/makeImprovGenerators.js","query-string":"node_modules/query-string/index.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
+},{"alea":"node_modules/alea/alea.js","@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","./Gfx.vue":"src/Gfx.vue","./makeImprovGenerators":"src/makeImprovGenerators.js","query-string":"node_modules/query-string/index.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -31353,7 +32507,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58200" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52720" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
