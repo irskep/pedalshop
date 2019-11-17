@@ -5,12 +5,19 @@
     <div class="ThreeSectionStompbox">
 
         <div class="Controls">
+          <div class="CheckLED">
+            <div class="Label">CHECK</div>
+            <LED v-bind:randomNumber="ledColorNumber"></LED>
+          </div>
+
           <div class="StraightRowOfKnobs">
             <Knob></Knob>
             <Knob></Knob>
             <Knob></Knob>
             <Knob></Knob>
           </div>
+
+          <div class="Controls__Spacer"></div>
         </div>
 
         <div class="Ports">
@@ -82,6 +89,7 @@ import { ref, computed, onMounted, onBeforeUpdate } from '@vue/composition-api';
 import Alea from 'alea';
 import {choiceItem} from './util.js';
 import Knob from './Knob.vue';
+import LED from './LED.vue';
 
 const colorMap = {
   red: '#e84118',
@@ -93,6 +101,18 @@ const colorMap = {
   pink: '#FDA7DF',
   black: '#333',
   white: '#f5f6fa',
+};
+
+const textColorMap = {
+  red: '#ffffff',
+  orange: '#ffffff',
+  yellow: '#000000',
+  green: '#ffffff',
+  blue: '#ffffff',
+  purple: '#ffffff',
+  pink: '#000000',
+  black: '#ffffff',
+  white: '#000000',
 };
 
 const fontFamilies = [
@@ -118,6 +138,7 @@ const flexDirectionRow = [
 export default {
   components: {
     Knob,
+    LED,
   },
 
   props: [
@@ -133,13 +154,15 @@ export default {
       return Alea.importState(this.$props.aleaSavedState);
     },
 
+    ledColorNumber: function() { return this.getRandom(); },
+
     rawStyle: function() {
       console.log(this);
       return `
         <style>
           .Pedal {
             --bg: ${colorMap[this.$props.color]};
-            --textOnBg: #ffffff;
+            --textOnBg: ${textColorMap[this.$props.color]};
             --footContact: #2f3640;
             --knob: #718093;
             --knob2: #a5b1c2;

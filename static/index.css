@@ -67,14 +67,22 @@ article {
   font-size: 1.5rem;
 }
 
+/* custom: led */
+
 /* custom: pedal */
 
 .Pedal {
   display: flex;
 }
 
+.Pedal .Label {
+  font-size: 0.5rem;
+  line-height: 1em;
+}
+
 .ThreeSectionStompbox {
   width: 10rem;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
   background-color: var(--bg);
   color: var(--textOnBg);
 
@@ -84,13 +92,27 @@ article {
 
 .Controls {
   background-color: var(--bg2);
+  color: var(--textOnBg2);
   padding: 0.4rem;
   border-radius: 0.2rem;
   margin-bottom: 0.4rem;
   min-height: 5rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.Controls__Spacer {
+  height: 1px;
+  content: " ";
+}
+
+.CheckLED {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding-bottom: 0.5rem;
 }
 
 .StraightRowOfKnobs {
@@ -127,12 +149,12 @@ article {
 
 .LeftArrow::after {
   display: inline;
-  content: "←"
+  content: "←";
 }
 
 .RightArrow::after {
   display: inline;
-  content: "→"
+  content: "→";
 }
 
 .Ports__Inner__Name {

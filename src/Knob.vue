@@ -9,8 +9,8 @@
 .Knob {
   position: relative;
 
-  width: 2rem;
-  height: 2.3rem;
+  width: 1.8rem;
+  height: 2.1rem;
 
   content: " ";
   background-color: black;
@@ -23,8 +23,8 @@ box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.66);
 
   content: " ";
 
-  width: 2rem;
-  height: 2rem;
+  width: 1.8rem;
+  height: 1.8rem;
   border-radius: 1rem;
   content: " ";
   background-color: var(--knob);
@@ -36,7 +36,7 @@ box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.66);
   left: calc(50% - 1px);
   top: 0;
   width: 2px;
-  height: 0.6rem;
+  height: 0.5rem;
   background-color: var(--knobTick);
   content: " ";
   z-index: 3;
@@ -44,8 +44,8 @@ box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.66);
 
 .Knob__Inner {
   position: absolute;
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
   left: 0.1rem;
   top: 0.1rem;
   background-color: var(--knob2);
