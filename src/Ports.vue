@@ -50,7 +50,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .Ports {
   font-size: 0.7rem;
   position: relative;
@@ -87,14 +87,14 @@
 .Right .Outside {
   position: absolute;
   top: -1rem;
-  left: calc(100%);
+  left: 100%;
   margin-left: var(--outsidePadding);
   width: 0;
   overflow: visible;
 }
 
 .Left .Socket {
-  margin-left: calc(-var(--socketWidth));
+  margin-left: calc(var(--socketWidth) * -1);
 }
 
 .Socket {

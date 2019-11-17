@@ -2,7 +2,7 @@
   <div class="LED" v-bind:class="cssClass"></div>
 </template>
 
-<style scoped>
+<style>
 .LED {
   --ledSize: 0.6rem;
 }
