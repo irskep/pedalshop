@@ -7,6 +7,12 @@
     <article v-if="pedal">
       <h2 class="Brand">{{ pedal.brand }}</h2>
       <h1>{{ pedal.name }}</h1>
+
+      <Gfx
+        v-bind:getRandom="getRandom"
+        v-bind:name="pedal.name"
+      ></Gfx>
+
       <h3>{{ pedal.subtitle }}</h3>
       <p v-for="(t, i) in pedal.texts" v-bind:key="i">{{ t }}</p>
     </article>
@@ -31,14 +37,23 @@
 
 <script>
 import Alea from "alea";
-import { ref, computed, onMounted } from '@vue/composition-api';
+import { ref, computed, onMounted, onBeforeUpdate } from '@vue/composition-api';
+
+import Gfx from './Gfx.vue';
+
 import makeImprovGenerators from './makeImprovGenerators';
 import queryString from 'query-string';
 
 export default {
+  components: {
+    Gfx,
+  },
   setup() {
     const seed = ref(null);
     const pedal = ref(null);
+    const aleaSavedState = ref(null);
+    
+    let _alea = null;
 
     function derive(shouldSetHash) {
       const alea = new Alea(seed.value);
@@ -47,10 +62,12 @@ export default {
       const name = descGen.gen('name', model);
       const subtitle = subGen.gen('root', model);
       const desc = descGen.gen('root', model);
+      const brand = descGen.gen('brand', model);
+      aleaSavedState.value = alea.exportState();
       pedal.value = {
         name,
         subtitle,
-        brand: descGen.gen('brand', model),
+        brand,
         texts: desc.split('\n\n').filter((s) => s),
       };
       if (shouldSetHash) {
@@ -82,6 +99,10 @@ export default {
       }
     }
 
+    onBeforeUpdate(() => {
+      _alea = Alea.importState(aleaSavedState.value);
+    });
+
     onMounted(() => {
       if (!reactToHash(queryString.parse(window.location.hash), true)) {
         travel();
@@ -96,6 +117,7 @@ export default {
       seed,
       pedal,
       travel,
+      getRandom: computed(() => _alea),
     }
   }
 }

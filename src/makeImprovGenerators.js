@@ -57,7 +57,7 @@ const builtins = {
     if (str.toLowerCase().startsWith('the ')) {
       return str;
     } else {
-      return `The ${str}`;
+      return `the ${str}`;
     }
   }
 };
