@@ -72,9 +72,9 @@ effectName1:
     - tags: []
       phrases:
         - 'Blues Driver'
-        - 'Angry Charlie'
+        - 'Angry Kevin'
         - 'Metal Zone'
-        - 'Freeze'
+        - 'Extreme Freeze'
         - 'Soul Food'
         
 effectName2:
@@ -82,7 +82,10 @@ effectName2:
     - tags: []
       phrases:
         - 'Precision'
-        - 'Longhorn'
+        - 'Death Rattle'
+        - 'Bleak Zone'
+        - 'Instant Kill'
+        - 'Antler'
 
 benefit:
   groups:
