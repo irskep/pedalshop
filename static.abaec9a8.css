@@ -127,6 +127,14 @@ h3.PedalPrice, .BuyButton a {
 
   .Pedal {
     float: left !important;
+    width: auto !important;
+    transform: scale(1) !important;
+  }
+}
+
+@media(min-width: 500px) {
+  .Pedal {
+    transform: scale(1) !important;
   }
 }
 
@@ -141,6 +149,10 @@ main {
   justify-content: center;
   margin-right: 2rem;
   margin-bottom: 2rem;
+  overflow-x: visible;
+  width: 100%;
+
+  transform: scale(0.7);
 }
 
 .Pedal .Label {
@@ -158,6 +170,7 @@ main {
 
   border-radius: 0.3rem;
   padding: var(--outsidePadding);
+  flex-shrink: 0;
 }
 
 .Controls {
