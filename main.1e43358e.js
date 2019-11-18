@@ -29762,7 +29762,7 @@ module.exports = {
   adjective: {
     groups: [{
       tags: [],
-      phrases: ["Total", "Your", "Fully Loaded", "Next-generation", "[:brand]'s Most Advanced", "Your Onstage", "Classic", "Vintage", "Hot-rodded", "Next-gen", "Feature-rich", "Dazzling", "Must-have", "Powerful", "The World's Most Popular"]
+      phrases: ["Total", "Your", "Fully Loaded", "Next-generation", "[:brand]'s Most Advanced", "Your Onstage", "Classic", "Vintage", "Hot-rodded", "Next-gen", "Feature-rich", "Dazzling", "Must-have", "Powerful", "The World's Most Popular", "Killer"]
     }]
   },
   aficionado: {
@@ -29814,7 +29814,7 @@ module.exports = {
   noun: {
     groups: [{
       tags: [],
-      phrases: ["Workstation", "Pedal", "Stomp Box", "Station", "Machine", "and More", "Pedal for Guitar and Bass", "", "with a Twist", "Tones", "in a Compact Pedal", "Tool"]
+      phrases: ["Workstation", "Pedal", "Stomp Box", "Station", "Machine", "and More", "with Something More", "with So Much More", "Pedal for Guitar and Bass", "", "with a Twist", "Tones", "in a Compact Pedal", "Tool"]
     }]
   }
 };
@@ -29957,7 +29957,7 @@ module.exports = {
   root: {
     groups: [{
       tags: [],
-      phrases: ["[The :shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "[The :shortname] comes [:packed] with [:superlative] [uncap :purpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname]. [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:subItemAdjective] [:subItems], [the :shortname] provides [:endless] [:creativePossibilities]. [:extra]", "[The :shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], [the :shortname] is possibly the most versatile [uncap :purpose] [:pedal] ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], [the :shortname] may be one of the most versatile [uncap :purpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, [the :shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedalAlternative].  [:extra]", "[The :shortname] re-creates the classic sound of [the :extraname1] and [:extraname2] [:pedalAlternative]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. [The :shortname] features a stereo output for [the :extraname1] effects and variable depth for [the :extraname2] effects. [:extra]", "[the :shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [uncap :purpose] from [#100-400] to [#401-999] and adds modern [:toneAdjNoun] and [:toneAdjNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with [the :shortname], they added a whole new dimension to their popular [uncap :purpose] [:pedal]. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create [the :shortname]. This versatile [:pedal] packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "[The :shortname] features [:benefitSingular], which allows it to dynamically adapt to any register. That means you get [:toneAdjNoun], [:toneAdjNoun], and [:toneAdjNoun] all across the fretboard, with [:superlative] dynamics. [:extra]", "[:brand]'s [:shortname] allows you to create [#2-100] [:performanceCharacteristics] with up to [#2-10] [:units] of high-quality performance and [:benefit]. [:extra]", "[The :shortname] sports the [:genreAdjective], [:vintage] sound that made the original a huge hit with [:genreName] guitarists decades ago. All the original magic is back with [:brand]'s reissue of this '[#5-9]0s [:pedal]. [:extra]", "Designed with [:benefit], [the :shortname] is exceptionally responsive to [:guitarTechnique]. It features [:benefit] and gives you a choice of either buffered or full bypass. [:extra]", "[The :shortname] is the [uncap :purpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain. [:extra]", "[:brand] packed the original [oldify :shortname] circuit into [the :shortname], so you get the same sound, controls, and guts as the full-size model. This pedalboard-friendly version [:offers] the same [:toneAdj] tones that you've heard on countless recordings, but in a smaller package. [:extra]", "[The :shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedal] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take [the :shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]", "Own the [:pedal] that started it all—the [:brand] [:shortname] is a faithful recreation of the original '[#55-70] [oldify :shortname] pedal. It has the same [:toneAdj] tone heard on early '[#7-9]0s records by [:nameOfMusician], [:nameOfMusician], and many others.", "With [#2-100] [:subItems] plus [:benefit], [the :shortname] is one of the most [:creative] and [:creative] [uncap :purpose] [:pedals] you could put on your pedalboard. [:extra]", "[The :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [uncap :purpose] tone. [:extra]"]
+      phrases: ["[The :shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "[The :shortname] comes [:packed] with [:superlative] [uncap :purpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname]. [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:subItemAdjective] [:subItems], [the :shortname] provides [:endless] [:creativePossibilities]. [:extra]", "[The :shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], [the :shortname] is possibly the most versatile [uncap :purpose] [:pedal] ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], [the :shortname] may be one of the most versatile [uncap :purpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, [the :shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedalAlternative].  [:extra]", "[The :shortname] re-creates the classic sound of [the :extraname1] and [:extraname2] [:pedalAlternative]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. [The :shortname] features a stereo output for [the :extraname1] effects and variable depth for [the :extraname2] effects. [:extra]", "[The :shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [uncap :purpose] from [#100-400] to [#401-999] and adds modern [:toneAdjNoun] and [:toneAdjNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with [the :shortname], they added a whole new dimension to their popular [uncap :purpose] [:pedal]. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create [the :shortname]. This versatile [:pedal] packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "[The :shortname] features [:benefitSingular], which allows it to dynamically adapt to any register. That means you get [:toneAdjNoun], [:toneAdjNoun], and [:toneAdjNoun] all across the fretboard, with [:superlative] dynamics. [:extra]", "[:brand]'s [:shortname] allows you to create [#2-100] [:performanceCharacteristics] with up to [#2-10] [:units] of high-quality performance and [:benefit]. [:extra]", "[The :shortname] sports the [:genreAdjective], [:vintage] sound that made the original a huge hit with [:genreName] guitarists decades ago. All the original magic is back with [:brand]'s reissue of this '[#5-9]0s [:pedal]. [:extra]", "Designed with [:benefit], [the :shortname] is exceptionally responsive to [:guitarTechnique]. It features [:benefit] and gives you a choice of either buffered or full bypass. [:extra]", "[The :shortname] is the [uncap :purpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain. [:extra]", "[:brand] packed the original [oldify :shortname] circuit into [the :shortname], so you get the same sound, controls, and guts as the full-size model. This pedalboard-friendly version [:offers] the same [:toneAdj] tones that you've heard on countless recordings, but in a smaller package. [:extra]", "[The :shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedal] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take [the :shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]", "Own the [:pedal] that started it all—the [:brand] [:shortname] is a faithful recreation of the original '[#55-70] [oldify :shortname] pedal. It has the same [:toneAdj] tone heard on early '[#7-9]0s records by [:nameOfMusician], [:nameOfMusician], and many others.", "With [#2-100] [:subItems] plus [:benefit], [the :shortname] is one of the most [:creative] and [:creative] [uncap :purpose] [:pedals] you could put on your pedalboard. [:extra]", "[The :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [uncap :purpose] tone. [:extra]"]
     }]
   },
   root2: {
@@ -30469,7 +30469,7 @@ module.exports = {
   knobLabel: {
     groups: [{
       tags: [],
-      phrases: ["E.LEVEL", "FEEDBK", "TIME", "CHECK", "DRY", "VOL", "SENS", "CTRL", "BLEND", "SHIFT", "FX LVL", "TIME", "TONE", "DRIVE", "FILTER", "ATTACK", "DECAY", "SUSTAIN", "GATE", "MIDS LEV", "MIDS FREQ", "RATE", "DEPTH", "SPEED", "DELAY", "WIDTH", "MIX", "CTRL 1", "CTRL 2", "&nbsp;"]
+      phrases: ["E.LEVEL", "FEEDBK", "TIME", "CHECK", "DRY", "VOL", "SENS", "CTRL", "BLEND", "SHIFT", "FX LVL", "TIME", "TONE", "DRIVE", "FILTER", "ATTACK", "DECAY", "SUSTAIN", "GATE", "MIDS LEV", "MIDS FREQ", "RATE", "DEPTH", "SPEED", "DELAY", "WIDTH", "MIX", "CTRL 1", "CTRL 2", "GAIN", "&nbsp;"]
     }]
   },
   switchLabel: {
@@ -31168,7 +31168,315 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/Knob.vue":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/BottomArea.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _FootSwitch = _interopRequireDefault(require("./FootSwitch.vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  components: {
+    FootSwitch: _FootSwitch.default
+  },
+  props: ['name1', 'name2', 'footConfig', 'footSwitchStyle', 'numFootSwitches', 'pedalWords', 'shouldRotateLogo', 'layoutRandomNumber'],
+  computed: {
+    nameIsAboveFootSwitches: function nameIsAboveFootSwitches() {
+      return this.$props.layoutRandomNumber > 0.5;
+    }
+  },
+  setup: function setup() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $a2190b = exports.default || module.exports;
+      
+      if (typeof $a2190b === 'function') {
+        $a2190b = $a2190b.options;
+      }
+    
+        /* template */
+        Object.assign($a2190b, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "BottomArea" }, [
+    _vm.footConfig === "Pusher"
+      ? _c("div", [
+          _c("div", { staticClass: "NameContainer" }, [
+            _c("div", { staticClass: "Name" }, [
+              _c("div", [_vm._v(_vm._s(_vm.name1))])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "Name2" }, [
+              _c("div", [_vm._v(_vm._s(_vm.name2))])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.footConfig === "OneSwitch"
+      ? _c("div", { staticClass: "FootSwitchRowSingle" }, [
+          _c(
+            "div",
+            {
+              staticClass: "NameInMiddle",
+              class: { mRotate: _vm.shouldRotateLogo }
+            },
+            [_c("div", [_vm._v(_vm._s(_vm.name2))])]
+          ),
+          _vm._v(" "),
+          _vm.nameIsAboveFootSwitches
+            ? _c(
+                "div",
+                {
+                  staticClass: "NameAtBottom",
+                  class: { mRotate: _vm.shouldRotateLogo }
+                },
+                [_c("div", [_vm._v(_vm._s(_vm.name1))])]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c("FootSwitch", {
+                attrs: {
+                  appearance: _vm.footSwitchStyle,
+                  label: _vm.pedalWords.switchLabels[0]
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          !_vm.nameIsAboveFootSwitches
+            ? _c("div", { staticClass: "NameAtBottom" }, [
+                _c("div", [_vm._v(_vm._s(_vm.name1))])
+              ])
+            : _vm._e()
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.footConfig === "MultiSwitch"
+      ? _c("div", [
+          _c(
+            "div",
+            {
+              staticClass: "NameInMiddle",
+              class: { mRotate: _vm.shouldRotateLogo }
+            },
+            [_c("div", [_vm._v(_vm._s(_vm.name2))])]
+          ),
+          _vm._v(" "),
+          _vm.nameIsAboveFootSwitches
+            ? _c(
+                "div",
+                {
+                  staticClass: "NameAtBottom",
+                  class: { mRotate: _vm.shouldRotateLogo }
+                },
+                [_c("div", [_vm._v(_vm._s(_vm.name1))])]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "FootSwitchRow" },
+            _vm._l(_vm.numFootSwitches, function(n) {
+              return _c("FootSwitch", {
+                key: n,
+                attrs: {
+                  appearance: _vm.footSwitchStyle,
+                  label: _vm.pedalWords.switchLabels[n - 1]
+                }
+              })
+            }),
+            1
+          ),
+          _vm._v(" "),
+          !_vm.nameIsAboveFootSwitches
+            ? _c("div", { staticClass: "NameAtBottom" }, [
+                _c("div", [_vm._v(_vm._s(_vm.name1))])
+              ])
+            : _vm._e()
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "Pusher" }, [
+      _c("div", { staticClass: "Pusher__Inner" })
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-a2190b",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$a2190b', $a2190b);
+          } else {
+            api.reload('$a2190b', $a2190b);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"./FootSwitch.vue":"src/FootSwitch.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/Knob.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31557,29 +31865,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default = {
   props: ['name', 'brand', 'inputLabels', 'outputLabels'],
   setup: function setup() {
@@ -31670,16 +31955,6 @@ exports.default = _default;
             }),
             0
           )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "Ports__Inner__Name" }, [
-        _c("div", { staticClass: "Name" }, [
-          _c("div", [_vm._v(_vm._s(_vm.name))])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "Name2" }, [
-          _c("div", [_vm._v(_vm._s(_vm.brand))])
         ])
       ])
     ])
@@ -31956,7 +32231,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-var appearances = ['knob', 'knob', 'knob', 'knob', 'nothing', 'switch', 'led'];
+var appearances = ['knob', 'knob', 'knob', 'knob', 'switch', 'led', 'knob', 'knob', 'knob', 'knob', 'switch', 'led', 'nothing'];
 var _default = {
   components: {
     LED: _LED.default,
@@ -32067,6 +32342,8 @@ var _util = require("./util");
 
 var _makeImprovGenerators2 = _interopRequireDefault(require("./makeImprovGenerators"));
 
+var _BottomArea = _interopRequireDefault(require("./BottomArea.vue"));
+
 var _FootSwitch = _interopRequireDefault(require("./FootSwitch.vue"));
 
 var _Knob = _interopRequireDefault(require("./Knob.vue"));
@@ -32121,10 +32398,13 @@ var flexDirectionRow = ['row', 'row-reverse'];
 var knobConfigs = ['StraightRow', 'Pair', 'TriangleUp', 'TriangleDown', 'NByTwo'];
 var footConfigs = ['Pusher', 'Pusher', 'OneSwitch', 'MultiSwitch'];
 var footSwitchStyles = ['hex', 'circle'];
-var bg2Colors = ['#353b48', '#dadadf', 'rgba(0, 0, 0, 0.0)'];
+var bg2Colors = [// '#353b48',
+'rgba(0, 0, 0, 0.8)', 'rgba(255, 255, 255, 0.8)', // '#dadadf',
+'rgba(0, 0, 0, 0.0)'];
 var bg2TextColors = ['#fff', '#000', 'var(--textOnBg)'];
 var _default = {
   components: {
+    BottomArea: _BottomArea.default,
     FingerSwitch: _FingerSwitch.default,
     FootSwitch: _FootSwitch.default,
     Knob: _Knob.default,
@@ -32136,6 +32416,9 @@ var _default = {
   computed: {
     getRandom: function getRandom() {
       return _alea.default.importState(this.$props.aleaSavedState);
+    },
+    shouldHaveCheckLED: function shouldHaveCheckLED() {
+      return this.getRandom() > 0.3;
     },
     pedalWords: function pedalWords() {
       var _this = this;
@@ -32176,6 +32459,21 @@ var _default = {
     footConfig: function footConfig() {
       return (0, _util.choiceItem)(this.getRandom(), footConfigs);
     },
+    nameNumber: function nameNumber() {
+      return this.getRandom();
+    },
+    name1: function name1() {
+      return (0, _util.choiceItem)(this.nameNumber, [this.$props.brand, this.$props.name]);
+    },
+    name2: function name2() {
+      return (0, _util.choiceItem)(this.nameNumber, [this.$props.name, this.$props.brand]);
+    },
+    shouldRotateLogo: function shouldRotateLogo() {
+      return this.getRandom() < 0.3;
+    },
+    nameLayoutRandomNumber: function nameLayoutRandomNumber() {
+      return this.getRandom();
+    },
     knobConfigName: function knobConfigName() {
       return (0, _util.choiceItem)(this.getRandom(), knobConfigs);
     },
@@ -32211,7 +32509,7 @@ exports.default = _default;
       { staticClass: "ThreeSectionStompbox" },
       [
         _c("div", { staticClass: "Controls" }, [
-          _vm.getRandom() > 0.3
+          _vm.shouldHaveCheckLED
             ? _c(
                 "div",
                 { staticClass: "CheckLED" },
@@ -32346,44 +32644,18 @@ exports.default = _default;
           }
         }),
         _vm._v(" "),
-        _vm.footConfig === "Pusher"
-          ? _c("div", { staticClass: "Pusher" }, [
-              _c("div", { staticClass: "Pusher__Inner" })
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.footConfig === "OneSwitch"
-          ? _c(
-              "div",
-              { staticClass: "FootSwitchRowSingle" },
-              [
-                _c("FootSwitch", {
-                  attrs: {
-                    appearance: _vm.footSwitchStyle,
-                    label: _vm.pedalWords.switchLabels[0]
-                  }
-                })
-              ],
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.footConfig === "MultiSwitch"
-          ? _c(
-              "div",
-              { staticClass: "FootSwitchRow" },
-              _vm._l(_vm.numFootSwitches, function(n) {
-                return _c("FootSwitch", {
-                  key: n,
-                  attrs: {
-                    appearance: _vm.footSwitchStyle,
-                    label: _vm.pedalWords.switchLabels[n - 1]
-                  }
-                })
-              }),
-              1
-            )
-          : _vm._e()
+        _c("BottomArea", {
+          attrs: {
+            name1: _vm.name1,
+            name2: _vm.name2,
+            footConfig: _vm.footConfig,
+            footSwitchStyle: _vm.footSwitchStyle,
+            numFootSwitches: _vm.numFootSwitches,
+            shouldRotateLogo: _vm.shouldRotateLogo,
+            layoutRandomNumber: _vm.nameLayoutRandomNumber,
+            pedalWords: _vm.pedalWords
+          }
+        })
       ],
       1
     )
@@ -32418,7 +32690,7 @@ render._withStripped = true
         
       }
     })();
-},{"@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","alea":"node_modules/alea/alea.js","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","./FootSwitch.vue":"src/FootSwitch.vue","./Knob.vue":"src/Knob.vue","./LED.vue":"src/LED.vue","./Ports.vue":"src/Ports.vue","./FingerSwitch.vue":"src/FingerSwitch.vue","./SomeControl.vue":"src/SomeControl.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
+},{"@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","alea":"node_modules/alea/alea.js","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","./BottomArea.vue":"src/BottomArea.vue","./FootSwitch.vue":"src/FootSwitch.vue","./Knob.vue":"src/Knob.vue","./LED.vue":"src/LED.vue","./Ports.vue":"src/Ports.vue","./FingerSwitch.vue":"src/FingerSwitch.vue","./SomeControl.vue":"src/SomeControl.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => "%".concat(x.charCodeAt(0).toString(16).toUpperCase()));
@@ -32909,6 +33181,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   components: {
     Gfx: _Gfx.default
@@ -33095,6 +33382,26 @@ var staticRenderFns = [
           [_vm._v("\n        Cooper Hewitt\n      ")]
         ),
         _vm._v("\n      typeface.\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+            }
+          },
+          [_vm._v("\n        A Complete Guide to Flexbox\n      ")]
+        ),
+        _vm._v("\n      for reference.\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("a", { attrs: { href: "https://vuejs.org/" } }, [
+          _vm._v("\n        Vue.js\n      ")
+        ]),
+        _vm._v("\n      for HTML rendering.\n    ")
       ])
     ])
   }
@@ -33173,7 +33480,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59214" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60073" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

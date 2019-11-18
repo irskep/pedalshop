@@ -81,6 +81,57 @@
   z-index: 1;
   box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.33);
 }
+.NameInMiddle[data-v-a2190b] {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.mRotate[data-v-a2190b] {
+  transform: rotate(-6deg);
+}
+.NameAtBottom[data-v-a2190b] {
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: 1em;
+  margin-top: 0.5em;
+}
+.NameContainer[data-v-a2190b] {
+  min-height: 3rem;
+}
+.NameContainer .Name[data-v-a2190b] {
+  font-family: var(--name-font);
+  font-size: var(--name-font-size);
+  display: flex;
+  justify-content: var(--name-flex-justify-content);
+  flex-direction: var(--name-flex-direction);
+}
+.NameContainer .Name2[data-v-a2190b] {
+  font-size: 0.7rem;
+  font-style: italic;
+  display: flex;
+  justify-content: var(--name2-flex-justify-content);
+  flex-direction: var(--name2-flex-direction);
+}
+
+/* foot switch */
+.Pusher[data-v-a2190b] {
+  height: 6rem;
+  background-color: var(--footContact);
+  border-radius: 0.3rem;
+}
+.FootSwitchSingle[data-v-a2190b] {
+  min-height: 4rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.FootSwitchRow[data-v-a2190b] {
+  min-height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .KnobContainer {
   display: flex;
   align-items: center;
@@ -184,6 +235,10 @@
   justify-content: space-between;
 }
 
+.Left {
+  margin-right: 1rem;
+}
+
 .Left .Row {
   position: relative;
   display: flex;
@@ -243,24 +298,6 @@
 
 .RightArrow { margin-left: 0.3rem; }
 .LeftArrow { margin-right: 0.3rem; }
-
-.Ports__Inner__Name {
-  min-height: 3rem;
-}
-
-.Ports__Inner__Name .Name {
-  font-family: var(--name-font);
-  font-size: var(--name-font-size);
-  display: flex;
-  justify-content: var(--name-flex-justify-content);
-  flex-direction: var(--name-flex-direction);
-}
-
-.Ports__Inner__Name .Name2 {
-  display: flex;
-  justify-content: var(--name2-flex-justify-content);
-  flex-direction: var(--name2-flex-direction);
-}
 .FingerSwitch[data-v-9e7e84] {
   display: flex;
   align-items: center;
