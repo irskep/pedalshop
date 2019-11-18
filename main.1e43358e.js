@@ -32412,8 +32412,11 @@ var _default = {
     Ports: _Ports.default,
     SomeControl: _SomeControl.default
   },
-  props: ['aleaSavedState', 'name', 'color', 'purpose', 'brand'],
+  props: ['aleaSavedState', 'name', 'color', 'purpose', 'brand', 'seed'],
   computed: {
+    pedalID: function pedalID() {
+      return 'i' + this.$props.seed;
+    },
     getRandom: function getRandom() {
       return _alea.default.importState(this.$props.aleaSavedState);
     },
@@ -32481,7 +32484,7 @@ var _default = {
       var fontChoiceNumber = this.getRandom();
       var knobChoiceNumber = this.getRandom();
       var bg2ChoiceNumber = this.getRandom();
-      return "\n        <style>\n          .Pedal {\n            --bg: ".concat(colorMap[this.$props.color], ";\n            --textOnBg: ").concat(textColorMap[this.$props.color], ";\n            --footContact: #2f3640;\n            --knob: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors), ";\n            --knob2: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors2), ";\n            --knobTick: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColorsTick), ";\n            --bg2: ").concat((0, _util.choiceItem)(bg2ChoiceNumber, bg2Colors), ";\n            --textOnBg2: ").concat((0, _util.choiceItem)(bg2ChoiceNumber, bg2TextColors), ";\n\n            --name-font: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontFamilies), ";\n            --name-font-size: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontSizes), ";\n\n            --name-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name-flex-direction: 'row';\n            --name2-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name2-flex-direction: ").concat((0, _util.choiceItem)(this.getRandom(), flexDirectionRow), ";\n          }\n        </style>\n      ");
+      return "\n        <style>\n          .Pedal#".concat(this.pedalID, " {\n            --bg: ").concat(colorMap[this.$props.color], ";\n            --textOnBg: ").concat(textColorMap[this.$props.color], ";\n            --footContact: #2f3640;\n            --knob: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors), ";\n            --knob2: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColors2), ";\n            --knobTick: ").concat((0, _util.choiceItem)(knobChoiceNumber, knobColorsTick), ";\n            --bg2: ").concat((0, _util.choiceItem)(bg2ChoiceNumber, bg2Colors), ";\n            --textOnBg2: ").concat((0, _util.choiceItem)(bg2ChoiceNumber, bg2TextColors), ";\n\n            --name-font: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontFamilies), ";\n            --name-font-size: ").concat((0, _util.choiceItem)(fontChoiceNumber, fontSizes), ";\n\n            --name-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name-flex-direction: 'row';\n            --name2-flex-justify-content: ").concat((0, _util.choiceItem)(this.getRandom(), flexJustifyContent), ";\n            --name2-flex-direction: ").concat((0, _util.choiceItem)(this.getRandom(), flexDirectionRow), ";\n          }\n        </style>\n      ");
     }
   },
   setup: function setup() {
@@ -32501,7 +32504,7 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "Pedal" }, [
+  return _c("div", { staticClass: "Pedal", attrs: { id: _vm.pedalID } }, [
     _c("div", { domProps: { innerHTML: _vm._s(_vm.rawStyle) } }),
     _vm._v(" "),
     _c(
@@ -33117,7 +33120,7 @@ exports.parseUrl = function (input, options) {
     query: parse(extract(input), options)
   };
 };
-},{"strict-uri-encode":"node_modules/strict-uri-encode/index.js","decode-uri-component":"node_modules/decode-uri-component/index.js","split-on-first":"node_modules/split-on-first/index.js"}],"src/App.vue":[function(require,module,exports) {
+},{"strict-uri-encode":"node_modules/strict-uri-encode/index.js","decode-uri-component":"node_modules/decode-uri-component/index.js","split-on-first":"node_modules/split-on-first/index.js"}],"src/Entry.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33125,7 +33128,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _alea2 = _interopRequireDefault(require("alea"));
+var _alea = _interopRequireDefault(require("alea"));
 
 var _compositionApi = require("@vue/composition-api");
 
@@ -33165,49 +33168,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default = {
   components: {
     Gfx: _Gfx.default
   },
-  setup: function setup() {
-    var seed = (0, _compositionApi.ref)(null);
-    var pedal = (0, _compositionApi.ref)(null);
-    var aleaSavedState = (0, _compositionApi.ref)(null);
-    var _alea = null;
-
-    function derive(shouldSetHash) {
-      var alea = new _alea2.default(seed.value);
+  props: ['seed'],
+  computed: {
+    alea: function alea() {
+      return new _alea.default(this.$props.seed);
+    },
+    context: function context() {
+      var alea = new _alea.default(this.$props.seed);
 
       var _makeImprovGenerators = (0, _makeImprovGenerators2.default)(alea),
           descGen = _makeImprovGenerators.descGen,
@@ -33218,9 +33189,8 @@ var _default = {
       var subtitle = subGen.gen('root', model);
       var desc = descGen.gen('root', model);
       var brand = descGen.gen('brand', model);
-      console.log(model);
-      aleaSavedState.value = alea.exportState();
-      pedal.value = {
+      var aleaSavedState = alea.exportState();
+      var pedal = {
         name: name,
         subtitle: subtitle,
         brand: brand,
@@ -33231,14 +33201,153 @@ var _default = {
         }),
         price: descGen.gen('price', model)
       };
+      return {
+        aleaSavedState: aleaSavedState,
+        pedal: pedal
+      };
+    },
+    pedal: function pedal() {
+      return this.context.pedal;
+    },
+    aleaSavedState: function aleaSavedState() {
+      return this.context.aleaSavedState;
+    }
+  }
+};
+exports.default = _default;
+        var $3e5099 = exports.default || module.exports;
+      
+      if (typeof $3e5099 === 'function') {
+        $3e5099 = $3e5099.options;
+      }
+    
+        /* template */
+        Object.assign($3e5099, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "article",
+    [
+      _c("Gfx", {
+        attrs: {
+          seed: _vm.seed,
+          aleaSavedState: _vm.aleaSavedState,
+          name: _vm.pedal.name,
+          brand: _vm.pedal.brand,
+          purpose: _vm.pedal.purpose,
+          color: _vm.pedal.color
+        }
+      }),
+      _vm._v(" "),
+      _c("h2", { staticClass: "Brand" }, [_vm._v(_vm._s(_vm.pedal.brand))]),
+      _vm._v(" "),
+      _c("h1", { staticClass: "PedalName" }, [_vm._v(_vm._s(_vm.pedal.name))]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "PedalPrice" }, [
+        _vm._v(_vm._s(_vm.pedal.price))
+      ]),
+      _vm._v(" "),
+      _c("h3", [_vm._v(_vm._s(_vm.pedal.subtitle))]),
+      _vm._v(" "),
+      _vm._l(_vm.pedal.texts, function(t, i) {
+        return _c("p", { key: i }, [_vm._v(_vm._s(t))])
+      }),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
+    2
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "BuyButton" }, [
+      _c(
+        "a",
+        { attrs: { href: "https://quickfiction.bandcamp.com", target: "_" } },
+        [_vm._v("Buy Now")]
+      )
+    ])
+  }
+]
+render._withStripped = true
 
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-3e5099",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$3e5099', $3e5099);
+          } else {
+            api.reload('$3e5099', $3e5099);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"alea":"node_modules/alea/alea.js","@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","./Gfx.vue":"src/Gfx.vue","./makeImprovGenerators":"src/makeImprovGenerators.js","query-string":"node_modules/query-string/index.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/App.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _alea = _interopRequireDefault(require("alea"));
+
+var _compositionApi = require("@vue/composition-api");
+
+var _Gfx = _interopRequireDefault(require("./Gfx.vue"));
+
+var _Entry = _interopRequireDefault(require("./Entry.vue"));
+
+var _makeImprovGenerators = _interopRequireDefault(require("./makeImprovGenerators"));
+
+var _queryString = _interopRequireDefault(require("query-string"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+var _default = {
+  components: {
+    Gfx: _Gfx.default,
+    Entry: _Entry.default
+  },
+  setup: function setup() {
+    var seed = (0, _compositionApi.ref)(null);
+
+    function derive(shouldSetHash) {
       if (shouldSetHash) {
         window.location.hash = "seed=".concat(seed.value);
       }
-
-      console.log(model); // for (let i=0; i<10; i++) {
-      //   console.log(descGen.gen('name'));
-      // }
     }
 
     function travel() {
@@ -33261,9 +33370,10 @@ var _default = {
       }
     }
 
-    (0, _compositionApi.onBeforeUpdate)(function () {
-      _alea = _alea2.default.importState(aleaSavedState.value);
-    });
+    if (!reactToHash(_queryString.default.parse(window.location.hash), true)) {
+      travel();
+    }
+
     (0, _compositionApi.onMounted)(function () {
       if (!reactToHash(_queryString.default.parse(window.location.hash), true)) {
         travel();
@@ -33275,9 +33385,12 @@ var _default = {
     });
     return {
       seed: seed,
-      pedal: pedal,
       travel: travel,
-      aleaSavedState: aleaSavedState
+      seeds: (0, _compositionApi.computed)(function () {
+        return _toConsumableArray(Array(10)).map(function (_, i) {
+          return seed.value + i;
+        });
+      })
     };
   }
 };
@@ -33298,63 +33411,23 @@ exports.default = _default;
     _c("nav", [
       _c("div", [_vm._v("Page " + _vm._s(_vm.seed) + " of ∞")]),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.travel } }, [_vm._v("Next Product →")])
+      _c("button", { on: { click: _vm.travel } }, [_vm._v("Next Page →")])
     ]),
     _vm._v(" "),
-    _vm.pedal
+    _vm.seed
       ? _c(
-          "article",
-          [
-            _c("Gfx", {
-              attrs: {
-                aleaSavedState: _vm.aleaSavedState,
-                name: _vm.pedal.name,
-                brand: _vm.pedal.brand,
-                purpose: _vm.pedal.purpose,
-                color: _vm.pedal.color
-              }
-            }),
-            _vm._v(" "),
-            _c("h2", { staticClass: "Brand" }, [
-              _vm._v(_vm._s(_vm.pedal.brand))
-            ]),
-            _vm._v(" "),
-            _c("h1", { staticClass: "PedalName" }, [
-              _vm._v(_vm._s(_vm.pedal.name))
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "PedalPrice" }, [
-              _vm._v(_vm._s(_vm.pedal.price))
-            ]),
-            _vm._v(" "),
-            _c("h3", [_vm._v(_vm._s(_vm.pedal.subtitle))]),
-            _vm._v(" "),
-            _vm._l(_vm.pedal.texts, function(t, i) {
-              return _c("p", { key: i }, [_vm._v(_vm._s(t))])
-            }),
-            _vm._v(" "),
-            _vm._m(0)
-          ],
-          2
+          "div",
+          _vm._l(_vm.seeds, function(s) {
+            return _c("Entry", { key: s, attrs: { seed: s } })
+          }),
+          1
         )
       : _vm._e(),
     _vm._v(" "),
-    _vm._m(1)
+    _vm._m(0)
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "BuyButton" }, [
-      _c(
-        "a",
-        { attrs: { href: "https://quickfiction.bandcamp.com", target: "_" } },
-        [_vm._v("Buy Now")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -33434,7 +33507,7 @@ render._withStripped = true
         
       }
     })();
-},{"alea":"node_modules/alea/alea.js","@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","./Gfx.vue":"src/Gfx.vue","./makeImprovGenerators":"src/makeImprovGenerators.js","query-string":"node_modules/query-string/index.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
+},{"alea":"node_modules/alea/alea.js","@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","./Gfx.vue":"src/Gfx.vue","./Entry.vue":"src/Entry.vue","./makeImprovGenerators":"src/makeImprovGenerators.js","query-string":"node_modules/query-string/index.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -33480,7 +33553,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63199" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51201" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
