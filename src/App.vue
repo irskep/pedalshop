@@ -85,6 +85,10 @@ export default {
       }
     }
 
+    if (!reactToHash(queryString.parse(window.location.hash), true)) {
+      travel();
+    }
+
     onMounted(() => {
       if (!reactToHash(queryString.parse(window.location.hash), true)) {
         travel();
@@ -99,7 +103,7 @@ export default {
       seed,
       travel,
       seeds: computed(() => {
-        return [...Array(10)].map((_, i) => seed.value + i);
+        return [...Array(12)].map((_, i) => seed.value + i);
       }),
     }
   }

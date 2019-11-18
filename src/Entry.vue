@@ -11,11 +11,12 @@
 
     <h2 class="Brand">{{ pedal.brand }}</h2>
     <h1 class="PedalName">{{ pedal.name }}</h1>
-    <h3 class="PedalPrice">{{ pedal.price }}</h3>
+    <h3 class="PedalPrice above">{{ pedal.price }}</h3>
 
-    <h3>{{ pedal.subtitle }}</h3>
+    <h3 class="PedalSubtitle">{{ pedal.subtitle }}</h3>
     <p v-for="(t, i) in pedal.texts" v-bind:key="i">{{ t }}</p>
 
+    <h3 class="PedalPrice below">{{ pedal.price }}</h3>
     <div class="BuyButton"><a href="https://quickfiction.bandcamp.com" target="_">Buy Now</a></div>
   </article>
 </template>

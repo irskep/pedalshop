@@ -14,6 +14,12 @@
 </template>
 
 <style scoped>
+@media print {
+  .circle, .circle-wrapper {
+    box-shadow: none !important;
+  }
+}
+
 .FootSwitch {
   display: flex;
   align-items: center;

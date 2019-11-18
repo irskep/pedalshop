@@ -8,9 +8,60 @@
   <link rel="stylesheet" type="text/css" href="static/index.css">
 
   <style>
+    @page {
+      margin: 0;
+    }
+    @media print {
+      footer {
+        position: fixed;
+        bottom: 0;
+      }
+      header {
+        position: fixed;
+        top: 0;
+      }
+    }
+
     @media print {
       header, footer, nav, .BuyButton {
         display: none;
+      }
+
+      html {
+        font-size: 0.8rem;
+        line-height: 1.4em;
+      }
+
+      body {
+        margin: 1.6cm;
+      }
+
+      .ThreeSectionStompBox {
+        page-break-inside: avoid;
+      }
+
+      article {
+        page-break-inside: avoid;
+      }
+
+      .Pedal {
+        transform: translate(0, -2em) scale(0.7) !important;
+      }
+      .PedalPrice.above { display: none; }
+      .PedalPrice.below { display: block; }
+
+      h1.PedalName, h2.Brand, h3.PedalPrice {
+        font-size: 1.5em;
+      }
+
+      .PedalPrice {
+        margin-bottom: 0;
+      }
+
+      h3.PedalSubtitle {
+        font-size: 1.1em;
+        margin-top: 0;
+        line-height: 1em;
       }
     }
   </style>

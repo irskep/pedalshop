@@ -10,6 +10,12 @@
 </template>
 
 <style>
+@media print {
+  .Knob {
+    box-shadow: none !important;
+  }
+}
+
 .KnobContainer {
   display: flex;
   align-items: center;

@@ -3,6 +3,12 @@
 </template>
 
 <style>
+@media print {
+  .LEDRed, .LEDGreen, .LEDYellow, .LEDBlue {
+    box-shadow: none !important;
+  }
+}
+
 .LED {
   --ledSize: 0.6rem;
 }

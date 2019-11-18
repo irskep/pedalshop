@@ -109,6 +109,9 @@ h3.PedalPrice, .BuyButton a {
   font-family: "Cooper Hewitt Heavy";
   margin-top: 0;
 }
+.PedalPrice.below {
+  display: none;
+}
 
 .BuyButton {
   font-size: 1.2rem;
@@ -116,7 +119,7 @@ h3.PedalPrice, .BuyButton a {
 
 /* custom: pedal */
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   main {
     max-width: 49rem !important;
     padding: 0 2rem;
@@ -135,6 +138,23 @@ h3.PedalPrice, .BuyButton a {
 
 @media(min-width: 500px) {
   .Pedal {
+    transform: scale(1);
+  }
+}
+
+@media print {
+  main {
+    max-width: 49rem !important;
+    padding: 0 2rem;
+  }
+
+  article > h1, article > h2, h3.PedalPrice {
+    text-align: left !important;
+  }
+
+  .Pedal {
+    float: left !important;
+    width: auto !important;
     transform: scale(1) !important;
   }
 }
