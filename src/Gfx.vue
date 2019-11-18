@@ -81,11 +81,12 @@
           v-bind:outputLabels="pedalWords.outputLabels"></Ports>
 
         <BottomArea
-          v-bind:name="name"
-          v-bind:brand="brand"
+          v-bind:name1="name1"
+          v-bind:name2="name2"
           v-bind:footConfig="footConfig"
           v-bind:footSwitchStyle="footSwitchStyle"
           v-bind:numFootSwitches="numFootSwitches"
+          v-bind:shouldRotateLogo="shouldRotateLogo"
           v-bind:pedalWords="pedalWords"
         ></BottomArea>
     </div>
@@ -284,9 +285,22 @@ export default {
       ])
     },
 
-    footSwitchStyle: function() { return choiceItem(this.getRandom(), footSwitchStyles); },
+    footSwitchStyle: function() {
+      return choiceItem(this.getRandom(), footSwitchStyles);
+    },
 
-    footConfig: function() { return choiceItem(this.getRandom(), footConfigs); },
+    footConfig: function() {
+      return choiceItem(this.getRandom(), footConfigs);
+    },
+
+    nameNumber: function() { return this.getRandom() },
+    name1: function() {
+      return choiceItem(this.nameNumber, [this.$props.brand, this.$props.name]);
+    },
+    name2: function() {
+      return choiceItem(this.nameNumber, [this.$props.name, this.$props.brand]);
+    },
+    shouldRotateLogo: function() { return this.getRandom() < 0.3; },
 
     knobConfigName: function() {
       return choiceItem(this.getRandom(), knobConfigs);

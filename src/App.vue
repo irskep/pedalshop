@@ -38,6 +38,21 @@
         </a>
         typeface.
       </div>
+
+      <div>
+        <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">
+          A Complete Guide to Flexbox
+        </a>
+        for reference.
+      </div>
+
+      <div>
+        <a href="https://vuejs.org/">
+          Vue.js
+        </a>
+        for HTML rendering.
+      </div>
+
     </footer>
   </main>
 </template>

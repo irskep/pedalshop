@@ -28,9 +28,15 @@ const appearances = [
   'knob',
   'knob',
   'knob',
-  'nothing',
   'switch',
   'led',
+  'knob',
+  'knob',
+  'knob',
+  'knob',
+  'switch',
+  'led',
+  'nothing',
 ];
 
 export default {
