@@ -30037,13 +30037,13 @@ module.exports = {
   effectName1: {
     groups: [{
       tags: [],
-      phrases: ["Blues Driver", "Angry Charlie", "Metal Zone", "Freeze", "Soul Food"]
+      phrases: ["Blues Driver", "Angry Kevin", "Metal Zone", "Extreme Freeze", "Soul Food"]
     }]
   },
   effectName2: {
     groups: [{
       tags: [],
-      phrases: ["Precision", "Longhorn"]
+      phrases: ["Precision", "Death Rattle", "Bleak Zone", "Instant Kill", "Antler"]
     }]
   },
   benefit: {
@@ -33173,7 +33173,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57288" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59214" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
