@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "parcel --port=1238 index.html",
-    "deploy": "parcel build index.html --public-url ./ && gh-pages -d dist"
+    "deploy": "parcel build index.html --public-url ./ && gh-pages -d dist",
+    "butler": "parcel build index.html --public-url ./ && butler push dist irskep/steves-pedal-shop:dev"
   },
   "dependencies": {
     "@vue/composition-api": "^0.3.2",
