@@ -255,3 +255,25 @@ main {
   justify-content: space-between;
   align-items: center;
 }
+
+/* name */
+
+.NameContainer {
+  min-height: 3rem;
+}
+
+.NameContainer .Name {
+  font-family: var(--name-font);
+  font-size: var(--name-font-size);
+  display: flex;
+  justify-content: var(--name-flex-justify-content);
+  flex-direction: var(--name-flex-direction);
+}
+
+.NameContainer .Name2 {
+  font-size: 0.7rem;
+  font-style: italic;
+  display: flex;
+  justify-content: var(--name2-flex-justify-content);
+  flex-direction: var(--name2-flex-direction);
+}

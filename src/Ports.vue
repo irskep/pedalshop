@@ -38,15 +38,6 @@
         </div>
 
       </div>
-
-      <div class="Ports__Inner__Name">
-        <div class="Name">
-          <div>{{ name }}</div>
-        </div>
-        <div class="Name2">
-          <div>{{ brand }}</div>
-        </div>
-      </div>
   </div>
 </template>
 
@@ -122,24 +113,6 @@
 
 .RightArrow { margin-left: 0.3rem; }
 .LeftArrow { margin-right: 0.3rem; }
-
-.Ports__Inner__Name {
-  min-height: 3rem;
-}
-
-.Ports__Inner__Name .Name {
-  font-family: var(--name-font);
-  font-size: var(--name-font-size);
-  display: flex;
-  justify-content: var(--name-flex-justify-content);
-  flex-direction: var(--name-flex-direction);
-}
-
-.Ports__Inner__Name .Name2 {
-  display: flex;
-  justify-content: var(--name2-flex-justify-content);
-  flex-direction: var(--name2-flex-direction);
-}
 </style>
 
 <script>

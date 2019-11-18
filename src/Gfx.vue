@@ -80,23 +80,14 @@
           v-bind:inputLabels="pedalWords.inputLabels"
           v-bind:outputLabels="pedalWords.outputLabels"></Ports>
 
-        <div v-if="footConfig === 'Pusher'" class="Pusher">
-          <div class="Pusher__Inner"></div>
-        </div>
-
-        <div v-if="footConfig === 'OneSwitch'" class="FootSwitchRowSingle">
-          <FootSwitch
-            v-bind:appearance="footSwitchStyle"
-            v-bind:label="pedalWords.switchLabels[0]"></FootSwitch>
-        </div>
-
-        <div v-if="footConfig === 'MultiSwitch'" class="FootSwitchRow">
-          <FootSwitch
-            v-for="n in numFootSwitches"
-            v-bind:key="n"
-            v-bind:appearance="footSwitchStyle"
-            v-bind:label="pedalWords.switchLabels[n - 1]"></FootSwitch>
-        </div>
+        <BottomArea
+          v-bind:name="name"
+          v-bind:brand="brand"
+          v-bind:footConfig="footConfig"
+          v-bind:footSwitchStyle="footSwitchStyle"
+          v-bind:numFootSwitches="numFootSwitches"
+          v-bind:pedalWords="pedalWords"
+        ></BottomArea>
     </div>
   </div>
 </template>
@@ -108,6 +99,7 @@ import Alea from 'alea';
 import {choiceItem} from './util';
 import makeImprovGenerators from './makeImprovGenerators';
 
+import BottomArea from './BottomArea.vue';
 import FootSwitch from './FootSwitch.vue';
 import Knob from './Knob.vue';
 import LED from './LED.vue';
@@ -226,8 +218,10 @@ const footSwitchStyles = [
 ];
 
 const bg2Colors = [
-  '#353b48',
-  '#dadadf',
+  // '#353b48',
+  'rgba(0, 0, 0, 0.8)',
+  'rgba(255, 255, 255, 0.8)',
+  // '#dadadf',
   'rgba(0, 0, 0, 0.0)'
 ];
 
@@ -239,6 +233,7 @@ const bg2TextColors = [
 
 export default {
   components: {
+    BottomArea,
     FingerSwitch,
     FootSwitch,
     Knob,
