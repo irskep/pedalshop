@@ -12,7 +12,9 @@
 <style>
 @media print {
   .Knob {
-    box-shadow: none !important;
+    /* box-shadow: none !important; */
+    -webkit-print-color-adjust:exact;
+    -webkit-filter: opacity(1);
   }
 }
 

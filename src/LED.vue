@@ -5,7 +5,9 @@
 <style>
 @media print {
   .LEDRed, .LEDGreen, .LEDYellow, .LEDBlue {
-    box-shadow: none !important;
+    /* box-shadow: none !important */
+    -webkit-print-color-adjust:exact;
+    -webkit-filter: opacity(1);
   }
 }
 
