@@ -1,5 +1,5 @@
 <template>
-  <div class="Pedal">
+  <div class="Pedal" v-bind:id="pedalID">
     <div v-html="rawStyle"></div>
 
     <div class="ThreeSectionStompbox">
@@ -250,9 +250,11 @@ export default {
     'color',
     'purpose',
     'brand',
+    'seed',
   ],
 
   computed: {
+    pedalID: function() { return 'i' + this.$props.seed; },
     getRandom: function() {
       return Alea.importState(this.$props.aleaSavedState);
     },
@@ -314,7 +316,7 @@ export default {
       const bg2ChoiceNumber = this.getRandom();
       return `
         <style>
-          .Pedal {
+          .Pedal#${this.pedalID} {
             --bg: ${colorMap[this.$props.color]};
             --textOnBg: ${textColorMap[this.$props.color]};
             --footContact: #2f3640;

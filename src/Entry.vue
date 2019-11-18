@@ -1,6 +1,7 @@
 <template>
   <article>
     <Gfx
+      v-bind:seed="seed"
       v-bind:aleaSavedState="aleaSavedState"
       v-bind:name="pedal.name"
       v-bind:brand="pedal.brand"
@@ -19,6 +20,12 @@
   </article>
 </template>
 
+<style scoped>
+article {
+  clear: both;
+}
+</style>
+
 <script>
 import Alea from "alea";
 import { ref, computed, onMounted, onBeforeUpdate } from '@vue/composition-api';
@@ -33,7 +40,7 @@ export default {
     Gfx,
   },
 
-  props: ['seed', 'travel'],
+  props: ['seed'],
 
   computed: {
     alea: function() { return new Alea(this.$props.seed); },

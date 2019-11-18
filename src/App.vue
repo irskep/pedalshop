@@ -2,10 +2,12 @@
   <main>
     <nav>
       <div>Page {{ seed }} of ∞</div>
-      <button @click="travel">Next Product &rarr;</button>
+      <button @click="travel">Next Page &rarr;</button>
     </nav>
 
-    <Entry v-if="seed" v-bind:seed="seed"></Entry>
+    <div v-if="seed">
+      <Entry v-for="s in seeds" v-bind:key="s" v-bind:seed="s"></Entry>
+    </div>
 
     <footer>
       <strong>Tools used to make this site:</strong>
@@ -96,6 +98,9 @@ export default {
     return {
       seed,
       travel,
+      seeds: computed(() => {
+        return [...Array(10)].map((_, i) => seed.value + i);
+      }),
     }
   }
 }
