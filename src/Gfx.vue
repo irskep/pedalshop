@@ -5,7 +5,7 @@
     <div class="ThreeSectionStompbox">
 
         <div class="Controls">
-          <div v-if="getRandom() > 0.3" class="CheckLED">
+          <div v-if="shouldHaveCheckLED" class="CheckLED">
             <div class="Label">CHECK</div>
             <LED v-bind:randomNumber="ledColorNumber"></LED>
           </div>
@@ -254,6 +254,8 @@ export default {
     getRandom: function() {
       return Alea.importState(this.$props.aleaSavedState);
     },
+
+    shouldHaveCheckLED: function() { return this.getRandom() > 0.3 },
 
     pedalWords: function() {
       const model = {};

@@ -54,6 +54,10 @@
   justify-content: space-between;
 }
 
+.Left {
+  margin-right: 1rem;
+}
+
 .Left .Row {
   position: relative;
   display: flex;

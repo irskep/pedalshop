@@ -1,17 +1,19 @@
 <template>
   <div class="BottomArea">
 
-    <div class="NameContainer">
-      <div class="Name">
-        <div>{{ name }}</div>
+    <div v-if="footConfig === 'Pusher'">
+      <div class="NameContainer">
+        <div class="Name">
+          <div>{{ name }}</div>
+        </div>
+        <div class="Name2">
+          <div>{{ brand }}</div>
+        </div>
       </div>
-      <div class="Name2">
-        <div>{{ brand }}</div>
-      </div>
-    </div>
 
-    <div v-if="footConfig === 'Pusher'" class="Pusher">
-      <div class="Pusher__Inner"></div>
+      <div class="Pusher">
+        <div class="Pusher__Inner"></div>
+      </div>
     </div>
 
     <div v-if="footConfig === 'OneSwitch'" class="FootSwitchRowSingle">
