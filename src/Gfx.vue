@@ -87,6 +87,7 @@
           v-bind:footSwitchStyle="footSwitchStyle"
           v-bind:numFootSwitches="numFootSwitches"
           v-bind:shouldRotateLogo="shouldRotateLogo"
+          v-bind:layoutRandomNumber="nameLayoutRandomNumber"
           v-bind:pedalWords="pedalWords"
         ></BottomArea>
     </div>
@@ -301,6 +302,7 @@ export default {
       return choiceItem(this.nameNumber, [this.$props.name, this.$props.brand]);
     },
     shouldRotateLogo: function() { return this.getRandom() < 0.3; },
+    nameLayoutRandomNumber: function() { return this.getRandom(); },
 
     knobConfigName: function() {
       return choiceItem(this.getRandom(), knobConfigs);

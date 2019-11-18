@@ -20,6 +20,9 @@
       <div class="NameInMiddle" v-bind:class="{mRotate: shouldRotateLogo}">
         <div>{{ name2 }}</div>
       </div>
+      <div v-if="nameIsAboveFootSwitches" class="NameAtBottom" v-bind:class="{mRotate: shouldRotateLogo}">
+        <div>{{ name1 }}</div>
+      </div>
 
       <div>
         <FootSwitch
@@ -27,7 +30,7 @@
           v-bind:label="pedalWords.switchLabels[0]"></FootSwitch>
       </div>
 
-      <div class="NameAtBottom">
+      <div v-if="!nameIsAboveFootSwitches" class="NameAtBottom">
         <div>{{ name1 }}</div>
       </div>
     </div>
@@ -35,6 +38,9 @@
     <div v-if="footConfig === 'MultiSwitch'">
       <div class="NameInMiddle" v-bind:class="{mRotate: shouldRotateLogo}">
         <div>{{ name2 }}</div>
+      </div>
+      <div v-if="nameIsAboveFootSwitches" class="NameAtBottom" v-bind:class="{mRotate: shouldRotateLogo}">
+        <div>{{ name1 }}</div>
       </div>
 
       <div class="FootSwitchRow">
@@ -44,7 +50,7 @@
           v-bind:appearance="footSwitchStyle"
           v-bind:label="pedalWords.switchLabels[n - 1]"></FootSwitch>
       </div>
-      <div class="NameAtBottom">
+      <div v-if="!nameIsAboveFootSwitches" class="NameAtBottom">
         <div>{{ name1 }}</div>
       </div>
     </div>
@@ -54,8 +60,7 @@
 
 <style scoped>
 .NameInMiddle {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
   text-align: center;
   font-size: 1.2rem;
 }
@@ -100,6 +105,7 @@
 
 .FootSwitchSingle {
   min-height: 4rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -128,7 +134,14 @@ export default {
     'numFootSwitches',
     'pedalWords',
     'shouldRotateLogo',
+    'layoutRandomNumber',
   ],
+
+  computed: {
+    nameIsAboveFootSwitches: function() {
+      return this.$props.layoutRandomNumber > 0.5;
+    },
+  },
 
   setup() {
     return {

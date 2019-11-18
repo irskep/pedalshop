@@ -77,6 +77,7 @@ adjective:
         - 'Must-have'
         - 'Powerful'
         - "The World's Most Popular"
+        - 'Killer'
 
 aficionado:
   groups:
@@ -148,6 +149,8 @@ noun:
         - 'Station'
         - 'Machine'
         - 'and More'
+        - 'with Something More'
+        - 'with So Much More'
         - 'Pedal for Guitar and Bass'
         - ''
         - 'with a Twist'
