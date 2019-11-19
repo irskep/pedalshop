@@ -6,7 +6,7 @@
     </nav>
 
     <div v-if="seed">
-      <div v-for="p in pages" v-bind:key="p">
+      <div class="Page" v-for="p in pages" v-bind:key="p">
         <Entry v-for="n in 4" v-bind:key="n" v-bind:seed="seed + ((p - 1) * 4) + n - 1"></Entry>
       </div>
     </div>
@@ -61,11 +61,17 @@ export default {
   },
   setup() {
     const seed = ref(null);
-    const pages = ref(1);
+    const pages = ref(2);
+
+    const initialParsedHash = queryString.parse(window.location.hash);
+    if (initialParsedHash.pages) {
+      pages.value = parseInt(initialParsedHash.pages, 10);
+    }
 
     function derive(shouldSetHash) {
-      if (shouldSetHash) {
-        window.location.hash = `seed=${seed.value}`;
+      const newHash = `seed=${seed.value}`;
+      if (shouldSetHash && newHash != window.location.hash) {
+        window.location.hash = newHash;
       }
     }
 
@@ -81,7 +87,7 @@ export default {
         console.log("Set seed:", seed.value);
       }
       if (parsedHash.pages) {
-        pages.value = parseInt(parsedHash.pages, 10);
+        // pages.value = parseInt(parsedHash.pages, 10);
       }
       if (seed.value) {
         derive(shouldSetHash);

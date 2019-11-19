@@ -14,6 +14,14 @@
 </template>
 
 <style scoped>
+@media print {
+  .circle, .bigcircle {
+    /* box-shadow: none !important; */
+    -webkit-print-color-adjust:exact;
+    -webkit-filter: opacity(1);
+  }
+}
+
 .FingerSwitch {
   display: flex;
   align-items: center;
