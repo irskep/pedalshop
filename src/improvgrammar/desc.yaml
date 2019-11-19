@@ -265,8 +265,8 @@ root:
           Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity.
           [:extra]
         - >-
-          The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname].
-          [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].
+          The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in [the :shortname].
+          [cap :packed] with [:soundAdjective] [uncap :purpose] effects, [the :shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].
         - >-
           [cap :packed] with [#5-100] [:subItemAdjective] [:subItems], [the :shortname] provides [:endless] [:creativePossibilities].
           [:extra]
@@ -347,7 +347,7 @@ extra:
         - >-
           [cap :edit] the [:knobsOrSwitches] for real-time expression.
         - >-
-          With [:benefit], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.
+          With [:benefit], [the :shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.
         - >-
           Looking for [:benefitSingular]? It's here. Need [:benefit]? You've got it!
         - >-
