@@ -6,7 +6,9 @@
     </nav>
 
     <div v-if="seed">
-      <Entry v-for="s in seeds" v-bind:key="s" v-bind:seed="s"></Entry>
+      <div v-for="p in pages" v-bind:key="p">
+        <Entry v-for="n in 4" v-bind:key="n" v-bind:seed="seed + ((p - 1) * 4) + n - 1"></Entry>
+      </div>
     </div>
 
     <footer>
@@ -59,6 +61,7 @@ export default {
   },
   setup() {
     const seed = ref(null);
+    const pages = ref(1);
 
     function derive(shouldSetHash) {
       if (shouldSetHash) {
@@ -76,6 +79,9 @@ export default {
       if (parsedHash.seed && !isNaN(parseInt(parsedHash.seed, 10))) {
         seed.value = parseInt(parsedHash.seed, 10)
         console.log("Set seed:", seed.value);
+      }
+      if (parsedHash.pages) {
+        pages.value = parseInt(parsedHash.pages, 10);
       }
       if (seed.value) {
         derive(shouldSetHash);
@@ -102,9 +108,10 @@ export default {
     return {
       seed,
       travel,
-      seeds: computed(() => {
-        return [...Array(12)].map((_, i) => seed.value + i);
-      }),
+      pages,
+      // seeds: computed(() => {
+      //   return [...Array(12)].map((_, i) => seed.value + i);
+      // }),
     }
   }
 }
