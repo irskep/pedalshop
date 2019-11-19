@@ -9,19 +9,7 @@
 
   <style>
     @page {
-      /* margin: 0;
-      size: auto; */
-      margin: 2cm;
-    }
-    @media print {
-      /* footer {
-        position: fixed;
-        bottom: 0;
-      }
-      header {
-        position: fixed;
-        top: 0;
-      } */
+      margin: 2cm 0;
     }
 
     @media print {
@@ -39,19 +27,54 @@
         margin: 1.6cm;
       }
 
-      .ThreeSectionStompBox, article {
+      main {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .Page {
+        display: flex;
+        justify-content: space-between;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding-top: 1rem;
+      }
+
+      .Page > * {
+        /* width: calc(50% - 2rem); */
+        flex-basis: content;
+      }
+
+      .Page > *:first-child {
+        margin-right: 3em;
+      }
+
+      .ThreeSectionStompBox, .Entry {
         page-break-inside: avoid;
         break-inside: avoid;
       }
 
       .Pedal {
-        transform: translate(0, -2em) scale(0.7) !important;
+        font-size: 0.5rem;
+        /* transform: scale(0.6) !important;
+        transform-origin: top center; */
       }
-      .PedalPrice.above { display: none; }
-      .PedalPrice.below { display: block; }
+      .PedalPrice.left {
+        display: block;
+        margin-top: 1em;
+      }
+      .PedalPrice.above {
+        display: none;
+        position: absolute;
+        top: 0; right: 0;
+      }
 
       h1.PedalName, h2.Brand, h3.PedalPrice {
         font-size: 1.5em;
+      }
+
+      h2.Brand {
+        margin-top: 0;
       }
 
       .PedalPrice {
@@ -61,7 +84,7 @@
       h3.PedalSubtitle {
         font-size: 1.1em;
         margin-top: 0;
-        line-height: 1em;
+        line-height: 1.1em;
       }
     }
   </style>

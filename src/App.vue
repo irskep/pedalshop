@@ -7,7 +7,7 @@
 
     <div v-if="seed">
       <div class="Page" v-for="p in pages" v-bind:key="p">
-        <Entry v-for="n in 4" v-bind:key="n" v-bind:seed="seed + ((p - 1) * 4) + n - 1"></Entry>
+        <Entry v-for="n in 2" v-bind:key="n" v-bind:seed="seed + ((p - 1) * 2) + n - 1"></Entry>
       </div>
     </div>
 
@@ -61,7 +61,7 @@ export default {
   },
   setup() {
     const seed = ref(null);
-    const pages = ref(2);
+    const pages = ref(4);
 
     const initialParsedHash = queryString.parse(window.location.hash);
     if (initialParsedHash.pages) {

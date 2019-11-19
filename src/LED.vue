@@ -12,7 +12,7 @@
 }
 
 .LED {
-  --ledSize: 0.6rem;
+  --ledSize: 0.6em;
 }
 
 .LEDRed {

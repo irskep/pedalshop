@@ -29,12 +29,12 @@
 }
 
 .SwitchLabel {
-  font-size: 0.5rem;
+  font-size: 0.5em;
 }
 
 .nested-hexagon-wrapper {
   position: relative;
-  --hexSize: 1.4rem;
+  --hexSize: 1.4em;
   width: var(--hexSize);
   height: var(--hexSize);
 }

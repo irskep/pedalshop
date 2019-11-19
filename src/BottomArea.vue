@@ -59,24 +59,28 @@
 </template>
 
 <style scoped>
+.BottomArea {
+  padding: 0 var(--outsidePadding) var(--outsidePadding) var(--outsidePadding);
+}
+
 .NameInMiddle {
-  margin-top: 0.5rem;
+  margin-top: 0.5em;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.2em;
 }
 .mRotate {
   transform: rotate(-6deg);
 }
 
 .NameAtBottom {
-  font-size: 0.7rem;
+  font-size: 0.7em;
   text-align: center;
   line-height: 1em;
   margin-top: 0.5em;
 }
 
 .NameContainer {
-  min-height: 3rem;
+  min-height: 3em;
 }
 
 .NameContainer .Name {
@@ -88,34 +92,31 @@
 }
 
 .NameContainer .Name2 {
-  font-size: 0.7rem;
+  font-size: 0.7em;
   font-style: italic;
   display: flex;
   justify-content: var(--name2-flex-justify-content);
   flex-direction: var(--name2-flex-direction);
+  margin-top: 0.3em;
 }
 
 /* foot switch */
 
 .Pusher {
-  height: 6rem;
+  height: 6em;
   background-color: var(--footContact);
-  border-radius: 0.3rem;
-}
-
-.FootSwitchSingle {
-  min-height: 4rem;
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  border-radius: 0.3em;
 }
 
 .FootSwitchRow {
-  min-height: 4rem;
+  min-height: 4em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.FootSwitchRowSingle .FootSwitch {
+  margin-top: 1em;
 }
 </style>
 

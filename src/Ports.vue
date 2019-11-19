@@ -43,10 +43,10 @@
 
 <style>
 .Ports {
-  font-size: 0.7rem;
+  font-size: 0.7em;
   position: relative;
 
-  --socketWidth: 0.3rem;
+  --socketWidth: 0.3em;
 }
 
 .Ports__Inner__ActualPorts {
@@ -55,13 +55,21 @@
 }
 
 .Left {
-  margin-right: 1rem;
+  margin-right: 1em;
+}
+
+.Left .Inside {
+  padding-left: var(--outsidePadding);
 }
 
 .Left .Row {
   position: relative;
   display: flex;
   flex-direction: row;
+}
+
+.Right .Inside {
+  padding-right: var(--outsidePadding);
 }
 
 .Right .Row {
@@ -72,35 +80,33 @@
 
 .Left .Outside {
   position: absolute;
-  top: -1rem;
-  right: calc(100% + 0.4rem);
-  width: 0;
+  top: -1em;
+  right: 100%;
+  left: calc(var(--socketWidth) * -1);
   overflow: visible;
 }
 
 .Right .Outside {
   position: absolute;
-  top: -1rem;
+  top: -1em;
   left: 100%;
-  margin-left: var(--outsidePadding);
-  width: 0;
+  /* margin-left: 0.6em; */
+  /* padding-left: var(--outsidePadding); */
+  width: var(--socketWidth);
   overflow: visible;
 }
 
-.Left .Socket {
-  margin-left: calc(var(--socketWidth) * -1);
-}
-
 .Socket {
+  z-index: -1;
   width: var(--socketWidth);
-  height: 2rem;
+  height: 2em;
   background-color: #2f3640;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
 
 .PortName {
   line-height: 1em;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.3em;
 }
 
 .Left .PortName {
@@ -108,15 +114,15 @@
 }
 
 .PortName__Subtitle {
-  font-size: 0.5rem;
+  font-size: 0.5em;
 }
 
 .PortName, .RightArrow, .LeftArrow {
   display: inline;
 }
 
-.RightArrow { margin-left: 0.3rem; }
-.LeftArrow { margin-right: 0.3rem; }
+.RightArrow { margin-left: 0.3em; }
+.LeftArrow { margin-right: 0.3em; }
 </style>
 
 <script>

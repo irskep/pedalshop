@@ -1,30 +1,32 @@
 <template>
-  <article>
-    <Gfx
-      v-bind:seed="seed"
-      v-bind:aleaSavedState="aleaSavedState"
-      v-bind:name="pedal.name"
-      v-bind:brand="pedal.brand"
-      v-bind:purpose="pedal.purpose"
-      v-bind:color="pedal.color"
-    ></Gfx>
+  <div class="Entry">
+    <div>
+      <Gfx
+        v-bind:seed="seed"
+        v-bind:aleaSavedState="aleaSavedState"
+        v-bind:name="pedal.name"
+        v-bind:brand="pedal.brand"
+        v-bind:purpose="pedal.purpose"
+        v-bind:color="pedal.color"
+      ></Gfx>
+      <h3 class="PedalPrice left">{{ pedal.price }}</h3>
+    </div>
 
-    <h2 class="Brand">{{ pedal.brand }}</h2>
-    <h1 class="PedalName">{{ pedal.name }}</h1>
-    <h3 class="PedalPrice above">{{ pedal.price }}</h3>
+    <div>
+      <h2 class="Brand">{{ pedal.brand }}</h2>
+      <h1 class="PedalName">{{ pedal.name }}</h1>
+      <h3 class="PedalPrice above">{{ pedal.price }}</h3>
 
-    <h3 class="PedalSubtitle">{{ pedal.subtitle }}</h3>
-    <p v-for="(t, i) in pedal.texts" v-bind:key="i">{{ t }}</p>
+      <h3 class="PedalSubtitle">{{ pedal.subtitle }}</h3>
+      <p v-for="(t, i) in pedal.texts" v-bind:key="i">{{ t }}</p>
 
-    <h3 class="PedalPrice below">{{ pedal.price }}</h3>
-    <div class="BuyButton"><a href="https://quickfiction.bandcamp.com" target="_">Buy Now</a></div>
-  </article>
+      <div class="BuyButton"><a href="https://quickfiction.bandcamp.com" target="_">Buy Now</a></div>
+    </div>
+
+  </div>
 </template>
 
 <style scoped>
-article {
-  clear: both;
-}
 </style>
 
 <script>

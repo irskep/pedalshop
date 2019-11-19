@@ -13,7 +13,7 @@
 
 <style scoped>
 .SomeControl {
-  min-width: 2.4rem;
+  min-width: 2.4em;
 }
 </style>
 

@@ -22,11 +22,11 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  --knobSize: 1.8rem;
+  --knobSize: 1.8em;
 }
 
 .KnobLabel {
-  font-size: 0.5rem;
+  font-size: 0.5em;
 }
 
 .Knob {
@@ -34,10 +34,10 @@
 
   width: var(--knobSize);
   height: calc(var(--knobSize) * 1.11);
-  margin: 0 0.3rem;
+  margin: 0 0.3em;
 
   background-color: black;
-  border-radius: 1rem;
+  border-radius: 1em;
   box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.66);
 }
 
@@ -47,7 +47,7 @@
 
   width: var(--knobSize);
   height: var(--knobSize);
-  border-radius: 1rem;
+  border-radius: 1em;
   background-color: var(--knob);
   z-index: 1;
 }
@@ -56,7 +56,7 @@
   content: " ";
   position: absolute;
   display: block;
-  left: calc(50% - 1px);
+  left: calc(50% - 0.5px);
   top: 0;
   width: 2px;
   height: calc(var(--knobSize) / 3.6);
@@ -66,10 +66,10 @@
 
 .Knob__Inner {
   position: absolute;
-  width: 1.6rem;
-  height: 1.6rem;
-  left: 0.1rem;
-  top: 0.1rem;
+  width: 1.6em;
+  height: 1.6em;
+  left: 0.1em;
+  top: 0.1em;
   background-color: var(--knob2);
   border-radius: 100%;
   z-index: 2;

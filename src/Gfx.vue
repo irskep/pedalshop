@@ -180,13 +180,13 @@ const fontFamilies = [
 ];
 
 const fontSizes = [
-  '0.9rem',
-  '0.9rem',
-  '0.9rem',
-  '1.2rem',
-  '0.9rem',
-  '0.9rem',
-  '0.9rem',
+  '0.9em',
+  '0.9em',
+  '0.9em',
+  '1.2em',
+  '0.9em',
+  '0.9em',
+  '0.9em',
 ];
 
 const flexJustifyContent = [

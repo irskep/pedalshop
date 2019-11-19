@@ -67,10 +67,6 @@ footer {
   font-size: 0.85rem;
 }
 
-article {
-  position: relative;
-}
-
 /* custom: header */
 
 body > header {
@@ -95,13 +91,15 @@ body > header h2 {
 /* text stuff */
 
 .Brand {
-  margin-bottom: -1.5rem;
+  margin-bottom: 0;
+  line-height: 1em;
   font-style: italic;
   font-size: 1.5rem;
 }
 
 h1.PedalName {
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 h3.PedalPrice, .BuyButton a {
@@ -109,53 +107,53 @@ h3.PedalPrice, .BuyButton a {
   font-family: "Cooper Hewitt Heavy";
   margin-top: 0;
 }
-.PedalPrice.below {
-  display: none;
-}
 
 .BuyButton {
   font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 /* custom: pedal */
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   main {
     max-width: 49rem !important;
     padding: 0 2rem;
   }
 
-  article > h1, article > h2, h3.PedalPrice {
+  .Entry > h1, .Entry > h2, h3.PedalPrice {
     text-align: left !important;
   }
 
   .Pedal {
-    float: left !important;
     width: auto !important;
-    transform: scale(1) !important;
+  }
+
+  .Entry {
+    display: flex;
+    align-items: flex-start;
   }
 }
 
-@media(min-width: 500px) {
+@media screen and (max-width: 500px) {
   .Pedal {
-    transform: scale(1);
+    font-size: 0.7rem;
   }
 }
 
 @media print {
-  main {
-    max-width: 49rem !important;
-    padding: 0 2rem;
+  .Entry {
+    display: flex;
+    align-items: flex-start;
   }
 
-  article > h1, article > h2, h3.PedalPrice {
+  .Entry > h1, .Entry > h2, h3.PedalPrice {
     text-align: left !important;
   }
 
   .Pedal {
-    float: left !important;
     width: auto !important;
-    transform: scale(1) !important;
+    margin-bottom: 0 !important;
   }
 }
 
@@ -163,6 +161,14 @@ main {
   max-width: 28rem;
   padding: 0 1rem;
   margin: auto;
+}
+
+.Entry {
+  position: relative;
+}
+
+.PedalPrice.left {
+  display: none;
 }
 
 .Pedal {
@@ -173,34 +179,36 @@ main {
   overflow-x: visible;
   width: 100%;
 
-  transform: scale(0.7);
+  /* transform-origin: bottom center;
+  transform: scale(0.7); */
 }
 
 .Pedal .Label {
-  font-size: 0.5rem;
+  font-size: 0.5em;
   line-height: 1em;
 }
 
 .ThreeSectionStompbox {
-  --outsidePadding: 0.4rem;
+  --outsidePadding: 0.4em;
 
-  min-width: 10rem;
+  min-width: 10em;
   border: 0.5px solid rgba(0, 0, 0, 0.2);
   background-color: var(--bg);
   color: var(--textOnBg);
 
-  border-radius: 0.3rem;
-  padding: var(--outsidePadding);
+  border-radius: 0.3em;
+  /* padding: var(--outsidePadding); */
   flex-shrink: 0;
 }
 
 .Controls {
   background-color: var(--bg2);
   color: var(--textOnBg2);
-  padding: 0.4rem;
-  border-radius: 0.2rem;
-  margin-bottom: 0.4rem;
-  min-height: 5rem;
+  margin: var(--outsidePadding);
+  padding: 0.4em;
+  border-radius: 0.2em;
+  margin-bottom: 0.4em;
+  min-height: 5em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -216,28 +224,28 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.5em;
 }
 
 .Knobs__StraightRow {
-  min-height: 2rem;
+  min-height: 2em;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
 .Knobs__Pair {
-  min-height: 2rem;
+  min-height: 2em;
   display: flex;
   justify-content: space-around;
 }
 
 .Knobs__Pair .Knob {
-  margin: 0 1rem;
+  margin: 0 1em;
 }
 
 .Knobs__TriangleUp {
-  min-height: 5rem;
+  min-height: 5em;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
@@ -253,7 +261,7 @@ main {
 }
 
 .Knobs__TriangleDown {
-  min-height: 5rem;
+  min-height: 5em;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;

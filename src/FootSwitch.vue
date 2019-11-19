@@ -26,9 +26,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  --knobSize: 1.8rem;
+  --knobSize: 1.8em;
 
-  margin: 0 2rem;
+  margin: 0 2em;
 }
 
 .FootSwitch:first-child {
@@ -40,12 +40,12 @@
 }
 
 .FootSwitchLabel {
-  font-size: 0.5rem;
+  font-size: 0.5em;
 }
 
 .nested-hexagon-wrapper {
   position: relative;
-  --hexSize: 2rem;
+  --hexSize: 2em;
   width: var(--hexSize);
   height: var(--hexSize);
 }
