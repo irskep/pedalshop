@@ -43,19 +43,22 @@ export default {
     Gfx,
   },
 
-  props: ['seed'],
+  props: ['seed', 'bindings'],
 
   computed: {
     alea: function() { return new Alea(this.$props.seed); },
     context: function() {
       const alea = new Alea(this.$props.seed);
       const {descGen, subGen} = makeImprovGenerators(alea);
-      const model = {};
+      const model = {
+        bindings: this.$props.bindings || [],
+      };
       const name = descGen.gen('name', model);
       const subtitle = subGen.gen('root', model);
       const desc = descGen.gen('root', model);
       const brand = descGen.gen('brand', model);
       const aleaSavedState = alea.exportState();
+      console.log(model);
       const pedal = {
         name,
         subtitle,

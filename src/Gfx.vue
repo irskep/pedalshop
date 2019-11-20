@@ -273,7 +273,6 @@ export default {
 
         randomNumbers: [...Array(20)].map(() => this.getRandom()),
       };
-      console.log(w);
       return w;
     },
 
