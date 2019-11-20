@@ -1,11 +1,12 @@
 <template>
-  <main>
+  <main class="catalog">
+  <!-- <main> -->
     <nav>
       <div>Page {{ seed }} of ∞</div>
       <button @click="travel">Next Page &rarr;</button>
     </nav>
 
-    <div v-if="seed">
+    <div class="Content" v-if="seed">
       <div class="Page" v-for="p in pages" v-bind:key="p">
         <Entry v-for="n in 2" v-bind:key="n" v-bind:seed="seed + ((p - 1) * 2) + n - 1"></Entry>
       </div>
