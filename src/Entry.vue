@@ -92,7 +92,7 @@ main.catalog {
 /* text stuff */
 
 .Brand {
-  margin-top: 0;
+  margin-top: 0.2rem;
   margin-bottom: 0;
   line-height: 1em;
   font-style: italic;
