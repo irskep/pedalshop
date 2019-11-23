@@ -1,6 +1,6 @@
 <template>
-  <main class="catalog">
-  <!-- <main> -->
+  <!-- <main class="catalog"> -->
+  <main>
     <nav>
       <div>Page {{ seed }} of ∞</div>
       <button @click="travel">Next Page &rarr;</button>
@@ -8,7 +8,7 @@
 
     <CoverPage></CoverPage>
 
-    <div class="Category" v-for="s in sections" v-bind:key="s.title">
+    <!-- <div class="Category" v-for="s in sections" v-bind:key="s.title">
       <h1>{{ s.title }} Pedals</h1>
       <div
           class="Content"
@@ -19,15 +19,18 @@
           v-bind:bindings="b.bindings"
           v-bind:tags="s.tags"
           v-bind:seed="seed + b.key"></Entry>
+      </div>
+    </div> -->
 
-        <!-- <div class="Page" v-for="p in pages" v-bind:key="p">
+      <div class="Content" v-if="seed">
+        <div class="Page" v-for="p in pages" v-bind:key="p">
           <Entry
             v-for="n in 2"
             brand=""
             tags=""
             v-bind:key="n"
             v-bind:seed="seed + ((p - 1) * 2) + n - 1"></Entry>
-        </div> -->
+        </div>
       </div>
     </div>
 

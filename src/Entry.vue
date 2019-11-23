@@ -45,6 +45,7 @@
   .Entry {
     display: flex;
     align-items: flex-start;
+    flex-direction: row-reverse;
   }
 }
 
