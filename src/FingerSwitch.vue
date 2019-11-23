@@ -90,7 +90,7 @@
   margin: auto;
   background-color: #333;
   border-radius: 50%;
-  z-index: 1;
+  /* z-index: 1; */
   box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.33);
 }
 
@@ -102,7 +102,7 @@
   margin: auto;
   background-color: #ccc;
   border-radius: 50%;
-  z-index: 1;
+  /* z-index: 1; */
   transform: translate(-10%, -40%);
   box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.33);
 }

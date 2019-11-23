@@ -6,9 +6,28 @@
       <button @click="travel">Next Page &rarr;</button>
     </nav>
 
-    <div class="Content" v-if="seed">
-      <div class="Page" v-for="p in pages" v-bind:key="p">
-        <Entry v-for="n in 2" v-bind:key="n" v-bind:seed="seed + ((p - 1) * 2) + n - 1"></Entry>
+    <CoverPage></CoverPage>
+
+    <div class="Category" v-for="s in sections" v-bind:key="s.title">
+      <h1>{{ s.title }} Pedals</h1>
+      <div
+          class="Content"
+          v-for="(brandchunks, i) in s.brands" v-bind:key="i + s.title">
+        <Entry
+          v-for="b in brandchunks"
+          v-bind:key="b.key"
+          v-bind:bindings="b.bindings"
+          v-bind:tags="s.tags"
+          v-bind:seed="seed + b.key"></Entry>
+
+        <!-- <div class="Page" v-for="p in pages" v-bind:key="p">
+          <Entry
+            v-for="n in 2"
+            brand=""
+            tags=""
+            v-bind:key="n"
+            v-bind:seed="seed + ((p - 1) * 2) + n - 1"></Entry>
+        </div> -->
       </div>
     </div>
 
@@ -17,7 +36,7 @@
 
       <div>
         <a href="https://improv.readthedocs.io/">Improv</a> for generating text.
-      </div>
+      </div>name
 
       <div>
         The
@@ -49,14 +68,38 @@
 import Alea from "alea";
 import { ref, computed, onMounted, onBeforeUpdate } from '@vue/composition-api';
 
+import CoverPage from './CoverPage.vue';
 import Gfx from './Gfx.vue';
 import Entry from './Entry.vue';
+import {shuffle} from './util';
 
 import makeImprovGenerators from './makeImprovGenerators';
 import queryString from 'query-string';
+import subtitleGrammar from './improvgrammar/subtitle.yaml';
+import descGrammar from './improvgrammar/desc.yaml';
+
+const purposeOptions = subtitleGrammar.purpose.groups
+  .map(({tags, phrases}) => [tags[0], phrases[0]]);
+console.log(purposeOptions);
+
+const brandOptions = descGrammar.brandname.groups[0].phrases;
+console.log(purposeOptions);
+
+function chunk (len, arr) {
+  var chunks = [],
+      i = 0,
+      n = arr.length;
+
+  while (i < n) {
+    chunks.push(arr.slice(i, i += len));
+  }
+
+  return chunks;
+}
 
 export default {
   components: {
+    CoverPage,
     Gfx,
     Entry,
   },
@@ -68,6 +111,22 @@ export default {
     if (initialParsedHash.pages) {
       pages.value = parseInt(initialParsedHash.pages, 10);
     }
+    const numBrandRepetitions =
+      parseInt(initialParsedHash.numBrandRepetitions || '1', 10);
+
+    const sections = computed(() => {
+      const alea = new Alea(seed.value);
+      return purposeOptions.map(([tag, title]) => ({
+        title,
+        tags: [tag],
+        brands: chunk(8, shuffle(brandOptions, alea).flatMap((b) => {
+          return [...Array(numBrandRepetitions)].map((_, i) => ({
+            bindings: {'brand': b},
+            key: b.replace(' ', '') + tag.join('') + i,
+          }));
+        })),
+      }))
+    });
 
     function derive(shouldSetHash) {
       const newHash = `seed=${seed.value}`;
@@ -116,10 +175,11 @@ export default {
       seed,
       travel,
       pages,
+      sections,
       // seeds: computed(() => {
       //   return [...Array(12)].map((_, i) => seed.value + i);
       // }),
-    }
+    };
   }
 }
 </script>

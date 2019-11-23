@@ -101,7 +101,7 @@
   margin: auto;
   background-color: #888;
   border-radius: 50%;
-  z-index: 1;
+  /* z-index: 1; */
   box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.66);
 }
 
@@ -113,7 +113,7 @@
   margin: auto;
   background-color: #ccc;
   border-radius: 50%;
-  z-index: 1;
+  /* z-index: 1; */
   box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.33);
 }
 </style>

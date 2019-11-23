@@ -25,7 +25,7 @@ newname:
       phrases:
       - 'The [:namenoun]'
       - 'The [id :namenoun]'
-      - 'The [id id :namenoun]'
+#      - 'The [id id :namenoun]'
     - tags: [['namestyle', 'prefixnoun']]
       phrases:
       - '[:super] [:namePrefix] [:namenoun]'
@@ -46,6 +46,7 @@ newname:
       phrases:
       - '[:twoLetters]-[:shortIdentifier]'
       - '[:letter][:letter][:letter]-[#0-9][#0-9][#0-9]'
+      - '[id :letter][:letter][:letter]-[#0-9][#0-9][#0-9]'
 
 super:
   groups:

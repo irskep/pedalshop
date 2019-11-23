@@ -1,6 +1,6 @@
 <template>
   <div class="Entry">
-    <div>
+    <div class="PedalAndPrice">
       <Gfx
         v-bind:seed="seed"
         v-bind:aleaSavedState="aleaSavedState"
@@ -22,13 +22,13 @@
 
       <div class="BuyButton"><a href="https://quickfiction.bandcamp.com" target="_">Buy Now</a></div>
     </div>
-
+    <div style="clear: both;"></div>
   </div>
 </template>
 
 <style>
 
-.Page {
+.Page, .Entry {
   page-break-inside: avoid;
   break-inside: avoid;
 }
@@ -54,39 +54,32 @@
   }
 }
 
-@media print {
-  .Entry {
-    display: flex;
-    align-items: flex-start;
-  }
-
-  .Entry > h1, .Entry > h2, h3.PedalPrice {
-    text-align: left !important;
-  }
-
-  .Pedal {
-    width: auto !important;
-    margin-bottom: 0 !important;
-  }
-}
-
 /* catalog layout */
 
-main.catalog {
-  width: 100% !important;
-  max-width: 100% !important;
-}
+@media screen {
+  main.catalog {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
 
-.catalog .Content {
-  columns: 24rem;
-}
+  .catalog .Content {
+    /* columns: 24rem; */
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.catalog h1.PedalName, .catalog .Brand, .catalog .PedalPrice {
-  font-size: 1.2rem;
-}
+  .catalog .Content > * {
+    flex-basis: 30rem;
+    margin-right: 1em;
+  }
 
-.catalog .Pedal {
-  font-size: 0.7rem;
+  .catalog h1.PedalName, .catalog .Brand, .catalog .PedalPrice {
+    font-size: 1.2rem;
+  }
+
+  .catalog .Pedal {
+    font-size: 0.7rem;
+  }
 }
 
 /* text stuff */
@@ -252,7 +245,7 @@ export default {
     Gfx,
   },
 
-  props: ['seed', 'bindings'],
+  props: ['seed', 'bindings', 'tags'],
 
   computed: {
     alea: function() { return new Alea(this.$props.seed); },
@@ -261,6 +254,7 @@ export default {
       const {descGen, subGen} = makeImprovGenerators(alea);
       const model = {
         bindings: this.$props.bindings || [],
+        tags: this.$props.tags || [],
       };
       const name = descGen.gen('name', model);
       const subtitle = subGen.gen('root', model);

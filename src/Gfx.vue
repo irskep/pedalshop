@@ -248,7 +248,7 @@ export default {
     'aleaSavedState',
     'name',
     'color',
-    'purpose',
+    // 'purpose',
     'brand',
     'seed',
   ],
@@ -256,7 +256,12 @@ export default {
   computed: {
     pedalID: function() { return 'i' + this.$props.seed; },
     getRandom: function() {
-      return Alea.importState(this.$props.aleaSavedState);
+
+      if (this.$props.aleaSavedState) {
+        return Alea.importState(this.$props.aleaSavedState);
+      } else {
+        return new Alea(this.$props.seed);
+      }
     },
 
     shouldHaveCheckLED: function() { return this.getRandom() > 0.3 },
