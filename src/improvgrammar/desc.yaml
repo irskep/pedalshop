@@ -175,6 +175,7 @@ namesuffix:
         - 'Machine'
         - 'Corrupter'
         - 'Thing'
+        - 'Rocket'
         
 namePrefix:
   groups:
@@ -351,34 +352,34 @@ root1:
         - >-
           When guitarist [:nameOfMusician] asked [:brand] to design a modern [:upurpose] pedal inspired by his go-to vintage [:upurpose], the [:effectName], they came up with [the :shortname].
         - >-
-          Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? The [:shortname] is the creative tool you need. There are [#2-9] [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.
+          Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? [The :shortname] is the creative tool you need. There are [#2-9] [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.
         - >-
-          With [:benefit], [:benefit], [:benefit], and [:benefit], the [:shortname] [:soundModification].
+          With [:benefit], [:benefit], [:benefit], and [:benefit], [the :shortname] [:soundModification].
           [:extra]
         - >-
           Now in a more convenient single-pedal format, the dual-mode [:shortname] is a [:toneAdj] [:upurpose] [:pedal] you'll never take off your board.
         - >-
-          The [:shortname] analog [:upurpose] [:pedal] is a master at sonic landscaping.
+          [The :shortname] analog [:upurpose] [:pedal] is a master at sonic landscaping.
           [:extra]
         - >-
-          Strap in and prepare to fly—the [:shortname] [:purpose] [:pedal] will make your tone lift off. It features [:benefit].
+          Strap in and prepare to fly—[the :shortname] [:purpose] [:pedal] will make your tone lift off. It features [:benefit].
           [:extra]
         - >-
-          With its [:benefit], the [:name] delivers delightfully flexible [:effectDescription].
+          With its [:benefit], [the :name] delivers delightfully flexible [:effectDescription].
           [:extra]
         - >-
-          With [:benefit] and [:benefit], the [:shortname] delivers smoother, more musical [:effectDescription] than ever.
+          With [:benefit] and [:benefit], [the :shortname] delivers smoother, more musical [:effectDescription] than ever.
           [:extra]
         - >-
-          When you hear how clean the [:name] sounds, it's hard to believe this is an all-analog pedal. Yet the sound and (more importantly) the feel of [:benefit] is unmistakeable, and there's no denying that's what this [:pedal] delivers.
+          When you hear how clean [the :shortname] sounds, it's hard to believe this is an all-analog pedal. Yet the sound and (more importantly) the feel of [:benefit] is unmistakeable, and there's no denying that's what this [:pedal] delivers.
         - >-
-          The [:shortname] puts that elusive [:effectName] tone right at your feet in a conveniently compact pedal.
+          [The :shortname] puts that elusive [:effectName] tone right at your feet in a conveniently compact pedal.
           [:extra]
         - >-
           If you want [:nameOfMusician]'s signature tone, then [:shortname] belongs in your rig.
           [:extra]
         - >-
-          The [:shortname] [:upurpose] [:pedal] can serve capably as your go-to source for [:effectName] tone stack circuitry in a pedalboard-friendly format.
+          [The :shortname] [:upurpose] [:pedal] can serve capably as your go-to source for [:effectName] tone stack circuitry in a pedalboard-friendly format.
           [:extra]
           Keep your tone while kicking up the [:effectDescription], with the [:shortname] [:pedal]. Modeled on that timeless, omnipresent [uncap :newcolor] [:upurpose] [:pedal], the [:shortname] lets you add a range of tones from [:oldEffect] to [:newEffect].
           [:extra]
@@ -386,13 +387,34 @@ root1:
           The [:shortname] features an updated [:effectDescription] algorithm with [:benefit], plus [:benefit]. You've got it all: [:benefit], [:benefit], and [:benefit].
         - >-
           Go far beyond traditional [:purposeNoun] with [the :shortname]. [:nameOfMusician] and [:nameOfMusician] swear by this [:pedal].
+        - >-
+          [The :shortname] soaks your guitar in [:toneAdj], [:toneAdj] [:effectDescription] through [:benefit].
+          [:extra]
+        - >-
+          [:shortname]'s [:benefit] will impress anyone within earshot.
+          [:extra]
+        - >-
+          [:shortname] offers all the tones heard on iconic records by [:nameOfMusician] and [:nameOfMusician]. The analog dry signal path and true bypass preserve your original tone.
+        - >-
+          [The :shortname] combines [:benefit], [:benefit], [:benefit], [:benefit], and [:benefit].
+          [:extra]
+        - >-
+          [The :shortname] delivers that [:toneAdj], [:toneAdj] [:effectDescription] everyone loves.
+          [:extra]
+        - >-
+          [The :shortname] [:soundModification] and [:soundModification] with pure analog bucket brigade goodness.
+          [:extra]
+        - >-
+          The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some.
+          [:extra]
 
 root2:
   groups:
     - tags: []
       phrases:
         - >-
-          Go far beyond traditional [:purposeNoun] with [the :shortname]. [:nameOfMusician] and [:nameOfMusician] swear by this [:pedal]. [:extra]
+          The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some.
+          [:extra]
 
 extra:
   groups:
@@ -454,3 +476,11 @@ extra:
           Just toss this pedal in with your favorite [:unrelatedEffect] and [:unrelatedEffect] [:pedals], and bask in the results.
         - >-
           Choose between momentary and latching switching.
+        - >-
+          And like other [:brand] [:pedals], [the :shortname] features a latching/momentary Flexi-Switch.
+        - >-
+          This single-wide [:upurpose] [:pedal] captures the [:toneAdjNoun] and the [:toneAdjNoun] that has made the original such a hit.
+        - >-
+          This reduced-size version packs all the tricks, including [:benefit] and [:benefit], of its larger namesakes.
+        - >-
+          This [:pedal] is [:effectName] mastermind [:nameOfMusician]'s take on iconic [uncap :color] [:effectDescription], best known for its [:oldEffect].

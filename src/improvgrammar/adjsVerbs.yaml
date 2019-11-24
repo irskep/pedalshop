@@ -159,6 +159,7 @@ toneAdj:
         - 'musical'
         - 'searing'
         - 'crunchy'
+        - 'harmonically rich'
 
 strangeEffectAdj:
   groups:
@@ -252,3 +253,15 @@ offers:
         - 'provides'
         - 'gives you'
         - 'serves up'
+        
+soundModification:
+  groups:
+    - tags: []
+      phrases:
+        - 'creates the classically smoky [:genreName] tone'
+        - 'beefs up the low end'
+        - 'adds sustain'
+        - 'sends single notes soaring into the stratosphere with razor-sharp precision'
+        - 'covers a broad tonal spectrum'
+        - 'enchants riffs'
+        - 'fortifies leads'

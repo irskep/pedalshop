@@ -168,6 +168,11 @@ benefitSingular:
         - 'expansive stereo imaging'
         - 'a cool custom-built enclosure'
         - 'expression pedal control'
+        - 'its cocktail of germanium and silicon transistors'
+        - 'AB-Y functionality'
+        - 'buffered tuner output'
+        - 'a 20db clean boost'
+        - 'an expression pedal jack for volume control'
     - tags: [['purpose', 'looping']]
       phrases:
         - 'unlimited overdubbing'
@@ -180,11 +185,17 @@ benefitSingular:
         - "'80s-style face-melting distortion"
         - 'a dual gain staging option'
         - '3-band EQ'
+    - tags: [['purpose', 'tone', 'delay']]
+      phrases:
+        - 'adventurous delays and reverbs'
+        - 'self-oscillation'
+        - 'chewy tape-style echo'
     - tags: [['purpose', 'tone', 'reverb']]
       phrases:
         - 'studio-grade, hall, and plate algorithms'
         - 'vintage-style spring reverb'
         - 'modern-sounding textures'
+        - 'adventurous delays and reverbs'
     - tags: [['purpose', 'tone', 'synth']]
       phrases:
         - 'a modulated monophonic [:twoLetter] circuit'
@@ -203,15 +214,6 @@ benefitPlural:
     - tags: [['purpose', 'tone', 'distortion']]
       phrases:
         - 'three selectable gain ranges'
-        
-soundModification:
-  groups:
-    - tags: []
-      phrases:
-        - 'creates the classically smoky [:genreName] tone'
-        - 'beefs up the low end and adds sustain'
-        - 'sends single notes soaring into the stratosphere with razor-sharp precision'
-        - 'covers a broad tonal spectrum'
 
 pedal:
   groups:
@@ -357,6 +359,8 @@ toneAdjNoun:
         - 'edge'
         - 'crunchy breakup'
         - 'searing solo power'
+        - 'subtle sweetening'
+        - 'indefinable mojo'
 
 unrelatedEffect:
   groups:
@@ -473,6 +477,8 @@ oldEffect:
     - tags: [['purpose', 'tone', 'vibrato']]
       phrases:
         - 'Leslie-induced vibrato'
+        - 'juicy, whirling Leslie approximations'
+        - 'liquid ’80s textures'
     - tags: [['purpose', 'tone', 'distortion']]
       phrases:
         - 'tube distortion'
