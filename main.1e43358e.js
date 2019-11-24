@@ -30087,6 +30087,7 @@ module.exports = {
   effectName: {
     groups: [{
       tags: [],
+      dry: false,
       phrases: ["[:effectNamePrefix] [:effectNameSuffix]"]
     }]
   },
@@ -30129,7 +30130,7 @@ module.exports = {
       phrases: ["studio-grade, hall, and plate algorithms", "vintage-style spring reverb", "modern-sounding textures", "adventurous delays and reverbs"]
     }, {
       tags: [["purpose", "tone", "synth"]],
-      phrases: ["a modulated monophonic [:twoLetter] circuit"]
+      phrases: ["a modulated monophonic [:twoLetters] circuit"]
     }]
   },
   benefitPlural: {
@@ -30144,6 +30145,7 @@ module.exports = {
   pedal: {
     groups: [{
       tags: [],
+      dry: false,
       phrases: ["pedal", "effects pedal", "stomp box"]
     }]
   },
@@ -34060,7 +34062,9 @@ var _default = {
     }
 
     var numBrandRepetitions = parseInt(initialParsedHash.numBrandRepetitions || '1', 10);
+    var catalog = initialParsedHash.catalog || false;
     var sections = (0, _compositionApi.computed)(function () {
+      if (!catalog) return [];
       var alea = new _alea.default(seed.value);
       return purposeOptions.map(function (_ref2) {
         var _ref3 = _slicedToArray(_ref2, 2),
@@ -34132,7 +34136,8 @@ var _default = {
       seed: seed,
       travel: travel,
       pages: pages,
-      sections: sections // seeds: computed(() => {
+      sections: sections,
+      catalog: catalog // seeds: computed(() => {
       //   return [...Array(12)].map((_, i) => seed.value + i);
       // }),
 
@@ -34154,6 +34159,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "main",
+    { class: { catalog: _vm.catalog } },
     [
       _c("nav", [
         _c("div", [_vm._v("Page " + _vm._s(_vm.seed) + " of ∞")]),
@@ -34163,7 +34169,36 @@ exports.default = _default;
       _vm._v(" "),
       _c("CoverPage"),
       _vm._v(" "),
-      _vm.seed
+      _vm._l(_vm.sections, function(s) {
+        return _c(
+          "div",
+          { key: s.title, staticClass: "Category" },
+          [
+            _c("h1", [_vm._v(_vm._s(s.title) + " Pedals")]),
+            _vm._v(" "),
+            _vm._l(s.brands, function(brandchunks, i) {
+              return _c(
+                "div",
+                { key: i + s.title, staticClass: "Content" },
+                _vm._l(brandchunks, function(b) {
+                  return _c("Entry", {
+                    key: b.key,
+                    attrs: {
+                      bindings: b.bindings,
+                      tags: s.tags,
+                      seed: _vm.seed + b.key
+                    }
+                  })
+                }),
+                1
+              )
+            })
+          ],
+          2
+        )
+      }),
+      _vm._v(" "),
+      _vm.seed && !_vm.catalog
         ? _c(
             "div",
             { staticClass: "Content" },
@@ -34190,7 +34225,7 @@ exports.default = _default;
       _vm._v(" "),
       _vm._m(0)
     ],
-    1
+    2
   )
 }
 var staticRenderFns = [
@@ -34319,7 +34354,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55142" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58767" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
