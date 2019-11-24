@@ -12,7 +12,8 @@
     "deploy": "yarn gh && yarn butler",
     "graph": "pipenv run analysis/graph.py",
     "csv": "pipenv run ./yaml2csv.py",
-    "yaml": "pipenv run ./collectyaml.py"
+    "yaml": "pipenv run ./collectyaml.py",
+    "watchyaml": "fswatch -o src/improvgrammar/basic.csv | xargs -n1 -I{} yarn yaml"
   },
   "dependencies": {
     "@vue/composition-api": "^0.3.2",
