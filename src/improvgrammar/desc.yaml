@@ -270,14 +270,14 @@ extraname1: {bind: true, groups: [{tags: [], phrases: ['[:newname]']}]}
 extraname2: {bind: true, groups: [{tags: [], phrases: ['[id :newname]']}]}
 upurpose: {bind: true, groups: [{tags: [], phrases: ['[uncap :purpose]']}]}
 
-root:
+desc:
   groups:
     - tags: []
       dry: false
       phrases:
-        - '[:root1]'
+        - '[:desc1]'
 
-root1:
+desc1:
   groups:
     - tags: []
       phrases:
@@ -408,7 +408,7 @@ root1:
           The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some.
           [:extra]
 
-root2:
+desc2:
   groups:
     - tags: []
       phrases:

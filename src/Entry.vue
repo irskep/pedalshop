@@ -262,8 +262,8 @@ export default {
         tags: this.$props.tags || [],
       };
       const name = descGen.gen('name', model);
-      const subtitle = subGen.gen('root', model);
-      const desc = descGen.gen('root', model);
+      const subtitle = subGen.gen('subtitle', model);
+      const desc = descGen.gen('desc', model);
       const brand = descGen.gen('brand', model);
       const aleaSavedState = alea.exportState();
       console.log(model);
