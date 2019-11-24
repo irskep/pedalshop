@@ -91,15 +91,6 @@ subItems:
     - tags: [['purpose', 'tone', 'eq']]
       phrases:
         - 'frequency range settings'
-        
-guitarTechnique:
-  groups:
-    - tags: []
-      phrases:
-        - 'hammer-ons'
-        - 'pick attacks'
-        - 'bends'
-        - 'pull-offs'
 
 effectName:
   groups:
@@ -107,37 +98,6 @@ effectName:
       dry: false
       phrases:
       - '[:effectNamePrefix] [:effectNameSuffix]'
-
-effectNamePrefix:
-  groups:
-    - tags: []
-      phrases:
-        - 'Blues'
-        - 'Angry'
-        - 'Metal'
-        - 'Extreme'
-        - 'Soul'
-        - 'Death'
-        - 'Bleak'
-        - 'Instant'
-        - ''
-        
-effectNameSuffix:
-  groups:
-    - tags: []
-      phrases:
-        - 'Precision'
-        - 'Driver'
-        - 'Kevin'
-        - 'Jim'
-        - 'Freeze'
-        - 'Zone'
-        - 'Food'
-        - 'Soul'
-        - 'Rattle'
-        - 'Zone'
-        - 'Instant'
-        - 'Antler'
 
 benefit:
   groups:
@@ -248,37 +208,6 @@ pedalAlternative:
         - 'rack-mounted synth'
         - 'rack-mounted synthesizer'
 
-strangeEffectName:
-  groups:
-    - tags: []
-      phrases:
-        - 'shimmer'
-        - 'warble'
-        - 'pulse'
-
-soundQuality:
-  groups:
-    - tags: []
-      phrases:
-        - 'sound quality'
-        - 'fidelity'
-        - 'waveform generation'
-        - 'sound quality'
-
-perfection:
-  groups:
-    - tags: []
-      phrases:
-        - 'perfection'
-        - 'your taste'
-
-ideas:
-  groups:
-    - tags: []
-      phrases:
-        - 'inspiration'
-        - 'ideas'
-
 controls:
   groups:
     - tags: []
@@ -287,94 +216,6 @@ controls:
         - 'easy [:knobsOrSwitches]'
         - 'easy-to-use [:knobsOrSwitches]'
         - 'user-friendly [:knobsOrSwitches]'
-
-knobsOrSwitches:
-  groups:
-    - tags: []
-      phrases:
-        - 'knobs'
-        - 'switches'
-        - 'controls'
-
-people:
-  groups:
-    - tags: []
-      phrases:
-        - 'tonal adventurers'
-        - 'guitar gods'
-        - 'musicians'
-        - 'jam freaks'
-        - 'pick jockeys'
-        - 'rock stars'
-        - 'professionals'
-        - 'tone tweakers'
-
-person:
-  groups:
-    - tags: []
-      phrases:
-        - 'tonal adventurer'
-        - 'guitar god'
-        - 'musician'
-        - 'jam freak'
-        - 'pick jockey'
-        - 'rock star'
-        - 'professional'
-        - 'tone tweaker'
-
-creativePossibilities:
-  groups:
-    - tags: []
-      phrases:
-        - 'creative possibilities'
-        - 'ideas'
-        - 'possibilities'
-        - 'tonic varieties'
-
-sonicPlayground:
-  groups:
-    - tags: []
-      phrases:
-        - 'veritable sonic playground'
-
-performances:
-  groups:
-    - tags: []
-      phrases:
-        - 'performances'
-        - 'sessions'
-        - 'jam sessions'
-
-toneAdjNoun:
-  groups:
-    - tags: []
-      phrases:
-        - 'sweetness'
-        - 'harshness'
-        - 'mellowness'
-        - 'warmth'
-        - 'coldness'
-        - 'note definition'
-        - 'control'
-        - 'smoothness'
-        - 'grit'
-        - 'edge'
-        - 'crunchy breakup'
-        - 'searing solo power'
-        - 'subtle sweetening'
-        - 'indefinable mojo'
-
-unrelatedEffect:
-  groups:
-    - tags: []
-      phrases:
-        - 'phase shifting'
-        - 'delay'
-        - 'reverb'
-        - 'vibrato'
-        - 'tremolo'
-        - 'echo'
-        - 'octave fuzz'
 
 ### INTERESTING NOUNS ###
 

@@ -76,15 +76,12 @@ import {shuffle} from './util';
 
 import makeImprovGenerators from './makeImprovGenerators';
 import queryString from 'query-string';
-import subtitleGrammar from './improvgrammar/subtitle.yaml';
-import descGrammar from './improvgrammar/desc.yaml';
+import omniGrammar from './improvgrammar/all';
 
-const purposeOptions = subtitleGrammar.purpose.groups
+const purposeOptions = omniGrammar.purpose.groups
   .map(({tags, phrases}) => [tags[0], phrases[0]]);
-console.log(purposeOptions);
 
-const brandOptions = descGrammar.brandname.groups[0].phrases;
-console.log(purposeOptions);
+const brandOptions = omniGrammar.brandname.groups[0].phrases;
 
 function chunk (len, arr) {
   var chunks = [],

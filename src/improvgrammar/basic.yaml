@@ -71,6 +71,7 @@ effectNamePrefix:
     - Death
     - Bleak
     - Instant
+    - ' '
     tags: []
 effectNameSuffix:
   groups:
