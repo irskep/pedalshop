@@ -1,41 +1,36 @@
 import Improv from 'improv';
-import subtitleGrammar from './improvgrammar/subtitle.yaml';
-import descGrammar from './improvgrammar/desc.yaml';
-import nounsGrammar from './improvgrammar/nouns.yaml'
-import adjsVerbsGrammar from './improvgrammar/adjsVerbs.yaml';;
-import nameOfMusicianGrammar from './improvgrammar/nameOfMusician.yaml';;
-import pedalWordsGrammar from './improvgrammar/pedalWords.yaml'
+import omniGrammar from './improvgrammar/all';
 
-const usedSymbols = {};
-function uniquify(grammar) {
-  for (let k of Object.keys(grammar)) {
-    if (usedSymbols[k]) {
-      throw new Error(`Duplicate symbol: ${k}`);
-    }
-    usedSymbols[k] = true;
-  }
-}
-uniquify(subtitleGrammar);
-uniquify(descGrammar);
-uniquify(nounsGrammar);
-uniquify(adjsVerbsGrammar);
-uniquify(nameOfMusicianGrammar);
-uniquify(pedalWordsGrammar);
+// const usedSymbols = {};
+// function uniquify(grammar) {
+//   for (let k of Object.keys(grammar)) {
+//     if (usedSymbols[k]) {
+//       throw new Error(`Duplicate symbol: ${k}`);
+//     }
+//     usedSymbols[k] = true;
+//   }
+// }
+// uniquify(subtitleGrammar);
+// uniquify(descGrammar);
+// uniquify(nounsGrammar);
+// uniquify(adjsVerbsGrammar);
+// uniquify(nameOfMusicianGrammar);
+// uniquify(pedalWordsGrammar);
 
-const omniGrammar = Object.assign(
-  {},
-  subtitleGrammar,
-  descGrammar,
-  nounsGrammar,
-  adjsVerbsGrammar,
-  nameOfMusicianGrammar,
-  pedalWordsGrammar);
+// const omniGrammar = Object.assign(
+//   {},
+//   subtitleGrammar,
+//   descGrammar,
+//   nounsGrammar,
+//   adjsVerbsGrammar,
+//   nameOfMusicianGrammar,
+//   pedalWordsGrammar);
 
 console.log(
-  descGrammar.desc1.groups[0].phrases.length,
-  descGrammar.extra.groups[0].phrases.length,
-  descGrammar.desc1.groups[0].phrases.length *
-    descGrammar.extra.groups[0].phrases.length);
+  omniGrammar.desc1.groups[0].phrases.length,
+  omniGrammar.extra.groups[0].phrases.length,
+  omniGrammar.desc1.groups[0].phrases.length *
+    omniGrammar.extra.groups[0].phrases.length);
 
 function dryness() {
   return function (group) {

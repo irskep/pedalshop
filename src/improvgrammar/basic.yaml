@@ -1,0 +1,576 @@
+brandname:
+  groups:
+  - phrases:
+    - BOBB
+    - harmo-electrix
+    - ABX
+    - Jamz
+    - TekDigi
+    - SRL Pedals
+    - Landey Electronics
+    - Ducktronix
+    - Moonshaker Devices
+    - Sealion Audio
+    - QF Electronic
+    - Bender
+    - Destination Audio
+    - Halftone
+    - Vortex
+    - Roughtide
+    - Plateau
+    - Blue Warlock
+    - Digital Deviant
+    tags: []
+builtIn:
+  groups:
+  - phrases:
+    - built-in
+    - onboard
+    - factory-installed
+    tags: []
+creative:
+  groups:
+  - phrases:
+    - creative
+    - fun
+    - comprehensive
+    tags: []
+creativePossibilities:
+  groups:
+  - phrases:
+    - creative possibilities
+    - ideas
+    - possibilities
+    - tonic varieties
+    tags: []
+edit:
+  groups:
+  - phrases:
+    - edit
+    - tweak
+    - change
+    - customize
+    tags: []
+editable:
+  groups:
+  - phrases:
+    - fully editable
+    - editable
+    - tweakable
+    - modifiable
+    - customizable
+    tags: []
+effectNamePrefix:
+  groups:
+  - phrases:
+    - Blues
+    - Angry
+    - Metal
+    - Extreme
+    - Soul
+    - Death
+    - Bleak
+    - Instant
+    tags: []
+effectNameSuffix:
+  groups:
+  - phrases:
+    - Precision
+    - Driver
+    - Kevin
+    - Jim
+    - Freeze
+    - Zone
+    - Food
+    - Soul
+    - Rattle
+    - Zone
+    - Instant
+    - Antler
+    tags: []
+endless:
+  groups:
+  - phrases:
+    - endless
+    - unlimited
+    - limitless
+    - infinite
+    tags: []
+enticing:
+  groups:
+  - phrases:
+    - enticing
+    - tantalizing
+    - seductive
+    - vibrant
+    tags: []
+guitarTechnique:
+  groups:
+  - phrases:
+    - hammer-ons
+    - pick attacks
+    - bends
+    - pull-offs
+    tags: []
+ideas:
+  groups:
+  - phrases:
+    - inspiration
+    - ideas
+    tags: []
+inputAlways:
+  groups:
+  - phrases:
+    - INPUT
+    - INPUT
+    - INPUT
+    - INPUT
+    - INPUT A/INPUT B
+    - INPUT A\n(MONO)/INPUT B
+    tags: []
+inputExtra:
+  groups:
+  - phrases:
+    - INPUT A/INPUT B
+    - INPUT A\n(MONO)/INPUT B
+    - EXP/CTRL
+    - TEMPO/EXP
+    - EXP
+    - REMOTE
+    tags: []
+knobLabel:
+  groups:
+  - phrases:
+    - E.LEVEL
+    - FEEDBK
+    - TIME
+    - CHECK
+    - DRY
+    - VOL
+    - SENS
+    - CTRL
+    - BLEND
+    - SHIFT
+    - FX LVL
+    - TIME
+    - TONE
+    - DRIVE
+    - FILTER
+    - ATTACK
+    - DECAY
+    - SUSTAIN
+    - GATE
+    - MIDS LEV
+    - MIDS FREQ
+    - RATE
+    - DEPTH
+    - SPEED
+    - DELAY
+    - WIDTH
+    - MIX
+    - CTRL 1
+    - CTRL 2
+    - GAIN
+    - '&nbsp;'
+    tags: []
+knobsOrSwitches:
+  groups:
+  - phrases:
+    - knobs
+    - switches
+    - controls
+    tags: []
+making:
+  groups:
+  - phrases:
+    - crafting
+    - playing
+    tags: []
+modern:
+  groups:
+  - phrases:
+    - next-gen
+    - modern
+    tags: []
+moreThan:
+  groups:
+  - phrases:
+    - over
+    - more than
+    tags: []
+namePrefix:
+  groups:
+  - phrases:
+    - Stomp
+    - Blast
+    - Gargle
+    - Noodle
+    - Bang
+    - Muffle
+    - Swizzle
+    - Box
+    - Bounce
+    - Emperor
+    - King
+    - Captain
+    - Colonel
+    - Lieutenant
+    - Cavern
+    - Point
+    - Theory
+    - Zero
+    - Slam
+    - Fat
+    - Factor
+    - Dirty
+    - Rumble
+    - Fat
+    tags: []
+namenoun:
+  groups:
+  - phrases:
+    - Elk
+    - Snake
+    - Camel
+    - Emu
+    - Moose
+    - Zebra
+    - Cobra
+    - Bee
+    - Wasp
+    - Horse
+    - Dog
+    - Cat
+    - Tiger
+    - Panther
+    - Goose
+    - Duck
+    - Captain
+    - Fork
+    - Spoon
+    - Badass
+    - "Bitchin\u2019"
+    - Ricochet
+    - Bounce
+    - Rubber
+    - Bone
+    - Noise
+    - Water
+    - Viper
+    - Zero
+    - Infinity
+    - Avalanche
+    - Rainbow
+    - Dispatch
+    - Data
+    - Hoof
+    tags: []
+namesuffix:
+  groups:
+  - phrases:
+    - Stomper
+    - Zinger
+    - Blaster
+    - Noodler
+    - Banger
+    - Muffler
+    - Buster
+    - Shaper
+    - Swizzler
+    - Box
+    - Bouncer
+    - Emperor
+    - King
+    - Squisher
+    - Crusher
+    - Cavern
+    - Master
+    - Point
+    - Theory
+    - Slammer
+    - Rumbler
+    - Fatty
+    - Bro
+    - Chick
+    - Run
+    - Machine
+    - Corrupter
+    - Thing
+    - Rocket
+    tags: []
+newcolor:
+  groups:
+  - phrases:
+    - Red
+    - Orange
+    - Yellow
+    - Green
+    - Blue
+    - Purple
+    - Pink
+    - Black
+    - White
+    tags: []
+offers:
+  groups:
+  - phrases:
+    - offers
+    - provides
+    - gives you
+    - serves up
+    tags: []
+outputAlways:
+  groups:
+  - phrases:
+    - OUTPUT A\n(MONO)/OUTPUT B
+    - OUTPUT
+    tags: []
+outputExtra:
+  groups:
+  - phrases:
+    - SEND
+    - RETURN
+    - EXP
+    tags: []
+packed:
+  groups:
+  - phrases:
+    - stuffed
+    - packed
+    - absolutely packed
+    - fully loaded
+    - brimming
+    - bursting
+    - sizzling
+    - loaded to the brim
+    - loaded
+    - jam-packed
+    tags: []
+people:
+  groups:
+  - phrases:
+    - tonal adventurers
+    - guitar gods
+    - musicians
+    - jam freaks
+    - pick jockeys
+    - rock stars
+    - professionals
+    - tone tweakers
+    tags: []
+perfection:
+  groups:
+  - phrases:
+    - perfection
+    - your taste
+    tags: []
+performances:
+  groups:
+  - phrases:
+    - performances
+    - sessions
+    - jam sessions
+    tags: []
+person:
+  groups:
+  - phrases:
+    - tonal adventurer
+    - guitar god
+    - musician
+    - jam freak
+    - pick jockey
+    - rock star
+    - professional
+    - tone tweaker
+    tags: []
+runOutOf:
+  groups:
+  - phrases:
+    - run out of
+    - be short of
+    tags: []
+serious:
+  groups:
+  - phrases:
+    - serious
+    - real
+    tags: []
+size:
+  groups:
+  - phrases:
+    - Big
+    - Giant
+    - Jumbo
+    - "Lil\u2019"
+    - Little
+    - Mini
+    tags: []
+sonicPlayground:
+  groups:
+  - phrases:
+    - veritable sonic playground
+    tags: []
+soundAdjective:
+  groups:
+  - phrases:
+    - gorgeous-sounding
+    - great-sounding
+    - sweet-sounding
+    - vibrant-sounding
+    tags: []
+soundQuality:
+  groups:
+  - phrases:
+    - sound quality
+    - fidelity
+    - waveform generation
+    - sound quality
+    tags: []
+strangeEffectAdj:
+  groups:
+  - phrases:
+    - pulsating
+    - wavering
+    - oscillating
+    - drooping
+    - rising
+    - sustained
+    - clipped
+    tags: []
+strangeEffectName:
+  groups:
+  - phrases:
+    - shimmer
+    - warble
+    - pulse
+    - droop
+    - rise
+    - clip
+    - waver
+    tags: []
+super:
+  groups:
+  - phrases:
+    - Super
+    - Ultra
+    - Nano
+    - Deluxe
+    - Micro
+    - XL
+    - Mini
+    tags: []
+superlative:
+  groups:
+  - phrases:
+    - great
+    - excellent
+    - perfect
+    - amazing
+    - elite
+    - top-tier
+    - top-notch
+    - phenomenal
+    - superior
+    - awesome
+    - legendary
+    - glorious
+    tags: []
+switchLabel:
+  groups:
+  - phrases:
+    - MIDS
+    - BYPASS
+    - STOP
+    - TAP/LOOP
+    - '&nbsp;'
+    - TAP
+    tags: []
+tapInto:
+  groups:
+  - phrases:
+    - tap into
+    - make use of
+    - dig into
+    - rock out with
+    tags: []
+toneAdj:
+  groups:
+  - phrases:
+    - sweet
+    - harsh
+    - mellow
+    - warm
+    - cold
+    - ear-catching
+    - lush
+    - rich
+    - creamy
+    - violin-like
+    - gnarly
+    - grungy
+    - gritty
+    - smooth
+    - clean
+    - dirty
+    - chunky
+    - spacey
+    - singing
+    - raunchy
+    - ratty
+    - punchy
+    - meaty
+    - thick
+    - musical
+    - searing
+    - crunchy
+    - harmonically rich
+    tags: []
+toneAdjNoun:
+  groups:
+  - phrases:
+    - sweetness
+    - harshness
+    - mellowness
+    - warmth
+    - coldness
+    - note definition
+    - control
+    - smoothness
+    - grit
+    - edge
+    - crunchy breakup
+    - searing solo power
+    - subtle sweetening
+    - indefinable mojo
+    tags: []
+unrelatedEffect:
+  groups:
+  - phrases:
+    - phase shifting
+    - delay
+    - reverb
+    - vibrato
+    - tremolo
+    - echo
+    - octave fuzz
+    tags: []
+upTo:
+  groups:
+  - phrases:
+    - up to
+    - almost
+    tags: []
+v2:
+  groups:
+  - phrases:
+    - V2
+    - +
+    - Deluxe
+    tags: []
+vintage:
+  groups:
+  - phrases:
+    - classic
+    - vintage
+    - iconic
+    tags: []
