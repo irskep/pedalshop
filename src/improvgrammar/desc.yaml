@@ -228,11 +228,9 @@ brandname:
 twoLetters:
   groups:
     - tags: []
+      dry: false
       phrases:
         - '[:letter][:letter]'
-        - '[id :letter][:letter]'
-        - '[id id :letter][:letter]'
-        - '[id id id :letter][:letter]'
 
 letter:
   groups:
@@ -255,6 +253,13 @@ extraname2: {bind: true, groups: [{tags: [], phrases: ['[id :newname]']}]}
 upurpose: {bind: true, groups: [{tags: [], phrases: ['[uncap :purpose]']}]}
 
 root:
+  groups:
+    - tags: []
+      dry: false
+      phrases:
+        - '[:root1]'
+
+root1:
   groups:
     - tags: []
       phrases:
@@ -325,7 +330,6 @@ root:
         - >-
           [The :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [:upurpose] tone.
           [:extra]
-
 
 root2:
   groups:

@@ -15,6 +15,10 @@ const subtitleGrammar = Object.assign({}, descGrammar, subtitleGrammarSrc);
 
 function dryness() {
   return function (group) {
+    if (group.dry === false) {
+      return 0;
+    }
+
     const self = this;
     const newPhrases = group.phrases.filter(function (phrase) {
       if (!phrase)

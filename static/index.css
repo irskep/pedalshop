@@ -29,7 +29,7 @@ body, html {
   margin: 0; padding: 0;
 }
 
-nav {
+main nav {
   text-align: right;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -73,6 +73,8 @@ body > header {
   background-color: #c00;
   color: #fff;
   padding: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 body > header h1 {
@@ -86,6 +88,14 @@ body > header h2 {
   font-style: italic;
   font-size: 1rem;
   margin: 0;
+}
+
+body > header > nav {
+  font-family: "Cooper Hewitt Heavy";
+}
+
+body > header > nav a {
+  color: white;
 }
 
 main {

@@ -22,15 +22,14 @@
       </div>
     </div> -->
 
-      <div class="Content" v-if="seed">
-        <div class="Page" v-for="p in pages" v-bind:key="p">
-          <Entry
-            v-for="n in 2"
-            brand=""
-            tags=""
-            v-bind:key="n"
-            v-bind:seed="seed + ((p - 1) * 2) + n - 1"></Entry>
-        </div>
+    <div class="Content" v-if="seed">
+      <div class="Page" v-for="p in pages" v-bind:key="p">
+        <Entry
+          v-for="n in 2"
+          brand=""
+          tags=""
+          v-bind:key="n"
+          v-bind:seed="seed + ((p - 1) * 2) + n - 1"></Entry>
       </div>
     </div>
 
