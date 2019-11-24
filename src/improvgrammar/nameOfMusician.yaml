@@ -2,6 +2,11 @@ nameOfMusician:
   groups:
     - tags: []
       phrases:
+        - 'Eric Shaw'
+        - 'Fred Hatfull'
+        - 'AJ Ferrick'
+        - 'Phil Cotter'
+        - 'Bill Johnson'
         - 'Johnny A.'
         - 'Abbath Doom Occulta'
         - '"Dimebag" Darrell Abbott'

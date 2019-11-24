@@ -64,27 +64,59 @@ effectName:
   groups:
     - tags: []
       phrases:
-        - '[:effectName1]'
-        - '[:effectName2]'
+      - '[:effectNamePrefix] [:effectNameSuffix]'
+#        - '[:effectName1]'
+#        - '[:effectName2]'
+#
+#effectName1:
+#  groups:
+#    - tags: []
+#      phrases:
+#        - 'Blues Driver'
+#        - 'Angry Kevin'
+#        - 'Metal Zone'
+#        - 'Extreme Freeze'
+#        - 'Soul Food'
+#        
+#effectName2:
+#  groups:
+#    - tags: []
+#      phrases:
+#        - 'Precision'
+#        - 'Death Rattle'
+#        - 'Bleak Zone'
+#        - 'Instant Kill'
+#        - 'Antler'
 
-effectName1:
+effectNamePrefix:
   groups:
     - tags: []
       phrases:
-        - 'Blues Driver'
-        - 'Angry Kevin'
-        - 'Metal Zone'
-        - 'Extreme Freeze'
-        - 'Soul Food'
+        - 'Blues'
+        - 'Angry'
+        - 'Metal'
+        - 'Extreme'
+        - 'Soul'
+        - 'Death'
+        - 'Bleak'
+        - 'Instant'
+        - ''
         
-effectName2:
+effectNameSuffix:
   groups:
     - tags: []
       phrases:
         - 'Precision'
-        - 'Death Rattle'
-        - 'Bleak Zone'
-        - 'Instant Kill'
+        - 'Driver'
+        - 'Kevin'
+        - 'Jim'
+        - 'Freeze'
+        - 'Zone'
+        - 'Food'
+        - 'Soul'
+        - 'Rattle'
+        - 'Zone'
+        - 'Instant'
         - 'Antler'
 
 benefit:
@@ -448,34 +480,35 @@ effectDescription:
     - tags: []
       phrases:
         - 'sounds'
-        - 'tones'
+        - 'tone'
     - tags: [['purpose', 'looping']]
       phrases:
-        - 'loops'
+        - 'sounds'
     # - tags: [['purpose', 'tone', 'mod']]
     #   phrases:
     #     - 'Modulation'
     - tags: [['purpose', 'tone', 'reverb']]
       phrases:
-        - 'tone'
+        - 'reverb'
     - tags: [['purpose', 'tone', 'delay']]
       phrases:
-        - 'repeats'
+        - 'delay'
     - tags: [['purpose', 'tone', 'eq']]
       phrases:
         - 'tone'
     - tags: [['purpose', 'tone', 'synth']]
       phrases:
-        - 'tone'
+        - 'sounds'
     - tags: [['purpose', 'tone', 'chorus']]
       phrases:
         - 'tone'
     - tags: [['purpose', 'tone', 'vibrato']]
       phrases:
-        - 'tone'
+        - 'vibrato'
     - tags: [['purpose', 'tone', 'distortion']]
       phrases:
-        - 'tone'
+        - 'fuzz'
+        - 'distortion'
     - tags: [['purpose', 'tone', 'noise']]
       phrases:
-        - 'tone'
+        - 'noise'

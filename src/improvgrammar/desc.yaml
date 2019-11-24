@@ -330,13 +330,15 @@ root1:
         - >-
           [The :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [:upurpose] tone.
           [:extra]
+        - >-
+          When guitarist [:nameOfMusician] asked [:brand] to design a modern [:upurpose] pedal inspired by his go-to vintage [:upurpose], the [:effectName], they came up with [the :shortname].
 
 root2:
   groups:
     - tags: []
       phrases:
         - >-
-          [The :shortname] is the [:upurpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain.
+          When guitarist [:nameOfMusician] asked [:brand] to design a modern [:upurpose] pedal inspired by his go-to vintage [:upurpose], the [:effectName], they came up with [the :shortname]. It serves up [:toneAdj], [:toneAdj] [:effectDescription] with ’[#5-9]0s-style effects.
 
 extra:
   groups:
@@ -380,3 +382,5 @@ extra:
           The more streamlined [oldify :shortname] is also available.
         - >-
           An expression pedal gives you real-time control, and you can recall [#10-100] presets.
+        - >-
+          It serves up [:toneAdj], [:toneAdj] [:effectDescription] with ’[#5-9]0s-style effects.
