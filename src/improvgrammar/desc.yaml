@@ -276,7 +276,7 @@ root:
     - tags: []
       dry: false
       phrases:
-        - '[:root2]'
+        - '[:root1]'
 
 root1:
   groups:
