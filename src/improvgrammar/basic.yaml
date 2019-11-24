@@ -672,6 +672,8 @@ toneAdjNoun:
     - richness
     - saturation
     - wetness
+    - purr
+    - roar
     tags: []
 unrelatedEffect:
   groups:

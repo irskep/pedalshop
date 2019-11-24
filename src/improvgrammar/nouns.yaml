@@ -36,41 +36,94 @@ purposeNoun:
 
 effectDescription:
   groups:
-    - tags: []
-      phrases:
-        - 'sounds'
-        - 'tone'
     - tags: [['purpose', 'looping']]
+      dry: false
       phrases:
         - 'sounds'
     # - tags: [['purpose', 'tone', 'mod']]
     #   phrases:
     #     - 'Modulation'
     - tags: [['purpose', 'tone', 'reverb']]
+      dry: false
       phrases:
         - 'reverb'
     - tags: [['purpose', 'tone', 'delay']]
+      dry: false
       phrases:
         - 'delay'
     - tags: [['purpose', 'tone', 'eq']]
+      dry: false
       phrases:
         - 'equalization'
     - tags: [['purpose', 'tone', 'synth']]
+      dry: false
       phrases:
         - 'synthesis'
     - tags: [['purpose', 'tone', 'chorus']]
+      dry: false
       phrases:
         - 'chorus'
     - tags: [['purpose', 'tone', 'vibrato']]
+      dry: false
       phrases:
         - 'vibrato'
     - tags: [['purpose', 'tone', 'distortion']]
+      dry: false
       phrases:
         - 'fuzz'
         - 'distortion'
     - tags: [['purpose', 'tone', 'noise']]
+      dry: false
       phrases:
         - 'noise'
+
+effectDescriptions:
+  groups:
+    - tags: []
+      phrases:
+        - 'sounds'
+        - 'tones'
+    - tags: [['purpose', 'looping']]
+      dry: false
+      phrases:
+        - 'sounds'
+    # - tags: [['purpose', 'tone', 'mod']]
+    #   phrases:
+    #     - 'Modulation'
+    - tags: [['purpose', 'tone', 'reverb']]
+      dry: false
+      phrases:
+        - 'reverbs'
+    - tags: [['purpose', 'tone', 'delay']]
+      dry: false
+      phrases:
+        - 'delays'
+    - tags: [['purpose', 'tone', 'eq']]
+      dry: false
+      phrases:
+        - 'EQ styles'
+    - tags: [['purpose', 'tone', 'synth']]
+      dry: false
+      phrases:
+        - 'synths'
+    - tags: [['purpose', 'tone', 'chorus']]
+      dry: false
+      phrases:
+        - 'choruses'
+    - tags: [['purpose', 'tone', 'vibrato']]
+      dry: false
+      phrases:
+        - 'vibratos'
+    - tags: [['purpose', 'tone', 'distortion']]
+      dry: false
+      phrases:
+        - 'fuzzes'
+        - 'distortions'
+        - 'overdrives'
+    - tags: [['purpose', 'tone', 'noise']]
+      dry: false
+      phrases:
+        - 'noise suppression styles'
 
 subItems:
   bind: true
@@ -139,6 +192,7 @@ benefitSingular:
         - 'touch-preserving headroom'
         - 'endless amp-pushing boost'
         - 'an internal charge pump that boosts its 9-volt operating voltage up to 18 volts'
+        - 'a genuine, US-made NOS 6205 preamp tube'
     - tags: [['purpose', 'looping']]
       phrases:
         - 'unlimited overdubbing'

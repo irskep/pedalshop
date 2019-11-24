@@ -6,6 +6,8 @@ subtitle:
         - '[:subtitlePrefix] [:purpose] [:subtitleNoun]'
         - '[:subtitlePrefix] [:purpose] [:subtitleNoun]'
         - '[:subtitlePrefix] [:purpose] [:subtitleNoun]'
+        - '[:subtitlePrefix] [:purpose] [:subtitleNoun]'
+        - '[:subtitlePrefix] [:purpose] [:subtitleNoun]'
         - '[:subtitlePacked] with [:subtitleSuperlative] [:purpose] [:subtitleOptions]'
         - '[:purpose] for the Tone [:aficionado]'
         - "[:brand]'s Most [:subtitleSuperlative] [:purpose] [:subtitleNoun]"
@@ -16,6 +18,7 @@ subtitle:
         - '[:subtitleVersatile] [:purpose] [:capPedal]'
         - 'All the [:purpose] You Could Ask For'
         - "The World's Most [:subtitleSuperlative] [:purpose] [:capPedal]"
+        - 'A New Flavor of [:purpose]'
 
 subtitleVersatile:
   groups:
