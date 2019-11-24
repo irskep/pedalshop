@@ -380,6 +380,7 @@ root1:
         - >-
           [The :shortname] [:upurpose] [:pedal] can serve capably as your go-to source for [:effectName] tone stack circuitry in a pedalboard-friendly format.
           [:extra]
+        - >-
           Keep your tone while kicking up the [:effectDescription], with the [:shortname] [:pedal]. Modeled on that timeless, omnipresent [uncap :newcolor] [:upurpose] [:pedal], the [:shortname] lets you add a range of tones from [:oldEffect] to [:newEffect].
           [:extra]
         - >-
