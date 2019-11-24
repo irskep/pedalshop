@@ -10,13 +10,19 @@ RE_RULE = re.compile(r':[A-Za-z0-9]+\b')
 assert RE_RULE.findall('[:asdf]') == [':asdf']
 
 datas = []
+all_phrases = []
 for p in glob.glob('src/improvgrammar/*.yaml'):
+  with open(p, 'r') as f:
+    data = yaml.load(f)
+    for v in data.values():
+      for group in v['groups']:
+        all_phrases.extend(group['phrases'])
+
   if 'subtitle' in p:
     continue
   if 'pedalWords' in p:
     continue
-  with open(p, 'r') as f:
-    datas.append(yaml.load(f))
+  datas.append(data)
 
 edges = Counter()
 uses = Counter()
@@ -56,3 +62,5 @@ with open('analysis/graph.dot', 'w') as f:
   f.write(text)
 
 subprocess.run(['dot', '-v', 'analysis/graph.dot', '-Tpdf', '-o', 'analysis/graph.pdf'])
+
+print("Word count:", len(' '.join(all_phrases).split()))

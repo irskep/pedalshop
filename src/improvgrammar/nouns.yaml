@@ -236,7 +236,6 @@ benefitPlural:
         - 'studio-grade, hall, and plate algorithms'
         - 'modern-sounding textures'
         - 'adventurous delays and reverbs'
-    - tags: [['purpose', 'tone', 'synth']]
 
 pedal:
   groups:
