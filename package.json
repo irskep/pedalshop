@@ -5,11 +5,14 @@
   "private": true,
   "scripts": {
     "dev": "parcel --port=1238 index.html",
-    "gh": "parcel build index.html --public-url ./ && gh-pages -d dist",
-    "butler": "parcel build index.html --public-url ./ && butler push dist irskep/steves-pedal-shop:dev",
+    "build": "parcel build index.html --public-url ./",
+    "gh": "yarn build && gh-pages -d dist",
+    "butler": "yarn build && butler push dist irskep/steves-pedal-shop:dev",
     "pdf": "node pdf.js",
     "deploy": "yarn gh && yarn butler",
-    "graph": "pipenv run analysis/graph.py"
+    "graph": "pipenv run analysis/graph.py",
+    "csv": "pipenv run ./yaml2csv.py",
+    "yaml": "pipenv run ./collectyaml.py"
   },
   "dependencies": {
     "@vue/composition-api": "^0.3.2",

@@ -1,22 +1,40 @@
 import Improv from 'improv';
-import subtitleGrammarSrc from './improvgrammar/subtitle.yaml';
+import subtitleGrammar from './improvgrammar/subtitle.yaml';
 import descGrammar from './improvgrammar/desc.yaml';
 import nounsGrammar from './improvgrammar/nouns.yaml'
 import adjsVerbsGrammar from './improvgrammar/adjsVerbs.yaml';;
 import nameOfMusicianGrammar from './improvgrammar/nameOfMusician.yaml';;
 import pedalWordsGrammar from './improvgrammar/pedalWords.yaml'
 
-Object.assign(
+const usedSymbols = {};
+function uniquify(grammar) {
+  for (let k of Object.keys(grammar)) {
+    if (usedSymbols[k]) {
+      throw new Error(`Duplicate symbol: ${k}`);
+    }
+    usedSymbols[k] = true;
+  }
+}
+uniquify(subtitleGrammar);
+uniquify(descGrammar);
+uniquify(nounsGrammar);
+uniquify(adjsVerbsGrammar);
+uniquify(nameOfMusicianGrammar);
+uniquify(pedalWordsGrammar);
+
+const omniGrammar = Object.assign(
+  {},
+  subtitleGrammar,
   descGrammar,
   nounsGrammar,
   adjsVerbsGrammar,
-  nameOfMusicianGrammar);
-const subtitleGrammar = Object.assign({}, descGrammar, subtitleGrammarSrc);
+  nameOfMusicianGrammar,
+  pedalWordsGrammar);
 
 console.log(
-  descGrammar.root1.groups[0].phrases.length,
+  descGrammar.desc1.groups[0].phrases.length,
   descGrammar.extra.groups[0].phrases.length,
-  descGrammar.root1.groups[0].phrases.length *
+  descGrammar.desc1.groups[0].phrases.length *
     descGrammar.extra.groups[0].phrases.length);
 
 function dryness() {
@@ -79,7 +97,7 @@ const builtins = {
 };
 
 export default function makeImprovGenerators(alea) {
-  const subGen = new Improv(subtitleGrammar, {
+  const subGen = new Improv(omniGrammar, {
     filters: [
       Improv.filters.mismatchFilter(),
       Improv.filters.partialBonus(),
@@ -92,8 +110,8 @@ export default function makeImprovGenerators(alea) {
     persistence: false,
     rng: alea,
   });
-  
-  const pedalWordsGen = new Improv(pedalWordsGrammar, {
+
+  const pedalWordsGen = new Improv(omniGrammar, {
     filters: [
       Improv.filters.mismatchFilter(),
       Improv.filters.partialBonus(),
@@ -107,7 +125,7 @@ export default function makeImprovGenerators(alea) {
     rng: alea,
   });
 
-  const descGen = new Improv(descGrammar, {
+  const descGen = new Improv(omniGrammar, {
     filters: [
       Improv.filters.mismatchFilter(),
       Improv.filters.partialBonus(),

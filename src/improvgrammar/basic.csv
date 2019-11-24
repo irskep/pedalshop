@@ -1,0 +1,36 @@
+superlative,toneAdj,toneAdjNoun,strangeEffectAdj,strangeEffectName,soundAdjective,packed,vintage,modern,creative,enticing,serious,endless,people,person,guitarTechnique,unrelatedEffect,soundQuality,perfection,ideas,knobsOrSwitches,creativePossibilities,sonicPlayground,performances,moreThan,upTo,builtIn,editable,edit,tapInto,making,runOutOf,offers,knobLabel,switchLabel,outputAlways,outputExtra,inputAlways,inputExtra,super,size,v2,newcolor,namePrefix,namenoun,namesuffix,brandname,effectNamePrefix,effectNameSuffix
+great,sweet,sweetness,pulsating,shimmer,gorgeous-sounding,stuffed,classic,next-gen,creative,enticing,serious,endless,tonal adventurers,tonal adventurer,hammer-ons,phase shifting,sound quality,perfection,inspiration,knobs,creative possibilities,veritable sonic playground,performances,over,up to,built-in,fully editable,edit,tap into,crafting,run out of,offers,E.LEVEL,MIDS,OUTPUT A\n(MONO)/OUTPUT B,SEND,INPUT,INPUT A/INPUT B,Super,Big,V2,Red,Stomp,Elk,Stomper,BOBB,Blues,Precision
+excellent,harsh,harshness,wavering,warble,great-sounding,packed,vintage,modern,fun,tantalizing,real,unlimited,guitar gods,guitar god,pick attacks,delay,fidelity,your taste,ideas,switches,ideas,,sessions,more than,almost,onboard,editable,tweak,make use of,playing,be short of,provides,FEEDBK,BYPASS,OUTPUT,RETURN,INPUT,INPUT A\n(MONO)/INPUT B,Ultra,Giant,+,Orange,Blast,Snake,Zinger,harmo-electrix,Angry,Driver
+perfect,mellow,mellowness,oscillating,pulse,sweet-sounding,absolutely packed,iconic,,comprehensive,seductive,,limitless,musicians,musician,bends,reverb,waveform generation,,,controls,possibilities,,jam sessions,,,factory-installed,tweakable,change,dig into,,,gives you,TIME,STOP,,EXP,INPUT,EXP/CTRL,Nano,Jumbo,Deluxe,Yellow,Gargle,Camel,Blaster,ABX,Metal,Kevin
+amazing,warm,warmth,drooping,droop,vibrant-sounding,fully loaded,,,,vibrant,,infinite,jam freaks,jam freak,pull-offs,vibrato,sound quality,,,,tonic varieties,,,,,,modifiable,customize,rock out with,,,serves up,CHECK,TAP/LOOP,,,INPUT,TEMPO/EXP,Deluxe,Lil’,,Green,Noodle,Emu,Noodler,Jamz,Extreme,Jim
+elite,cold,coldness,rising,rise,,brimming,,,,,,,pick jockeys,pick jockey,,tremolo,,,,,,,,,,,customizable,,,,,,DRY,&nbsp;,,,INPUT A/INPUT B,EXP,Micro,Little,,Blue,Bang,Moose,Banger,TekDigi,Soul,Freeze
+top-tier,ear-catching,note definition,sustained,clip,,bursting,,,,,,,rock stars,rock star,,echo,,,,,,,,,,,,,,,,,VOL,TAP,,,INPUT A\n(MONO)/INPUT B,REMOTE,XL,Mini,,Purple,Muffle,Zebra,Muffler,SRL Pedals,Death,Zone
+top-notch,lush,control,clipped,waver,,sizzling,,,,,,,professionals,professional,,octave fuzz,,,,,,,,,,,,,,,,,SENS,,,,,,Mini,,,Pink,Swizzle,Cobra,Buster,Landey Electronics,Bleak,Food
+phenomenal,rich,smoothness,,,,loaded to the brim,,,,,,,tone tweakers,tone tweaker,,,,,,,,,,,,,,,,,,,CTRL,,,,,,,,,Black,Box,Bee,Shaper,Ducktronix,Instant,Soul
+superior,creamy,grit,,,,loaded,,,,,,,,,,,,,,,,,,,,,,,,,,,BLEND,,,,,,,,,White,Bounce,Wasp,Swizzler,Moonshaker Devices,,Rattle
+awesome,violin-like,edge,,,,jam-packed,,,,,,,,,,,,,,,,,,,,,,,,,,,SHIFT,,,,,,,,,,Emperor,Horse,Box,Sealion Audio,,Zone
+legendary,gnarly,crunchy breakup,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,FX LVL,,,,,,,,,,King,Dog,Bouncer,QF Electronic,,Instant
+glorious,grungy,searing solo power,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TIME,,,,,,,,,,Captain,Cat,Emperor,Bender,,Antler
+,gritty,subtle sweetening,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TONE,,,,,,,,,,Colonel,Tiger,King,Destination Audio,,
+,smooth,indefinable mojo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,DRIVE,,,,,,,,,,Lieutenant,Panther,Squisher,Halftone,,
+,clean,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,FILTER,,,,,,,,,,Cavern,Goose,Crusher,Vortex,,
+,dirty,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ATTACK,,,,,,,,,,Point,Duck,Cavern,Roughtide,,
+,chunky,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,DECAY,,,,,,,,,,Theory,Captain,Master,Plateau,,
+,spacey,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SUSTAIN,,,,,,,,,,Zero,Fork,Point,Blue Warlock,,
+,singing,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,GATE,,,,,,,,,,Slam,Spoon,Theory,Digital Deviant,,
+,raunchy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,MIDS LEV,,,,,,,,,,Fat,Badass,Slammer,,,
+,ratty,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,MIDS FREQ,,,,,,,,,,Factor,Bitchin’,Rumbler,,,
+,punchy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,RATE,,,,,,,,,,Dirty,Ricochet,Fatty,,,
+,meaty,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,DEPTH,,,,,,,,,,Rumble,Bounce,Bro,,,
+,thick,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SPEED,,,,,,,,,,Fat,Rubber,Chick,,,
+,musical,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,DELAY,,,,,,,,,,,Bone,Run,,,
+,searing,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,WIDTH,,,,,,,,,,,Noise,Machine,,,
+,crunchy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,MIX,,,,,,,,,,,Water,Corrupter,,,
+,harmonically rich,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,CTRL 1,,,,,,,,,,,Viper,Thing,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,CTRL 2,,,,,,,,,,,Zero,Rocket,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,GAIN,,,,,,,,,,,Infinity,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,&nbsp;,,,,,,,,,,,Avalanche,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Rainbow,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Dispatch,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Data,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hoof,,,,

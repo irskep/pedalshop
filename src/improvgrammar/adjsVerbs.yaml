@@ -111,7 +111,7 @@ builtIn:
         - 'onboard'
         - 'factory-installed'
 
-subItemAdjective:
+editable:
   groups:
     - tags: []
       phrases:
