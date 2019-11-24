@@ -34,6 +34,44 @@ purposeNoun:
       phrases:
         - 'noise suppression'
 
+effectDescription:
+  groups:
+    - tags: []
+      phrases:
+        - 'sounds'
+        - 'tone'
+    - tags: [['purpose', 'looping']]
+      phrases:
+        - 'sounds'
+    # - tags: [['purpose', 'tone', 'mod']]
+    #   phrases:
+    #     - 'Modulation'
+    - tags: [['purpose', 'tone', 'reverb']]
+      phrases:
+        - 'reverb'
+    - tags: [['purpose', 'tone', 'delay']]
+      phrases:
+        - 'delay'
+    - tags: [['purpose', 'tone', 'eq']]
+      phrases:
+        - 'equalization'
+    - tags: [['purpose', 'tone', 'synth']]
+      phrases:
+        - 'synthesis'
+    - tags: [['purpose', 'tone', 'chorus']]
+      phrases:
+        - 'chorus'
+    - tags: [['purpose', 'tone', 'vibrato']]
+      phrases:
+        - 'vibrato'
+    - tags: [['purpose', 'tone', 'distortion']]
+      phrases:
+        - 'fuzz'
+        - 'distortion'
+    - tags: [['purpose', 'tone', 'noise']]
+      phrases:
+        - 'noise'
+
 subItems:
   bind: true
   groups:
@@ -68,28 +106,6 @@ effectName:
     - tags: []
       phrases:
       - '[:effectNamePrefix] [:effectNameSuffix]'
-#        - '[:effectName1]'
-#        - '[:effectName2]'
-#
-#effectName1:
-#  groups:
-#    - tags: []
-#      phrases:
-#        - 'Blues Driver'
-#        - 'Angry Kevin'
-#        - 'Metal Zone'
-#        - 'Extreme Freeze'
-#        - 'Soul Food'
-#        
-#effectName2:
-#  groups:
-#    - tags: []
-#      phrases:
-#        - 'Precision'
-#        - 'Death Rattle'
-#        - 'Bleak Zone'
-#        - 'Instant Kill'
-#        - 'Antler'
 
 effectNamePrefix:
   groups:
@@ -149,6 +165,9 @@ benefitSingular:
         - 'tap tempo with note divisions'
         - 'trio of selectable [:circuits]'
         - 'an added Tone control'
+        - 'expansive stereo imaging'
+        - 'a cool custom-built enclosure'
+        - 'expression pedal control'
     - tags: [['purpose', 'looping']]
       phrases:
         - 'unlimited overdubbing'
@@ -159,11 +178,16 @@ benefitSingular:
       phrases:
         - 'edge-of-breakup, amp-style grit'
         - "'80s-style face-melting distortion"
+        - 'a dual gain staging option'
+        - '3-band EQ'
     - tags: [['purpose', 'tone', 'reverb']]
       phrases:
         - 'studio-grade, hall, and plate algorithms'
         - 'vintage-style spring reverb'
         - 'modern-sounding textures'
+    - tags: [['purpose', 'tone', 'synth']]
+      phrases:
+        - 'a modulated monophonic [:twoLetter] circuit'
 
 benefitPlural:
   groups:
@@ -175,6 +199,10 @@ benefitPlural:
         - '[:superlative] headroom and definition'
         - '[#2-9] master algorithms'
         - 'upgraded SMD components'
+        - 'six time division settings'
+    - tags: [['purpose', 'tone', 'distortion']]
+      phrases:
+        - 'three selectable gain ranges'
         
 soundModification:
   groups:
@@ -215,18 +243,6 @@ pedalAlternative:
         - 'synth'
         - 'rack-mounted synth'
         - 'rack-mounted synthesizer'
-
-strangeEffectAdj:
-  groups:
-    - tags: []
-      phrases:
-        - 'pulsating'
-        - 'wavering'
-        - 'oscillating'
-        - 'drooping'
-        - 'rising'
-        - 'sustained'
-        - 'clipped'
 
 strangeEffectName:
   groups:
@@ -339,6 +355,8 @@ toneAdjNoun:
         - 'smoothness'
         - 'grit'
         - 'edge'
+        - 'crunchy breakup'
+        - 'searing solo power'
 
 unrelatedEffect:
   groups:
@@ -458,6 +476,7 @@ oldEffect:
     - tags: [['purpose', 'tone', 'distortion']]
       phrases:
         - 'tube distortion'
+        - 'transparently clean'
     - tags: [['purpose', 'tone', 'noise']]
       phrases:
         - 'simple gating'
@@ -497,6 +516,7 @@ newEffect:
     - tags: [['purpose', 'tone', 'distortion']]
       phrases:
         - 'solid-state distortion'
+        - 'glowing chime'
     - tags: [['purpose', 'tone', 'noise']]
       phrases:
         - 'algorithm-assisted waveform shaping'
@@ -538,41 +558,3 @@ circuits:
 #    - tags: [['purpose', 'tone', 'noise']]
 #      phrases:
 #        - 'Noise Suppression'
-
-effectDescription:
-  groups:
-    - tags: []
-      phrases:
-        - 'sounds'
-        - 'tone'
-    - tags: [['purpose', 'looping']]
-      phrases:
-        - 'sounds'
-    # - tags: [['purpose', 'tone', 'mod']]
-    #   phrases:
-    #     - 'Modulation'
-    - tags: [['purpose', 'tone', 'reverb']]
-      phrases:
-        - 'reverb'
-    - tags: [['purpose', 'tone', 'delay']]
-      phrases:
-        - 'delay'
-    - tags: [['purpose', 'tone', 'eq']]
-      phrases:
-        - 'equalization'
-    - tags: [['purpose', 'tone', 'synth']]
-      phrases:
-        - 'synthesis'
-    - tags: [['purpose', 'tone', 'chorus']]
-      phrases:
-        - 'chorus'
-    - tags: [['purpose', 'tone', 'vibrato']]
-      phrases:
-        - 'vibrato'
-    - tags: [['purpose', 'tone', 'distortion']]
-      phrases:
-        - 'fuzz'
-        - 'distortion'
-    - tags: [['purpose', 'tone', 'noise']]
-      phrases:
-        - 'noise'

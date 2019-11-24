@@ -157,6 +157,20 @@ toneAdj:
         - 'meaty'
         - 'thick'
         - 'musical'
+        - 'searing'
+        - 'crunchy'
+
+strangeEffectAdj:
+  groups:
+    - tags: []
+      phrases:
+        - 'pulsating'
+        - 'wavering'
+        - 'oscillating'
+        - 'drooping'
+        - 'rising'
+        - 'sustained'
+        - 'clipped'
 
 genreAdjective:
   groups:

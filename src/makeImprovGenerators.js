@@ -13,6 +13,12 @@ Object.assign(
   nameOfMusicianGrammar);
 const subtitleGrammar = Object.assign({}, descGrammar, subtitleGrammarSrc);
 
+console.log(
+  descGrammar.root1.groups[0].phrases.length,
+  descGrammar.extra.groups[0].phrases.length,
+  descGrammar.root1.groups[0].phrases.length *
+    descGrammar.extra.groups[0].phrases.length);
+
 function dryness() {
   return function (group) {
     if (group.dry === false) {

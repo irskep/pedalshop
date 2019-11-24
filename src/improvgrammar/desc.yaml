@@ -4,6 +4,9 @@ price:
     - tags: []
       phrases:
         - '$[#4-60]9.99'
+        - '$[#4-60]9.97'
+        - '$[#4-60]9.49'
+        - '$[#4-60]9.00'
 
 name:
   bind: true
@@ -84,6 +87,12 @@ color:
   groups:
     - tags: []
       phrases:
+        - '[:newcolor]'
+    
+newcolor:
+  groups:
+    - tags: []
+      phrases:
         - 'Red'
         - 'Orange'
         - 'Yellow'
@@ -128,6 +137,11 @@ namenoun:
         - 'Viper'
         - 'Zero'
         - 'Infinity'
+        - 'Avalanche'
+        - 'Rainbow'
+        - 'Dispatch'
+        - 'Data'
+        - 'Hoof'
         
 namesuffix:
   groups:
@@ -157,6 +171,10 @@ namesuffix:
         - 'Fatty'
         - 'Bro'
         - 'Chick'
+        - 'Run'
+        - 'Machine'
+        - 'Corrupter'
+        - 'Thing'
         
 namePrefix:
   groups:
@@ -353,13 +371,28 @@ root1:
           [:extra]
         - >-
           When you hear how clean the [:name] sounds, it's hard to believe this is an all-analog pedal. Yet the sound and (more importantly) the feel of [:benefit] is unmistakeable, and there's no denying that's what this [:pedal] delivers.
+        - >-
+          The [:shortname] puts that elusive [:effectName] tone right at your feet in a conveniently compact pedal.
+          [:extra]
+        - >-
+          If you want [:nameOfMusician]'s signature tone, then [:shortname] belongs in your rig.
+          [:extra]
+        - >-
+          The [:shortname] [:upurpose] [:pedal] can serve capably as your go-to source for [:effectName] tone stack circuitry in a pedalboard-friendly format.
+          [:extra]
+          Keep your tone while kicking up the [:effectDescription], with the [:shortname] [:pedal]. Modeled on that timeless, omnipresent [uncap :newcolor] [:upurpose] [:pedal], the [:shortname] lets you add a range of tones from [:oldEffect] to [:newEffect].
+          [:extra]
+        - >-
+          The [:shortname] features an updated [:effectDescription] algorithm with [:benefit], plus [:benefit]. You've got it all: [:benefit], [:benefit], and [:benefit].
+        - >-
+          Go far beyond traditional [:purposeNoun] with [the :shortname]. [:nameOfMusician] and [:nameOfMusician] swear by this [:pedal].
 
 root2:
   groups:
     - tags: []
       phrases:
         - >-
-          When you hear how clean the [:name] sounds, it's hard to believe this is an all-analog pedal. Yet the sound and (more importantly) the feel of [:benefit] is unmistakeable, and there's no denying that's what this [:pedal] delivers.
+          Go far beyond traditional [:purposeNoun] with [the :shortname]. [:nameOfMusician] and [:nameOfMusician] swear by this [:pedal]. [:extra]
 
 extra:
   groups:
@@ -415,3 +448,9 @@ extra:
           Four different [:oomphs] reward you with everything from [:oldEffect] to [:newEffect].
         - >-
           No matter what you play, you need this pedal.
+        - >-
+          This [:twoLetters][:twoLetters]-driven little monster is the perfect foundation of your pedalboard.
+        - >-
+          Just toss this pedal in with your favorite [:unrelatedEffect] and [:unrelatedEffect] [:pedals], and bask in the results.
+        - >-
+          Choose between momentary and latching switching.
