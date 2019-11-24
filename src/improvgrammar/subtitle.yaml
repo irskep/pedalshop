@@ -2,29 +2,29 @@ root:
   groups:
     - tags: []
       phrases:
-        - '[:adjective] [:purpose] [:noun]'
-        - '[:adjective] [:purpose] [:noun]'
-        - '[:adjective] [:purpose] [:noun]'
-        - '[:adjective] [:purpose] [:noun]'
-        - '[:packed] with [:superlative] [:purpose] [:options]'
+        - '[:subtitlePrefix] [:purpose] [:subtitleNoun]'
+        - '[:subtitlePrefix] [:purpose] [:subtitleNoun]'
+        - '[:subtitlePrefix] [:purpose] [:subtitleNoun]'
+        - '[:subtitlePrefix] [:purpose] [:subtitleNoun]'
+        - '[:subtitlePacked] with [:subtitleSuperlative] [:purpose] [:subtitleOptions]'
         - '[:purpose] for the Tone [:aficionado]'
-        - "[:brand]'s Most [:superlative] [:purpose] [:noun]"
-        - 'Your Always-on [:purpose] [:pedal]'
+        - "[:brand]'s Most [:subtitleSuperlative] [:purpose] [:subtitleNoun]"
+        - 'Your Always-on [:purpose] [:capPedal]'
         - 'Time-tested [:purpose], Upgraded Tone'
-        - 'Beyond [:classic] [:purpose]'
-        - '[:superlative] [:purpose]'
-        - '[:versatile] [:purpose] [:pedal]'
+        - 'Beyond [:subtitleClassic] [:purpose]'
+        - '[:subtitleSuperlative] [:purpose]'
+        - '[:subtitleVersatile] [:purpose] [:capPedal]'
         - 'All the [:purpose] You Could Ask For'
-        - "The World's Most [:superlative] [:purpose] [:pedal]"
+        - "The World's Most [:subtitleSuperlative] [:purpose] [:capPedal]"
 
-versatile:
+subtitleVersatile:
   groups:
     - tags: []
       phrases:
         - 'Versatile'
         - 'Flexible'
 
-packed:
+subtitlePacked:
   groups:
     - tags: []
       phrases:
@@ -35,7 +35,7 @@ packed:
         - 'Bursting'
         - 'Sizzling'
 
-superlative:
+subtitleSuperlative:
   groups:
     - tags: []
       phrases:
@@ -51,14 +51,14 @@ superlative:
         - 'Iconic'
         - 'Popular'
 
-options:
+subtitleOptions:
   groups:
     - tags: []
       phrases:
         - 'Options'
         - ''
 
-adjective:
+subtitlePrefix:
   groups:
     - tags: []
       phrases:
@@ -123,7 +123,7 @@ purpose:
       phrases:
         - 'Noise Suppression'
 
-pedal:
+capPedal:
   groups:
     - tags: []
       phrases:
@@ -131,7 +131,7 @@ pedal:
         - 'Effects Pedal'
         - 'Stompbox'
 
-classic:
+subtitleClassic:
   groups:
     - tags: []
       phrases:
@@ -139,7 +139,7 @@ classic:
         - 'Classic'
         - 'Standard'
 
-noun:
+subtitleNoun:
   groups:
     - tags: []
       phrases:
