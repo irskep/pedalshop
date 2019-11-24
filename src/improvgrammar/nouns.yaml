@@ -140,6 +140,9 @@ benefitSingular:
         - 'a clean boost'
         - 'razor-sharp precision'
         - "[:brand]'s innovative Multi-dimensional Processing technology"
+        - 'tap tempo'
+        - 'smart bypass switching'
+        - 'momentary knob ramp'
     - tags: [['purpose', 'looping']]
       phrases:
         - 'unlimited overdubbing'
@@ -161,14 +164,16 @@ benefitPlural:
         - 'ample options for external control'
         - 'boosted power rails'
         - '[:superlative] headroom and definition'
+        - '[#2-9] master algorithms'
         
 soundModification:
   groups:
     - tags: []
       phrases:
-        - 'creates the classically smoky Blues tone'
+        - 'creates the classically smoky [:genreName] tone'
         - 'beefs up the low end and adds sustain'
         - 'sends single notes soaring into the stratosphere with razor-sharp precision'
+        - 'covers a broad tonal spectrum'
 
 pedal:
   groups:
@@ -272,6 +277,20 @@ people:
         - 'pick jockeys'
         - 'rock stars'
         - 'professionals'
+        - 'tone tweakers'
+
+person:
+  groups:
+    - tags: []
+      phrases:
+        - 'tonal adventurer'
+        - 'guitar god'
+        - 'musician'
+        - 'jam freak'
+        - 'pick jockey'
+        - 'rock star'
+        - 'professional'
+        - 'tone tweaker'
 
 creativePossibilities:
   groups:

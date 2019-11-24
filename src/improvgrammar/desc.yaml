@@ -333,14 +333,18 @@ root1:
         - >-
           When guitarist [:nameOfMusician] asked [:brand] to design a modern [:upurpose] pedal inspired by his go-to vintage [:upurpose], the [:effectName], they came up with [the :shortname].
         - >-
-          Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? The [:shortname] is the creative tool you need. There are three [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.
+          Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? The [:shortname] is the creative tool you need. There are [#2-9] [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.
+        - >-
+          With [:benefit], [:benefit], [:benefit], and [:benefit], the [:shortname] [:soundModification].
+          [:extra]
 
 root2:
   groups:
     - tags: []
       phrases:
         - >-
-          Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? The [:shortname] is the creative tool you need. There are three [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.
+          With [:benefit], [:benefit], [:benefit], and [:benefit], the [:shortname] [:soundModification].
+          It delivers digital and analog [:upurpose] styles any [:person] will adore.
 
 extra:
   groups:
@@ -386,3 +390,5 @@ extra:
           An expression pedal gives you real-time control, and you can recall [#10-100] presets.
         - >-
           It serves up [:toneAdj], [:toneAdj] [:effectDescription] with ’[#5-9]0s-style effects.
+        - >-
+          It delivers digital and analog [:upurpose] styles any [:person] will adore.
