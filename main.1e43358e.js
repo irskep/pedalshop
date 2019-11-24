@@ -29986,7 +29986,7 @@ module.exports = {
     groups: [{
       tags: [],
       dry: false,
-      phrases: ["[:root2]"]
+      phrases: ["[:root1]"]
     }]
   },
   root1: {
@@ -34331,7 +34331,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61553" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55030" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
