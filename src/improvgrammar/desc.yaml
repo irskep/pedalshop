@@ -337,14 +337,24 @@ root1:
         - >-
           With [:benefit], [:benefit], [:benefit], and [:benefit], the [:shortname] [:soundModification].
           [:extra]
+        - >-
+          Now in a more convenient single-pedal format, the dual-mode [:shortname] is a [:toneAdj] [:upurpose] [:pedal] you'll never take off your board.
+        - >-
+          The [:shortname] analog [:upurpose] [:pedal] is a master at sonic landscaping.
+          [:extra]
+        - >-
+          Strap in and prepare to fly—the [:shortname] [:purpose] [:pedal] will make your tone lift off. It features [:benefit].
+          [:extra]
+        - >-
+          With its [:benefit], the [:name] delivers delightfully flexible [:effectDescription].
+          [:extra]
 
 root2:
   groups:
     - tags: []
       phrases:
         - >-
-          With [:benefit], [:benefit], [:benefit], and [:benefit], the [:shortname] [:soundModification].
-          It delivers digital and analog [:upurpose] styles any [:person] will adore.
+          Four different [:oomphs] reward you with everything from [:oldEffect] to [:newEffect].
 
 extra:
   groups:
@@ -392,3 +402,9 @@ extra:
           It serves up [:toneAdj], [:toneAdj] [:effectDescription] with ’[#5-9]0s-style effects.
         - >-
           It delivers digital and analog [:upurpose] styles any [:person] will adore.
+        - >-
+          It features a slew of shape controls plus [:benefit].
+        - >-
+          You can also blend in [:unrelatedEffect] and [:unrelatedEffect] for extra sonic textures.
+        - >-
+          Four different [:oomphs] reward you with everything from [:oldEffect] to [:newEffect].

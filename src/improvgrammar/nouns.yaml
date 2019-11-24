@@ -1,3 +1,6 @@
+# To add:
+# tremolo
+
 ### SIMPLE NOUNS ###
 
 purposeNoun:
@@ -143,9 +146,14 @@ benefitSingular:
         - 'tap tempo'
         - 'smart bypass switching'
         - 'momentary knob ramp'
+        - 'tap tempo with note divisions'
+        - 'trio of selectable [:circuits]'
     - tags: [['purpose', 'looping']]
       phrases:
         - 'unlimited overdubbing'
+    - tags: [['purpose', 'tone']]
+      phrases:
+        - 'selectable [#1-3]- and [#4-9]-stage modes for two levels of harmonic complexity'
     - tags: [['purpose', 'tone', 'distortion']]
       phrases:
         - 'edge-of-breakup, amp-style grit'
@@ -330,6 +338,18 @@ toneAdjNoun:
         - 'grit'
         - 'edge'
 
+unrelatedEffect:
+  groups:
+    - tags: []
+      phrases:
+        - 'phase shifting'
+        - 'delay'
+        - 'reverb'
+        - 'vibrato'
+        - 'tremolo'
+        - 'echo'
+        - 'octave fuzz'
+
 ### INTERESTING NOUNS ###
 
 performanceCharacteristics:
@@ -363,15 +383,19 @@ oomphs:
     - tags: [['purpose', 'tone', 'reverb']]
       phrases:
         - 'reverb modes'
+        - 'reverb algorithms'
     - tags: [['purpose', 'tone', 'delay']]
       phrases:
         - 'delay modes'
+        - 'delay algorithms'
     - tags: [['purpose', 'tone', 'eq']]
       phrases:
         - 'EQ bands'
+        - 'EQ algorithms'
     - tags: [['purpose', 'tone', 'chorus']]
       phrases:
         - 'chorus modes'
+        - 'chorus algorithms'
     - tags: [['purpose', 'tone', 'vibrato']]
       phrases:
         - 'vibrato modes'
@@ -412,6 +436,7 @@ oldEffect:
     - tags: [['purpose', 'tone', 'reverb']]
       phrases:
         - 'chamber reverb'
+        - 'small room reverb'
     - tags: [['purpose', 'tone', 'delay']]
       phrases:
         - 'tape-style delays'
@@ -420,21 +445,20 @@ oldEffect:
         - 'analog-modeled EQ'
     - tags: [['purpose', 'tone', 'synth']]
       phrases:
-        - 'synth simulation'
-        - 'synth sounds'
+        - 'analog synth simulation'
         - "synth sounds of the '70s and '80s"
-#    - tags: [['purpose', 'tone', 'chorus']]
-#      phrases:
-#        - 'sounds'
-#    - tags: [['purpose', 'tone', 'vibrato']]
-#      phrases:
-#        - 'Vibrato'
+    - tags: [['purpose', 'tone', 'chorus']]
+      phrases:
+        - 'simulated detuning'
+    - tags: [['purpose', 'tone', 'vibrato']]
+      phrases:
+        - 'Leslie-induced vibrato'
     - tags: [['purpose', 'tone', 'distortion']]
       phrases:
         - 'tube distortion'
-#    - tags: [['purpose', 'tone', 'noise']]
-#      phrases:
-#        - 'Noise Suppression'
+    - tags: [['purpose', 'tone', 'noise']]
+      phrases:
+        - 'simple gating'
 
 newEffect:
   groups:
@@ -451,6 +475,7 @@ newEffect:
     - tags: [['purpose', 'tone', 'reverb']]
       phrases:
         - 'convolution reverb'
+        - 'long, modulated cascades of reflection'
     - tags: [['purpose', 'tone', 'delay']]
       phrases:
         - 'shimmer effects'
@@ -461,18 +486,18 @@ newEffect:
       phrases:
         - 'effect chains'
         - 'synths made possible only by software'
-#    - tags: [['purpose', 'tone', 'chorus']]
-#      phrases:
-#        - 'Chorus'
-#    - tags: [['purpose', 'tone', 'vibrato']]
-#      phrases:
-#        - 'Vibrato'
+    - tags: [['purpose', 'tone', 'chorus']]
+      phrases:
+        - 'parameterized LFO'
+    - tags: [['purpose', 'tone', 'vibrato']]
+      phrases:
+        - 'digital pitch bending'
     - tags: [['purpose', 'tone', 'distortion']]
       phrases:
         - 'solid-state distortion'
-#    - tags: [['purpose', 'tone', 'noise']]
-#      phrases:
-#        - 'Noise Suppression'
+    - tags: [['purpose', 'tone', 'noise']]
+      phrases:
+        - 'algorithm-assisted waveform shaping'
 
 circuits:
   groups:
@@ -505,9 +530,9 @@ circuits:
 #    - tags: [['purpose', 'tone', 'vibrato']]
 #      phrases:
 #        - ''
-#    - tags: [['purpose', 'tone', 'distortion']]
-#      phrases:
-#        - ''
+    - tags: [['purpose', 'tone', 'distortion']]
+      phrases:
+        - 'selectable clipping diodes'
 #    - tags: [['purpose', 'tone', 'noise']]
 #      phrases:
 #        - 'Noise Suppression'
@@ -532,13 +557,13 @@ effectDescription:
         - 'delay'
     - tags: [['purpose', 'tone', 'eq']]
       phrases:
-        - 'tone'
+        - 'equalization'
     - tags: [['purpose', 'tone', 'synth']]
       phrases:
-        - 'sounds'
+        - 'synthesis'
     - tags: [['purpose', 'tone', 'chorus']]
       phrases:
-        - 'tone'
+        - 'chorus'
     - tags: [['purpose', 'tone', 'vibrato']]
       phrases:
         - 'vibrato'

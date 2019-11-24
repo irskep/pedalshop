@@ -156,6 +156,7 @@ toneAdj:
         - 'punchy'
         - 'meaty'
         - 'thick'
+        - 'musical'
 
 genreAdjective:
   groups:
