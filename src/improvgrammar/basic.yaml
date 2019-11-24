@@ -629,6 +629,8 @@ toneAdj:
     - wet
     - wide
     - wooden
+    - ambient
+    - wild
     tags: []
 toneAdjNoun:
   groups:

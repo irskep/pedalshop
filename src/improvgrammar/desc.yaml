@@ -192,7 +192,7 @@ desc1:
           Strap in and prepare to fly—[the :shortname] [:purpose] [:pedal] will make your tone lift off. It features [:benefit].
           [:extra]
         - >-
-          With its [:benefit], [the :name] delivers delightfully flexible [:effectDescription].
+          With [:benefit], [the :name] delivers delightfully flexible [:effectDescription].
           [:extra]
         - >-
           With [:benefit] and [:benefit], [the :shortname] delivers smoother, more musical [:effectDescription] than ever.
@@ -235,13 +235,16 @@ desc1:
         - >-
           The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some.
           [:extra]
+        - >-
+          [The :shortname] is a high-headroom, transparent [:upurpose] [:pedal], packing [:benefit] and [:benefit]. 
+          [:extra]
 
 desc2:
   groups:
     - tags: []
       phrases:
         - >-
-          The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some.
+          [The :shortname] is a high-headroom, transparent [:upurpose] [:pedal], packing [:benefit] and [:benefit]. 
           [:extra]
 
 extra:
@@ -312,3 +315,5 @@ extra:
           This reduced-size version packs all the tricks, including [:benefit] and [:benefit], of its larger namesakes.
         - >-
           This [:pedal] is [:effectName] mastermind [:nameOfMusician]'s take on iconic [uncap :color] [:effectDescription], best known for its [:oldEffect].
+        - >-
+          [:shortname]'s [:benefit] and [:benefit] are the results of [:benefit].
