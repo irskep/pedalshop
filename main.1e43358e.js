@@ -9937,6 +9937,7 @@ exports.choiceItem = choiceItem;
 exports.star2tags = star2tags;
 exports.precision = precision;
 exports.decimal = decimal;
+exports.shuffle = shuffle;
 
 // 0-indexed
 function choiceIndex(randVal, outOf) {
@@ -9961,6 +9962,19 @@ function precision(n, val) {
 
 function decimal(n, val) {
   return parseFloat((Math.round(val * 100) / 100).toFixed(n));
+}
+
+function shuffle(sourceArray, getRandom) {
+  var array = sourceArray.slice(0);
+
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(getRandom() * i);
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+
+  return array;
 }
 },{}],"node_modules/improv/dist/template.js":[function(require,module,exports) {
 'use strict';
@@ -29814,7 +29828,7 @@ module.exports = {
   noun: {
     groups: [{
       tags: [],
-      phrases: ["Workstation", "Pedal", "Stomp Box", "Station", "Machine", "and More", "with Something More", "with So Much More", "Pedal for Guitar and Bass", "", "with a Twist", "Tones", "in a Compact Pedal", "Tool"]
+      phrases: ["Workstation", "Pedal", "Stomp Box", "Station", "Machine", "and More", "with Something More", "with So Much More", "Pedal for Guitar and Bass", "", "with a Twist", "Tones", "in a Compact Pedal", "Tool", "Effects"]
     }]
   }
 };
@@ -29824,7 +29838,7 @@ module.exports = {
     bind: true,
     groups: [{
       tags: [],
-      phrases: ["$[#4-60]9.99"]
+      phrases: ["$[#4-60]9.99", "$[#4-60]9.97", "$[#4-60]9.49", "$[#4-60]9.00"]
     }]
   },
   name: {
@@ -29844,7 +29858,7 @@ module.exports = {
   newname: {
     groups: [{
       tags: [["namestyle", "the"]],
-      phrases: ["The [:namenoun]", "The [id :namenoun]", "The [id id :namenoun]"]
+      phrases: ["The [:namenoun]", "The [id :namenoun]"]
     }, {
       tags: [["namestyle", "prefixnoun"]],
       phrases: ["[:super] [:namePrefix] [:namenoun]", "[:namePrefix] [:namenoun]", "[:super] [:namePrefix] [:namenoun] [:v2]", "[:namePrefix] [:namenoun] [:v2]", "[:super] [:namenoun] [:namesuffix]"]
@@ -29856,7 +29870,7 @@ module.exports = {
       phrases: ["[:namenoun] [:namesuffix]", "[:super] [:namenoun] [:namesuffix] [:v2]", "[:namenoun] [:namesuffix] [:v2]"]
     }, {
       tags: [["namestyle", "lettersandnumbers"]],
-      phrases: ["[:twoLetters]-[:shortIdentifier]", "[:letter][:letter][:letter]-[#0-9][#0-9][#0-9]"]
+      phrases: ["[:twoLetters]-[:shortIdentifier]", "[:letter][:letter][:letter]-[#0-9][#0-9][#0-9]", "[id :letter][:letter][:letter]-[#0-9][#0-9][#0-9]"]
     }]
   },
   super: {
@@ -29881,19 +29895,25 @@ module.exports = {
     bind: true,
     groups: [{
       tags: [],
+      phrases: ["[:newcolor]"]
+    }]
+  },
+  newcolor: {
+    groups: [{
+      tags: [],
       phrases: ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink", "Black", "White"]
     }]
   },
   namenoun: {
     groups: [{
       tags: [],
-      phrases: ["Elk", "Snake", "Camel", "Emu", "Moose", "Zebra", "Cobra", "Bee", "Wasp", "Horse", "Dog", "Cat", "Tiger", "Panther", "Goose", "Duck", "Captain", "Fork", "Spoon", "Badass", "Bitchin’", "Ricochet", "Bounce", "Rubber", "Bone", "Noise", "Water", "Viper", "Zero", "Infinity"]
+      phrases: ["Elk", "Snake", "Camel", "Emu", "Moose", "Zebra", "Cobra", "Bee", "Wasp", "Horse", "Dog", "Cat", "Tiger", "Panther", "Goose", "Duck", "Captain", "Fork", "Spoon", "Badass", "Bitchin’", "Ricochet", "Bounce", "Rubber", "Bone", "Noise", "Water", "Viper", "Zero", "Infinity", "Avalanche", "Rainbow", "Dispatch", "Data", "Hoof"]
     }]
   },
   namesuffix: {
     groups: [{
       tags: [],
-      phrases: ["Stomper", "Zinger", "Blaster", "Noodler", "Banger", "Muffler", "Buster", "Shaper", "Swizzler", "Box", "Bouncer", "Emperor", "King", "Squisher", "Crusher", "Cavern", "Master", "Point", "Theory", "Slammer", "Rumbler", "Fatty", "Bro", "Chick"]
+      phrases: ["Stomper", "Zinger", "Blaster", "Noodler", "Banger", "Muffler", "Buster", "Shaper", "Swizzler", "Box", "Bouncer", "Emperor", "King", "Squisher", "Crusher", "Cavern", "Master", "Point", "Theory", "Slammer", "Rumbler", "Fatty", "Bro", "Chick", "Run", "Machine", "Corrupter", "Thing", "Rocket"]
     }]
   },
   namePrefix: {
@@ -29925,7 +29945,8 @@ module.exports = {
   twoLetters: {
     groups: [{
       tags: [],
-      phrases: ["[:letter][:letter]", "[id :letter][:letter]", "[id id :letter][:letter]", "[id id id :letter][:letter]"]
+      dry: false,
+      phrases: ["[:letter][:letter]"]
     }]
   },
   letter: {
@@ -29954,22 +29975,36 @@ module.exports = {
       phrases: ["[id :newname]"]
     }]
   },
+  upurpose: {
+    bind: true,
+    groups: [{
+      tags: [],
+      phrases: ["[uncap :purpose]"]
+    }]
+  },
   root: {
     groups: [{
       tags: [],
-      phrases: ["[The :shortname]'s [:benefitSingular] is [:superlative] for [:making] [uncap :purpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "[The :shortname] comes [:packed] with [:superlative] [uncap :purpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [uncap :purpose] in the [:shortname]. [cap :packed] with [:soundAdjective] [uncap :purpose] effects, the [:shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:subItemAdjective] [:subItems], [the :shortname] provides [:endless] [:creativePossibilities]. [:extra]", "[The :shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], [the :shortname] is possibly the most versatile [uncap :purpose] [:pedal] ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], [the :shortname] may be one of the most versatile [uncap :purpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, [the :shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedalAlternative].  [:extra]", "[The :shortname] re-creates the classic sound of [the :extraname1] and [:extraname2] [:pedalAlternative]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. [The :shortname] features a stereo output for [the :extraname1] effects and variable depth for [the :extraname2] effects. [:extra]", "[The :shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [uncap :purpose] from [#100-400] to [#401-999] and adds modern [:toneAdjNoun] and [:toneAdjNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with [the :shortname], they added a whole new dimension to their popular [uncap :purpose] [:pedal]. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create [the :shortname]. This versatile [:pedal] packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "[The :shortname] features [:benefitSingular], which allows it to dynamically adapt to any register. That means you get [:toneAdjNoun], [:toneAdjNoun], and [:toneAdjNoun] all across the fretboard, with [:superlative] dynamics. [:extra]", "[:brand]'s [:shortname] allows you to create [#2-100] [:performanceCharacteristics] with up to [#2-10] [:units] of high-quality performance and [:benefit]. [:extra]", "[The :shortname] sports the [:genreAdjective], [:vintage] sound that made the original a huge hit with [:genreName] guitarists decades ago. All the original magic is back with [:brand]'s reissue of this '[#5-9]0s [:pedal]. [:extra]", "Designed with [:benefit], [the :shortname] is exceptionally responsive to [:guitarTechnique]. It features [:benefit] and gives you a choice of either buffered or full bypass. [:extra]", "[The :shortname] is the [uncap :purpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain. [:extra]", "[:brand] packed the original [oldify :shortname] circuit into [the :shortname], so you get the same sound, controls, and guts as the full-size model. This pedalboard-friendly version [:offers] the same [:toneAdj] tones that you've heard on countless recordings, but in a smaller package. [:extra]", "[The :shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedal] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take [the :shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]", "Own the [:pedal] that started it all—the [:brand] [:shortname] is a faithful recreation of the original '[#55-70] [oldify :shortname] pedal. It has the same [:toneAdj] tone heard on early '[#7-9]0s records by [:nameOfMusician], [:nameOfMusician], and many others.", "With [#2-100] [:subItems] plus [:benefit], [the :shortname] is one of the most [:creative] and [:creative] [uncap :purpose] [:pedals] you could put on your pedalboard. [:extra]", "[The :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [uncap :purpose] tone. [:extra]"]
+      dry: false,
+      phrases: ["[:root2]"]
+    }]
+  },
+  root1: {
+    groups: [{
+      tags: [],
+      phrases: ["[The :shortname]'s [:benefitSingular] is [:superlative] for [:making] [:upurpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "[The :shortname] comes [:packed] with [:superlative] [:upurpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [:upurpose] in [the :shortname]. [cap :packed] with [:soundAdjective] [:upurpose] effects, [the :shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:subItemAdjective] [:subItems], [the :shortname] provides [:endless] [:creativePossibilities]. [:extra]", "[The :shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], [the :shortname] is possibly the most versatile [:upurpose] [:pedal] ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], [the :shortname] may be one of the most versatile [:upurpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, [the :shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedalAlternative].  [:extra]", "[The :shortname] re-creates the classic sound of [the :extraname1] and [:extraname2] [:pedalAlternative]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. [The :shortname] features a stereo output for [the :extraname1] effects and variable depth for [the :extraname2] effects. [:extra]", "[The :shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [:upurpose] from [#100-400] to [#401-999] and adds modern [:toneAdjNoun] and [:toneAdjNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with [the :shortname], they added a whole new dimension to their popular [:upurpose] [:pedal]. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create [the :shortname]. This versatile [:pedal] packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "[The :shortname] features [:benefitSingular], which allows it to dynamically adapt to any register. That means you get [:toneAdjNoun], [:toneAdjNoun], and [:toneAdjNoun] all across the fretboard, with [:superlative] dynamics. [:extra]", "[:brand]'s [:shortname] allows you to create [#2-100] [:performanceCharacteristics] with up to [#2-10] [:units] of high-quality performance and [:benefit]. [:extra]", "[The :shortname] sports the [:genreAdjective], [:vintage] sound that made the original a huge hit with [:genreName] guitarists decades ago. All the original magic is back with [:brand]'s reissue of this '[#5-9]0s [:pedal]. [:extra]", "Designed with [:benefit], [the :shortname] is exceptionally responsive to [:guitarTechnique]. It features [:benefit] and gives you a choice of either buffered or full bypass. [:extra]", "[The :shortname] is the [:upurpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain. [:extra]", "[:brand] packed the original [oldify :shortname] circuit into [the :shortname], so you get the same sound, controls, and guts as the full-size model. This pedalboard-friendly version [:offers] the same [:toneAdj] tones that you've heard on countless recordings, but in a smaller package. [:extra]", "[The :shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedal] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take [the :shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]", "Own the [:pedal] that started it all—the [:brand] [:shortname] is a faithful recreation of the original '[#55-70] [oldify :shortname] pedal. It has the same [:toneAdj] tone heard on early '[#7-9]0s records by [:nameOfMusician], [:nameOfMusician], and many others.", "With [#2-100] [:subItems] plus [:benefit], [the :shortname] is one of the most [:creative] and [:creative] [:upurpose] [:pedals] you could put on your pedalboard. [:extra]", "[The :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [:upurpose] tone. [:extra]", "When guitarist [:nameOfMusician] asked [:brand] to design a modern [:upurpose] pedal inspired by his go-to vintage [:upurpose], the [:effectName], they came up with [the :shortname].", "Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? [The :shortname] is the creative tool you need. There are [#2-9] [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.", "With [:benefit], [:benefit], [:benefit], and [:benefit], [the :shortname] [:soundModification]. [:extra]", "Now in a more convenient single-pedal format, the dual-mode [:shortname] is a [:toneAdj] [:upurpose] [:pedal] you'll never take off your board.", "[The :shortname] analog [:upurpose] [:pedal] is a master at sonic landscaping. [:extra]", "Strap in and prepare to fly—[the :shortname] [:purpose] [:pedal] will make your tone lift off. It features [:benefit]. [:extra]", "With its [:benefit], [the :name] delivers delightfully flexible [:effectDescription]. [:extra]", "With [:benefit] and [:benefit], [the :shortname] delivers smoother, more musical [:effectDescription] than ever. [:extra]", "When you hear how clean [the :shortname] sounds, it's hard to believe this is an all-analog pedal. Yet the sound and (more importantly) the feel of [:benefit] is unmistakeable, and there's no denying that's what this [:pedal] delivers.", "[The :shortname] puts that elusive [:effectName] tone right at your feet in a conveniently compact pedal. [:extra]", "If you want [:nameOfMusician]'s signature tone, then [:shortname] belongs in your rig. [:extra]", "[The :shortname] [:upurpose] [:pedal] can serve capably as your go-to source for [:effectName] tone stack circuitry in a pedalboard-friendly format. [:extra] Keep your tone while kicking up the [:effectDescription], with the [:shortname] [:pedal]. Modeled on that timeless, omnipresent [uncap :newcolor] [:upurpose] [:pedal], the [:shortname] lets you add a range of tones from [:oldEffect] to [:newEffect]. [:extra]", "The [:shortname] features an updated [:effectDescription] algorithm with [:benefit], plus [:benefit]. You've got it all: [:benefit], [:benefit], and [:benefit].", "Go far beyond traditional [:purposeNoun] with [the :shortname]. [:nameOfMusician] and [:nameOfMusician] swear by this [:pedal].", "[The :shortname] soaks your guitar in [:toneAdj], [:toneAdj] [:effectDescription] through [:benefit]. [:extra]", "[:shortname]'s [:benefit] will impress anyone within earshot. [:extra]", "[:shortname] offers all the tones heard on iconic records by [:nameOfMusician] and [:nameOfMusician]. The analog dry signal path and true bypass preserve your original tone.", "[The :shortname] combines [:benefit], [:benefit], [:benefit], [:benefit], and [:benefit]. [:extra]", "[The :shortname] delivers that [:toneAdj], [:toneAdj] [:effectDescription] everyone loves. [:extra]", "[The :shortname] [:soundModification] and [:soundModification] with pure analog bucket brigade goodness. [:extra]", "The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some. [:extra]"]
     }]
   },
   root2: {
     groups: [{
       tags: [],
-      phrases: ["[The :shortname] is the [uncap :purpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain."]
+      phrases: ["The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some. [:extra]"]
     }]
   },
   extra: {
     groups: [{
       tags: [],
-      phrases: ["The [:shortname] actually offers dual [:circuits] that can be configured for stereo, series, or parallel operation, and an insert function even allows you to add external effects pedals.", "And [:controls] let you [:edit] to [:perfection].", "And with [:benefit], it can turn your pedalboard into a [:sonicPlayground].", "With [:upTo] [#2-100] [:oomphs], you won't [:runOutOf] [:timeOrTone].", "[cap :edit] the [:knobsOrSwitches] for real-time expression.", "With [:benefit], the [:shortname] is one of the most comprehensive [uncap :purpose] pedals you'll find in its class.", "Looking for [:benefitSingular]? It's here. Need [:benefit]? You've got it!", "The original [oldify :shortname] is also available.", "You'll never believe you could get this level of [:toneAdjNoun] without sacrificing [:toneAdjNoun]!", "A Dynamic mode automatically adjusts to your playing for [:toneAdj] ambience that won't turn your tone to mud.", "It's also a handy power supply for your pedalboard.", "Separate dry and effect outputs allow for 2-amp setups.", "[#3-100] [:superlative] [:subItems] cover [:superlative] sounds, from [:effectName] to [:effectName], and they all sound [:superlative].", "Two footswitches and an optional 3-button controller deliver hands-free operation.", "And [:brand] put all the [:genreAdjective] power into an enclosure that will fit comfortably on any pedalboard.", "It runs on either a 9-volt battery or the included power supply.", "Its simple control layout makes dialing in the perfect tone easy.", "The more streamlined [oldify :shortname] is also available.", "An expression pedal gives you real-time control, and you can recall [#10-100] presets."]
+      phrases: ["The [:shortname] actually offers dual [:circuits] that can be configured for stereo, series, or parallel operation, and an insert function even allows you to add external effects pedals.", "And [:controls] let you [:edit] to [:perfection].", "And with [:benefit], it can turn your pedalboard into a [:sonicPlayground].", "With [:upTo] [#2-100] [:oomphs], you won't [:runOutOf] [:timeOrTone].", "[cap :edit] the [:knobsOrSwitches] for real-time expression.", "With [:benefit], [the :shortname] is one of the most comprehensive [:upurpose] pedals you'll find in its class.", "Looking for [:benefitSingular]? It's here. Need [:benefit]? You've got it!", "The original [oldify :shortname] is also available.", "You'll never believe you could get this level of [:toneAdjNoun] without sacrificing [:toneAdjNoun]!", "A Dynamic mode automatically adjusts to your playing for [:toneAdj] ambience that won't turn your tone to mud.", "It's also a handy power supply for your pedalboard.", "Separate dry and effect outputs allow for 2-amp setups.", "[#3-100] [:superlative] [:subItems] cover [:superlative] sounds, from [:effectName] to [:effectName], and they all sound [:superlative].", "Two footswitches and an optional 3-button controller deliver hands-free operation.", "And [:brand] put all the [:genreAdjective] power into an enclosure that will fit comfortably on any pedalboard.", "It runs on either a 9-volt battery or the included power supply.", "Its simple control layout makes dialing in the perfect tone easy.", "The more streamlined [oldify :shortname] is also available.", "An expression pedal gives you real-time control, and you can recall [#10-100] presets.", "It serves up [:toneAdj], [:toneAdj] [:effectDescription] with ’[#5-9]0s-style effects.", "It delivers digital and analog [:upurpose] styles any [:person] will adore.", "It features a slew of shape controls plus [:benefit].", "You can also blend in [:unrelatedEffect] and [:unrelatedEffect] for extra sonic textures.", "Four different [:oomphs] reward you with everything from [:oldEffect] to [:newEffect].", "No matter what you play, you need this pedal.", "This [:twoLetters][:twoLetters]-driven little monster is the perfect foundation of your pedalboard.", "Just toss this pedal in with your favorite [:unrelatedEffect] and [:unrelatedEffect] [:pedals], and bask in the results.", "Choose between momentary and latching switching.", "And like other [:brand] [:pedals], [the :shortname] features a latching/momentary Flexi-Switch.", "This single-wide [:upurpose] [:pedal] captures the [:toneAdjNoun] and the [:toneAdjNoun] that has made the original such a hit.", "This reduced-size version packs all the tricks, including [:benefit] and [:benefit], of its larger namesakes.", "This [:pedal] is [:effectName] mastermind [:nameOfMusician]'s take on iconic [uncap :color] [:effectDescription], best known for its [:oldEffect]."]
     }]
   }
 };
@@ -30006,6 +30041,39 @@ module.exports = {
       phrases: ["noise suppression"]
     }]
   },
+  effectDescription: {
+    groups: [{
+      tags: [],
+      phrases: ["sounds", "tone"]
+    }, {
+      tags: [["purpose", "looping"]],
+      phrases: ["sounds"]
+    }, {
+      tags: [["purpose", "tone", "reverb"]],
+      phrases: ["reverb"]
+    }, {
+      tags: [["purpose", "tone", "delay"]],
+      phrases: ["delay"]
+    }, {
+      tags: [["purpose", "tone", "eq"]],
+      phrases: ["equalization"]
+    }, {
+      tags: [["purpose", "tone", "synth"]],
+      phrases: ["synthesis"]
+    }, {
+      tags: [["purpose", "tone", "chorus"]],
+      phrases: ["chorus"]
+    }, {
+      tags: [["purpose", "tone", "vibrato"]],
+      phrases: ["vibrato"]
+    }, {
+      tags: [["purpose", "tone", "distortion"]],
+      phrases: ["fuzz", "distortion"]
+    }, {
+      tags: [["purpose", "tone", "noise"]],
+      phrases: ["noise"]
+    }]
+  },
   subItems: {
     bind: true,
     groups: [{
@@ -30031,19 +30099,19 @@ module.exports = {
   effectName: {
     groups: [{
       tags: [],
-      phrases: ["[:effectName1]", "[:effectName2]"]
+      phrases: ["[:effectNamePrefix] [:effectNameSuffix]"]
     }]
   },
-  effectName1: {
+  effectNamePrefix: {
     groups: [{
       tags: [],
-      phrases: ["Blues Driver", "Angry Kevin", "Metal Zone", "Extreme Freeze", "Soul Food"]
+      phrases: ["Blues", "Angry", "Metal", "Extreme", "Soul", "Death", "Bleak", "Instant", ""]
     }]
   },
-  effectName2: {
+  effectNameSuffix: {
     groups: [{
       tags: [],
-      phrases: ["Precision", "Death Rattle", "Bleak Zone", "Instant Kill", "Antler"]
+      phrases: ["Precision", "Driver", "Kevin", "Jim", "Freeze", "Zone", "Food", "Soul", "Rattle", "Zone", "Instant", "Antler"]
     }]
   },
   benefit: {
@@ -30055,28 +30123,34 @@ module.exports = {
   benefitSingular: {
     groups: [{
       tags: [],
-      phrases: ["serial [#2-12]-track operation", "high-quality performance", "a clean boost", "razor-sharp precision", "[:brand]'s innovative Multi-dimensional Processing technology"]
+      phrases: ["serial [#2-12]-track operation", "high-quality performance", "a clean boost", "razor-sharp precision", "[:brand]'s innovative Multi-dimensional Processing technology", "tap tempo", "smart bypass switching", "momentary knob ramp", "tap tempo with note divisions", "trio of selectable [:circuits]", "an added Tone control", "expansive stereo imaging", "a cool custom-built enclosure", "expression pedal control", "its cocktail of germanium and silicon transistors", "AB-Y functionality", "buffered tuner output", "a 20db clean boost", "an expression pedal jack for volume control"]
     }, {
       tags: [["purpose", "looping"]],
       phrases: ["unlimited overdubbing"]
     }, {
+      tags: [["purpose", "tone"]],
+      phrases: ["selectable [#1-3]- and [#4-9]-stage modes for two levels of harmonic complexity"]
+    }, {
       tags: [["purpose", "tone", "distortion"]],
-      phrases: ["edge-of-breakup, amp-style grit", "'80s-style face-melting distortion"]
+      phrases: ["edge-of-breakup, amp-style grit", "'80s-style face-melting distortion", "a dual gain staging option", "3-band EQ"]
+    }, {
+      tags: [["purpose", "tone", "delay"]],
+      phrases: ["adventurous delays and reverbs", "self-oscillation", "chewy tape-style echo"]
     }, {
       tags: [["purpose", "tone", "reverb"]],
-      phrases: ["studio-grade, hall, and plate algorithms", "vintage-style spring reverb", "modern-sounding textures"]
+      phrases: ["studio-grade, hall, and plate algorithms", "vintage-style spring reverb", "modern-sounding textures", "adventurous delays and reverbs"]
+    }, {
+      tags: [["purpose", "tone", "synth"]],
+      phrases: ["a modulated monophonic [:twoLetter] circuit"]
     }]
   },
   benefitPlural: {
     groups: [{
       tags: [],
-      phrases: ["comprehensive tone-shaping controls", "ample options for external control", "boosted power rails", "[:superlative] headroom and definition"]
-    }]
-  },
-  soundModification: {
-    groups: [{
-      tags: [],
-      phrases: ["creates the classically smoky Blues tone", "beefs up the low end and adds sustain", "sends single notes soaring into the stratosphere with razor-sharp precision"]
+      phrases: ["comprehensive tone-shaping controls", "ample options for external control", "boosted power rails", "[:superlative] headroom and definition", "[#2-9] master algorithms", "upgraded SMD components", "six time division settings"]
+    }, {
+      tags: [["purpose", "tone", "distortion"]],
+      phrases: ["three selectable gain ranges"]
     }]
   },
   pedal: {
@@ -30098,12 +30172,6 @@ module.exports = {
     }, {
       tags: [["purpose", "tone", "synth"]],
       phrases: ["synthesizer", "synth", "rack-mounted synth", "rack-mounted synthesizer"]
-    }]
-  },
-  strangeEffectAdj: {
-    groups: [{
-      tags: [],
-      phrases: ["pulsating", "wavering", "oscillating", "drooping", "rising", "sustained", "clipped"]
     }]
   },
   strangeEffectName: {
@@ -30145,7 +30213,13 @@ module.exports = {
   people: {
     groups: [{
       tags: [],
-      phrases: ["tonal adventurers", "guitar gods", "musicians", "jam freaks", "pick jockeys", "rock stars", "professionals"]
+      phrases: ["tonal adventurers", "guitar gods", "musicians", "jam freaks", "pick jockeys", "rock stars", "professionals", "tone tweakers"]
+    }]
+  },
+  person: {
+    groups: [{
+      tags: [],
+      phrases: ["tonal adventurer", "guitar god", "musician", "jam freak", "pick jockey", "rock star", "professional", "tone tweaker"]
     }]
   },
   creativePossibilities: {
@@ -30169,7 +30243,13 @@ module.exports = {
   toneAdjNoun: {
     groups: [{
       tags: [],
-      phrases: ["sweetness", "harshness", "mellowness", "warmth", "coldness", "note definition", "control", "smoothness", "grit", "edge"]
+      phrases: ["sweetness", "harshness", "mellowness", "warmth", "coldness", "note definition", "control", "smoothness", "grit", "edge", "crunchy breakup", "searing solo power", "subtle sweetening", "indefinable mojo"]
+    }]
+  },
+  unrelatedEffect: {
+    groups: [{
+      tags: [],
+      phrases: ["phase shifting", "delay", "reverb", "vibrato", "tremolo", "echo", "octave fuzz"]
     }]
   },
   performanceCharacteristics: {
@@ -30195,6 +30275,24 @@ module.exports = {
       tags: [["purpose", "looping"]],
       phrases: ["hours of recording time"]
     }, {
+      tags: [["purpose", "tone", "reverb"]],
+      phrases: ["reverb modes", "reverb algorithms"]
+    }, {
+      tags: [["purpose", "tone", "delay"]],
+      phrases: ["delay modes", "delay algorithms"]
+    }, {
+      tags: [["purpose", "tone", "eq"]],
+      phrases: ["EQ bands", "EQ algorithms"]
+    }, {
+      tags: [["purpose", "tone", "chorus"]],
+      phrases: ["chorus modes", "chorus algorithms"]
+    }, {
+      tags: [["purpose", "tone", "vibrato"]],
+      phrases: ["vibrato modes"]
+    }, {
+      tags: [["purpose", "tone", "distortion"]],
+      phrases: ["types of distortion"]
+    }, {
       tags: [["purpose", "tone"]],
       phrases: ["types of tone quality", "tiers of freshness", "oomph-factors", "tone variants"]
     }]
@@ -30217,7 +30315,7 @@ module.exports = {
       phrases: ["tape loops"]
     }, {
       tags: [["purpose", "tone", "reverb"]],
-      phrases: ["chamber reverb"]
+      phrases: ["chamber reverb", "small room reverb"]
     }, {
       tags: [["purpose", "tone", "delay"]],
       phrases: ["tape-style delays"]
@@ -30226,10 +30324,19 @@ module.exports = {
       phrases: ["analog-modeled EQ"]
     }, {
       tags: [["purpose", "tone", "synth"]],
-      phrases: ["synth simulation", "synth sounds", "synth sounds of the '70s and '80s"]
+      phrases: ["analog synth simulation", "synth sounds of the '70s and '80s"]
+    }, {
+      tags: [["purpose", "tone", "chorus"]],
+      phrases: ["simulated detuning"]
+    }, {
+      tags: [["purpose", "tone", "vibrato"]],
+      phrases: ["Leslie-induced vibrato", "juicy, whirling Leslie approximations", "liquid ’80s textures"]
     }, {
       tags: [["purpose", "tone", "distortion"]],
-      phrases: ["tube distortion"]
+      phrases: ["tube distortion", "transparently clean"]
+    }, {
+      tags: [["purpose", "tone", "noise"]],
+      phrases: ["simple gating"]
     }]
   },
   newEffect: {
@@ -30241,7 +30348,7 @@ module.exports = {
       phrases: ["MIDI-synced solo jams"]
     }, {
       tags: [["purpose", "tone", "reverb"]],
-      phrases: ["convolution reverb"]
+      phrases: ["convolution reverb", "long, modulated cascades of reflection"]
     }, {
       tags: [["purpose", "tone", "delay"]],
       phrases: ["shimmer effects"]
@@ -30252,8 +30359,17 @@ module.exports = {
       tags: [["purpose", "tone", "synth"]],
       phrases: ["effect chains", "synths made possible only by software"]
     }, {
+      tags: [["purpose", "tone", "chorus"]],
+      phrases: ["parameterized LFO"]
+    }, {
+      tags: [["purpose", "tone", "vibrato"]],
+      phrases: ["digital pitch bending"]
+    }, {
       tags: [["purpose", "tone", "distortion"]],
-      phrases: ["solid-state distortion"]
+      phrases: ["solid-state distortion", "glowing chime"]
+    }, {
+      tags: [["purpose", "tone", "noise"]],
+      phrases: ["algorithm-assisted waveform shaping"]
     }]
   },
   circuits: {
@@ -30269,39 +30385,9 @@ module.exports = {
     }, {
       tags: [["purpose", "tone", "synth"]],
       phrases: ["voices"]
-    }]
-  },
-  effectDescription: {
-    groups: [{
-      tags: [],
-      phrases: ["sounds", "tones"]
-    }, {
-      tags: [["purpose", "looping"]],
-      phrases: ["loops"]
-    }, {
-      tags: [["purpose", "tone", "reverb"]],
-      phrases: ["tone"]
-    }, {
-      tags: [["purpose", "tone", "delay"]],
-      phrases: ["repeats"]
-    }, {
-      tags: [["purpose", "tone", "eq"]],
-      phrases: ["tone"]
-    }, {
-      tags: [["purpose", "tone", "synth"]],
-      phrases: ["tone"]
-    }, {
-      tags: [["purpose", "tone", "chorus"]],
-      phrases: ["tone"]
-    }, {
-      tags: [["purpose", "tone", "vibrato"]],
-      phrases: ["tone"]
     }, {
       tags: [["purpose", "tone", "distortion"]],
-      phrases: ["tone"]
-    }, {
-      tags: [["purpose", "tone", "noise"]],
-      phrases: ["tone"]
+      phrases: ["selectable clipping diodes"]
     }]
   }
 };
@@ -30394,7 +30480,13 @@ module.exports = {
   toneAdj: {
     groups: [{
       tags: [],
-      phrases: ["sweet", "harsh", "mellow", "warm", "cold", "ear-catching", "lush", "rich", "creamy", "violin-like", "gnarly", "grungy", "gritty", "smooth", "clean", "dirty", "chunky", "spacey", "singing", "raunchy", "ratty", "punchy", "meaty", "thick"]
+      phrases: ["sweet", "harsh", "mellow", "warm", "cold", "ear-catching", "lush", "rich", "creamy", "violin-like", "gnarly", "grungy", "gritty", "smooth", "clean", "dirty", "chunky", "spacey", "singing", "raunchy", "ratty", "punchy", "meaty", "thick", "musical", "searing", "crunchy", "harmonically rich"]
+    }]
+  },
+  strangeEffectAdj: {
+    groups: [{
+      tags: [],
+      phrases: ["pulsating", "wavering", "oscillating", "drooping", "rising", "sustained", "clipped"]
     }]
   },
   genreAdjective: {
@@ -30453,6 +30545,12 @@ module.exports = {
       tags: [],
       phrases: ["offers", "provides", "gives you", "serves up"]
     }]
+  },
+  soundModification: {
+    groups: [{
+      tags: [],
+      phrases: ["creates the classically smoky [:genreName] tone", "beefs up the low end", "adds sustain", "sends single notes soaring into the stratosphere with razor-sharp precision", "covers a broad tonal spectrum", "enchants riffs", "fortifies leads"]
+    }]
   }
 };
 },{}],"src/improvgrammar/nameOfMusician.yaml":[function(require,module,exports) {
@@ -30460,7 +30558,7 @@ module.exports = {
   nameOfMusician: {
     groups: [{
       tags: [],
-      phrases: ["Johnny A.", "Abbath Doom Occulta", "\"Dimebag\" Darrell Abbott", "Drew Abbott", "John Abercrombie", "Aaron \"El Hefe\" Abeyta", "Mick Abrahams", "William Ackerman", "Bryan Adams", "Jay Boy Adams", "Stuart Adamson", "Marcus Adoro", "Lily Afshar", "Dionisio Aguado", "Salman Ahmad", "Mikael Åkerfeldt", "Fredrik Åkesson", "Jan Akkerman", "Damon Albarn", "Nate Albert", "Steve Albini", "Art Alexakis", "Michael Algar", "Carson Allen", "Kris Allen", "Paul Allender", "Duane Allman", "Laurindo Almeida", "Carlos Alomar", "Vicente Amigo", "Michael Amott", "Christopher Amott", "Trey Anastasio", "Ian Anderson", "Muriel Anderson", "Magnus Andersson", "Nicke Andersson", "André 3000", "Jake Andrews", "Faraz Anwar", "Gem Archer", "Jamie Arentzen", "Joan Armatrading", "Armik", "Billie Joe Armstrong", "Tim Armstrong", "Joseph Arthur", "Paul Arthurs", "Jeff Arwadi", "Daniel Ash", "DJ Ashba", "Peter Asher", "Ron Asheton", "Gwyn Ashton", "John Ashton", "Sérgio Assad", "Gustavo Assis-Brasil", "Chet Atkins", "Paul Atkinson", "Dan Auerbach", "Doug Aldrich", "Baden Powell de Aquino", "Jim Babjak", "Ayub Bachchu", "Matt Bachand", "Randy Bachman", "Derek Bailey", "Dave Bainbridge", "Ian Bairnson", "Brian Baker", "Mickey Baker", "Dave Baksh", "David Ball", "Balsac the Jaws of Death", "Bruce Bouillet", "Terry Balsamo", "Perry Bamonte", "Devendra Banhart", "Benji Madden", "Paul Banks", "Peter Banks", "Carl Barât", "Barbecue Bob", "Warren Barfield", "Don Barnes", "Mick Barr", "Martin Barre", "Paul Barrere", "Aaron Barrett", "Syd Barrett", "Agustín Barrios", "Nicholas Barron", "Steve Bartek", "Desireé Bassett", "Michael Angelo Batio", "Jennifer Batten", "Roland Bautista", "Jeff \"Skunk\" Baxter", "Brendan Bayliss", "Eric Bazilian", "Reb Beach", "Michael Bearpark", "Corey Beaulieu", "Beck", "Jeff Beck", "Joe Beck", "Justin Beck", "Joe Becker", "Jason Becker", "Walter Becker", "Peter Beckett", "Johanna Beisteiner", "Adrian Belew", "Drake Bell", "Brian Bell", "Eric Bell", "J.J. Belle", "Matthew Bellamy", "Roni Benise", "Bob Bennett", "Chester Bennington", "Brendan Benson", "George Benson", "Miki Berenyi", "Peter Bernstein", "Chuck Berry", "Guy Berryman", "Gene Bertoncini", "Nuno Bettencourt", "Dickey Betts", "Randall Bewley", "Bo Bice", "Big Tom", "Kat Bjelland", "Anders Björler", "Ivar Bjørnson", "Clint Black", "Jack Black", "Ryland Blackinton", "Ritchie Blackmore", "Alfonzo Blackwell", "Tony Blair", "Zach Blair", "Blind Blake", "Norman Blake", "Norman Blake", "Ron Block", "Conny Bloom", "Mike Bloomfield", "Bob Bogle", "Marc Bolan", "Marcie Bolen", "Tommy Bolin", "Joe Bonamassa", "Bono", "Nicke Borg", "Adrian Borland", "Wes Borland", "Mark Boston", "Jean-Paul Bourelly", "Tony Bourge", "James Bourne", "Pierre Bouvier", "Robert Bowlin", "James Bowman", "Will Boyd", "Mick Box", "James Dean Bradfield", "Michelle Branch", "Laurent Brancowitz", "Srđan Branković", "Vito Bratta", "Creed Bratton", "Jacques Brautbar", "Julian Bream", "Lenny Breau", "Thomas Bredahl", "Thom Bresh", "Paul Brett", "Mike Brewer", "John Brewster", "Lincoln Brewster", "Vic Briggs", "Terry Britten", "Chris Broderick", "Dave Brock", "Isaac Brock", "David Bromberg", "Devin Bronson", "Michael Brook", "Garth Brooks", "Kix Brooks", "Meredith Brooks", "Big Bill Broonzy", "Bobby Broom", "Ethan Brosh", "Eric Brosius", "Mike Brown", "Jackson Browne", "Bob Brozman", "Norman Brown", "Oli Brown", "Michael Bruce", "Jimmy Bruno", "Mark Bryan", "Roy Buchanan", "Peter Buck", "Buckethead", "Lindsey Buckingham", "Jonny Buckland", "Jeff Buckley", "Ely Buendia", "Jimmy Buffett", "Charlie Burchill", "Ben Burnley", "Christian Burns", "Jake Burns", "Vinny Burns", "R. L. Burnside", "Kenny Burrell", "James Burton", "Kristian Bush", "Bernard Butler", "John Butler", "Jonathan Butler", "Glen Buxton", "Roddy \"Radiation\" Byers", "Charlie Byrd", "David Byrne", "Fito Cabrales", "Kevin Cadogan", "Chris Caffery", "Charlotte Caffey", "Paul Caiafa", "Colbie Caillat", "Al Caiola", "JJ Cale", "Randy California", "Jo Callis", "Mateo Camargo", "Greg Camp", "Jeremy Camp", "Glen Campbell", "Mike Campbell", "Phil Campbell", "Royce Campbell", "Vivian Campbell", "Mike Campese", "Jim Campilongo", "Jerry Cantrell", "Joey Cape", "Matteo Carcassi", "Larry Carlton", "Jesse Carmichael", "Stephen Carpenter", "Pete Carr", "Chris Carrabba", "Kim Carroll", "John Valentine Carruthers", "Maybelle Carter", "Ferdinando Carulli[1]", "Neko Case", "Al Casey", "Al Casey", "Johnny Cash", "Nick Catanese", "Philip Catherine", "Stephen Caudel", "Max Cavalera", "Dino Cazares", "Danny Cedrone", "Gustavo Cerati", "Franco Cerri", "Nic Cester", "Yavuz Çetin", "Eugene Chadbourne", "António Chainho", "Bill Champlin", "Eason Chan", "Jaycee Chan", "Jerry Chang", "Gary Chapman", "Manny Charlton", "Charo", "David T. Chastain", "Rhys Chatham", "Chris Cheney", "Andrew Cheshire", "Phil Chevron", "Moraito Chico", "Michael Guy Chislett", "Jay Chou", "John Christ", "Charlie Christian", "Stephen Christian", "Popa Chubby", "Martin Cilia", "Jake Cinninger", "John Cipollina", "Liam Clancy", "Eric Clapton", "Angus Clark", "Mike Clark", "Roy Clark", "Steve Clark", "\"Fast\" Eddie Clarke", "Gilby Clarke", "Frank Claussen", "Zal Cleminson", "Henry Cluney", "Kurt Cobain", "Eddie Cochran", "Stephen Cochran", "Bruce Cockburn", "Leonard Cohen", "Sam Cohen", "Jesse Colburn", "Deborah Coleman", "Phil Collen", "Ned Collette", "Chris Collingwood", "Albert Collins", "Allen Collins", "John Collins", "Paul Collins", "Paul Colman", "Gary Lee Conner", "John Connolly", "Bill Connors", "Nico Constantine", "Steve Conte", "Ry Cooder", "Jamie Cook", "Jesse Cook", "Kyle Cook", "Rusty Cooley", "Gaz Coombes", "Korey Cooper", "John Corabi", "Francesco Corbetta", "Easton Corbin", "Billy Corgan", "Chris Cornell", "Gene Cornish", "Hugh Cornwell", "Jim Corr", "Larry Coryell", "Miranda Cosgrove", "Yamandu Costa", "Napoléon Coste", "Sean Costello", "Elizabeth Cotten", "Jeff Cotton", "Andy Cox", "Graham Coxon", "Jonathan Coulton", "Steve Cradock", "Andrew Craighan", "Philo Cramer", "Dan Crary", "Robert Cray", "Marshall Crenshaw", "Jim Croce", "Kevin Cronin", "Jason Cropper", "Steve \"The Colonel\" Cropper", "David Crosby", "Robbin Crosby", "Sheryl Crow", "Allison Crowe", "András Csáki", "Josh Cunningham", "Rivers Cuomo", "Shannon Curfman", "John Curulewski", "Billy Ray Cyrus", "Miley Cyrus", "Trace Cyrus", "Britt Daniel", "Dante DeCaro", "Denis D’Amour", "Donnie Dacus", "Marcel Dadi", "Aaron Dalbec", "Dick Dale", "Brody Dalle", "Sean Danielsen", "Jol Dantzig", "Glenn Danzig", "Lenny Davidson", "Dave Davies", "Ray Davies", "Brad Davis", "Reverend Gary Davis", "Jesse Ed Davis", "Keeley Davis", "Maura Davis", "Mike Davis", "Christopher Dean", "Mahyar Dean", "Nicolas de Angelis", "Chris de Burgh", "Marco Aurelio Zani de Ferranti", "Chris DeGarmo", "Vance DeGeneres", "Dean DeLeo", "Tom DeLonge", "Warren DeMartini", "Dave Dederer", "Brad Delson", "Paul Dempsey", "Tommy Denander", "Duane Denison", "Tom Denney", "John Denver", "Johnny Depp", "Amir Derakh", "Rick Derringer", "Jason De Ron", "Marko DeSantis", "C.C. DeVille", "Mat Devine", "Roberto Diana", "Dennis \"Denny\" Dias", "Alirio Díaz", "Diblo Dibala", "Bo Diddley", "Dido", "Die", "Ani DiFranco", "Steve Diggle", "Al Di Meola", "Pete Doherty", "Peter Dolving", "Dan Donegan", "Donovan", "Edsel Dope", "Paul Dorrington", "Paul Doucette", "Captain Kirk Douglas", "Jerry Douglas", "K. K. Downing", "Dr. Know", "Nick Drake", "Pete Drake", "Dregen", "Bruce Driscoll", "Glen Drover", "Steven Drozd", "Ian D’Sa", "Chris Duarte", "Les Dudek", "Billy Duffy", "Jan Dumée", "Tom Dumont", "Gary Duncan", "Andy Dunlop", "Ronnie Dunn", "Kyle Bobby Dunn", "Francis Dunnery", "Jesse James Dupree", "Sherri DuPree", "William DuVall", "Adam Dutkiewicz", "Roland Dyens", "Doyle Dykes", "Bob Dylan", "Jakob Dylan", "Jerry Donahue", "Ronnie Earl", "Steve Earle", "Elliot Easton", "Duane Eddy", "The Edge", "Dave Edmunds", "Kathleen Edwards", "Nokie Edwards", "Richie Edwards", "Kian Egan", "Stephen Egerton", "Eduardo Egüez", "Hucky Eichelmann", "Mike Einziger", "Tripp Eisen", "Mattias Eklundh", "Danny Elfman", "Dolan Ellis", "Herb Ellis", "John Ellis", "Justin Emerle", "Tommy Emmanuel", "Rik Emmett", "John Engelbert", "Eric Erlandson", "Sully Erna", "Omar Espinosa", "Esteban", "Kevin Eubanks", "Euronymous", "Dennis Eveland", "Jason Everman", "John Fahey", "Craig Fairbaugh", "Bruce Fairweather", "Nick Falcon", "Todd Fancey", "Bernard Fanning", "Tal Farlow", "Mark Farner", "John Farrar", "Andrew Farriss", "Tim Farriss", "Josh Farro", "Eric Faulkner", "Newton Faulkner", "Don Felder", "José Feliciano", "Jay Ferguson", "Jeremy \"Jinxx\" Ferguson", "Jim Ferguson", "Dean Fertita", "Roger C. Field", "Scott Fields", "Zach Filkins", "Robin Finck", "Jon Finn", "Michael Lee Firkins", "Jörg Fischer", "Roger Fisher", "Bradley Fish", "Eliot Fisk", "Warren Fitzgerald", "John Flansburgh", "Lester Flatt", "Flattus Maximus", "Tom Fletcher", "Brandon Flowers", "Robb Flynn", "William Foden", "John Fogerty", "Tom Fogerty", "Ben Folds", "Sue Foley", "Jerome Fontamillas", "Lita Ford", "Marc Ford", "Robben Ford", "Chris Foreman", "Jon Foreman", "Richard Fortus", "François de Fossa", "Rick Foster", "Alex Fox", "Oz Fox", "Les Fradkin", "Peter Frampton", "Black Francis", "Lars Frederiksen", "Ace Frehley", "Jay Jay French", "Glenn Frey", "Matthew Friedberger", "Marty Friedman", "Bill Frisell", "Robert Fripp", "Fred Frith", "Edgar Froese", "Uri Frost", "John Frusciante", "Koichi Fukuda", "Bobby Fuller", "Jim Fuller", "Justin Furstenfeld", "Nelly Furtado", "Magne Furuholmen", "Steve Gaines", "Declan Galbraith", "Eric Gale", "Eric Gales", "Noel Gallagher", "Rory Gallagher", "Shane Gallagher", "Cliff Gallup", "Frank Gambale", "Tim Gane", "Sunil Ganguly", "Charly García", "Enrik Garcia", "Jerry Garcia", "Ricardo Garcia", "Chuck Garvey", "Kyle Gass", "Diego del Gastor", "Synyster Gates", "Danny Gatton", "Dick Gaughan", "Björn Gelotte", "Vicki Genfan", "Antony Genn", "Dave Genn", "Lowell George", "Rocky George", "Janick Gers", "Per Gessle", "Andy Gibb", "Barry Gibb", "Maurice Gibb", "Ben Gibbard", "Billy Gibbons", "Gilberto Gil", "Paul Gilbert", "João Gilberto", "Daniel Gildenlöw", "Nick Gilder", "Brad Gillis", "David Gilmour", "Vince Gill", "Gordon Giltrap", "Greg Ginn", "Chad I Ginsburg", "Mauro Giuliani", "George Gobel", "Nicolas Godin", "Mircea Gogoncea", "Lynval Golding", "Sander Gommans", "Pier Gonella", "Adam Gontier", "Dave Gonzalez", "José González", "Pedro Javier González", "Myles Goodwyn", "Nina Gordon", "Martin Gore", "Scott Gorham", "Grisha Goryachev", "Chris Goss", "Stone Gossard", "Manuel Göttsching", "Johnny Goudie", "Ellie Goulding", "Guthrie Govan", "Laura Jane Grace", "Gerhard Graf-Martinez", "Davey Graham", "Amy Grant", "James Grant", "Rocky Gray", "Jay Graydon", "Doug Grean", "Boris Grebenshchikov", "Dallas Green", "Freddie Green", "Gary Green", "Grant Green", "Peter Green", "Ted Greene", "Norman Greenbaum", "Alex Greenwald", "Brian Greenway", "Jonny Greenwood", "Dave Gregory", "David Grier", "Ryan Griffiths", "Carl Johan Grimmark", "Dave Grohl", "Stefan Grossman", "Luther Grosvenor", "Todd Grubbs", "Lalo Guerrero", "Guinga", "Michael Gulezian", "Trey Gunn", "Tracii Guns", "Brett Gurewitz", "James Gurley", "Michael Gurley", "Gus G", "Buddy Guy", "Steve Hackett", "Amir-John Haddad", "Ivar Haglund", "Bill Haley", "GP Hall", "Jim Hall", "Kristen Hall", "Johan Hallgren", "Mary Halvorson", "Mike Hamilton", "Page Hamilton", "Shannon Hamm", "Chuck Hammer", "Kirk Hammett", "Peter Hammill", "Albert Hammond, Jr.", "Michael Hampton", "Jeff Hanneman", "Brian Haner Sr.", "Frank Hannon", "Andrew Hansen", "Kai Hansen", "Isaac Hanson", "Joel Hanson", "Fareed Haque", "Bob Hardy", "Bill Harkleroad", "Jessica Harp", "Ben Harper", "Nick Harper", "Roy Harper", "Dhani Harrison", "George Harrison", "Jerry Harrison", "Mark Hart", "Bob Hartman", "Les Harvey", "PJ Harvey", "Pye Hastings", "Charlotte Hatherley", "Ian Haug", "Dan Hawkins", "Justin Hawkins", "Nick Hawkins", "Colin Hay", "Hiroyuki Hayashi", "Peter Hayes", "Warren Haynes", "Dave Haywood", "Eddie Hazel", "Pete Haycock", "Justin Hayward", "Matt Heafy", "Jeff Healey", "Kevin Hearn", "Jim \"Reverend Horton\" Heath", "Charles Hedger", "Michael Hedges", "Christian Hejnal", "Scott Henderson", "Jimi Hendrix", "Don Henley", "Ken Hensley", "James Hetfield", "Greg Hetson", "Nick Hexum", "MJ Hibbett", "Tony Hicks", "hide", "Johnny Hiland", "Steve Hillage", "Tyler Hilton", "Brent Hinds", "Robert \"Bucket\" Hingley", "Tom Hingley", "Paul Hinojos", "Taka Hirose", "Joel Hoekstra", "Jules Hodgson", "Roger Hodgson", "Gary Hoey", "Susanna Hoffs", "Wolf Hoffmann", "James Hogan", "Randy Holden", "Allan Holdsworth", "Dexter Holland", "Justin Holland", "Buddy Holly", "Joshua Homme", "James Honeyman-Scott", "Matt Hoopes", "Mary Hopkin", "Doug Hopkins", "Lightnin’ Hopkins", "Mark Hoppus", "Keith Hopwood", "Rita Hosking", "Tomoyasu Hotei", "Jimmy Hotz", "Son House", "Michael Houser", "Greg Howe", "Steve Howe", "Billy Howerdel", "Keith Howland", "C. B. Hudson,", "Dann Huff", "Jesse Hughes", "Steve Hunter", "Mississippi John Hurt", "Wayne Hussey", "Eric Hutchinson", "Mick Hucknall", "Eugene Hütz", "Hyde", "Chrissie Hynde", "Scott Ian", "Angel Ibarra", "Billy Idol", "Frank Iero", "James Iha", "Ihsahn", "Chris Impellitteri", "Elliot Ingber", "Roberto Iniesta", "Inoran", "Tony Iommi", "Donnie Iris", "Sharon Isbin", "Arve Isdal", "Ichiro Ito", "Maja Ivarsson", "Anders Iwers", "Matthias Jabs", "Ramon Jacinto", "Alan Jackson", "Paul Jackson, Jr.", "Stevie Jackson", "Tito Jackson", "Elmore James", "Skip James", "Spencer James", "Tony James", "Phil Jamieson", "James Williamson", "Jandek", "Bert Jansch", "Al Jardine", "Ron Jarzombek", "Wyclef Jean", "Blind Lemon Jefferson", "Stephan Jenkins", "JerryC", "Joan Jett", "Antônio Carlos Jobim", "Heri Joensen", "Alain Johannes", "Lars-Olof Johansson", "John 5", "Daniel Johns", "Carlos Johnson", "Eric Johnson", "Jack Johnson", "Jimmy Johnson", "Kelly Johnson", "Mike Johnson", "Robert Johnson", "Wayne Johnson", "Wilko Johnson", "Blind Willie Johnson", "Tom Johnston", "Davey Johnstone", "Ruud Jolie", "Nick, Kevin and Joe Jonas", "Adam Jones", "Buddy Jones", "Brian Jones", "Daniel Jones", "Danny Jones", "Kelly Jones", "Mick Jones", "Mick Jones", "Rod Jones", "Stacy Jones", "Steve Jones", "Stanley Jordan", "Joey Jordison", "Ben Jorgensen", "John Jorgenson", "Juanes", "Sungha Jung", "Tyler Joseph", "Kapil Srivastava", "Ledward Kaapana", "Kaoru", "Alex Kapranos", "Andre \"Virus\" Karkos", "Billy Karren", "Dr Nico Kasanda", "Ben Kasica", "Terry Kath", "Jorma Kaukonen", "Ryo Kawasaki", "John Kay", "Lenny Kaye", "Phil Keaggy", "Toby Keith", "Bill Kelliher", "Dave Kelly", "Gary Kemp", "Ken Kitamura", "David Kennedy", "Big Kenny", "Barney Kessel", "Daniel Kessler", "Dave Keuning", "Ryan Key", "Herbert Khaury", "Jewel Kilcher", "Cheyenne Kimball", "Albert King", "B.B. King", "Ben King", "Dave King", "Ed King", "Freddie King", "Justin King", "Kaki King", "Kerry King", "Donald Kinsey", "Bill Kirchen", "Pat Kirtley", "Ezra Koenig", "Kôji Kiriki", "Jon Klein", "Frank Klepacki", "Forrest Kline", "Josh Klinghoffer", "Scott Klopfenstein", "Earl Klugh", "Larry Knechtel", "David Knopfler", "Mark Knopfler", "Jeffrey Kollman", "George Kooymans", "Peter Koppes", "Alexis Korner", "Pasi Koskinen", "Paul Kostabi", "Leo Kottke", "Richie Kotzen", "Wayne Kramer", "Norbert Krief", "Robby Krieger", "Chad Kroeger", "Richard Kruspe", "Andrei Krylov", "Jan Kuehnemund", "Damian Kulash", "Bruce Kulick", "Irina Kulikova", "Dave Kushner", "Paul Kossoff", "Jesse Lacey", "Patrick Lachman", "Julian Lage", "Alexi Laiho", "Denny Laine", "Shawn Lane,", "Ler LaLonde", "Miranda Lambert", "Paul Landers", "Yuri Landman", "Michael Landau", "Jonny Lang", "Tito Larriva", "Marit Larsen", "Andrew Latimer", "Roope Latvala", "Hugh Laurie", "Antonio Lauro", "Adam Lazzara", "Bernie Leadon", "Fin Leavell", "Derek Leckenby", "John LeCompt", "Albert Lee", "Alex Lee", "Alvin Lee", "Jake E. Lee", "Shane Lee", "Thomas Leeb", "Troy Van Leeuwen", "Sébastien Lefebvre", "Adrian Legg", "John Lennon", "Julian Lennon", "Sean Lennon", "Stefano Lentini", "Deke Leonard", "Lettie", "Jared Leto", "Adam Levine", "Vaden Todd Lewis", "Aaron Lewis", "Bob Lewis", "Matty Lewis", "Herman Li", "Ottmar Liebert", "Alex Lifeson", "Jani Liimatainen", "John Lilley", "Rickey Lime", "Charley Lincoln", "Hal Lindes", "David Lindley", "Peter Lindgren", "Mikko Lindström", "Buzzy Linhart", "Jeff Linsky", "Sead Lipovača", "Russell Lissack", "Kerry Livgren", "Duncan Lloyd", "Lazer Lloyd", "Richard Lloyd", "Robert Lockwood, Jr.", "Chuck Loeb", "Lisa Loeb", "Pete Loeffler", "Nils Lofgren", "Karl Logan", "Kenny Loggins", "John Lombardo", "Jeff Loomis", "Dang Ngoc Long", "Joe Long", "Sami Lopakka", "Courtney Love", "Demi Lovato", "Clint Lowery", "Scott Lucas", "Paco de Lucía", "Steve Lukather", "Jean-Baptiste Lully", "George Lynch", "Jeff Lynne", "Jimmy Lyon", "Bob Log III", "Tony MacAlpine", "Colin MacDonald", "Lonnie Mack", "Brian \"Too Loud\" MacLeod", "Doug Macleod", "Wade MacNeil", "Benji Madden", "Madonna", "Jari Mäenpää", "Taj Mahal", "Raine Maida", "Wolf Mail", "Daron Malakian", "Stephen Malkmus", "Gui Mallon", "Yngwie Malmsteen", "Russell Malone", "Mana Mana", "Harvey Mandel", "Julian Mandrake,", "James Mankey", "Phil Manzanera", "Kee Marcello", "Carlo Marchione", "Frank Marino", "Steve Marker", "Bob Marley", "Del Marquis", "Johnny Marr", "Steve Marriott", "Mick Mars", "Bernie Marsden", "Gerry Marsden", "James Marsters", "Billy Martin", "Chris Martin", "Jim Martin", "Pat Martino", "Dave Martone", "John Martyn", "Hank Marvin", "J Mascis", "Brent Mason", "Dave Mason", "Lucio Matarazzo", "Tak Matsumoto", "Dave Matthews", "Lee Mavers", "Brian May", "John Mayer", "Sonny Mayo", "Steve Mazur", "Nick McCabe", "Ian McCallum", "John McCarthy", "Nick McCarthy", "Paul McCartney", "Chris McCaughan", "George McConnell", "Andy McCoy", "Hugh McCracken", "Mike McCready", "Danny McCulloch", "Jimmy McCulloch", "Jennette McCurdy", "Richie McDonald", "Mississippi Fred McDowell", "Eric McFadden", "John McFee", "John McGeoch", "Tim McGraw", "Roger McGuinn", "Tim McIlrath", "James McIlroy", "Duff McKagan", "Al McKay", "John McKay", "Andy McKee", "Sarah McLachlan", "John McLaughlin", "Troy McLawhorn", "Tony McManus", "El McMeen", "John McNally", "Tony McPhee", "Dave McPherson", "Michelle Meldrum", "Colin Meloy", "Katie Melua", "Eric Melvin", "Wendy Melvoin", "Johann Kaspar Mertz", "Italo Meschi", "Memphis Minnie", "Eddie Mesa", "Naser Mestarihi", "Pat Metheny", "Jesse Michaels", "Alyson Michalka", "Amanda Michalka", "Darren Middleton", "Qaasim Middleton", "Radomir Mihailović", "Tomo Miličević", "Amy Millan", "Deron Miller", "Dominic Miller", "Jerry Miller", "Marcus Miller", "Roger Miller", "Steve Miller", "Nuno Mindelis", "Ben Mink", "Federico Miranda", "Roman Miroshnichenko", "Tom Misch", "Joni Mitchell", "Kim Mitchell", "Miyavi", "Jim Moginie", "Brian Molko", "Michael Monarch", "Erik Mongrain", "Wes Montgomery", "Carlos Montoya", "Ronnie Montrose", "Gary Moore", "Nathan Moore", "Scotty Moore", "Thurston Moore", "Vinnie Moore", "Craig Morgan", "Shaun Morgan", "Tom Morello", "Marc Moreland", "Chino Moreno", "Ruthie Morris", "Sterling Morrison", "Steve Morse", "Howard Moss", "Jason Moss", "Bob Mothersbaugh", "Bob Mould", "Xavier Moyano", "Jason Mraz", "Alonso Mudarra", "Cameron Muncey", "Billy Mure", "James Murphy", "Matt \"Guitar\" Murphy", "Dave Mustaine", "Dave Murray", "Roberto Musci", "Brad Myers", "Zach Myers", "Gary Myrick", "Jimmy Nail", "Miyu Nagase", "Randy Napoleon", "Graham Nash", "Dave Navarro", "Joe Negri", "Simon Neil", "Ricky Nelson", "Willie Nelson", "Michael Nesmith", "Mike Ness", "Ira Newborn", "Carl Newman", "Grant Nicholas", "Craig Nicholls", "Rick Nielsen", "Willie Nile", "John Nolan", "Noodle", "Noodles", "Paul Noonan", "Aaron North", "John Norum", "Bradley Nowell", "Ted Nugent", "Ed O’Brien", "Mark O’Connor", "Richard Oakes", "John Oates", "Ric Ocasek", "Frank Ocean", "Erkan Oğur", "Eddie Ojeda", "Kele Okereke", "André Olbrich", "Mike Oldfield", "Criss Oliva", "Stefan Olsdal", "Ami Onuki", "Jason Orange", "Roy Orbison", "Orianthi", "Marc Orrell", "Jim O’Rourke", "Roland Orzabal", "Buzz Osborne", "Emily Osment", "Steve Ouimette", "Ryo Owatari", "Niccolò Paganini", "Jimmy Page", "Steven Page", "Michael Paget", "Clive Painter", "Brad Paisley", "Orianthi Panagaris", "Jett Pangan", "Paulinho Nogueira", "Richard Palmer", "Rick Parfitt", "Charlie Parra del Riego", "Russ Parrish", "Andy Partridge", "Joe Pass", "Ralph Patt", "Pappo", "Les Paul", "Tom Paxton", "Jeff Pearce", "Paco Peña", "Mike Pender", "Kirk Pengilly", "Patrick Pentland", "Raymond \"East Bay Ray\" Pepperell", "Heitor Teixeira Pereira", "Franky Perez", "Andreas Paolo Perger", "Carl Perkins", "Luther Perkins", "Joe Perry", "Linda Perry", "Eric Peterson", "Vicki Peterson", "Gregori Chad Petree", "John Petrucci", "Tom Petty", "River Phoenix", "Jonny Phillips", "Anthony Phillips", "Yannis Philippakis", "Yosi Piamenta", "Dave Pino", "Al Pitrelli", "Jake Pitts", "Bucky Pizzarelli", "Sergio Pizzorno", "Joel Plaskett", "Dean Pleasants", "Morris Pleasure", "Lex Plotnikoff", "Chris Poland", "Nick Pollock", "Alberto Ponce", "Iggy Pop", "Ana Popović", "Jody Porter", "Michael Poulsen", "Andy Powell", "Chet Powers", "Kid Congo Powers", "Dougie Poynter", "Christophe Pratiffi", "Sam Prekop", "Elvis Presley", "Igor Presnyakov", "Prince", "Didi Priyadi", "Jade Puget", "Martin Pugh", "Gian Pyres", "Robert Quine", "Raphael Rabello", "Ronald Radford", "Eddie Rabbitt", "Trevor Rabin", "Gerry Rafferty", "Melvin \"Wah-Wah Watson\" Ragin", "Bonnie Raitt", "Mick Ralphs", "Eros Ramazzotti", "Johnny Ramone", "Federico Ramos", "Val Ramos", "Lee Ranaldo", "Elliott Randall", "Jimmy Raney", "Søren Rasted", "Marion Raven", "Chris Rea", "Ray Reach", "Jaret Reddick", "Dusty Redmon", "Lou Reed", "Preston Reed", "Vernon Reid", "Vini Reilly", "Django Reinhardt", "Keith Relf", "Emily Remler", "John Renbourn", "Tim Renwick", "Marco Restrepo", "Paul Reynolds", "Sheldon Reynolds", "Tim Reynolds", "Trent Reznor", "Randy Rhoads", "Red Rhodes", "Marc Ribot", "Damien Rice", "Tony Rice", "John Rich", "Cliff Richard", "Keith Richards", "Max Richards", "Gary Richrath", "Michael Ricketts", "Mike Riggs", "Marc Riley", "Rafael Riqueni", "Lee Ritenour", "Jesse Rivest", "Janet Robin", "Jason Roberts", "Allison Robertson", "Brian Robertson", "Ed Robertson", "Robbie Robertson", "Rowan Robertson", "Rich Robinson", "Andrea Rocca", "Flavio Rodrigues", "Silvio Rodríguez", "Omar Rodríguez-López", "Donald \"Buck Dharma\" Roeser", "Roy Rogers", "Roy Rogers", "Lawson Rollins", "Tony Rombola", "Michael Romeo", "Pepe Romero", "Joe Romersa", "Ludovico Roncalli", "Mick Ronson", "Joe Don Rooney", "James Root", "Axl Rose", "Kurt Rosenwinkel", "Andy Ross", "Don Ross", "Ryan Ross", "Gavin Rossdale", "Francis Rossi", "Gregory Doc Rossi", "Gary Rossington", "Robert Roth", "Uli Jon Roth", "Steve Rothery", "Martin Rotsey", "Andy Rourke", "Spookey Ruben", "Darius Rucker", "Javier Ruibal", "Todd Rundgren", "Otis Rush", "David Russell", "Kamil Rustam", "Erik Rutan", "Mike Rutherford", "Paul Ryan", "Terje Rypdal", "Johnny Rzeznik", "Sabicas", "Greg Sage", "Flavio Sala", "Stevie Salas", "Richie Sambora", "Samoth", "Claudio Sanchez", "Justin Sandercoe", "Justin Sane", "Manolo Sanlúcar", "Carlos Santana", "Adam Sandler", "Tommy Sands", "Tommy Sands", "Giuliano Sangiorgi", "Joey Santiago", "Blues Saraceno", "Yağmur Sarıgül", "Satchel", "Manabu Satô", "Joe Satriani", "Boz Scaggs", "Matt Scannell", "Craig Scanlon", "Roger Scannura", "Wes Scantlin", "Jon Schaffer", "Marcus Siepen", "Michael Schenker", "Rudolf Schenker", "Helge Schneider", "Al Schnier", "Tom Scholz", "Neal Schon", "Chuck Schuldiner", "Knut Schreiner", "Robert Schwartzman", "Blake Schwarzenbach", "John Scofield", "Andy Scott", "Dominic Scott", "Howard E. Scott", "Keith Scott", "Bob Seger", "Anna Sentina", "Wayne Sermon", "Fred \"Sonic\" Smith", "Andrés Segovia", "John Sekula", "Gabe Serbian", "Juan Serrano", "Leo Setiawan", "Brian Setzer", "Charlie Sexton", "James Shaffer", "Del Shannon", "Tommy Shannon", "Dave Sharp", "Elliott Sharp", "Todd Sharpville", "Kim Shattuck", "Tommy Shaw", "Ed Sheeran", "Pete Shelley", "Blake Shelton", "Louis Shelton", "Kenny Wayne Shepherd", "Nick Sheppard", "Rodney Sheppard", "Rabbi Shergill", "Jeff Sherman", "Billy Sherwood", "Kevin Shields", "Scott Shields", "Chris Shiflett", "Mike Shinoda", "Drew Shirley", "Jon Siebels", "Alejandro Silva", "Charlie Simpson", "Matt Skiba", "Tim Sköld", "Alex Skolnick", "Skwisgaar Skwigelf", "Acey Slade", "Mike Slamer", "Slash", "Martin Slattery", "Hillel Slovak", "Brendon Small", "Pat Smear", "Adrian Smith", "Bennie Smith", "Elliott Smith", "Fred \"Sonic\" Smith", "G. E. Smith", "Johnny Smith", "Keith Smith", "Kenn Smith", "Mindy Smith", "Patti Smith", "Paul Smith", "Robert Smith", "Tom Smothers", "Toti Soler", "Fernando Sor", "Emmanuel Sowicz", "Donita Sparks", "Jordin Sparks", "Larry Sparks", "Tim Sparks", "Chris Spedding", "Bob Spencer", "Bill Spooner", "Rick Springfield", "Bruce Springsteen", "Trey Spruance", "Lester Square", "Billy Squier", "John Squire", "David St. Hubbins", "Mark Stanley", "Paul Stanley", "Mikael Stanne)", "Jack Starr", "Wayne Static", "Tommy Steele", "Vlatko Stefanovski", "Chris Stein", "Ken Steorts", "Leigh Stephens", "Edward Stephenson", "Mike Stern", "Travis Stever", "Cat Stevens", "Rogers Stevens", "Steve Stevens", "James Stevenson", "Al Stewart", "Allan Stewart", "Eric Stewart", "John Stewart", "Rod Stewart", "Stephen Stills", "Bob Stinson", "Andrew Stockdale", "Barry Stock", "Jason Stollsteimer", "Freddie Stone", "Mike Stone", "Izzy Stradlin", "George Strait", "Joel Stroetzel", "Jesper Strömblad", "Joe Strummer", "Daryl Stuermer", "Patrick Stump", "Joe Stump", "Ron Strykert", "Alex Suarez", "Sugizo", "Muhammed Suiçmez", "Frankie Sullivan", "Big Jim Sullivan", "Hubert Sumlin", "Andy Summers", "Bernard Sumner", "Øystein Sunde", "Niklas Sundin", "Bryan Sutton", "Peter Svensson", "Dan Swanö", "Steve Swanson", "Matthew Sweet", "Michael Sweet", "Taylor Swift", "Rob Swire", "Jussi Sydänmaa", "John Sykes", "Ken Sykora", "Red Symons", "Gábor Szabó", "Ty Tabor", "Toquinho", "Fred Tackett", "Joey Tafolla", "Akira Takasaki", "Serj Tankian", "Marv Tarplin", "Francisco Tárrega", "Evan Taubenfeld", "Andy Taylor", "Corey Taylor", "Courtney Taylor-Taylor", "Graeme Taylor", "Joanne Shaw Taylor", "John Taylor", "Martin Taylor", "Melvin Taylor", "Mick Taylor", "Otis Taylor", "Ryan Tedder", "Bobby Tench", "Miika Tenkula", "Octave Octavian Teodorescu", "Teppei Teranishi", "Teye", "Thomas Thacker", "Ron \"Bumblefoot\" Thal", "Kim Thayil", "Sister Rosetta Tharpe", "Tommy Thayer", "Toots Thielemans", "Amy Thiessen", "Matt Thiessen", "Lynda Thomas", "Randy Thomas", "Rob Thomas", "Hughie Thomasson", "Pearl Thompson", "Richard Thompson", "Mick Thomson", "Blair Thornton", "George Thorogood", "Johnny Thunders", "Glenn Tilbrook", "Andy Timmons", "Glenn Tipton", "Paul Tobias", "Timo Tolkki", "Tomatito", "Simon Tong", "Peter Tork", "Ray Toro", "Sam Totman", "Ralph Towner", "Mark Lee Townsend", "Devin Townsend", "Pete Townshend", "Simon Townshend", "Pat Travers", "Merle Travis", "Randy Travis", "Mark Tremonti", "Joseph Trohman", "John Tropea", "Robin Trower", "Derek Trucks", "Nicholas Tse", "Corin Tucker", "Nigel Tufnel", "KT Tunstall", "Luca Turilli", "John Turnbull", "Alex Turner", "Ike Turner", "Mike Turner", "Josh Turner", "Steve Turner", "Tweet", "Dan Tyminski", "Olli Tukiainen", "Keith Urban", "Brendon Urie", "Midge Ure", "Farin Urlaub", "Björn Ulvaeus", "Steve Vai", "Adrian Vandenberg", "Pierre Van Dormael", "George Van Eps", "Eddie Van Halen", "Steve Van Zandt", "Donnie Van Zant", "Ritchie Valens", "Nick Valensi", "Hilton Valentine", "James Valentine", "Sergio Vallín", "Randy VanWarmer", "Mike Varney", "Jimmie Vaughan", "Stevie Ray Vaughan", "Eddie Vedder", "Suzanne Vega", "Zacky Vengeance", "John Verity", "Tom Verlaine", "Henry Vestine", "Ana Vidović", "Viktor Vidović", "Brian Viglione", "Frank Vignola", "Elias Viljanen", "Jacky Vincent", "Vinnie Vincent", "Lee Ving", "Kate Voegele", "Mark Volman", "Cody Votolato", "Rocky Votolato", "Emppu Vuorinen", "Paul Waaktaar-Savoy", "Waddy Wachtel", "Jason Wade", "Paul Waggoner", "Rufus Wainwright", "Dave Wakeling", "Patrick Walden", "Billy Walker", "Butch Walker", "David T. Walker", "Geordie Walker", "Jon Walker", "T-Bone Walker", "Chris Walla", "John Bruce Wallace", "Gordon Waller", "Denny Walley", "Joe Walsh", "Rich Ward", "Dustie Waring", "Baz Warne", "Sean Watkins", "Doc Watson", "Stan Webb", "Michael Weber", "Tim Weed", "Dean Ween", "Gene Ween", "John Weider", "Dave Weiner", "Jona Weinhofen", "Bob Welch", "Brian Welch", "Bruce Welch", "Paul Weller", "John Wesley", "Leslie West", "Jim West", "Robert Westerholt", "Tim Wheeler", "Clarence White", "Deryck Whibley", "Andrew White", "Bukka White", "Jack White", "Jason White", "Josh White", "Peter White", "Snowy White", "Steve White", "Vince White", "Brad Whitford", "Slim Whitman", "John \"Charlie\" Whitney", "Buddy Whittington", "Jonny Wickersham", "Jane Wiedlin", "Clarence Wijewardena", "David Wilcox", "Harlow Wilcox", "Webb Wilder", "Jack Wilkins", "Brad Allen Williams", "Bernie Williams", "Hayley Williams", "Jody Williams", "John Williams", "Mason Williams", "Rich Williams", "Pete Willis", "Marty Willson-Piper", "Alan Wilson", "Carl Wilson", "Nancy Wilson", "Steven Wilson", "Michael Wilton", "Johnny Winter", "Steve Winwood", "Christian Olde Wolbers", "Howlin’ Wolf", "Bobby Womack", "Wong Ka Kui", "Paul Wong", "Sigurd Wongraven", "Craig Wood", "Ronnie Wood", "Brian Wooten", "Bob Wootton", "Link Wray", "Owen Wright", "Zakk Wylde", "Kazuhito Yamashita", "Narciso Yepes", "Taylor York", "Thom Yorke", "Pete Yorn", "Yumi Yoshimura", "Angus Young", "James \"JY\" Young", "Jeff Young", "Malcolm Young", "Neil Young", "Yael Yuzon", "Roy Z", "Buddy Zabala", "Aamir Zaki", "Robin Zander", "Dweezil Zappa", "Frank Zappa", "Roy Zimmerman", "Nick Zinner", "Billy Zoom"]
+      phrases: ["Eric Shaw", "Fred Hatfull", "AJ Ferrick", "Phil Cotter", "Bill Johnson", "Johnny A.", "Abbath Doom Occulta", "\"Dimebag\" Darrell Abbott", "Drew Abbott", "John Abercrombie", "Aaron \"El Hefe\" Abeyta", "Mick Abrahams", "William Ackerman", "Bryan Adams", "Jay Boy Adams", "Stuart Adamson", "Marcus Adoro", "Lily Afshar", "Dionisio Aguado", "Salman Ahmad", "Mikael Åkerfeldt", "Fredrik Åkesson", "Jan Akkerman", "Damon Albarn", "Nate Albert", "Steve Albini", "Art Alexakis", "Michael Algar", "Carson Allen", "Kris Allen", "Paul Allender", "Duane Allman", "Laurindo Almeida", "Carlos Alomar", "Vicente Amigo", "Michael Amott", "Christopher Amott", "Trey Anastasio", "Ian Anderson", "Muriel Anderson", "Magnus Andersson", "Nicke Andersson", "André 3000", "Jake Andrews", "Faraz Anwar", "Gem Archer", "Jamie Arentzen", "Joan Armatrading", "Armik", "Billie Joe Armstrong", "Tim Armstrong", "Joseph Arthur", "Paul Arthurs", "Jeff Arwadi", "Daniel Ash", "DJ Ashba", "Peter Asher", "Ron Asheton", "Gwyn Ashton", "John Ashton", "Sérgio Assad", "Gustavo Assis-Brasil", "Chet Atkins", "Paul Atkinson", "Dan Auerbach", "Doug Aldrich", "Baden Powell de Aquino", "Jim Babjak", "Ayub Bachchu", "Matt Bachand", "Randy Bachman", "Derek Bailey", "Dave Bainbridge", "Ian Bairnson", "Brian Baker", "Mickey Baker", "Dave Baksh", "David Ball", "Balsac the Jaws of Death", "Bruce Bouillet", "Terry Balsamo", "Perry Bamonte", "Devendra Banhart", "Benji Madden", "Paul Banks", "Peter Banks", "Carl Barât", "Barbecue Bob", "Warren Barfield", "Don Barnes", "Mick Barr", "Martin Barre", "Paul Barrere", "Aaron Barrett", "Syd Barrett", "Agustín Barrios", "Nicholas Barron", "Steve Bartek", "Desireé Bassett", "Michael Angelo Batio", "Jennifer Batten", "Roland Bautista", "Jeff \"Skunk\" Baxter", "Brendan Bayliss", "Eric Bazilian", "Reb Beach", "Michael Bearpark", "Corey Beaulieu", "Beck", "Jeff Beck", "Joe Beck", "Justin Beck", "Joe Becker", "Jason Becker", "Walter Becker", "Peter Beckett", "Johanna Beisteiner", "Adrian Belew", "Drake Bell", "Brian Bell", "Eric Bell", "J.J. Belle", "Matthew Bellamy", "Roni Benise", "Bob Bennett", "Chester Bennington", "Brendan Benson", "George Benson", "Miki Berenyi", "Peter Bernstein", "Chuck Berry", "Guy Berryman", "Gene Bertoncini", "Nuno Bettencourt", "Dickey Betts", "Randall Bewley", "Bo Bice", "Big Tom", "Kat Bjelland", "Anders Björler", "Ivar Bjørnson", "Clint Black", "Jack Black", "Ryland Blackinton", "Ritchie Blackmore", "Alfonzo Blackwell", "Tony Blair", "Zach Blair", "Blind Blake", "Norman Blake", "Norman Blake", "Ron Block", "Conny Bloom", "Mike Bloomfield", "Bob Bogle", "Marc Bolan", "Marcie Bolen", "Tommy Bolin", "Joe Bonamassa", "Bono", "Nicke Borg", "Adrian Borland", "Wes Borland", "Mark Boston", "Jean-Paul Bourelly", "Tony Bourge", "James Bourne", "Pierre Bouvier", "Robert Bowlin", "James Bowman", "Will Boyd", "Mick Box", "James Dean Bradfield", "Michelle Branch", "Laurent Brancowitz", "Srđan Branković", "Vito Bratta", "Creed Bratton", "Jacques Brautbar", "Julian Bream", "Lenny Breau", "Thomas Bredahl", "Thom Bresh", "Paul Brett", "Mike Brewer", "John Brewster", "Lincoln Brewster", "Vic Briggs", "Terry Britten", "Chris Broderick", "Dave Brock", "Isaac Brock", "David Bromberg", "Devin Bronson", "Michael Brook", "Garth Brooks", "Kix Brooks", "Meredith Brooks", "Big Bill Broonzy", "Bobby Broom", "Ethan Brosh", "Eric Brosius", "Mike Brown", "Jackson Browne", "Bob Brozman", "Norman Brown", "Oli Brown", "Michael Bruce", "Jimmy Bruno", "Mark Bryan", "Roy Buchanan", "Peter Buck", "Buckethead", "Lindsey Buckingham", "Jonny Buckland", "Jeff Buckley", "Ely Buendia", "Jimmy Buffett", "Charlie Burchill", "Ben Burnley", "Christian Burns", "Jake Burns", "Vinny Burns", "R. L. Burnside", "Kenny Burrell", "James Burton", "Kristian Bush", "Bernard Butler", "John Butler", "Jonathan Butler", "Glen Buxton", "Roddy \"Radiation\" Byers", "Charlie Byrd", "David Byrne", "Fito Cabrales", "Kevin Cadogan", "Chris Caffery", "Charlotte Caffey", "Paul Caiafa", "Colbie Caillat", "Al Caiola", "JJ Cale", "Randy California", "Jo Callis", "Mateo Camargo", "Greg Camp", "Jeremy Camp", "Glen Campbell", "Mike Campbell", "Phil Campbell", "Royce Campbell", "Vivian Campbell", "Mike Campese", "Jim Campilongo", "Jerry Cantrell", "Joey Cape", "Matteo Carcassi", "Larry Carlton", "Jesse Carmichael", "Stephen Carpenter", "Pete Carr", "Chris Carrabba", "Kim Carroll", "John Valentine Carruthers", "Maybelle Carter", "Ferdinando Carulli[1]", "Neko Case", "Al Casey", "Al Casey", "Johnny Cash", "Nick Catanese", "Philip Catherine", "Stephen Caudel", "Max Cavalera", "Dino Cazares", "Danny Cedrone", "Gustavo Cerati", "Franco Cerri", "Nic Cester", "Yavuz Çetin", "Eugene Chadbourne", "António Chainho", "Bill Champlin", "Eason Chan", "Jaycee Chan", "Jerry Chang", "Gary Chapman", "Manny Charlton", "Charo", "David T. Chastain", "Rhys Chatham", "Chris Cheney", "Andrew Cheshire", "Phil Chevron", "Moraito Chico", "Michael Guy Chislett", "Jay Chou", "John Christ", "Charlie Christian", "Stephen Christian", "Popa Chubby", "Martin Cilia", "Jake Cinninger", "John Cipollina", "Liam Clancy", "Eric Clapton", "Angus Clark", "Mike Clark", "Roy Clark", "Steve Clark", "\"Fast\" Eddie Clarke", "Gilby Clarke", "Frank Claussen", "Zal Cleminson", "Henry Cluney", "Kurt Cobain", "Eddie Cochran", "Stephen Cochran", "Bruce Cockburn", "Leonard Cohen", "Sam Cohen", "Jesse Colburn", "Deborah Coleman", "Phil Collen", "Ned Collette", "Chris Collingwood", "Albert Collins", "Allen Collins", "John Collins", "Paul Collins", "Paul Colman", "Gary Lee Conner", "John Connolly", "Bill Connors", "Nico Constantine", "Steve Conte", "Ry Cooder", "Jamie Cook", "Jesse Cook", "Kyle Cook", "Rusty Cooley", "Gaz Coombes", "Korey Cooper", "John Corabi", "Francesco Corbetta", "Easton Corbin", "Billy Corgan", "Chris Cornell", "Gene Cornish", "Hugh Cornwell", "Jim Corr", "Larry Coryell", "Miranda Cosgrove", "Yamandu Costa", "Napoléon Coste", "Sean Costello", "Elizabeth Cotten", "Jeff Cotton", "Andy Cox", "Graham Coxon", "Jonathan Coulton", "Steve Cradock", "Andrew Craighan", "Philo Cramer", "Dan Crary", "Robert Cray", "Marshall Crenshaw", "Jim Croce", "Kevin Cronin", "Jason Cropper", "Steve \"The Colonel\" Cropper", "David Crosby", "Robbin Crosby", "Sheryl Crow", "Allison Crowe", "András Csáki", "Josh Cunningham", "Rivers Cuomo", "Shannon Curfman", "John Curulewski", "Billy Ray Cyrus", "Miley Cyrus", "Trace Cyrus", "Britt Daniel", "Dante DeCaro", "Denis D’Amour", "Donnie Dacus", "Marcel Dadi", "Aaron Dalbec", "Dick Dale", "Brody Dalle", "Sean Danielsen", "Jol Dantzig", "Glenn Danzig", "Lenny Davidson", "Dave Davies", "Ray Davies", "Brad Davis", "Reverend Gary Davis", "Jesse Ed Davis", "Keeley Davis", "Maura Davis", "Mike Davis", "Christopher Dean", "Mahyar Dean", "Nicolas de Angelis", "Chris de Burgh", "Marco Aurelio Zani de Ferranti", "Chris DeGarmo", "Vance DeGeneres", "Dean DeLeo", "Tom DeLonge", "Warren DeMartini", "Dave Dederer", "Brad Delson", "Paul Dempsey", "Tommy Denander", "Duane Denison", "Tom Denney", "John Denver", "Johnny Depp", "Amir Derakh", "Rick Derringer", "Jason De Ron", "Marko DeSantis", "C.C. DeVille", "Mat Devine", "Roberto Diana", "Dennis \"Denny\" Dias", "Alirio Díaz", "Diblo Dibala", "Bo Diddley", "Dido", "Die", "Ani DiFranco", "Steve Diggle", "Al Di Meola", "Pete Doherty", "Peter Dolving", "Dan Donegan", "Donovan", "Edsel Dope", "Paul Dorrington", "Paul Doucette", "Captain Kirk Douglas", "Jerry Douglas", "K. K. Downing", "Dr. Know", "Nick Drake", "Pete Drake", "Dregen", "Bruce Driscoll", "Glen Drover", "Steven Drozd", "Ian D’Sa", "Chris Duarte", "Les Dudek", "Billy Duffy", "Jan Dumée", "Tom Dumont", "Gary Duncan", "Andy Dunlop", "Ronnie Dunn", "Kyle Bobby Dunn", "Francis Dunnery", "Jesse James Dupree", "Sherri DuPree", "William DuVall", "Adam Dutkiewicz", "Roland Dyens", "Doyle Dykes", "Bob Dylan", "Jakob Dylan", "Jerry Donahue", "Ronnie Earl", "Steve Earle", "Elliot Easton", "Duane Eddy", "The Edge", "Dave Edmunds", "Kathleen Edwards", "Nokie Edwards", "Richie Edwards", "Kian Egan", "Stephen Egerton", "Eduardo Egüez", "Hucky Eichelmann", "Mike Einziger", "Tripp Eisen", "Mattias Eklundh", "Danny Elfman", "Dolan Ellis", "Herb Ellis", "John Ellis", "Justin Emerle", "Tommy Emmanuel", "Rik Emmett", "John Engelbert", "Eric Erlandson", "Sully Erna", "Omar Espinosa", "Esteban", "Kevin Eubanks", "Euronymous", "Dennis Eveland", "Jason Everman", "John Fahey", "Craig Fairbaugh", "Bruce Fairweather", "Nick Falcon", "Todd Fancey", "Bernard Fanning", "Tal Farlow", "Mark Farner", "John Farrar", "Andrew Farriss", "Tim Farriss", "Josh Farro", "Eric Faulkner", "Newton Faulkner", "Don Felder", "José Feliciano", "Jay Ferguson", "Jeremy \"Jinxx\" Ferguson", "Jim Ferguson", "Dean Fertita", "Roger C. Field", "Scott Fields", "Zach Filkins", "Robin Finck", "Jon Finn", "Michael Lee Firkins", "Jörg Fischer", "Roger Fisher", "Bradley Fish", "Eliot Fisk", "Warren Fitzgerald", "John Flansburgh", "Lester Flatt", "Flattus Maximus", "Tom Fletcher", "Brandon Flowers", "Robb Flynn", "William Foden", "John Fogerty", "Tom Fogerty", "Ben Folds", "Sue Foley", "Jerome Fontamillas", "Lita Ford", "Marc Ford", "Robben Ford", "Chris Foreman", "Jon Foreman", "Richard Fortus", "François de Fossa", "Rick Foster", "Alex Fox", "Oz Fox", "Les Fradkin", "Peter Frampton", "Black Francis", "Lars Frederiksen", "Ace Frehley", "Jay Jay French", "Glenn Frey", "Matthew Friedberger", "Marty Friedman", "Bill Frisell", "Robert Fripp", "Fred Frith", "Edgar Froese", "Uri Frost", "John Frusciante", "Koichi Fukuda", "Bobby Fuller", "Jim Fuller", "Justin Furstenfeld", "Nelly Furtado", "Magne Furuholmen", "Steve Gaines", "Declan Galbraith", "Eric Gale", "Eric Gales", "Noel Gallagher", "Rory Gallagher", "Shane Gallagher", "Cliff Gallup", "Frank Gambale", "Tim Gane", "Sunil Ganguly", "Charly García", "Enrik Garcia", "Jerry Garcia", "Ricardo Garcia", "Chuck Garvey", "Kyle Gass", "Diego del Gastor", "Synyster Gates", "Danny Gatton", "Dick Gaughan", "Björn Gelotte", "Vicki Genfan", "Antony Genn", "Dave Genn", "Lowell George", "Rocky George", "Janick Gers", "Per Gessle", "Andy Gibb", "Barry Gibb", "Maurice Gibb", "Ben Gibbard", "Billy Gibbons", "Gilberto Gil", "Paul Gilbert", "João Gilberto", "Daniel Gildenlöw", "Nick Gilder", "Brad Gillis", "David Gilmour", "Vince Gill", "Gordon Giltrap", "Greg Ginn", "Chad I Ginsburg", "Mauro Giuliani", "George Gobel", "Nicolas Godin", "Mircea Gogoncea", "Lynval Golding", "Sander Gommans", "Pier Gonella", "Adam Gontier", "Dave Gonzalez", "José González", "Pedro Javier González", "Myles Goodwyn", "Nina Gordon", "Martin Gore", "Scott Gorham", "Grisha Goryachev", "Chris Goss", "Stone Gossard", "Manuel Göttsching", "Johnny Goudie", "Ellie Goulding", "Guthrie Govan", "Laura Jane Grace", "Gerhard Graf-Martinez", "Davey Graham", "Amy Grant", "James Grant", "Rocky Gray", "Jay Graydon", "Doug Grean", "Boris Grebenshchikov", "Dallas Green", "Freddie Green", "Gary Green", "Grant Green", "Peter Green", "Ted Greene", "Norman Greenbaum", "Alex Greenwald", "Brian Greenway", "Jonny Greenwood", "Dave Gregory", "David Grier", "Ryan Griffiths", "Carl Johan Grimmark", "Dave Grohl", "Stefan Grossman", "Luther Grosvenor", "Todd Grubbs", "Lalo Guerrero", "Guinga", "Michael Gulezian", "Trey Gunn", "Tracii Guns", "Brett Gurewitz", "James Gurley", "Michael Gurley", "Gus G", "Buddy Guy", "Steve Hackett", "Amir-John Haddad", "Ivar Haglund", "Bill Haley", "GP Hall", "Jim Hall", "Kristen Hall", "Johan Hallgren", "Mary Halvorson", "Mike Hamilton", "Page Hamilton", "Shannon Hamm", "Chuck Hammer", "Kirk Hammett", "Peter Hammill", "Albert Hammond, Jr.", "Michael Hampton", "Jeff Hanneman", "Brian Haner Sr.", "Frank Hannon", "Andrew Hansen", "Kai Hansen", "Isaac Hanson", "Joel Hanson", "Fareed Haque", "Bob Hardy", "Bill Harkleroad", "Jessica Harp", "Ben Harper", "Nick Harper", "Roy Harper", "Dhani Harrison", "George Harrison", "Jerry Harrison", "Mark Hart", "Bob Hartman", "Les Harvey", "PJ Harvey", "Pye Hastings", "Charlotte Hatherley", "Ian Haug", "Dan Hawkins", "Justin Hawkins", "Nick Hawkins", "Colin Hay", "Hiroyuki Hayashi", "Peter Hayes", "Warren Haynes", "Dave Haywood", "Eddie Hazel", "Pete Haycock", "Justin Hayward", "Matt Heafy", "Jeff Healey", "Kevin Hearn", "Jim \"Reverend Horton\" Heath", "Charles Hedger", "Michael Hedges", "Christian Hejnal", "Scott Henderson", "Jimi Hendrix", "Don Henley", "Ken Hensley", "James Hetfield", "Greg Hetson", "Nick Hexum", "MJ Hibbett", "Tony Hicks", "hide", "Johnny Hiland", "Steve Hillage", "Tyler Hilton", "Brent Hinds", "Robert \"Bucket\" Hingley", "Tom Hingley", "Paul Hinojos", "Taka Hirose", "Joel Hoekstra", "Jules Hodgson", "Roger Hodgson", "Gary Hoey", "Susanna Hoffs", "Wolf Hoffmann", "James Hogan", "Randy Holden", "Allan Holdsworth", "Dexter Holland", "Justin Holland", "Buddy Holly", "Joshua Homme", "James Honeyman-Scott", "Matt Hoopes", "Mary Hopkin", "Doug Hopkins", "Lightnin’ Hopkins", "Mark Hoppus", "Keith Hopwood", "Rita Hosking", "Tomoyasu Hotei", "Jimmy Hotz", "Son House", "Michael Houser", "Greg Howe", "Steve Howe", "Billy Howerdel", "Keith Howland", "C. B. Hudson,", "Dann Huff", "Jesse Hughes", "Steve Hunter", "Mississippi John Hurt", "Wayne Hussey", "Eric Hutchinson", "Mick Hucknall", "Eugene Hütz", "Hyde", "Chrissie Hynde", "Scott Ian", "Angel Ibarra", "Billy Idol", "Frank Iero", "James Iha", "Ihsahn", "Chris Impellitteri", "Elliot Ingber", "Roberto Iniesta", "Inoran", "Tony Iommi", "Donnie Iris", "Sharon Isbin", "Arve Isdal", "Ichiro Ito", "Maja Ivarsson", "Anders Iwers", "Matthias Jabs", "Ramon Jacinto", "Alan Jackson", "Paul Jackson, Jr.", "Stevie Jackson", "Tito Jackson", "Elmore James", "Skip James", "Spencer James", "Tony James", "Phil Jamieson", "James Williamson", "Jandek", "Bert Jansch", "Al Jardine", "Ron Jarzombek", "Wyclef Jean", "Blind Lemon Jefferson", "Stephan Jenkins", "JerryC", "Joan Jett", "Antônio Carlos Jobim", "Heri Joensen", "Alain Johannes", "Lars-Olof Johansson", "John 5", "Daniel Johns", "Carlos Johnson", "Eric Johnson", "Jack Johnson", "Jimmy Johnson", "Kelly Johnson", "Mike Johnson", "Robert Johnson", "Wayne Johnson", "Wilko Johnson", "Blind Willie Johnson", "Tom Johnston", "Davey Johnstone", "Ruud Jolie", "Nick, Kevin and Joe Jonas", "Adam Jones", "Buddy Jones", "Brian Jones", "Daniel Jones", "Danny Jones", "Kelly Jones", "Mick Jones", "Mick Jones", "Rod Jones", "Stacy Jones", "Steve Jones", "Stanley Jordan", "Joey Jordison", "Ben Jorgensen", "John Jorgenson", "Juanes", "Sungha Jung", "Tyler Joseph", "Kapil Srivastava", "Ledward Kaapana", "Kaoru", "Alex Kapranos", "Andre \"Virus\" Karkos", "Billy Karren", "Dr Nico Kasanda", "Ben Kasica", "Terry Kath", "Jorma Kaukonen", "Ryo Kawasaki", "John Kay", "Lenny Kaye", "Phil Keaggy", "Toby Keith", "Bill Kelliher", "Dave Kelly", "Gary Kemp", "Ken Kitamura", "David Kennedy", "Big Kenny", "Barney Kessel", "Daniel Kessler", "Dave Keuning", "Ryan Key", "Herbert Khaury", "Jewel Kilcher", "Cheyenne Kimball", "Albert King", "B.B. King", "Ben King", "Dave King", "Ed King", "Freddie King", "Justin King", "Kaki King", "Kerry King", "Donald Kinsey", "Bill Kirchen", "Pat Kirtley", "Ezra Koenig", "Kôji Kiriki", "Jon Klein", "Frank Klepacki", "Forrest Kline", "Josh Klinghoffer", "Scott Klopfenstein", "Earl Klugh", "Larry Knechtel", "David Knopfler", "Mark Knopfler", "Jeffrey Kollman", "George Kooymans", "Peter Koppes", "Alexis Korner", "Pasi Koskinen", "Paul Kostabi", "Leo Kottke", "Richie Kotzen", "Wayne Kramer", "Norbert Krief", "Robby Krieger", "Chad Kroeger", "Richard Kruspe", "Andrei Krylov", "Jan Kuehnemund", "Damian Kulash", "Bruce Kulick", "Irina Kulikova", "Dave Kushner", "Paul Kossoff", "Jesse Lacey", "Patrick Lachman", "Julian Lage", "Alexi Laiho", "Denny Laine", "Shawn Lane,", "Ler LaLonde", "Miranda Lambert", "Paul Landers", "Yuri Landman", "Michael Landau", "Jonny Lang", "Tito Larriva", "Marit Larsen", "Andrew Latimer", "Roope Latvala", "Hugh Laurie", "Antonio Lauro", "Adam Lazzara", "Bernie Leadon", "Fin Leavell", "Derek Leckenby", "John LeCompt", "Albert Lee", "Alex Lee", "Alvin Lee", "Jake E. Lee", "Shane Lee", "Thomas Leeb", "Troy Van Leeuwen", "Sébastien Lefebvre", "Adrian Legg", "John Lennon", "Julian Lennon", "Sean Lennon", "Stefano Lentini", "Deke Leonard", "Lettie", "Jared Leto", "Adam Levine", "Vaden Todd Lewis", "Aaron Lewis", "Bob Lewis", "Matty Lewis", "Herman Li", "Ottmar Liebert", "Alex Lifeson", "Jani Liimatainen", "John Lilley", "Rickey Lime", "Charley Lincoln", "Hal Lindes", "David Lindley", "Peter Lindgren", "Mikko Lindström", "Buzzy Linhart", "Jeff Linsky", "Sead Lipovača", "Russell Lissack", "Kerry Livgren", "Duncan Lloyd", "Lazer Lloyd", "Richard Lloyd", "Robert Lockwood, Jr.", "Chuck Loeb", "Lisa Loeb", "Pete Loeffler", "Nils Lofgren", "Karl Logan", "Kenny Loggins", "John Lombardo", "Jeff Loomis", "Dang Ngoc Long", "Joe Long", "Sami Lopakka", "Courtney Love", "Demi Lovato", "Clint Lowery", "Scott Lucas", "Paco de Lucía", "Steve Lukather", "Jean-Baptiste Lully", "George Lynch", "Jeff Lynne", "Jimmy Lyon", "Bob Log III", "Tony MacAlpine", "Colin MacDonald", "Lonnie Mack", "Brian \"Too Loud\" MacLeod", "Doug Macleod", "Wade MacNeil", "Benji Madden", "Madonna", "Jari Mäenpää", "Taj Mahal", "Raine Maida", "Wolf Mail", "Daron Malakian", "Stephen Malkmus", "Gui Mallon", "Yngwie Malmsteen", "Russell Malone", "Mana Mana", "Harvey Mandel", "Julian Mandrake,", "James Mankey", "Phil Manzanera", "Kee Marcello", "Carlo Marchione", "Frank Marino", "Steve Marker", "Bob Marley", "Del Marquis", "Johnny Marr", "Steve Marriott", "Mick Mars", "Bernie Marsden", "Gerry Marsden", "James Marsters", "Billy Martin", "Chris Martin", "Jim Martin", "Pat Martino", "Dave Martone", "John Martyn", "Hank Marvin", "J Mascis", "Brent Mason", "Dave Mason", "Lucio Matarazzo", "Tak Matsumoto", "Dave Matthews", "Lee Mavers", "Brian May", "John Mayer", "Sonny Mayo", "Steve Mazur", "Nick McCabe", "Ian McCallum", "John McCarthy", "Nick McCarthy", "Paul McCartney", "Chris McCaughan", "George McConnell", "Andy McCoy", "Hugh McCracken", "Mike McCready", "Danny McCulloch", "Jimmy McCulloch", "Jennette McCurdy", "Richie McDonald", "Mississippi Fred McDowell", "Eric McFadden", "John McFee", "John McGeoch", "Tim McGraw", "Roger McGuinn", "Tim McIlrath", "James McIlroy", "Duff McKagan", "Al McKay", "John McKay", "Andy McKee", "Sarah McLachlan", "John McLaughlin", "Troy McLawhorn", "Tony McManus", "El McMeen", "John McNally", "Tony McPhee", "Dave McPherson", "Michelle Meldrum", "Colin Meloy", "Katie Melua", "Eric Melvin", "Wendy Melvoin", "Johann Kaspar Mertz", "Italo Meschi", "Memphis Minnie", "Eddie Mesa", "Naser Mestarihi", "Pat Metheny", "Jesse Michaels", "Alyson Michalka", "Amanda Michalka", "Darren Middleton", "Qaasim Middleton", "Radomir Mihailović", "Tomo Miličević", "Amy Millan", "Deron Miller", "Dominic Miller", "Jerry Miller", "Marcus Miller", "Roger Miller", "Steve Miller", "Nuno Mindelis", "Ben Mink", "Federico Miranda", "Roman Miroshnichenko", "Tom Misch", "Joni Mitchell", "Kim Mitchell", "Miyavi", "Jim Moginie", "Brian Molko", "Michael Monarch", "Erik Mongrain", "Wes Montgomery", "Carlos Montoya", "Ronnie Montrose", "Gary Moore", "Nathan Moore", "Scotty Moore", "Thurston Moore", "Vinnie Moore", "Craig Morgan", "Shaun Morgan", "Tom Morello", "Marc Moreland", "Chino Moreno", "Ruthie Morris", "Sterling Morrison", "Steve Morse", "Howard Moss", "Jason Moss", "Bob Mothersbaugh", "Bob Mould", "Xavier Moyano", "Jason Mraz", "Alonso Mudarra", "Cameron Muncey", "Billy Mure", "James Murphy", "Matt \"Guitar\" Murphy", "Dave Mustaine", "Dave Murray", "Roberto Musci", "Brad Myers", "Zach Myers", "Gary Myrick", "Jimmy Nail", "Miyu Nagase", "Randy Napoleon", "Graham Nash", "Dave Navarro", "Joe Negri", "Simon Neil", "Ricky Nelson", "Willie Nelson", "Michael Nesmith", "Mike Ness", "Ira Newborn", "Carl Newman", "Grant Nicholas", "Craig Nicholls", "Rick Nielsen", "Willie Nile", "John Nolan", "Noodle", "Noodles", "Paul Noonan", "Aaron North", "John Norum", "Bradley Nowell", "Ted Nugent", "Ed O’Brien", "Mark O’Connor", "Richard Oakes", "John Oates", "Ric Ocasek", "Frank Ocean", "Erkan Oğur", "Eddie Ojeda", "Kele Okereke", "André Olbrich", "Mike Oldfield", "Criss Oliva", "Stefan Olsdal", "Ami Onuki", "Jason Orange", "Roy Orbison", "Orianthi", "Marc Orrell", "Jim O’Rourke", "Roland Orzabal", "Buzz Osborne", "Emily Osment", "Steve Ouimette", "Ryo Owatari", "Niccolò Paganini", "Jimmy Page", "Steven Page", "Michael Paget", "Clive Painter", "Brad Paisley", "Orianthi Panagaris", "Jett Pangan", "Paulinho Nogueira", "Richard Palmer", "Rick Parfitt", "Charlie Parra del Riego", "Russ Parrish", "Andy Partridge", "Joe Pass", "Ralph Patt", "Pappo", "Les Paul", "Tom Paxton", "Jeff Pearce", "Paco Peña", "Mike Pender", "Kirk Pengilly", "Patrick Pentland", "Raymond \"East Bay Ray\" Pepperell", "Heitor Teixeira Pereira", "Franky Perez", "Andreas Paolo Perger", "Carl Perkins", "Luther Perkins", "Joe Perry", "Linda Perry", "Eric Peterson", "Vicki Peterson", "Gregori Chad Petree", "John Petrucci", "Tom Petty", "River Phoenix", "Jonny Phillips", "Anthony Phillips", "Yannis Philippakis", "Yosi Piamenta", "Dave Pino", "Al Pitrelli", "Jake Pitts", "Bucky Pizzarelli", "Sergio Pizzorno", "Joel Plaskett", "Dean Pleasants", "Morris Pleasure", "Lex Plotnikoff", "Chris Poland", "Nick Pollock", "Alberto Ponce", "Iggy Pop", "Ana Popović", "Jody Porter", "Michael Poulsen", "Andy Powell", "Chet Powers", "Kid Congo Powers", "Dougie Poynter", "Christophe Pratiffi", "Sam Prekop", "Elvis Presley", "Igor Presnyakov", "Prince", "Didi Priyadi", "Jade Puget", "Martin Pugh", "Gian Pyres", "Robert Quine", "Raphael Rabello", "Ronald Radford", "Eddie Rabbitt", "Trevor Rabin", "Gerry Rafferty", "Melvin \"Wah-Wah Watson\" Ragin", "Bonnie Raitt", "Mick Ralphs", "Eros Ramazzotti", "Johnny Ramone", "Federico Ramos", "Val Ramos", "Lee Ranaldo", "Elliott Randall", "Jimmy Raney", "Søren Rasted", "Marion Raven", "Chris Rea", "Ray Reach", "Jaret Reddick", "Dusty Redmon", "Lou Reed", "Preston Reed", "Vernon Reid", "Vini Reilly", "Django Reinhardt", "Keith Relf", "Emily Remler", "John Renbourn", "Tim Renwick", "Marco Restrepo", "Paul Reynolds", "Sheldon Reynolds", "Tim Reynolds", "Trent Reznor", "Randy Rhoads", "Red Rhodes", "Marc Ribot", "Damien Rice", "Tony Rice", "John Rich", "Cliff Richard", "Keith Richards", "Max Richards", "Gary Richrath", "Michael Ricketts", "Mike Riggs", "Marc Riley", "Rafael Riqueni", "Lee Ritenour", "Jesse Rivest", "Janet Robin", "Jason Roberts", "Allison Robertson", "Brian Robertson", "Ed Robertson", "Robbie Robertson", "Rowan Robertson", "Rich Robinson", "Andrea Rocca", "Flavio Rodrigues", "Silvio Rodríguez", "Omar Rodríguez-López", "Donald \"Buck Dharma\" Roeser", "Roy Rogers", "Roy Rogers", "Lawson Rollins", "Tony Rombola", "Michael Romeo", "Pepe Romero", "Joe Romersa", "Ludovico Roncalli", "Mick Ronson", "Joe Don Rooney", "James Root", "Axl Rose", "Kurt Rosenwinkel", "Andy Ross", "Don Ross", "Ryan Ross", "Gavin Rossdale", "Francis Rossi", "Gregory Doc Rossi", "Gary Rossington", "Robert Roth", "Uli Jon Roth", "Steve Rothery", "Martin Rotsey", "Andy Rourke", "Spookey Ruben", "Darius Rucker", "Javier Ruibal", "Todd Rundgren", "Otis Rush", "David Russell", "Kamil Rustam", "Erik Rutan", "Mike Rutherford", "Paul Ryan", "Terje Rypdal", "Johnny Rzeznik", "Sabicas", "Greg Sage", "Flavio Sala", "Stevie Salas", "Richie Sambora", "Samoth", "Claudio Sanchez", "Justin Sandercoe", "Justin Sane", "Manolo Sanlúcar", "Carlos Santana", "Adam Sandler", "Tommy Sands", "Tommy Sands", "Giuliano Sangiorgi", "Joey Santiago", "Blues Saraceno", "Yağmur Sarıgül", "Satchel", "Manabu Satô", "Joe Satriani", "Boz Scaggs", "Matt Scannell", "Craig Scanlon", "Roger Scannura", "Wes Scantlin", "Jon Schaffer", "Marcus Siepen", "Michael Schenker", "Rudolf Schenker", "Helge Schneider", "Al Schnier", "Tom Scholz", "Neal Schon", "Chuck Schuldiner", "Knut Schreiner", "Robert Schwartzman", "Blake Schwarzenbach", "John Scofield", "Andy Scott", "Dominic Scott", "Howard E. Scott", "Keith Scott", "Bob Seger", "Anna Sentina", "Wayne Sermon", "Fred \"Sonic\" Smith", "Andrés Segovia", "John Sekula", "Gabe Serbian", "Juan Serrano", "Leo Setiawan", "Brian Setzer", "Charlie Sexton", "James Shaffer", "Del Shannon", "Tommy Shannon", "Dave Sharp", "Elliott Sharp", "Todd Sharpville", "Kim Shattuck", "Tommy Shaw", "Ed Sheeran", "Pete Shelley", "Blake Shelton", "Louis Shelton", "Kenny Wayne Shepherd", "Nick Sheppard", "Rodney Sheppard", "Rabbi Shergill", "Jeff Sherman", "Billy Sherwood", "Kevin Shields", "Scott Shields", "Chris Shiflett", "Mike Shinoda", "Drew Shirley", "Jon Siebels", "Alejandro Silva", "Charlie Simpson", "Matt Skiba", "Tim Sköld", "Alex Skolnick", "Skwisgaar Skwigelf", "Acey Slade", "Mike Slamer", "Slash", "Martin Slattery", "Hillel Slovak", "Brendon Small", "Pat Smear", "Adrian Smith", "Bennie Smith", "Elliott Smith", "Fred \"Sonic\" Smith", "G. E. Smith", "Johnny Smith", "Keith Smith", "Kenn Smith", "Mindy Smith", "Patti Smith", "Paul Smith", "Robert Smith", "Tom Smothers", "Toti Soler", "Fernando Sor", "Emmanuel Sowicz", "Donita Sparks", "Jordin Sparks", "Larry Sparks", "Tim Sparks", "Chris Spedding", "Bob Spencer", "Bill Spooner", "Rick Springfield", "Bruce Springsteen", "Trey Spruance", "Lester Square", "Billy Squier", "John Squire", "David St. Hubbins", "Mark Stanley", "Paul Stanley", "Mikael Stanne)", "Jack Starr", "Wayne Static", "Tommy Steele", "Vlatko Stefanovski", "Chris Stein", "Ken Steorts", "Leigh Stephens", "Edward Stephenson", "Mike Stern", "Travis Stever", "Cat Stevens", "Rogers Stevens", "Steve Stevens", "James Stevenson", "Al Stewart", "Allan Stewart", "Eric Stewart", "John Stewart", "Rod Stewart", "Stephen Stills", "Bob Stinson", "Andrew Stockdale", "Barry Stock", "Jason Stollsteimer", "Freddie Stone", "Mike Stone", "Izzy Stradlin", "George Strait", "Joel Stroetzel", "Jesper Strömblad", "Joe Strummer", "Daryl Stuermer", "Patrick Stump", "Joe Stump", "Ron Strykert", "Alex Suarez", "Sugizo", "Muhammed Suiçmez", "Frankie Sullivan", "Big Jim Sullivan", "Hubert Sumlin", "Andy Summers", "Bernard Sumner", "Øystein Sunde", "Niklas Sundin", "Bryan Sutton", "Peter Svensson", "Dan Swanö", "Steve Swanson", "Matthew Sweet", "Michael Sweet", "Taylor Swift", "Rob Swire", "Jussi Sydänmaa", "John Sykes", "Ken Sykora", "Red Symons", "Gábor Szabó", "Ty Tabor", "Toquinho", "Fred Tackett", "Joey Tafolla", "Akira Takasaki", "Serj Tankian", "Marv Tarplin", "Francisco Tárrega", "Evan Taubenfeld", "Andy Taylor", "Corey Taylor", "Courtney Taylor-Taylor", "Graeme Taylor", "Joanne Shaw Taylor", "John Taylor", "Martin Taylor", "Melvin Taylor", "Mick Taylor", "Otis Taylor", "Ryan Tedder", "Bobby Tench", "Miika Tenkula", "Octave Octavian Teodorescu", "Teppei Teranishi", "Teye", "Thomas Thacker", "Ron \"Bumblefoot\" Thal", "Kim Thayil", "Sister Rosetta Tharpe", "Tommy Thayer", "Toots Thielemans", "Amy Thiessen", "Matt Thiessen", "Lynda Thomas", "Randy Thomas", "Rob Thomas", "Hughie Thomasson", "Pearl Thompson", "Richard Thompson", "Mick Thomson", "Blair Thornton", "George Thorogood", "Johnny Thunders", "Glenn Tilbrook", "Andy Timmons", "Glenn Tipton", "Paul Tobias", "Timo Tolkki", "Tomatito", "Simon Tong", "Peter Tork", "Ray Toro", "Sam Totman", "Ralph Towner", "Mark Lee Townsend", "Devin Townsend", "Pete Townshend", "Simon Townshend", "Pat Travers", "Merle Travis", "Randy Travis", "Mark Tremonti", "Joseph Trohman", "John Tropea", "Robin Trower", "Derek Trucks", "Nicholas Tse", "Corin Tucker", "Nigel Tufnel", "KT Tunstall", "Luca Turilli", "John Turnbull", "Alex Turner", "Ike Turner", "Mike Turner", "Josh Turner", "Steve Turner", "Tweet", "Dan Tyminski", "Olli Tukiainen", "Keith Urban", "Brendon Urie", "Midge Ure", "Farin Urlaub", "Björn Ulvaeus", "Steve Vai", "Adrian Vandenberg", "Pierre Van Dormael", "George Van Eps", "Eddie Van Halen", "Steve Van Zandt", "Donnie Van Zant", "Ritchie Valens", "Nick Valensi", "Hilton Valentine", "James Valentine", "Sergio Vallín", "Randy VanWarmer", "Mike Varney", "Jimmie Vaughan", "Stevie Ray Vaughan", "Eddie Vedder", "Suzanne Vega", "Zacky Vengeance", "John Verity", "Tom Verlaine", "Henry Vestine", "Ana Vidović", "Viktor Vidović", "Brian Viglione", "Frank Vignola", "Elias Viljanen", "Jacky Vincent", "Vinnie Vincent", "Lee Ving", "Kate Voegele", "Mark Volman", "Cody Votolato", "Rocky Votolato", "Emppu Vuorinen", "Paul Waaktaar-Savoy", "Waddy Wachtel", "Jason Wade", "Paul Waggoner", "Rufus Wainwright", "Dave Wakeling", "Patrick Walden", "Billy Walker", "Butch Walker", "David T. Walker", "Geordie Walker", "Jon Walker", "T-Bone Walker", "Chris Walla", "John Bruce Wallace", "Gordon Waller", "Denny Walley", "Joe Walsh", "Rich Ward", "Dustie Waring", "Baz Warne", "Sean Watkins", "Doc Watson", "Stan Webb", "Michael Weber", "Tim Weed", "Dean Ween", "Gene Ween", "John Weider", "Dave Weiner", "Jona Weinhofen", "Bob Welch", "Brian Welch", "Bruce Welch", "Paul Weller", "John Wesley", "Leslie West", "Jim West", "Robert Westerholt", "Tim Wheeler", "Clarence White", "Deryck Whibley", "Andrew White", "Bukka White", "Jack White", "Jason White", "Josh White", "Peter White", "Snowy White", "Steve White", "Vince White", "Brad Whitford", "Slim Whitman", "John \"Charlie\" Whitney", "Buddy Whittington", "Jonny Wickersham", "Jane Wiedlin", "Clarence Wijewardena", "David Wilcox", "Harlow Wilcox", "Webb Wilder", "Jack Wilkins", "Brad Allen Williams", "Bernie Williams", "Hayley Williams", "Jody Williams", "John Williams", "Mason Williams", "Rich Williams", "Pete Willis", "Marty Willson-Piper", "Alan Wilson", "Carl Wilson", "Nancy Wilson", "Steven Wilson", "Michael Wilton", "Johnny Winter", "Steve Winwood", "Christian Olde Wolbers", "Howlin’ Wolf", "Bobby Womack", "Wong Ka Kui", "Paul Wong", "Sigurd Wongraven", "Craig Wood", "Ronnie Wood", "Brian Wooten", "Bob Wootton", "Link Wray", "Owen Wright", "Zakk Wylde", "Kazuhito Yamashita", "Narciso Yepes", "Taylor York", "Thom Yorke", "Pete Yorn", "Yumi Yoshimura", "Angus Young", "James \"JY\" Young", "Jeff Young", "Malcolm Young", "Neil Young", "Yael Yuzon", "Roy Z", "Buddy Zabala", "Aamir Zaki", "Robin Zander", "Dweezil Zappa", "Frank Zappa", "Roy Zimmerman", "Nick Zinner", "Billy Zoom"]
     }]
   }
 };
@@ -30543,9 +30641,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 ;
 Object.assign(_desc.default, _nouns.default, _adjsVerbs.default, _nameOfMusician.default);
 var subtitleGrammar = Object.assign({}, _desc.default, _subtitle.default);
+console.log(_desc.default.root1.groups[0].phrases.length, _desc.default.extra.groups[0].phrases.length, _desc.default.root1.groups[0].phrases.length * _desc.default.extra.groups[0].phrases.length);
 
 function dryness() {
   return function (group) {
+    if (group.dry === false) {
+      return 0;
+    }
+
     var self = this;
     var newPhrases = group.phrases.filter(function (phrase) {
       if (!phrase) return true;
@@ -31090,6 +31193,14 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   props: ['label', 'appearance'],
   setup: function setup() {
@@ -31180,6 +31291,7 @@ var _FootSwitch = _interopRequireDefault(require("./FootSwitch.vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
 //
 //
 //
@@ -31553,6 +31665,14 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   props: ['label'],
   setup: function setup() {
@@ -31678,6 +31798,14 @@ var _util = require("./util.js");
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   props: ['randomNumber'],
   computed: {
@@ -31744,6 +31872,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32000,6 +32134,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32392,7 +32534,7 @@ var knobColors = ['#e84118', '#ff5A24', '#fbc531', '#44bd32', '#273c75', '#8c7ae
 var knobColors2 = ['#ff6138', '#dE4A24', '#ffe551', '#64cd52', '#475c95', '#ac9aff', '#Ffc7fF', '#222', '#f5f6fa'];
 var knobColorsTick = ['#d1d8e0', '#d1d8e0', '#333', '#d1d8e0', '#d1d8e0', '#d1d8e0', '#333', '#d1d8e0', '#333'];
 var fontFamilies = ['Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif', 'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif', '"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif', 'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif', 'Consolas, "Andale Mono WT", "Andale Mono", "Menlo", "SF Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace', '"Cooper Hewitt", sans-serif', '"Cooper Hewitt Medium", sans-serif'];
-var fontSizes = ['0.9rem', '0.9rem', '0.9rem', '1.2rem', '0.9rem', '0.9rem', '0.9rem'];
+var fontSizes = ['0.9em', '0.9em', '0.9em', '1.2em', '0.9em', '0.9em', '0.9em'];
 var flexJustifyContent = ['center', 'space-between'];
 var flexDirectionRow = ['row', 'row-reverse'];
 var knobConfigs = ['StraightRow', 'Pair', 'TriangleUp', 'TriangleDown', 'NByTwo'];
@@ -32412,13 +32554,18 @@ var _default = {
     Ports: _Ports.default,
     SomeControl: _SomeControl.default
   },
-  props: ['aleaSavedState', 'name', 'color', 'purpose', 'brand', 'seed'],
+  props: ['aleaSavedState', 'name', 'color', // 'purpose',
+  'brand', 'seed'],
   computed: {
     pedalID: function pedalID() {
       return 'i' + this.$props.seed;
     },
     getRandom: function getRandom() {
-      return _alea.default.importState(this.$props.aleaSavedState);
+      if (this.$props.aleaSavedState) {
+        return _alea.default.importState(this.$props.aleaSavedState);
+      } else {
+        return new _alea.default(this.$props.seed);
+      }
     },
     shouldHaveCheckLED: function shouldHaveCheckLED() {
       return this.getRandom() > 0.3;
@@ -32444,7 +32591,6 @@ var _default = {
           return _this.getRandom();
         })
       };
-      console.log(w);
       return w;
     },
     ledColorNumber: function ledColorNumber() {
@@ -32693,7 +32839,299 @@ render._withStripped = true
         
       }
     })();
-},{"@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","alea":"node_modules/alea/alea.js","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","./BottomArea.vue":"src/BottomArea.vue","./FootSwitch.vue":"src/FootSwitch.vue","./Knob.vue":"src/Knob.vue","./LED.vue":"src/LED.vue","./Ports.vue":"src/Ports.vue","./FingerSwitch.vue":"src/FingerSwitch.vue","./SomeControl.vue":"src/SomeControl.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
+},{"@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","alea":"node_modules/alea/alea.js","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","./BottomArea.vue":"src/BottomArea.vue","./FootSwitch.vue":"src/FootSwitch.vue","./Knob.vue":"src/Knob.vue","./LED.vue":"src/LED.vue","./Ports.vue":"src/Ports.vue","./FingerSwitch.vue":"src/FingerSwitch.vue","./SomeControl.vue":"src/SomeControl.vue","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/CoverPage.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _alea = _interopRequireDefault(require("alea"));
+
+var _Gfx = _interopRequireDefault(require("./Gfx"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  components: {
+    Gfx: _Gfx.default
+  },
+  computed: {
+    aleaSavedState: function aleaSavedState() {
+      return new _alea.default('0').exportState();
+    }
+  }
+};
+exports.default = _default;
+        var $5adce4 = exports.default || module.exports;
+      
+      if (typeof $5adce4 === 'function') {
+        $5adce4 = $5adce4.options;
+      }
+    
+        /* template */
+        Object.assign($5adce4, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "CoverPage" }, [
+    _c("div", { staticClass: "GradientBg" }, [
+      _c(
+        "div",
+        { staticClass: "InfinitePedals" },
+        _vm._l(40, function(i) {
+          return _c("Gfx", {
+            key: i,
+            attrs: { seed: i, name: " ", brand: " ", color: "white" }
+          })
+        }),
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "GradientOverlay" })
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "CoverPageContent" }, [
+      _c("h1", [
+        _c("span", { staticClass: "first" }, [_vm._v("Steve’s")]),
+        _vm._v(" "),
+        _c("br"),
+        _c("span", { staticClass: "second" }, [_vm._v("Pedal")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "third" }, [_vm._v("Shop")])
+      ]),
+      _vm._v(" "),
+      _c("h2", [
+        _vm._v("\n      Feeding Your Endless Hunger for Sonic Perfection\n    ")
+      ]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("\n      LITERALLY INFINITE OPTIONS!\n    ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "Badge" }, [
+      _c("h4", [_vm._v("Thanks for choosing Steve's Pedal Shop!")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n      Enjoy this complimentary copy of our catalog, packed with the latest imaginary guitar pedals. Check out our web site, "
+        ),
+        _c("a", { attrs: { href: "https://steveasleep.com/pedalshop/" } }, [
+          _vm._v("steveasleep.com/pedalshop")
+        ]),
+        _vm._v(", for infinitely more options.\n    ")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$5adce4', $5adce4);
+          } else {
+            api.reload('$5adce4', $5adce4);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"alea":"node_modules/alea/alea.js","./Gfx":"src/Gfx.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"node_modules/strict-uri-encode/index.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => "%".concat(x.charCodeAt(0).toString(16).toUpperCase()));
@@ -32833,7 +33271,7 @@ function encoderForArrayFormat(options) {
         return function (result, value) {
           var index = result.length;
 
-          if (value === undefined) {
+          if (value === undefined || options.skipNull && value === null) {
             return result;
           }
 
@@ -32848,7 +33286,7 @@ function encoderForArrayFormat(options) {
     case 'bracket':
       return function (key) {
         return function (result, value) {
-          if (value === undefined) {
+          if (value === undefined || options.skipNull && value === null) {
             return result;
           }
 
@@ -32862,12 +33300,12 @@ function encoderForArrayFormat(options) {
 
     case 'comma':
       return function (key) {
-        return function (result, value, index) {
+        return function (result, value) {
           if (value === null || value === undefined || value.length === 0) {
             return result;
           }
 
-          if (index === 0) {
+          if (result.length === 0) {
             return [[encode(key, options), '=', encode(value, options)].join('')];
           }
 
@@ -32878,7 +33316,7 @@ function encoderForArrayFormat(options) {
     default:
       return function (key) {
         return function (result, value) {
-          if (value === undefined) {
+          if (value === undefined || options.skipNull && value === null) {
             return result;
           }
 
@@ -33036,7 +33474,7 @@ function parse(input, options) {
   }
 
   for (var param of input.split('&')) {
-    var [key, value] = splitOnFirst(param.replace(/\+/g, ' '), '='); // Missing `=` should be `null`:
+    var [key, value] = splitOnFirst(options.decode ? param.replace(/\+/g, ' ') : param, '='); // Missing `=` should be `null`:
     // http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
 
     value = value === undefined ? null : decode(value, options);
@@ -33087,7 +33525,17 @@ exports.stringify = function (object, options) {
     arrayFormat: 'none'
   }, options);
   var formatter = encoderForArrayFormat(options);
-  var keys = Object.keys(object);
+  var objectCopy = Object.assign({}, object);
+
+  if (options.skipNull) {
+    for (var key of Object.keys(objectCopy)) {
+      if (objectCopy[key] === undefined || objectCopy[key] === null) {
+        delete objectCopy[key];
+      }
+    }
+  }
+
+  var keys = Object.keys(objectCopy);
 
   if (options.sort !== false) {
     keys.sort(options.sort);
@@ -33168,11 +33616,221 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   components: {
     Gfx: _Gfx.default
   },
-  props: ['seed'],
+  props: ['seed', 'bindings', 'tags'],
   computed: {
     alea: function alea() {
       return new _alea.default(this.$props.seed);
@@ -33184,12 +33842,16 @@ var _default = {
           descGen = _makeImprovGenerators.descGen,
           subGen = _makeImprovGenerators.subGen;
 
-      var model = {};
+      var model = {
+        bindings: this.$props.bindings || [],
+        tags: this.$props.tags || []
+      };
       var name = descGen.gen('name', model);
       var subtitle = subGen.gen('root', model);
       var desc = descGen.gen('root', model);
       var brand = descGen.gen('brand', model);
       var aleaSavedState = alea.exportState();
+      console.log(model);
       var pedal = {
         name: name,
         subtitle: subtitle,
@@ -33227,38 +33889,57 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "article",
-    [
-      _c("Gfx", {
-        attrs: {
-          seed: _vm.seed,
-          aleaSavedState: _vm.aleaSavedState,
-          name: _vm.pedal.name,
-          brand: _vm.pedal.brand,
-          purpose: _vm.pedal.purpose,
-          color: _vm.pedal.color
-        }
-      }),
-      _vm._v(" "),
-      _c("h2", { staticClass: "Brand" }, [_vm._v(_vm._s(_vm.pedal.brand))]),
-      _vm._v(" "),
-      _c("h1", { staticClass: "PedalName" }, [_vm._v(_vm._s(_vm.pedal.name))]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "PedalPrice" }, [
-        _vm._v(_vm._s(_vm.pedal.price))
-      ]),
-      _vm._v(" "),
-      _c("h3", [_vm._v(_vm._s(_vm.pedal.subtitle))]),
-      _vm._v(" "),
-      _vm._l(_vm.pedal.texts, function(t, i) {
-        return _c("p", { key: i }, [_vm._v(_vm._s(t))])
-      }),
-      _vm._v(" "),
-      _vm._m(0)
-    ],
-    2
-  )
+  return _c("div", { staticClass: "Entry" }, [
+    _c(
+      "div",
+      { staticClass: "PedalAndPrice" },
+      [
+        _c("Gfx", {
+          attrs: {
+            seed: _vm.seed,
+            aleaSavedState: _vm.aleaSavedState,
+            name: _vm.pedal.name,
+            brand: _vm.pedal.brand,
+            purpose: _vm.pedal.purpose,
+            color: _vm.pedal.color
+          }
+        }),
+        _vm._v(" "),
+        _c("h3", { staticClass: "PedalPrice left" }, [
+          _vm._v(_vm._s(_vm.pedal.price))
+        ])
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c("h2", { staticClass: "Brand" }, [_vm._v(_vm._s(_vm.pedal.brand))]),
+        _vm._v(" "),
+        _c("h1", { staticClass: "PedalName" }, [
+          _vm._v(_vm._s(_vm.pedal.name))
+        ]),
+        _vm._v(" "),
+        _c("h3", { staticClass: "PedalPrice above" }, [
+          _vm._v(_vm._s(_vm.pedal.price))
+        ]),
+        _vm._v(" "),
+        _c("h3", { staticClass: "PedalSubtitle" }, [
+          _vm._v(_vm._s(_vm.pedal.subtitle))
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.pedal.texts, function(t, i) {
+          return _c("p", { key: i }, [_vm._v(_vm._s(t))])
+        }),
+        _vm._v(" "),
+        _vm._m(0)
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { staticStyle: { clear: "both" } })
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -33280,7 +33961,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-3e5099",
+            _scopeId: null,
             functional: undefined
           };
         })());
@@ -33318,13 +33999,21 @@ var _alea = _interopRequireDefault(require("alea"));
 
 var _compositionApi = require("@vue/composition-api");
 
+var _CoverPage = _interopRequireDefault(require("./CoverPage.vue"));
+
 var _Gfx = _interopRequireDefault(require("./Gfx.vue"));
 
 var _Entry = _interopRequireDefault(require("./Entry.vue"));
 
+var _util = require("./util");
+
 var _makeImprovGenerators = _interopRequireDefault(require("./makeImprovGenerators"));
 
 var _queryString = _interopRequireDefault(require("query-string"));
+
+var _subtitle = _interopRequireDefault(require("./improvgrammar/subtitle.yaml"));
+
+var _desc = _interopRequireDefault(require("./improvgrammar/desc.yaml"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33336,17 +34025,82 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var purposeOptions = _subtitle.default.purpose.groups.map(function (_ref) {
+  var tags = _ref.tags,
+      phrases = _ref.phrases;
+  return [tags[0], phrases[0]];
+});
+
+console.log(purposeOptions);
+var brandOptions = _desc.default.brandname.groups[0].phrases;
+console.log(purposeOptions);
+
+function chunk(len, arr) {
+  var chunks = [],
+      i = 0,
+      n = arr.length;
+
+  while (i < n) {
+    chunks.push(arr.slice(i, i += len));
+  }
+
+  return chunks;
+}
+
 var _default = {
   components: {
+    CoverPage: _CoverPage.default,
     Gfx: _Gfx.default,
     Entry: _Entry.default
   },
   setup: function setup() {
     var seed = (0, _compositionApi.ref)(null);
+    var pages = (0, _compositionApi.ref)(4);
+
+    var initialParsedHash = _queryString.default.parse(window.location.hash);
+
+    if (initialParsedHash.pages) {
+      pages.value = parseInt(initialParsedHash.pages, 10);
+    }
+
+    var numBrandRepetitions = parseInt(initialParsedHash.numBrandRepetitions || '1', 10);
+    var sections = (0, _compositionApi.computed)(function () {
+      var alea = new _alea.default(seed.value);
+      return purposeOptions.map(function (_ref2) {
+        var _ref3 = _slicedToArray(_ref2, 2),
+            tag = _ref3[0],
+            title = _ref3[1];
+
+        return {
+          title: title,
+          tags: [tag],
+          brands: chunk(8, (0, _util.shuffle)(brandOptions, alea).flatMap(function (b) {
+            return _toConsumableArray(Array(numBrandRepetitions)).map(function (_, i) {
+              return {
+                bindings: {
+                  'brand': b
+                },
+                key: b.replace(' ', '') + tag.join('') + i
+              };
+            });
+          }))
+        };
+      });
+    });
 
     function derive(shouldSetHash) {
-      if (shouldSetHash) {
-        window.location.hash = "seed=".concat(seed.value);
+      var newHash = "seed=".concat(seed.value);
+
+      if (shouldSetHash && newHash != window.location.hash) {
+        window.location.hash = newHash;
       }
     }
 
@@ -33360,6 +34114,9 @@ var _default = {
       if (parsedHash.seed && !isNaN(parseInt(parsedHash.seed, 10))) {
         seed.value = parseInt(parsedHash.seed, 10);
         console.log("Set seed:", seed.value);
+      }
+
+      if (parsedHash.pages) {// pages.value = parseInt(parsedHash.pages, 10);
       }
 
       if (seed.value) {
@@ -33386,11 +34143,11 @@ var _default = {
     return {
       seed: seed,
       travel: travel,
-      seeds: (0, _compositionApi.computed)(function () {
-        return _toConsumableArray(Array(10)).map(function (_, i) {
-          return seed.value + i;
-        });
-      })
+      pages: pages,
+      sections: sections // seeds: computed(() => {
+      //   return [...Array(12)].map((_, i) => seed.value + i);
+      // }),
+
     };
   }
 };
@@ -33407,25 +34164,46 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [
-    _c("nav", [
-      _c("div", [_vm._v("Page " + _vm._s(_vm.seed) + " of ∞")]),
+  return _c(
+    "main",
+    [
+      _c("nav", [
+        _c("div", [_vm._v("Page " + _vm._s(_vm.seed) + " of ∞")]),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.travel } }, [_vm._v("Next Page →")])
+      ]),
       _vm._v(" "),
-      _c("button", { on: { click: _vm.travel } }, [_vm._v("Next Page →")])
-    ]),
-    _vm._v(" "),
-    _vm.seed
-      ? _c(
-          "div",
-          _vm._l(_vm.seeds, function(s) {
-            return _c("Entry", { key: s, attrs: { seed: s } })
-          }),
-          1
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm._m(0)
-  ])
+      _c("CoverPage"),
+      _vm._v(" "),
+      _vm.seed
+        ? _c(
+            "div",
+            { staticClass: "Content" },
+            _vm._l(_vm.pages, function(p) {
+              return _c(
+                "div",
+                { key: p, staticClass: "Page" },
+                _vm._l(2, function(n) {
+                  return _c("Entry", {
+                    key: n,
+                    attrs: {
+                      brand: "",
+                      tags: "",
+                      seed: _vm.seed + (p - 1) * 2 + n - 1
+                    }
+                  })
+                }),
+                1
+              )
+            }),
+            0
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -33441,7 +34219,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" for generating text.\n    ")
       ]),
-      _vm._v(" "),
+      _vm._v("name\n\n    "),
       _c("div", [
         _vm._v("\n      The\n      "),
         _c(
@@ -33507,7 +34285,7 @@ render._withStripped = true
         
       }
     })();
-},{"alea":"node_modules/alea/alea.js","@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","./Gfx.vue":"src/Gfx.vue","./Entry.vue":"src/Entry.vue","./makeImprovGenerators":"src/makeImprovGenerators.js","query-string":"node_modules/query-string/index.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
+},{"alea":"node_modules/alea/alea.js","@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","./CoverPage.vue":"src/CoverPage.vue","./Gfx.vue":"src/Gfx.vue","./Entry.vue":"src/Entry.vue","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","query-string":"node_modules/query-string/index.js","./improvgrammar/subtitle.yaml":"src/improvgrammar/subtitle.yaml","./improvgrammar/desc.yaml":"src/improvgrammar/desc.yaml","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -33553,7 +34331,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51201" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61553" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

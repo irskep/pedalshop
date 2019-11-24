@@ -29,7 +29,7 @@ body, html {
   margin: 0; padding: 0;
 }
 
-nav {
+main nav {
   text-align: right;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -67,16 +67,14 @@ footer {
   font-size: 0.85rem;
 }
 
-article {
-  position: relative;
-}
-
 /* custom: header */
 
 body > header {
   background-color: #c00;
   color: #fff;
   padding: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 body > header h1 {
@@ -92,51 +90,12 @@ body > header h2 {
   margin: 0;
 }
 
-/* text stuff */
-
-.Brand {
-  margin-bottom: -1.5rem;
-  font-style: italic;
-  font-size: 1.5rem;
-}
-
-h1.PedalName {
-  margin-bottom: 0;
-}
-
-h3.PedalPrice, .BuyButton a {
-  color: #c00;
+body > header > nav {
   font-family: "Cooper Hewitt Heavy";
-  margin-top: 0;
 }
 
-.BuyButton {
-  font-size: 1.2rem;
-}
-
-/* custom: pedal */
-
-@media(min-width: 768px) {
-  main {
-    max-width: 49rem !important;
-    padding: 0 2rem;
-  }
-
-  article > h1, article > h2, h3.PedalPrice {
-    text-align: left !important;
-  }
-
-  .Pedal {
-    float: left !important;
-    width: auto !important;
-    transform: scale(1) !important;
-  }
-}
-
-@media(min-width: 500px) {
-  .Pedal {
-    transform: scale(1) !important;
-  }
+body > header > nav a {
+  color: white;
 }
 
 main {
@@ -145,107 +104,11 @@ main {
   margin: auto;
 }
 
-.Pedal {
-  display: flex;
-  justify-content: center;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
-  overflow-x: visible;
-  width: 100%;
-
-  transform: scale(0.7);
-}
-
-.Pedal .Label {
-  font-size: 0.5rem;
-  line-height: 1em;
-}
-
-.ThreeSectionStompbox {
-  --outsidePadding: 0.4rem;
-
-  min-width: 10rem;
-  border: 0.5px solid rgba(0, 0, 0, 0.2);
-  background-color: var(--bg);
-  color: var(--textOnBg);
-
-  border-radius: 0.3rem;
-  padding: var(--outsidePadding);
-  flex-shrink: 0;
-}
-
-.Controls {
-  background-color: var(--bg2);
-  color: var(--textOnBg2);
-  padding: 0.4rem;
-  border-radius: 0.2rem;
-  margin-bottom: 0.4rem;
-  min-height: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.Controls__Spacer {
-  height: 1px;
-  content: " ";
-}
-
-.CheckLED {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 0.5rem;
-}
-
-.Knobs__StraightRow {
-  min-height: 2rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.Knobs__Pair {
-  min-height: 2rem;
-  display: flex;
-  justify-content: space-around;
-}
-
-.Knobs__Pair .Knob {
-  margin: 0 1rem;
-}
-
-.Knobs__TriangleUp {
-  min-height: 5rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-}
-
-.Knobs__TriangleUp > * {
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.Knobs__TriangleUp > *:nth-child(2) {
-  align-self: flex-start;
-}
-
-.Knobs__TriangleDown {
-  min-height: 5rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-}
-
-.Knobs__TriangleDown > * {
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.Knobs__TriangleDown > *:nth-child(2) {
-  align-self: flex-end;
+@media screen and (min-width: 768px) {
+  main {
+    max-width: 49rem !important;
+    padding: 0 2rem;
+  }
 }
 
 /*# sourceMappingURL=/static.abaec9a8.css.map */

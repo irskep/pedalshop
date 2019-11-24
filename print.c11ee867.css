@@ -1,0 +1,140 @@
+@page:first {
+  margin: 0;
+  padding: 0;
+}
+
+@page {
+  margin: 2cm 2cm 0 2cm;
+}
+
+@media print {
+  header, footer, nav, .BuyButton {
+    display: none;
+  }
+
+  html {
+    font-size: 0.7rem;
+    line-height: 1.4em;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body {
+    /* margin: 1.6cm; */
+    margin: 0;
+  }
+
+  main {
+    width: calc(100% - 4cm);
+    max-width: calc(100% - 4cm);
+    margin: 0;
+    padding: 0;
+  }
+
+  .catalog .Content {
+    /* columns: 24rem; */
+    /* display: flex;
+    flex-wrap: wrap; */
+    columns: 2;
+    /* break-after: always; */
+    page-break-after: always;
+  }
+
+  .catalog .Content > * {
+    flex-basis: 30rem;
+    margin-right: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .catalog .Category > h1 {
+    font-family: "Cooper Hewitt Heavy";
+    font-size: 4rem;
+  }
+
+  .Page {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+  }
+
+  .Page > * {
+    /* width: calc(50% - 2rem); */
+    flex-basis: content;
+  }
+
+  .Page > *:first-child {
+    margin-right: 3em;
+  }
+
+  .ThreeSectionStompBox, .Entry {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .Pedal {
+    font-size: 0.7rem;
+    /* transform: scale(0.6) !important;
+    transform-origin: top center; */
+  }
+  .PedalPrice.left {
+    display: block !important;
+    margin-top: 0.5em;
+  }
+  .PedalPrice.above {
+    display: none;
+    position: absolute;
+    top: 0; right: 0;
+  }
+
+  .PedalName, .Brand, .PedalPrice {
+    font-size: 1.5em;
+  }
+
+  .Brand {
+    margin-top: 0;
+    padding-top: 0.2rem;
+  }
+
+  .PedalPrice {
+    margin-bottom: 0;
+  }
+
+  .PedalSubtitle {
+    font-size: 1.1em;
+    margin-top: 0;
+    line-height: 1.1em;
+  }
+
+  .Entry {
+    /* display: flex;
+    align-items: flex-start; */
+    clear: both;
+    margin-bottom: 1rem;
+  }
+
+  .catalog .Entry .Pedal {
+    margin-right: 0;
+  }
+
+  .catalog .PedalAndPrice {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    float: right;
+    margin: 0 0 0 2rem;
+  }
+
+  .catalog .PedalPrice {
+    text-align: right;
+  }
+
+  .Entry > h1, .Entry > h2, h3.PedalPrice {
+    text-align: left !important;
+  }
+
+  .Pedal {
+    width: auto !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/*# sourceMappingURL=/print.c11ee867.css.map */
