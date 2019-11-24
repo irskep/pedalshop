@@ -148,6 +148,7 @@ benefitSingular:
         - 'momentary knob ramp'
         - 'tap tempo with note divisions'
         - 'trio of selectable [:circuits]'
+        - 'an added Tone control'
     - tags: [['purpose', 'looping']]
       phrases:
         - 'unlimited overdubbing'
@@ -173,6 +174,7 @@ benefitPlural:
         - 'boosted power rails'
         - '[:superlative] headroom and definition'
         - '[#2-9] master algorithms'
+        - 'upgraded SMD components'
         
 soundModification:
   groups:

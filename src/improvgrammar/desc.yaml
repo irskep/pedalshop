@@ -348,13 +348,18 @@ root1:
         - >-
           With its [:benefit], the [:name] delivers delightfully flexible [:effectDescription].
           [:extra]
+        - >-
+          With [:benefit] and [:benefit], the [:shortname] delivers smoother, more musical [:effectDescription] than ever.
+          [:extra]
+        - >-
+          When you hear how clean the [:name] sounds, it's hard to believe this is an all-analog pedal. Yet the sound and (more importantly) the feel of [:benefit] is unmistakeable, and there's no denying that's what this [:pedal] delivers.
 
 root2:
   groups:
     - tags: []
       phrases:
         - >-
-          Four different [:oomphs] reward you with everything from [:oldEffect] to [:newEffect].
+          When you hear how clean the [:name] sounds, it's hard to believe this is an all-analog pedal. Yet the sound and (more importantly) the feel of [:benefit] is unmistakeable, and there's no denying that's what this [:pedal] delivers.
 
 extra:
   groups:
@@ -408,3 +413,5 @@ extra:
           You can also blend in [:unrelatedEffect] and [:unrelatedEffect] for extra sonic textures.
         - >-
           Four different [:oomphs] reward you with everything from [:oldEffect] to [:newEffect].
+        - >-
+          No matter what you play, you need this pedal.
