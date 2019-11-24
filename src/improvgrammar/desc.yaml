@@ -257,7 +257,7 @@ root:
     - tags: []
       dry: false
       phrases:
-        - '[:root1]'
+        - '[:root2]'
 
 root1:
   groups:
@@ -332,13 +332,15 @@ root1:
           [:extra]
         - >-
           When guitarist [:nameOfMusician] asked [:brand] to design a modern [:upurpose] pedal inspired by his go-to vintage [:upurpose], the [:effectName], they came up with [the :shortname].
+        - >-
+          Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? The [:shortname] is the creative tool you need. There are three [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.
 
 root2:
   groups:
     - tags: []
       phrases:
         - >-
-          When guitarist [:nameOfMusician] asked [:brand] to design a modern [:upurpose] pedal inspired by his go-to vintage [:upurpose], the [:effectName], they came up with [the :shortname]. It serves up [:toneAdj], [:toneAdj] [:effectDescription] with ’[#5-9]0s-style effects.
+          Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? The [:shortname] is the creative tool you need. There are three [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.
 
 extra:
   groups:

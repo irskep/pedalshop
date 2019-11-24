@@ -47,6 +47,10 @@
     align-items: flex-start;
     flex-direction: row-reverse;
   }
+
+  .Entry p {
+    margin-right: 1rem;
+  }
 }
 
 @media screen and (max-width: 500px) {
