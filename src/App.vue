@@ -1,6 +1,5 @@
 <template>
-  <!-- <main class="catalog"> -->
-  <main>
+  <main v-bind:class="{catalog: catalog}">
     <nav>
       <div>Page {{ seed }} of ∞</div>
       <button @click="travel">Next Page &rarr;</button>
@@ -8,7 +7,7 @@
 
     <CoverPage></CoverPage>
 
-    <!-- <div class="Category" v-for="s in sections" v-bind:key="s.title">
+    <div class="Category" v-for="s in sections" v-bind:key="s.title">
       <h1>{{ s.title }} Pedals</h1>
       <div
           class="Content"
@@ -20,9 +19,9 @@
           v-bind:tags="s.tags"
           v-bind:seed="seed + b.key"></Entry>
       </div>
-    </div> -->
+    </div>
 
-    <div class="Content" v-if="seed">
+    <div class="Content" v-if="seed && !catalog">
       <div class="Page" v-for="p in pages" v-bind:key="p">
         <Entry
           v-for="n in 2"
@@ -115,8 +114,10 @@ export default {
     }
     const numBrandRepetitions =
       parseInt(initialParsedHash.numBrandRepetitions || '1', 10);
+    const catalog = initialParsedHash.catalog || false;
 
     const sections = computed(() => {
+      if (!catalog) return [];
       const alea = new Alea(seed.value);
       return purposeOptions.map(([tag, title]) => ({
         title,
@@ -178,6 +179,7 @@ export default {
       travel,
       pages,
       sections,
+      catalog,
       // seeds: computed(() => {
       //   return [...Array(12)].map((_, i) => seed.value + i);
       // }),
