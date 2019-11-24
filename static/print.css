@@ -9,7 +9,7 @@
 
 @media print {
   header, footer, nav, .BuyButton {
-    display: none;
+    display: none !important;
   }
 
   html {
