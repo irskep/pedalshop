@@ -29857,20 +29857,8 @@ module.exports = {
   },
   newname: {
     groups: [{
-      tags: [["namestyle", "the"]],
-      phrases: ["The [:namenoun]", "The [id :namenoun]"]
-    }, {
-      tags: [["namestyle", "prefixnoun"]],
-      phrases: ["[:super] [:namePrefix] [:namenoun]", "[:namePrefix] [:namenoun]", "[:super] [:namePrefix] [:namenoun] [:v2]", "[:namePrefix] [:namenoun] [:v2]", "[:super] [:namenoun] [:namesuffix]"]
-    }, {
-      tags: [["namestyle", "color"]],
-      phrases: ["[:size] [:color] [:namenoun]", "[:size] [:color] [:namenoun] [:v2]"]
-    }, {
-      tags: [["namestyle", "suffixnoun"]],
-      phrases: ["[:namenoun] [:namesuffix]", "[:super] [:namenoun] [:namesuffix] [:v2]", "[:namenoun] [:namesuffix] [:v2]"]
-    }, {
-      tags: [["namestyle", "lettersandnumbers"]],
-      phrases: ["[:twoLetters]-[:shortIdentifier]", "[:letter][:letter][:letter]-[#0-9][#0-9][#0-9]", "[id :letter][:letter][:letter]-[#0-9][#0-9][#0-9]"]
+      tags: [],
+      phrases: ["The [:namenoun]", "The [id :namenoun]", "[:super] [:namePrefix] [:namenoun]", "[:namePrefix] [:namenoun]", "[:super] [:namePrefix] [:namenoun] [:v2]", "[:namePrefix] [:namenoun] [:v2]", "[:super] [:namenoun] [:namesuffix]", "[:size] [:color] [:namenoun]", "[:size] [:color] [:namenoun] [:v2]", "[:namenoun] [:namesuffix]", "[:super] [:namenoun] [:namesuffix] [:v2]", "[:namenoun] [:namesuffix] [:v2]", "[:twoLetters]-[:shortIdentifier]", "[:letter][:letter][:letter]-[#0-9][#0-9][#0-9]", "[id :letter][:letter][:letter]-[#0-9][#0-9][#0-9]", "[id id :letter][:letter][:letter]-[#0-9][#0-9][#0-9]", "[id id id :letter][:letter][:letter]-[#0-9][#0-9][#0-9]", "[id id id id :letter][:letter][:letter]-[#0-9][#0-9][#0-9]", "[id id id id id :letter][:letter][:letter]-[#0-9][#0-9][#0-9]"]
     }]
   },
   super: {
@@ -34331,7 +34319,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55030" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55142" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
