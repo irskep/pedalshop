@@ -92,6 +92,7 @@ body > header h2 {
 
 body > header > nav {
   font-family: "Cooper Hewitt Heavy";
+  text-align: right;
 }
 
 body > header > nav a {

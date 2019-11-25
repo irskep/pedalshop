@@ -1,8 +1,7 @@
 
   digraph grammar {
     rankdir=LR;
-    nameOfMusician[label="nameOfMusician (11)"];
-largeAmount[label="largeAmount (1)"];
+    largeAmount[label="largeAmount (1)"];
 genreAdjective[label="genreAdjective (2)"];
 genreName[label="genreName (3)"];
 soundModification[label="soundModification (5)"];

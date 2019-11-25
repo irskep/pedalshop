@@ -12,6 +12,8 @@ assert RE_RULE.findall('[:asdf]') == [':asdf']
 datas = []
 all_phrases = []
 for p in glob.glob('src/improvgrammar/*.yaml'):
+  if 'nameOfMusician' in p:
+    continue
   with open(p, 'r') as f:
     data = yaml.load(f)
     for v in data.values():
