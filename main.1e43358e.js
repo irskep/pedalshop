@@ -29812,7 +29812,7 @@ module.exports = {
   subtitle: {
     groups: [{
       tags: [],
-      phrases: ["[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePacked] with [:subtitleSuperlative] [:purpose] [:subtitleOptions]", "[:purpose] for the Tone [:aficionado]", "[:brand]'s Most [:subtitleSuperlative] [:purpose] [:subtitleNoun]", "Your Always-on [:purpose] [:capPedal]", "Time-tested [:purpose], Upgraded Tone", "Beyond [:subtitleClassic] [:purpose]", "[:subtitleSuperlative] [:purpose]", "[:subtitleVersatile] [:purpose] [:capPedal]", "All the [:purpose] You Could Ask For", "The World's Most [:subtitleSuperlative] [:purpose] [:capPedal]"]
+      phrases: ["[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePrefix] [:purpose] [:subtitleNoun]", "[:subtitlePacked] with [:subtitleSuperlative] [:purpose] [:subtitleOptions]", "[:purpose] for the Tone [:aficionado]", "[:brand]'s Most [:subtitleSuperlative] [:purpose] [:subtitleNoun]", "Your Always-on [:purpose] [:capPedal]", "Time-tested [:purpose], Upgraded Tone", "Beyond [:subtitleClassic] [:purpose]", "[:subtitleSuperlative] [:purpose]", "[:subtitleVersatile] [:purpose] [:capPedal]", "All the [:purpose] You Could Ask For", "The World's Most [:subtitleSuperlative] [:purpose] [:capPedal]", "A New Flavor of [:purpose]"]
     }]
   },
   subtitleVersatile: {
@@ -29998,19 +29998,19 @@ module.exports = {
   desc1: {
     groups: [{
       tags: [],
-      phrases: ["[The :shortname]'s [:benefitSingular] is [:superlative] for [:making] [:upurpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "[The :shortname] comes [:packed] with [:superlative] [:upurpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [:upurpose] in [the :shortname]. [cap :packed] with [:soundAdjective] [:upurpose] effects, [the :shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:editable] [:subItems], [the :shortname] provides [:endless] [:creativePossibilities]. [:extra]", "[The :shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], [the :shortname] is possibly the most versatile [:upurpose] [:pedal] ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], [the :shortname] may be one of the most versatile [:upurpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, [the :shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedalAlternative].  [:extra]", "[The :shortname] re-creates the classic sound of [the :extraname1] and [:extraname2] [:pedalAlternative]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. [The :shortname] features a stereo output for [the :extraname1] effects and variable depth for [the :extraname2] effects. [:extra]", "[The :shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [:upurpose] from [#100-400] to [#401-999] and adds modern [:toneAdjNoun] and [:toneAdjNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with [the :shortname], they added a whole new dimension to their popular [:upurpose] [:pedal]. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create [the :shortname]. This versatile [:pedal] packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "[The :shortname] features [:benefitSingular], which allows it to dynamically adapt to any register. That means you get [:toneAdjNoun], [:toneAdjNoun], and [:toneAdjNoun] all across the fretboard, with [:superlative] dynamics. [:extra]", "[:brand]'s [:shortname] allows you to create [#2-100] [:performanceCharacteristics] with up to [#2-10] [:units] of high-quality performance and [:benefit]. [:extra]", "[The :shortname] sports the [:genreAdjective], [:vintage] sound that made the original a huge hit with [:genreName] guitarists decades ago. All the original magic is back with [:brand]'s reissue of this '[#5-9]0s [:pedal]. [:extra]", "Designed with [:benefit], [the :shortname] is exceptionally responsive to [:guitarTechnique]. It features [:benefit] and gives you a choice of either buffered or full bypass. [:extra]", "[The :shortname] is the [:upurpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain. [:extra]", "[:brand] packed the original [oldify :shortname] circuit into [the :shortname], so you get the same sound, controls, and guts as the full-size model. This pedalboard-friendly version [:offers] the same [:toneAdj] tones that you've heard on countless recordings, but in a smaller package. [:extra]", "[The :shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedal] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take [the :shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]", "Own the [:pedal] that started it all—the [:brand] [:shortname] is a faithful recreation of the original '[#55-70] [oldify :shortname] pedal. It has the same [:toneAdj] tone heard on early '[#7-9]0s records by [:nameOfMusician], [:nameOfMusician], and many others.", "With [#2-100] [:subItems] plus [:benefit], [the :shortname] is one of the most [:creative] and [:creative] [:upurpose] [:pedals] you could put on your pedalboard. [:extra]", "[The :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [:upurpose] tone. [:extra]", "When guitarist [:nameOfMusician] asked [:brand] to design a modern [:upurpose] pedal inspired by his go-to vintage [:upurpose], the [:effectName], they came up with [the :shortname].", "Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? [The :shortname] is the creative tool you need. There are [#2-9] [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.", "With [:benefit], [:benefit], [:benefit], and [:benefit], [the :shortname] [:soundModification]. [:extra]", "Now in a more convenient single-pedal format, the dual-mode [:shortname] is a [:toneAdj] [:upurpose] [:pedal] you'll never take off your board.", "[The :shortname] analog [:upurpose] [:pedal] is a master at sonic landscaping. [:extra]", "Strap in and prepare to fly—[the :shortname] [:purpose] [:pedal] will make your tone lift off. It features [:benefit]. [:extra]", "With its [:benefit], [the :name] delivers delightfully flexible [:effectDescription]. [:extra]", "With [:benefit] and [:benefit], [the :shortname] delivers smoother, more musical [:effectDescription] than ever. [:extra]", "When you hear how clean [the :shortname] sounds, it's hard to believe this is an all-analog pedal. Yet the sound and (more importantly) the feel of [:benefit] is unmistakeable, and there's no denying that's what this [:pedal] delivers.", "[The :shortname] puts that elusive [:effectName] tone right at your feet in a conveniently compact pedal. [:extra]", "If you want [:nameOfMusician]'s signature tone, then [:shortname] belongs in your rig. [:extra]", "[The :shortname] [:upurpose] [:pedal] can serve capably as your go-to source for [:effectName] tone stack circuitry in a pedalboard-friendly format. [:extra]", "Keep your tone while kicking up the [:effectDescription], with the [:shortname] [:pedal]. Modeled on that timeless, omnipresent [uncap :newcolor] [:upurpose] [:pedal], the [:shortname] lets you add a range of tones from [:oldEffect] to [:newEffect]. [:extra]", "The [:shortname] features an updated [:effectDescription] algorithm with [:benefit], plus [:benefit]. You've got it all: [:benefit], [:benefit], and [:benefit].", "Go far beyond traditional [:purposeNoun] with [the :shortname]. [:nameOfMusician] and [:nameOfMusician] swear by this [:pedal].", "[The :shortname] soaks your guitar in [:toneAdj], [:toneAdj] [:effectDescription] through [:benefit]. [:extra]", "[:shortname]'s [:benefit] will impress anyone within earshot. [:extra]", "[:shortname] offers all the tones heard on iconic records by [:nameOfMusician] and [:nameOfMusician]. The analog dry signal path and true bypass preserve your original tone.", "[The :shortname] combines [:benefit], [:benefit], [:benefit], [:benefit], and [:benefit]. [:extra]", "[The :shortname] delivers that [:toneAdj], [:toneAdj] [:effectDescription] everyone loves. [:extra]", "[The :shortname] [:soundModification] and [:soundModification] with pure analog bucket brigade goodness. [:extra]", "The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some. [:extra]"]
+      phrases: ["[The :shortname]'s [:benefitSingular] is [:superlative] for [:making] [:upurpose] [:performances] with [:performanceCharacteristics]. [cap :tapInto] [:largeAmount] [:builtIn] [:subItems]. [:extra]", "[The :shortname] comes [:packed] with [:superlative] [:upurpose] effects. Onboard, you'll find [#5-100] different [:subItems] to fuel your creativity. [:extra]", "The power and versatility of [:brand]'s [:shortIdentifier] series has come to [:upurpose] in [the :shortname]. [cap :packed] with [:soundAdjective] [:upurpose] effects, [the :shortname]'s [#5-100] [:builtIn] [:subItems] mean [:serious] [:people] will never [:runOutOf] [:ideas].", "[cap :packed] with [#5-100] [:editable] [:subItems], [the :shortname] provides [:endless] [:creativePossibilities]. [:extra]", "[The :shortname] [:offers] [an :enticing] selection of [#5-20] [:creative] [:subItems] that cover everything from [:vintage] [:oldEffect] to [:modern] [:newEffect]. [:extra]", "With [:superlative] [:soundQuality] and [#2-9] different [:subItems], [the :shortname] is possibly the most versatile [:upurpose] [:pedal] ever devised for guitar and bass. [:extra]", "Offering [#2-100] distinct [:subItems], [the :shortname] may be one of the most versatile [:upurpose] pedals you'll find. [:extra]", "[cap :packed] with premium analog circuitry, [the :shortname] not only nails the sound of the original [oldify :shortname], but it also offers a spot-on recreation of the original [:newname] [:pedalAlternative].  [:extra]", "[The :shortname] re-creates the classic sound of [the :extraname1] and [:extraname2] [:pedalAlternative]s using all-analog circuitry. Switch between [:extraname1] and [:extraname2] effects with the flip of a toggle. [The :shortname] features a stereo output for [the :extraname1] effects and variable depth for [the :extraname2] effects. [:extra]", "[The :shortname] offers you the same amazing character as the original, without any of the clock noise—and that's just the Standard mode. Custom mode increases the maximum [:upurpose] from [#100-400] to [#401-999] and adds modern [:toneAdjNoun] and [:toneAdjNoun] to the [:effectDescription].", "[:brand]'s updated [:shortname] gives you iconic [:oldEffect] with [#2-8] distinct voices. Standard mode [:soundModification]. Custom mode [:soundModification].", "When [:brand] decided to update the original [oldify :shortname] with [the :shortname], they added a whole new dimension to their popular [:upurpose] [:pedal]. [:extra]", "[:brand] celebrates [#1-5]0 years of tone shaping by teaming up with [:brand2] to create [the :shortname]. This versatile [:pedal] packs the tones of the [:brand] [:extraname1] and the [:brand2] [:extraname2] into a single [:brand]-style housing—all managed by dual-concentric knobs.", "[The :shortname] features [:benefitSingular], which allows it to dynamically adapt to any register. That means you get [:toneAdjNoun], [:toneAdjNoun], and [:toneAdjNoun] all across the fretboard, with [:superlative] dynamics. [:extra]", "[:brand]'s [:shortname] allows you to create [#2-100] [:performanceCharacteristics] with up to [#2-10] [:units] of high-quality performance and [:benefit]. [:extra]", "[The :shortname] sports the [:genreAdjective], [:vintage] sound that made the original a huge hit with [:genreName] guitarists decades ago. All the original magic is back with [:brand]'s reissue of this '[#5-9]0s [:pedal]. [:extra]", "Designed with [:benefit], [the :shortname] is exceptionally responsive to [:guitarTechnique]. It features [:benefit] and gives you a choice of either buffered or full bypass. [:extra]", "[The :shortname] is the [:upurpose] [:pedal] countless musicians, including [:nameOfMusician] and [:nameOfMusician], relied on for its [:toneAdj], [:toneAdj], [:toneAdj] sustain. [:extra]", "[:brand] packed the original [oldify :shortname] circuit into [the :shortname], so you get the same sound, controls, and guts as the full-size model. This pedalboard-friendly version [:offers] the same [:toneAdj] tones that you've heard on countless recordings, but in a smaller package. [:extra]", "[The :shortname]'s [:toneAdj], [:toneAdj], and totally analog tones have kept it on the must-have [:pedal] list for more than [#1-4]0 years now—and the second you engage this thing, you'll hear why. You can take [the :shortname] from a subtle [:strangeEffectName] to [a :strangeEffectAdj] [:strangeEffectName] to create crazy effects. [:extra]", "Own the [:pedal] that started it all—the [:brand] [:shortname] is a faithful recreation of the original '[#55-70] [oldify :shortname] pedal. It has the same [:toneAdj] tone heard on early '[#7-9]0s records by [:nameOfMusician], [:nameOfMusician], and many others.", "With [#2-100] [:subItems] plus [:benefit], [the :shortname] is one of the most [:creative] and [:creative] [:upurpose] [:pedals] you could put on your pedalboard. [:extra]", "[The :shortname] delivers [:toneAdj], [:toneAdj] [:purposeNoun] that's impressively versatile. At lower settings, it adds a subtle [:toneAdjNoun] to your playing. Turn it up a bit, and you'll be greeted with [a :toneAdj] [:vintage] [:genreName] [:upurpose] tone. [:extra]", "When guitarist [:nameOfMusician] asked [:brand] to design a modern [:upurpose] pedal inspired by his go-to vintage [:upurpose], the [:effectName], they came up with [the :shortname].", "Want to create [:toneAdj], [:toneAdj], [:toneAdj] soundscapes? [The :shortname] is the creative tool you need. There are [#2-9] [:oomphs] with totally different characters, and the full set of controls makes dialing in your sound easy.", "With [:benefit], [:benefit], [:benefit], and [:benefit], [the :shortname] [:soundModification]. [:extra]", "Now in a more convenient single-pedal format, the dual-mode [:shortname] is a [:toneAdj] [:upurpose] [:pedal] you'll never take off your board.", "[The :shortname] analog [:upurpose] [:pedal] is a master at sonic landscaping. [:extra]", "Strap in and prepare to fly—[the :shortname] [:purpose] [:pedal] will make your tone lift off. It features [:benefit]. [:extra]", "With [:benefit], [the :name] delivers delightfully flexible [:effectDescription]. [:extra]", "With [:benefit] and [:benefit], [the :shortname] delivers smoother, more musical [:effectDescription] than ever. [:extra]", "When you hear how clean [the :shortname] sounds, it's hard to believe this is an all-analog pedal. Yet the sound and (more importantly) the feel of [:benefit] is unmistakeable, and there's no denying that's what this [:pedal] delivers.", "[The :shortname] puts that elusive [:effectName] tone right at your feet in a conveniently compact pedal. [:extra]", "If you want [:nameOfMusician]'s signature tone, then [:shortname] belongs in your rig. [:extra]", "[The :shortname] [:upurpose] [:pedal] can serve capably as your go-to source for [:effectName] tone stack circuitry in a pedalboard-friendly format. [:extra]", "Keep your tone while kicking up the [:effectDescription], with the [:shortname] [:pedal]. Modeled on that timeless, omnipresent [uncap :newcolor] [:upurpose] [:pedal], the [:shortname] lets you add a range of tones from [:oldEffect] to [:newEffect]. [:extra]", "The [:shortname] features an updated [:effectDescription] algorithm with [:benefit], plus [:benefit]. You've got it all: [:benefit], [:benefit], and [:benefit].", "Go far beyond traditional [:purposeNoun] with [the :shortname]. [:nameOfMusician] and [:nameOfMusician] swear by this [:pedal].", "[The :shortname] soaks your guitar in [:toneAdj], [:toneAdj] [:effectDescription] through [:benefit]. [:extra]", "[:shortname]'s [:benefit] will impress anyone within earshot. [:extra]", "[:shortname] offers all the tones heard on iconic records by [:nameOfMusician] and [:nameOfMusician]. The analog dry signal path and true bypass preserve your original tone.", "[The :shortname] combines [:benefit], [:benefit], [:benefit], [:benefit], and [:benefit]. [:extra]", "[The :shortname] delivers that [:toneAdj], [:toneAdj] [:effectDescription] everyone loves. [:extra]", "[The :shortname] [:soundModification] and [:soundModification] with pure analog bucket brigade goodness. [:extra]", "The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some. [:extra]", "[The :shortname] is a high-headroom, transparent [:upurpose] [:pedal], packing [:benefit] and [:benefit].  [:extra]", "What's better than a great [:upurpose] [:pedal]? How about two great [:effectDescriptions] in one [:pedal]? [:brand]'s [:shortname] delivers just that, giving you [a :toneAdj], [:toneAdj] [:effectDescription] on one side and a more [:toneAdj] [:effectDescription] on the other. You can even blend the two channels to craft your ultimate signature sound."]
     }]
   },
   desc2: {
     groups: [{
       tags: [],
-      phrases: ["The [:twoLetters]-driven [:shortname] [:pedal] packs all the mojo of the MkIII into its smaller frame and then some. [:extra]"]
+      phrases: ["What's better than a great [:upurpose] [:pedal]? How about two great [:effectDescriptions] in one [:pedal]? [:brand]'s [:shortname] delivers just that, giving you [a :toneAdj], [:toneAdj] [:effectDescription] on one side and a more [:toneAdj] [:effectDescription] on the other. You can even blend the two channels to craft your ultimate signature sound."]
     }]
   },
   extra: {
     groups: [{
       tags: [],
-      phrases: ["The [:shortname] actually offers dual [:circuits] that can be configured for stereo, series, or parallel operation, and an insert function even allows you to add external effects pedals.", "And [:controls] let you [:edit] to [:perfection].", "And with [:benefit], it can turn your pedalboard into a [:sonicPlayground].", "With [:upTo] [#2-100] [:oomphs], you won't [:runOutOf] [:timeOrTone].", "[cap :edit] the [:knobsOrSwitches] for real-time expression.", "With [:benefit], [the :shortname] is one of the most comprehensive [:upurpose] pedals you'll find in its class.", "Looking for [:benefitSingular]? It's here. Need [:benefit]? You've got it!", "The original [oldify :shortname] is also available.", "You'll never believe you could get this level of [:toneAdjNoun] without sacrificing [:toneAdjNoun]!", "A Dynamic mode automatically adjusts to your playing for [:toneAdj] ambience that won't turn your tone to mud.", "It's also a handy power supply for your pedalboard.", "Separate dry and effect outputs allow for 2-amp setups.", "[#3-100] [:superlative] [:subItems] cover [:superlative] sounds, from [:effectName] to [:effectName], and they all sound [:superlative].", "Two footswitches and an optional 3-button controller deliver hands-free operation.", "And [:brand] put all the [:genreAdjective] power into an enclosure that will fit comfortably on any pedalboard.", "It runs on either a 9-volt battery or the included power supply.", "Its simple control layout makes dialing in the perfect tone easy.", "The more streamlined [oldify :shortname] is also available.", "An expression pedal gives you real-time control, and you can recall [#10-100] presets.", "It serves up [:toneAdj], [:toneAdj] [:effectDescription] with ’[#5-9]0s-style effects.", "It delivers digital and analog [:upurpose] styles any [:person] will adore.", "It features a slew of shape controls plus [:benefit].", "You can also blend in [:unrelatedEffect] and [:unrelatedEffect] for extra sonic textures.", "Four different [:oomphs] reward you with everything from [:oldEffect] to [:newEffect].", "No matter what you play, you need this pedal.", "This [:twoLetters][:twoLetters]-driven little monster is the perfect foundation of your pedalboard.", "Just toss this pedal in with your favorite [:unrelatedEffect] and [:unrelatedEffect] [:pedals], and bask in the results.", "Choose between momentary and latching switching.", "And like other [:brand] [:pedals], [the :shortname] features a latching/momentary Flexi-Switch.", "This single-wide [:upurpose] [:pedal] captures the [:toneAdjNoun] and the [:toneAdjNoun] that made the original such a hit.", "This reduced-size version packs all the tricks, including [:benefit] and [:benefit], of its larger namesakes.", "This [:pedal] is [:effectName] mastermind [:nameOfMusician]'s take on iconic [uncap :color] [:effectDescription], best known for its [:oldEffect]."]
+      phrases: ["The [:shortname] actually offers dual [:circuits] that can be configured for stereo, series, or parallel operation, and an insert function even allows you to add external effects pedals.", "And [:controls] let you [:edit] to [:perfection].", "And with [:benefit], it can turn your pedalboard into a [:sonicPlayground].", "With [:upTo] [#2-100] [:oomphs], you won't [:runOutOf] [:timeOrTone].", "[cap :edit] the [:knobsOrSwitches] for real-time expression.", "With [:benefit], [the :shortname] is one of the most comprehensive [:upurpose] pedals you'll find in its class.", "Looking for [:benefitSingular]? It's here. Need [:benefit]? You've got it!", "The original [oldify :shortname] is also available.", "You'll never believe you could get this level of [:toneAdjNoun] without sacrificing [:toneAdjNoun]!", "A Dynamic mode automatically adjusts to your playing for [:toneAdj] ambience that won't turn your tone to mud.", "It's also a handy power supply for your pedalboard.", "Separate dry and effect outputs allow for 2-amp setups.", "[#3-100] [:superlative] [:subItems] cover [:superlative] sounds, from [:effectName] to [:effectName], and they all sound [:superlative].", "Two footswitches and an optional 3-button controller deliver hands-free operation.", "And [:brand] put all the [:genreAdjective] power into an enclosure that will fit comfortably on any pedalboard.", "It runs on either a 9-volt battery or the included power supply.", "Its simple control layout makes dialing in the perfect tone easy.", "The more streamlined [oldify :shortname] is also available.", "An expression pedal gives you real-time control, and you can recall [#10-100] presets.", "It serves up [:toneAdj], [:toneAdj] [:effectDescription] with ’[#5-9]0s-style effects.", "It delivers digital and analog [:upurpose] styles any [:person] will adore.", "It features a slew of shape controls plus [:benefit].", "You can also blend in [:unrelatedEffect] and [:unrelatedEffect] for extra sonic textures.", "Four different [:oomphs] reward you with everything from [:oldEffect] to [:newEffect].", "No matter what you play, you need this pedal.", "This [:twoLetters][:twoLetters]-driven little monster is the perfect foundation of your pedalboard.", "Just toss this pedal in with your favorite [:unrelatedEffect] and [:unrelatedEffect] [:pedals], and bask in the results.", "Choose between momentary and latching switching.", "And like other [:brand] [:pedals], [the :shortname] features a latching/momentary Flexi-Switch.", "This single-wide [:upurpose] [:pedal] captures the [:toneAdjNoun] and the [:toneAdjNoun] that made the original such a hit.", "This reduced-size version packs all the tricks, including [:benefit] and [:benefit], of its larger namesakes.", "This [:pedal] is [:effectName] mastermind [:nameOfMusician]'s take on iconic [uncap :color] [:effectDescription], best known for its [:oldEffect].", "[:shortname]'s [:benefit] and [:benefit] are the results of [:benefit]."]
     }]
   }
 };
@@ -30049,35 +30049,83 @@ module.exports = {
   },
   effectDescription: {
     groups: [{
-      tags: [],
-      phrases: ["sounds", "tone"]
-    }, {
       tags: [["purpose", "looping"]],
+      dry: false,
       phrases: ["sounds"]
     }, {
       tags: [["purpose", "tone", "reverb"]],
+      dry: false,
       phrases: ["reverb"]
     }, {
       tags: [["purpose", "tone", "delay"]],
+      dry: false,
       phrases: ["delay"]
     }, {
       tags: [["purpose", "tone", "eq"]],
+      dry: false,
       phrases: ["equalization"]
     }, {
       tags: [["purpose", "tone", "synth"]],
+      dry: false,
       phrases: ["synthesis"]
     }, {
       tags: [["purpose", "tone", "chorus"]],
+      dry: false,
       phrases: ["chorus"]
     }, {
       tags: [["purpose", "tone", "vibrato"]],
+      dry: false,
       phrases: ["vibrato"]
     }, {
       tags: [["purpose", "tone", "distortion"]],
+      dry: false,
       phrases: ["fuzz", "distortion"]
     }, {
       tags: [["purpose", "tone", "noise"]],
+      dry: false,
       phrases: ["noise"]
+    }]
+  },
+  effectDescriptions: {
+    groups: [{
+      tags: [],
+      phrases: ["sounds", "tones"]
+    }, {
+      tags: [["purpose", "looping"]],
+      dry: false,
+      phrases: ["sounds"]
+    }, {
+      tags: [["purpose", "tone", "reverb"]],
+      dry: false,
+      phrases: ["reverbs"]
+    }, {
+      tags: [["purpose", "tone", "delay"]],
+      dry: false,
+      phrases: ["delays"]
+    }, {
+      tags: [["purpose", "tone", "eq"]],
+      dry: false,
+      phrases: ["EQ styles"]
+    }, {
+      tags: [["purpose", "tone", "synth"]],
+      dry: false,
+      phrases: ["synths"]
+    }, {
+      tags: [["purpose", "tone", "chorus"]],
+      dry: false,
+      phrases: ["choruses"]
+    }, {
+      tags: [["purpose", "tone", "vibrato"]],
+      dry: false,
+      phrases: ["vibratos"]
+    }, {
+      tags: [["purpose", "tone", "distortion"]],
+      dry: false,
+      phrases: ["fuzzes", "distortions", "overdrives"]
+    }, {
+      tags: [["purpose", "tone", "noise"]],
+      dry: false,
+      phrases: ["noise suppression styles"]
     }]
   },
   subItems: {
@@ -30112,7 +30160,7 @@ module.exports = {
   benefitSingular: {
     groups: [{
       tags: [],
-      phrases: ["serial [#2-12]-track operation", "high-quality performance", "a clean boost", "razor-sharp precision", "[:brand]'s innovative Multi-dimensional Processing technology", "tap tempo", "smart bypass switching", "momentary knob ramp", "tap tempo with note divisions", "trio of selectable [:circuits]", "an added Tone control", "expansive stereo imaging", "a cool custom-built enclosure", "expression pedal control", "its cocktail of germanium and silicon transistors", "AB-Y functionality", "buffered tuner output", "a 20db clean boost", "an expression pedal jack for volume control"]
+      phrases: ["serial [#2-12]-track operation", "high-quality performance", "a clean boost", "razor-sharp precision", "[:brand]'s innovative Multi-dimensional Processing technology", "tap tempo", "smart bypass switching", "a momentary knob ramp", "tap tempo with note divisions", "a trio of selectable [:circuits]", "an added Tone control", "expansive stereo imaging", "a cool custom-built enclosure", "expression pedal control", "its cocktail of germanium and silicon transistors", "AB-Y functionality", "buffered tuner output", "a 20db clean boost", "an expression pedal jack for volume control", "coveted K-style harmonic saturation", "plenty of clean output", "touch-preserving headroom", "endless amp-pushing boost", "an internal charge pump that boosts its 9-volt operating voltage up to 18 volts", "a genuine, US-made NOS 6205 preamp tube"]
     }, {
       tags: [["purpose", "looping"]],
       phrases: ["unlimited overdubbing"]
@@ -30127,7 +30175,7 @@ module.exports = {
       phrases: ["adventurous delays and reverbs", "self-oscillation", "chewy tape-style echo"]
     }, {
       tags: [["purpose", "tone", "reverb"]],
-      phrases: ["studio-grade, hall, and plate algorithms", "vintage-style spring reverb", "modern-sounding textures", "adventurous delays and reverbs"]
+      phrases: ["vintage-style spring reverb"]
     }, {
       tags: [["purpose", "tone", "synth"]],
       phrases: ["a modulated monophonic [:twoLetters] circuit"]
@@ -30140,6 +30188,9 @@ module.exports = {
     }, {
       tags: [["purpose", "tone", "distortion"]],
       phrases: ["three selectable gain ranges"]
+    }, {
+      tags: [["purpose", "tone", "reverb"]],
+      phrases: ["studio-grade, hall, and plate algorithms", "modern-sounding textures", "adventurous delays and reverbs"]
     }]
   },
   pedal: {
@@ -30571,13 +30622,13 @@ module.exports = {
   },
   toneAdj: {
     groups: [{
-      phrases: ["sweet", "harsh", "mellow", "warm", "cold", "ear-catching", "lush", "rich", "creamy", "violin-like", "gnarly", "grungy", "gritty", "smooth", "clean", "dirty", "chunky", "spacey", "singing", "raunchy", "ratty", "punchy", "meaty", "thick", "musical", "searing", "crunchy", "harmonically rich", "airy", "balanced", "bassy", "big", "blurred", "boomy", "brassy", "breathy", "bright", "brilliant", "broad", "calm", "cheerful", "clean", "clear", "close", "cool", "crisp", "crunchy", "dark", "dead", "deep", "delicate", "dense", "detailed", "dim", "distant", "dry", "dull", "dynamic", "easy", "edgy", "empty", "even", "faint", "fat", "flat", "friendly", "full", "full-bodied", "gentle", "hard", "harsh", "hazy", "heavy", "hollow", "honky", "hot", "intimate", "light", "loud", "lyrical", "massive", "metallic", "mild", "muddy", "muffled", "narrow", "nasal", "open", "out-of-tune", "piercing", "pretty", "punchy", "pure", "quick", "raspy", "relief", "remote", "resonant", "responsive", "reverberant", "rich", "ringing", "rough", "round", "saturated", "shallow", "sharp", "smeared", "smoky", "smooth", "solid", "sonorous", "soulful", "spacious", "static", "strident", "sustained", "synthetic", "tense", "thick", "thin", "tight", "tinny", "transparent", "veiled", "velvety", "volatile", "well-defined", "wet", "wide", "wooden"],
+      phrases: ["sweet", "harsh", "mellow", "warm", "cold", "ear-catching", "lush", "rich", "creamy", "violin-like", "gnarly", "grungy", "gritty", "smooth", "clean", "dirty", "chunky", "spacey", "singing", "raunchy", "ratty", "punchy", "meaty", "thick", "musical", "searing", "crunchy", "harmonically rich", "airy", "balanced", "bassy", "big", "blurred", "boomy", "brassy", "breathy", "bright", "brilliant", "broad", "calm", "cheerful", "clean", "clear", "close", "cool", "crisp", "crunchy", "dark", "dead", "deep", "delicate", "dense", "detailed", "dim", "distant", "dry", "dull", "dynamic", "easy", "edgy", "empty", "even", "faint", "fat", "flat", "friendly", "full", "full-bodied", "gentle", "hard", "harsh", "hazy", "heavy", "hollow", "honky", "hot", "intimate", "light", "loud", "lyrical", "massive", "metallic", "mild", "muddy", "muffled", "narrow", "nasal", "open", "out-of-tune", "piercing", "pretty", "punchy", "pure", "quick", "raspy", "relief", "remote", "resonant", "responsive", "reverberant", "rich", "ringing", "rough", "round", "saturated", "shallow", "sharp", "smeared", "smoky", "smooth", "solid", "sonorous", "soulful", "spacious", "static", "strident", "sustained", "synthetic", "tense", "thick", "thin", "tight", "tinny", "transparent", "veiled", "velvety", "volatile", "well-defined", "wet", "wide", "wooden", "ambient", "wild"],
       tags: []
     }]
   },
   toneAdjNoun: {
     groups: [{
-      phrases: ["sweetness", "harshness", "mellowness", "warmth", "coldness", "note definition", "control", "smoothness", "grit", "edge", "crunchy breakup", "searing solo power", "subtle sweetening", "indefinable mojo", "dirt", "space", "punch", "thickness", "musicality", "harmonics", "balance", "brilliance", "darkness", "deepness", "detail", "distance", "dryness", "dynamics", "evenness", "fatness", "gentleness", "punch", "purity", "resonance", "richness", "saturation", "wetness"],
+      phrases: ["sweetness", "harshness", "mellowness", "warmth", "coldness", "note definition", "control", "smoothness", "grit", "edge", "crunchy breakup", "searing solo power", "subtle sweetening", "indefinable mojo", "dirt", "space", "punch", "thickness", "musicality", "harmonics", "balance", "brilliance", "darkness", "deepness", "detail", "distance", "dryness", "dynamics", "evenness", "fatness", "gentleness", "punch", "purity", "resonance", "richness", "saturation", "wetness", "purr", "roar"],
       tags: []
     }]
   },
@@ -34389,7 +34440,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60022" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59032" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
