@@ -1,47 +1,26 @@
 <template>
-  <main v-bind:class="{catalog: catalog}">
+  <main>
+    <div class="Content">
+      <Entry brand="" tags="" v-bind:seed="seed"></Entry>
+    </div>
+
     <nav>
-      <div>Page {{ seed }} of ∞</div>
-      <button @click="travel">Next Page &rarr;</button>
+      <p>All visuals and text are randomly generated using grammars.</p>
+      <button @click="travel">Generate another one</button>
     </nav>
-
-    <CoverPage></CoverPage>
-
-    <div class="Category" v-for="s in sections" v-bind:key="s.title">
-      <h1>{{ s.title }} Pedals</h1>
-      <div
-          class="Content"
-          v-for="(brandchunks, i) in s.brands" v-bind:key="i + s.title">
-        <Entry
-          v-for="b in brandchunks"
-          v-bind:key="b.key"
-          v-bind:bindings="b.bindings"
-          v-bind:tags="s.tags"
-          v-bind:seed="seed + b.key"></Entry>
-      </div>
-    </div>
-
-    <div class="Content" v-if="seed && !catalog">
-      <div class="Page" v-for="p in pages" v-bind:key="p">
-        <Entry
-          v-for="n in 2"
-          brand=""
-          tags=""
-          v-bind:key="n"
-          v-bind:seed="seed + ((p - 1) * 2) + n - 1"></Entry>
-      </div>
-    </div>
 
     <footer>
       <strong>Tools used to make this site:</strong>
 
       <div>
         <a href="https://improv.readthedocs.io/">Improv</a> for generating text.
-      </div>name
+      </div>
 
       <div>
         The
-        <a href="https://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/">
+        <a
+          href="https://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/"
+        >
           Cooper Hewitt
         </a>
         typeface.
@@ -60,36 +39,37 @@
         </a>
         for HTML rendering.
       </div>
-
     </footer>
   </main>
 </template>
 
 <script>
 import Alea from "alea";
-import { ref, computed, onMounted, onBeforeUpdate } from '@vue/composition-api';
+import { ref, computed, onMounted, onBeforeUpdate } from "@vue/composition-api";
 
-import CoverPage from './CoverPage.vue';
-import Gfx from './Gfx.vue';
-import Entry from './Entry.vue';
-import {shuffle} from './util';
+import CoverPage from "./CoverPage.vue";
+import Gfx from "./Gfx.vue";
+import Entry from "./Entry.vue";
+import { shuffle } from "./util";
 
-import makeImprovGenerators from './makeImprovGenerators';
-import queryString from 'query-string';
-import omniGrammar from './improvgrammar/all';
+import makeImprovGenerators from "./makeImprovGenerators";
+import queryString from "query-string";
+import omniGrammar from "./improvgrammar/all";
 
-const purposeOptions = omniGrammar.purpose.groups
-  .map(({tags, phrases}) => [tags[0], phrases[0]]);
+const purposeOptions = omniGrammar.purpose.groups.map(({ tags, phrases }) => [
+  tags[0],
+  phrases[0],
+]);
 
 const brandOptions = omniGrammar.brandname.groups[0].phrases;
 
-function chunk (len, arr) {
+function chunk(len, arr) {
   var chunks = [],
-      i = 0,
-      n = arr.length;
+    i = 0,
+    n = arr.length;
 
   while (i < n) {
-    chunks.push(arr.slice(i, i += len));
+    chunks.push(arr.slice(i, (i += len)));
   }
 
   return chunks;
@@ -109,8 +89,10 @@ export default {
     if (initialParsedHash.pages) {
       pages.value = parseInt(initialParsedHash.pages, 10);
     }
-    const numBrandRepetitions =
-      parseInt(initialParsedHash.numBrandRepetitions || '1', 10);
+    const numBrandRepetitions = parseInt(
+      initialParsedHash.numBrandRepetitions || "1",
+      10
+    );
     const catalog = initialParsedHash.catalog || false;
 
     const sections = computed(() => {
@@ -119,13 +101,16 @@ export default {
       return purposeOptions.map(([tag, title]) => ({
         title,
         tags: [tag],
-        brands: chunk(8, shuffle(brandOptions, alea).flatMap((b) => {
-          return [...Array(numBrandRepetitions)].map((_, i) => ({
-            bindings: {'brand': b},
-            key: b.replace(' ', '') + tag.join('') + i,
-          }));
-        })),
-      }))
+        brands: chunk(
+          8,
+          shuffle(brandOptions, alea).flatMap((b) => {
+            return [...Array(numBrandRepetitions)].map((_, i) => ({
+              bindings: { brand: b },
+              key: b.replace(" ", "") + tag.join("") + i,
+            }));
+          })
+        ),
+      }));
     });
 
     function derive(shouldSetHash) {
@@ -143,7 +128,7 @@ export default {
 
     function reactToHash(parsedHash, shouldSetHash) {
       if (parsedHash.seed && !isNaN(parseInt(parsedHash.seed, 10))) {
-        seed.value = parseInt(parsedHash.seed, 10)
+        seed.value = parseInt(parsedHash.seed, 10);
         console.log("Set seed:", seed.value);
       }
       if (parsedHash.pages) {
@@ -181,6 +166,6 @@ export default {
       //   return [...Array(12)].map((_, i) => seed.value + i);
       // }),
     };
-  }
-}
+  },
+};
 </script>

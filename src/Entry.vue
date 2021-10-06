@@ -20,21 +20,30 @@
       <h3 class="PedalSubtitle">{{ pedal.subtitle }}</h3>
       <p v-for="(t, i) in pedal.texts" v-bind:key="i">{{ t }}</p>
 
-      <div class="BuyButton"><a href="https://quickfiction.bandcamp.com" target="_">Buy Now</a></div>
+      <!-- <div class="BuyButton"><a href="https://quickfiction.bandcamp.com" target="_">Buy Now</a></div> -->
+      <div class="BuyButton">
+        <a
+          href="https://open.spotify.com/artist/2oRwM2XfnfWccBOJJ7tdyE"
+          target="_"
+          >Buy Now</a
+        >
+      </div>
     </div>
     <div style="clear: both;"></div>
   </div>
 </template>
 
 <style>
-
-.Page, .Entry {
+.Page,
+.Entry {
   page-break-inside: avoid;
   break-inside: avoid;
 }
 
 @media screen and (min-width: 768px) {
-  .Entry > h1, .Entry > h2, h3.PedalPrice {
+  .Entry > h1,
+  .Entry > h2,
+  h3.PedalPrice {
     text-align: left !important;
   }
 
@@ -78,7 +87,9 @@
     margin-right: 1em;
   }
 
-  .catalog h1.PedalName, .catalog .Brand, .catalog .PedalPrice {
+  .catalog h1.PedalName,
+  .catalog .Brand,
+  .catalog .PedalPrice {
     font-size: 1.2rem;
   }
 
@@ -107,7 +118,8 @@ h1.PedalName {
   margin: 0;
 }
 
-h3.PedalPrice, .BuyButton a {
+h3.PedalPrice,
+.BuyButton a {
   color: #c00;
   font-family: "Cooper Hewitt Heavy";
   margin-top: 0;
@@ -238,48 +250,54 @@ h3.PedalPrice, .BuyButton a {
 
 <script>
 import Alea from "alea";
-import { ref, computed, onMounted, onBeforeUpdate } from '@vue/composition-api';
+import { ref, computed, onMounted, onBeforeUpdate } from "@vue/composition-api";
 
-import Gfx from './Gfx.vue';
+import Gfx from "./Gfx.vue";
 
-import makeImprovGenerators from './makeImprovGenerators';
-import queryString from 'query-string';
+import makeImprovGenerators from "./makeImprovGenerators";
+import queryString from "query-string";
 
 export default {
   components: {
     Gfx,
   },
 
-  props: ['seed', 'bindings', 'tags'],
+  props: ["seed", "bindings", "tags"],
 
   computed: {
-    alea: function() { return new Alea(this.$props.seed); },
+    alea: function() {
+      return new Alea(this.$props.seed);
+    },
     context: function() {
       const alea = new Alea(this.$props.seed);
-      const {descGen, subGen} = makeImprovGenerators(alea);
+      const { descGen, subGen } = makeImprovGenerators(alea);
       const model = {
         bindings: this.$props.bindings || [],
         tags: this.$props.tags || [],
       };
-      const name = descGen.gen('name', model);
-      const subtitle = subGen.gen('subtitle', model);
-      const desc = descGen.gen('desc', model);
-      const brand = descGen.gen('brand', model);
+      const name = descGen.gen("name", model);
+      const subtitle = subGen.gen("subtitle", model);
+      const desc = descGen.gen("desc", model);
+      const brand = descGen.gen("brand", model);
       const aleaSavedState = alea.exportState();
       console.log(model);
       const pedal = {
         name,
         subtitle,
         brand,
-        purpose: subGen.gen('purpose', model),
-        color: descGen.gen('color', model).toLowerCase(),
-        texts: desc.split('\n\n').filter((s) => s),
-        price: descGen.gen('price', model),
+        purpose: subGen.gen("purpose", model),
+        color: descGen.gen("color", model).toLowerCase(),
+        texts: desc.split("\n\n").filter((s) => s),
+        price: descGen.gen("price", model),
       };
-      return {aleaSavedState, pedal};
+      return { aleaSavedState, pedal };
     },
-    pedal: function() { return this.context.pedal; },
-    aleaSavedState: function() { return this.context.aleaSavedState; },
+    pedal: function() {
+      return this.context.pedal;
+    },
+    aleaSavedState: function() {
+      return this.context.aleaSavedState;
+    },
   },
-}
+};
 </script>
