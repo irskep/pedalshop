@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel --port=1238 index.html",
     "build": "parcel build index.html --public-url ./",
-    "gh": "yarn build && gh-pages -d dist",
+    "gh": "yarn build && cp static/CNAME dist/CNAME && gh-pages -d dist",
     "butler": "yarn build && butler push dist irskep/steves-pedal-shop:dev",
     "pdf": "node pdf.js",
     "deploy": "yarn gh && yarn butler",
