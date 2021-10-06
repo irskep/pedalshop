@@ -21,18 +21,31 @@ html {
   line-height: 1.4em;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-body, html {
-  margin: 0; padding: 0;
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 
 main nav {
-  text-align: right;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 footer {
@@ -43,17 +56,33 @@ footer {
 
 /* styles */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.5em;
 }
 
-h1, h3, h5 {
+h1,
+h3,
+h5 {
   font-family: "Cooper Hewitt Medium";
 }
 
-h1, h2 { font-size: 2rem; }
-h3, h4 { font-size: 1.5rem; }
-h5, h6 { font-size: 1.2rem; }
+h1,
+h2 {
+  font-size: 2rem;
+}
+h3,
+h4 {
+  font-size: 1.5rem;
+}
+h5,
+h6 {
+  font-size: 1.2rem;
+}
 
 p {
   margin-bottom: 1rem;
@@ -75,12 +104,14 @@ body > header {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 body > header h1 {
   font-family: "Cooper Hewitt Heavy";
   font-size: 2rem;
-  line-height: 1.4em;
+  line-height: 1em;
   margin: 0;
 }
 
@@ -97,12 +128,17 @@ body > header > nav {
 
 body > header > nav a {
   color: white;
+  display: block;
 }
 
 main {
   max-width: 28rem;
   padding: 0 1rem;
   margin: auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
@@ -111,5 +147,6 @@ main {
     padding: 0 2rem;
   }
 }
+
 
 /*# sourceMappingURL=/static.abaec9a8.css.map */
