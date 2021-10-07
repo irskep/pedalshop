@@ -98,6 +98,10 @@ footer {
 
 /* custom: header */
 
+body.bot > header {
+  display: none;
+}
+
 body > header {
   background-color: #c00;
   color: #fff;

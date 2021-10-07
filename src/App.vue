@@ -1,15 +1,15 @@
 <template>
-  <main>
+  <main :class="{ bot: bot }">
     <div class="Content">
-      <Entry brand="" tags="" v-bind:seed="seed"></Entry>
+      <Entry brand="" tags="" :buyButton="!bot" v-bind:seed="seed"></Entry>
     </div>
 
-    <nav>
+    <nav v-if="!bot">
       <p>All visuals and text are randomly generated using grammars.</p>
       <button @click="travel">Generate another one</button>
     </nav>
 
-    <footer>
+    <footer v-if="!bot">
       <strong>Tools used to make this site:</strong>
 
       <div>
@@ -94,6 +94,8 @@ export default {
       10
     );
     const catalog = initialParsedHash.catalog || false;
+    const bot = initialParsedHash.bot || false;
+    document.body.className = bot ? "bot" : "";
 
     const sections = computed(() => {
       if (!catalog) return [];
@@ -162,6 +164,7 @@ export default {
       pages,
       sections,
       catalog,
+      bot,
       // seeds: computed(() => {
       //   return [...Array(12)].map((_, i) => seed.value + i);
       // }),

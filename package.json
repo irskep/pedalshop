@@ -9,6 +9,7 @@
     "gh": "yarn build && cp static/CNAME dist/CNAME && gh-pages -d dist",
     "butler": "yarn build && butler push dist irskep/steves-pedal-shop:dev",
     "pdf": "node pdf.js",
+    "png": "node png.js",
     "deploy": "yarn gh && yarn butler",
     "graph": "pipenv run analysis/graph.py",
     "csv": "pipenv run ./yaml2csv.py",
@@ -26,6 +27,7 @@
     "vue-hot-reload-api": "^2.3.4"
   },
   "devDependencies": {
+    "@types/puppeteer": "^5.4.4",
     "@vue/component-compiler-utils": "^3.0.0",
     "gh-pages": "^2.1.1",
     "parcel-bundler": "^1.12.4",

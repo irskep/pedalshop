@@ -21,7 +21,7 @@
       <p v-for="(t, i) in pedal.texts" v-bind:key="i">{{ t }}</p>
 
       <!-- <div class="BuyButton"><a href="https://quickfiction.bandcamp.com" target="_">Buy Now</a></div> -->
-      <div class="BuyButton">
+      <div class="BuyButton" v-if="buyButton">
         <a
           href="https://open.spotify.com/artist/2oRwM2XfnfWccBOJJ7tdyE"
           target="_"
@@ -262,7 +262,7 @@ export default {
     Gfx,
   },
 
-  props: ["seed", "bindings", "tags"],
+  props: ["seed", "bindings", "tags", "buyButton"],
 
   computed: {
     alea: function() {
