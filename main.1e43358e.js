@@ -34082,7 +34082,7 @@ var _default = {
   components: {
     Gfx: _Gfx.default
   },
-  props: ["seed", "bindings", "tags"],
+  props: ["seed", "bindings", "tags", "buyButton"],
   computed: {
     alea: function alea() {
       return new _alea.default(this.$props.seed);
@@ -34185,7 +34185,21 @@ exports.default = _default;
           return _c("p", { key: i }, [_vm._v(_vm._s(t))])
         }),
         _vm._v(" "),
-        _vm._m(0)
+        _vm.buyButton
+          ? _c("div", { staticClass: "BuyButton" }, [
+              _c(
+                "a",
+                {
+                  attrs: {
+                    href:
+                      "https://open.spotify.com/artist/2oRwM2XfnfWccBOJJ7tdyE",
+                    target: "_"
+                  }
+                },
+                [_vm._v("Buy Now")]
+              )
+            ])
+          : _vm._e()
       ],
       2
     ),
@@ -34193,25 +34207,7 @@ exports.default = _default;
     _c("div", { staticStyle: { clear: "both" } })
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "BuyButton" }, [
-      _c(
-        "a",
-        {
-          attrs: {
-            href: "https://open.spotify.com/artist/2oRwM2XfnfWccBOJJ7tdyE",
-            target: "_"
-          }
-        },
-        [_vm._v("Buy Now")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
           return {
@@ -34330,6 +34326,8 @@ var _default = {
 
     var numBrandRepetitions = parseInt(initialParsedHash.numBrandRepetitions || "1", 10);
     var catalog = initialParsedHash.catalog || false;
+    var bot = initialParsedHash.bot || false;
+    document.body.className = bot ? "bot" : "";
     var sections = (0, _compositionApi.computed)(function () {
       if (!catalog) return [];
       var alea = new _alea.default(seed.value);
@@ -34404,7 +34402,8 @@ var _default = {
       travel: travel,
       pages: pages,
       sections: sections,
-      catalog: catalog // seeds: computed(() => {
+      catalog: catalog,
+      bot: bot // seeds: computed(() => {
       //   return [...Array(12)].map((_, i) => seed.value + i);
       // }),
 
@@ -34424,25 +34423,45 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [
+  return _c("main", { class: { bot: _vm.bot } }, [
     _c(
       "div",
       { staticClass: "Content" },
-      [_c("Entry", { attrs: { brand: "", tags: "", seed: _vm.seed } })],
+      [
+        _c("Entry", {
+          attrs: { brand: "", tags: "", buyButton: !_vm.bot, seed: _vm.seed }
+        })
+      ],
       1
     ),
     _vm._v(" "),
-    _c("nav", [
-      _c("p", [
-        _vm._v("All visuals and text are randomly generated using grammars.")
-      ]),
-      _vm._v(" "),
-      _c("button", { on: { click: _vm.travel } }, [
-        _vm._v("Generate another one")
-      ])
-    ]),
+    !_vm.bot
+      ? _c("nav", [
+          _c("p", [
+            _vm._v(
+              "All visuals and text are randomly generated using grammars."
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", { on: { click: _vm.travel } }, [
+            _vm._v("Generate another one")
+          ])
+        ])
+      : _vm._e(),
     _vm._v(" "),
-    _vm._m(0)
+    !_vm.bot
+      ? _c("footer", [
+          _c("strong", [_vm._v("Tools used to make this site:")]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3)
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -34450,50 +34469,58 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", [
-      _c("strong", [_vm._v("Tools used to make this site:")]),
-      _vm._v(" "),
-      _c("div", [
-        _c("a", { attrs: { href: "https://improv.readthedocs.io/" } }, [
-          _vm._v("Improv")
-        ]),
-        _vm._v(" for generating text.\n    ")
+    return _c("div", [
+      _c("a", { attrs: { href: "https://improv.readthedocs.io/" } }, [
+        _vm._v("Improv")
       ]),
-      _vm._v(" "),
-      _c("div", [
-        _vm._v("\n      The\n      "),
-        _c(
-          "a",
-          {
-            attrs: {
-              href:
-                "https://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/"
-            }
-          },
-          [_vm._v("\n        Cooper Hewitt\n      ")]
-        ),
-        _vm._v("\n      typeface.\n    ")
+      _vm._v(" for generating text.\n    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _vm._v("\n      The\n      "),
+      _c(
+        "a",
+        {
+          attrs: {
+            href:
+              "https://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/"
+          }
+        },
+        [_vm._v("\n        Cooper Hewitt\n      ")]
+      ),
+      _vm._v("\n      typeface.\n    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "a",
+        {
+          attrs: {
+            href: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+          }
+        },
+        [_vm._v("\n        A Complete Guide to Flexbox\n      ")]
+      ),
+      _vm._v("\n      for reference.\n    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("a", { attrs: { href: "https://vuejs.org/" } }, [
+        _vm._v("\n        Vue.js\n      ")
       ]),
-      _vm._v(" "),
-      _c("div", [
-        _c(
-          "a",
-          {
-            attrs: {
-              href: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
-            }
-          },
-          [_vm._v("\n        A Complete Guide to Flexbox\n      ")]
-        ),
-        _vm._v("\n      for reference.\n    ")
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("a", { attrs: { href: "https://vuejs.org/" } }, [
-          _vm._v("\n        Vue.js\n      ")
-        ]),
-        _vm._v("\n      for HTML rendering.\n    ")
-      ])
+      _vm._v("\n      for HTML rendering.\n    ")
     ])
   }
 ]
@@ -34571,7 +34598,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52979" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49179" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
