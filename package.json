@@ -23,6 +23,7 @@
     "number-to-words": "^1.2.4",
     "pluralize": "^8.0.0",
     "query-string": "^6.8.3",
+    "twitter-api-v2": "^1.5.2",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.4"
   },
