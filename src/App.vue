@@ -1,16 +1,55 @@
 <template>
   <main :class="{ bot: bot }">
+    <nav v-if="!bot">
+      <p>
+        <button @click="travel" style="font-size: 1rem;">
+          Make another one
+        </button>
+      </p>
+    </nav>
+
     <div class="Content">
       <Entry brand="" tags="" :buyButton="!bot" v-bind:seed="seed"></Entry>
     </div>
 
-    <nav v-if="!bot">
-      <p>All visuals and text are randomly generated using grammars.</p>
-      <button @click="travel">Generate another one</button>
-    </nav>
+    <section v-if="!bot">
+      <p><strong>What am I looking at here?</strong></p>
+      <p>
+        This is a silly art project that has two parts: some code that makes
+        images of random guitar pedals using CSS, and a text generator that uses
+        grammars to create imaginary marketing copy for those guitar pedals.
+      </p>
+      <p>
+        I made it because I was browsing a music gear catalog and I thought it
+        was cute how all the descriptions of audio equipment use the same
+        sentence structure and vocabulary. This was during
+        <a href="https://procjam.com">Procjam</a>, the perfect excuse to invest
+        a ton of time making this page.
+      </p>
+      <p>
+        Unlike most other "This X Does Not Exist" sites, there is no fancy
+        machine learning here.
+        <a
+          href="https://blog.steveasleep.com/lets-generate-some-imaginary-guitar-pedals"
+          >Read the technical deep dive</a
+        >
+        if you want the details, or just
+        <a
+          href="https://github.com/irskep/pedalshop/tree/master/src/improvgrammar"
+          >peek at the grammar files!</a
+        >
+      </p>
+    </section>
 
     <footer v-if="!bot">
       <strong>Tools used to make this site:</strong>
+
+      <div>
+        <a href="https://sweetwater.com/">
+          Sweetwater
+        </a>
+        for inspiration.
+      </div>
 
       <div>
         <a href="https://improv.readthedocs.io/">Improv</a> for generating text.
