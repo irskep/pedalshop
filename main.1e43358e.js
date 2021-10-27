@@ -34424,6 +34424,21 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", { class: { bot: _vm.bot } }, [
+    !_vm.bot
+      ? _c("nav", [
+          _c("p", [
+            _c(
+              "button",
+              {
+                staticStyle: { "font-size": "1rem" },
+                on: { click: _vm.travel }
+              },
+              [_vm._v("\n        Make another one\n      ")]
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "Content" },
@@ -34436,16 +34451,18 @@ exports.default = _default;
     ),
     _vm._v(" "),
     !_vm.bot
-      ? _c("nav", [
+      ? _c("section", [
+          _vm._m(0),
+          _vm._v(" "),
           _c("p", [
             _vm._v(
-              "All visuals and text are randomly generated using grammars."
+              "\n      This is a silly art project that has two parts: some code that makes\n      images of random guitar pedals using CSS, and a text generator that uses\n      grammars to create imaginary marketing copy for those guitar pedals.\n    "
             )
           ]),
           _vm._v(" "),
-          _c("button", { on: { click: _vm.travel } }, [
-            _vm._v("Generate another one")
-          ])
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2)
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -34453,18 +34470,82 @@ exports.default = _default;
       ? _c("footer", [
           _c("strong", [_vm._v("Tools used to make this site:")]),
           _vm._v(" "),
-          _vm._m(0),
+          _vm._m(3),
           _vm._v(" "),
-          _vm._m(1),
+          _vm._m(4),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(5),
           _vm._v(" "),
-          _vm._m(3)
+          _vm._m(6),
+          _vm._v(" "),
+          _vm._m(7)
         ])
       : _vm._e()
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("strong", [_vm._v("What am I looking at here?")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v(
+        "\n      I made it because I was browsing a music gear catalog and I thought it\n      was cute how all the descriptions of audio equipment use the same\n      sentence structure and vocabulary. This was during\n      "
+      ),
+      _c("a", { attrs: { href: "https://procjam.com" } }, [_vm._v("Procjam")]),
+      _vm._v(
+        ", the perfect excuse to invest\n      a ton of time making this page.\n    "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v(
+        '\n      Unlike most other "This X Does Not Exist" sites, there is no fancy\n      machine learning here.\n      '
+      ),
+      _c(
+        "a",
+        {
+          attrs: {
+            href:
+              "https://blog.steveasleep.com/lets-generate-some-imaginary-guitar-pedals"
+          }
+        },
+        [_vm._v("Read the technical deep dive")]
+      ),
+      _vm._v("\n      if you want the details, or just\n      "),
+      _c(
+        "a",
+        {
+          attrs: {
+            href:
+              "https://github.com/irskep/pedalshop/tree/master/src/improvgrammar"
+          }
+        },
+        [_vm._v("peek at the grammar files!")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("a", { attrs: { href: "https://sweetwater.com/" } }, [
+        _vm._v("\n        Sweetwater\n      ")
+      ]),
+      _vm._v("\n      for inspiration.\n    ")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -34552,7 +34633,7 @@ render._withStripped = true
         
       }
     })();
-},{"alea":"node_modules/alea/alea.js","@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","./CoverPage.vue":"src/CoverPage.vue","./Gfx.vue":"src/Gfx.vue","./Entry.vue":"src/Entry.vue","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","query-string":"node_modules/query-string/index.js","./improvgrammar/all":"src/improvgrammar/all.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
+},{"alea":"node_modules/alea/alea.js","@vue/composition-api":"node_modules/@vue/composition-api/dist/vue-composition-api.module.js","./CoverPage.vue":"src/CoverPage.vue","./Gfx.vue":"src/Gfx.vue","./Entry.vue":"src/Entry.vue","./util":"src/util.js","./makeImprovGenerators":"src/makeImprovGenerators.js","query-string":"node_modules/query-string/index.js","./improvgrammar/all":"src/improvgrammar/all.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.runtime.esm.js"}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -34598,7 +34679,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49179" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64282" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
